@@ -16,6 +16,7 @@
 
 package com.guerinet.formgenerator;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
@@ -35,11 +36,64 @@ public class FormGenerator {;
 	 */
 	private LinearLayout mContainer;
 	/**
-	 * The default icon color, 0 if none
+	 * The default icon color Id, 0 if none (icon default color is white)
 	 */
-	private int mDefaultIconColor = 0;
+	private int mDefaultIconColorId;
 	/**
-	 * The default background drawable, 0 if none
+	 * The default background Id, 0 if none
 	 */
-	private int mBackgroundDrawable = 0;
+	private int mDefaultBackgroundId;
+
+	/**
+	 * The Form Generator builder
+	 */
+	public static class Builder {
+		private LayoutInflater mInflater;
+		private LinearLayout mContainer;
+		private int mDefaultIconColorId = 0;
+		private int mDefaultBackgroundId = 0;
+
+		/**
+		 * Default Constructor
+		 *
+		 * @param inflater  The {@link LayoutInflater}
+		 * @param container The container to put all of the generated form items in
+		 */
+		public Builder(LayoutInflater inflater, LinearLayout container){
+			this.mInflater = inflater;
+			this.mContainer = container;
+		}
+
+		/**
+		 * Constructor that uses a {@link Context} to get the {@link LayoutInflater}
+		 *
+		 * @param context   The app {@link Context}
+		 * @param container The container to put all of the generated form items in
+		 */
+		public Builder(Context context, LinearLayout container){
+			this(LayoutInflater.from(context), container);
+		}
+
+		/**
+		 * Sets the default icon color
+		 *
+		 * @param colorId The color resource Id
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultIconColor(int colorId){
+			this.mDefaultIconColorId = colorId;
+			return this;
+		}
+
+		/**
+		 * Sets the default background
+		 *
+		 * @param backgroundId The background resource Id (can be a color or a drawable)
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultBackground(int backgroundId){
+			this.mDefaultBackgroundId = backgroundId;
+			return this;
+		}
+	}
 }
