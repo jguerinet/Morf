@@ -45,6 +45,18 @@ public class FormGenerator {;
 	private int mDefaultBackgroundId;
 
 	/**
+	 * Default Constructor
+	 *
+	 * @param builder The {@link Builder} instance to construct the {@link FormGenerator} from
+	 */
+	private FormGenerator(Builder builder){
+		mInflater = builder.mInflater;
+		mContainer = builder.mContainer;
+		mDefaultIconColorId = builder.mDefaultIconColorId;
+		mDefaultBackgroundId = builder.mDefaultBackgroundId;
+	}
+
+	/**
 	 * The Form Generator builder
 	 */
 	public static class Builder {
@@ -60,8 +72,8 @@ public class FormGenerator {;
 		 * @param container The container to put all of the generated form items in
 		 */
 		public Builder(LayoutInflater inflater, LinearLayout container){
-			this.mInflater = inflater;
-			this.mContainer = container;
+			mInflater = inflater;
+			mContainer = container;
 		}
 
 		/**
@@ -81,7 +93,7 @@ public class FormGenerator {;
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultIconColor(int colorId){
-			this.mDefaultIconColorId = colorId;
+			mDefaultIconColorId = colorId;
 			return this;
 		}
 
@@ -92,7 +104,7 @@ public class FormGenerator {;
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultBackground(int backgroundId){
-			this.mDefaultBackgroundId = backgroundId;
+			mDefaultBackgroundId = backgroundId;
 			return this;
 		}
 	}
