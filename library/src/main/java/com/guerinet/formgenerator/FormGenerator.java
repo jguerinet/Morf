@@ -17,8 +17,12 @@
 package com.guerinet.formgenerator;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Creates various form items and adds them to a given container
@@ -36,7 +40,7 @@ public class FormGenerator {;
 	 */
 	private LinearLayout mContainer;
 	/**
-	 * The default icon color Id, 0 if none (icon default color is white)
+	 * The default icon color Id, 0 if none
 	 */
 	private int mDefaultIconColorId;
 	/**
@@ -54,6 +58,36 @@ public class FormGenerator {;
 		mContainer = builder.mContainer;
 		mDefaultIconColorId = builder.mDefaultIconColorId;
 		mDefaultBackgroundId = builder.mDefaultBackgroundId;
+	}
+
+	/* HELPERS */
+
+	/**
+	 * Colors the {@link TextView} icon at the given position with the default icon color if there
+	 *  is one
+	 * @param textView The {@link TextView}
+	 * @param position The position of the compound drawable to color
+	 */
+	private void icon(TextView textView, int position){
+		if(mDefaultIconColorId != 0){
+			//Get the color
+			int color = textView.getContext().getResources().getColor(mDefaultIconColorId);
+
+			//Apply it to the compound drawable at the given position
+			textView.getCompoundDrawables()[position].mutate().setColorFilter(
+					new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
+		}
+	}
+
+	/**
+	 * Sets the background resource on the given view if there is one
+	 *
+	 * @param view The {@link View}
+	 */
+	private void background(View view){
+		if(mDefaultBackgroundId != 0){
+			view.setBackgroundResource(mDefaultBackgroundId);
+		}
 	}
 
 	/**
