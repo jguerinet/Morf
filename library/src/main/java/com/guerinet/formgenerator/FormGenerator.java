@@ -16,11 +16,30 @@
 
 package com.guerinet.formgenerator;
 
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
+
 /**
  * Creates various form items and adds them to a given container
  * @author Julien Guerinet
  * @version 1.0.0
  * @since 1.0.0
  */
-public class FormGenerator {
+public class FormGenerator {;
+	/**
+	 * The {@link LayoutInflater}
+	 */
+	private LayoutInflater mInflater;
+	/**
+	 * The {@link LinearLayout} used as the form container
+	 */
+	private LinearLayout mContainer;
+	/**
+	 * The default icon color, 0 if none
+	 */
+	private int mDefaultIconColor = 0;
+	/**
+	 * The default background drawable, 0 if none
+	 */
+	private int mBackgroundDrawable = 0;
 }
