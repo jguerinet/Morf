@@ -63,6 +63,10 @@ public class FormGenerator {;
 	 * The default padding size for the non-space/line items, 0 if none (defaults to 8dp)
 	 */
 	private int mDefaultPaddingSize;
+	/**
+	 * The default line size, 0 if none (defaults to 0.5 dp)
+	 */
+	private int mDefaultLineSize;
 
 	/**
 	 * Default Constructor
@@ -78,6 +82,7 @@ public class FormGenerator {;
 		mDefaultTextColorId = builder.mDefaultTextColorId;
 		mDefaultTextColorStateList = builder.mDefaultTextColorStateList;
 		mDefaultPaddingSize = builder.mDefaultPaddingSize;
+		mDefaultLineSize = builder.mDefaultLineSize;
 	}
 
 	/**
@@ -149,6 +154,26 @@ public class FormGenerator {;
 	}
 
 	/**
+	 * Sets the default line size on the given view
+	 *
+	 * @param view The {@link View} containing the line
+	 */
+	private void line(View view){
+		//If there is no default size, no need to continue
+		if(mDefaultLineSize == 0){
+			return;
+		}
+
+		//Find the line
+		View line = view.findViewById(R.id.line);
+
+		//If there is one, set the size
+		if(line != null){
+			line.getLayoutParams().height = mDefaultLineSize;
+		}
+	}
+
+	/**
 	 * The Form Generator builder
 	 */
 	public static class Builder {
@@ -160,6 +185,7 @@ public class FormGenerator {;
 		private int mDefaultTextColorId = 0;
 		private int mDefaultTextColorStateList = 0;
 		private int mDefaultPaddingSize = 0;
+		private int mDefaultLineSize;
 
 		/**
 		 * Default Constructor
@@ -267,5 +293,26 @@ public class FormGenerator {;
 			return this;
 		}
 
+		/**
+		 * Sets the default line size
+		 *
+		 * @param dimenId The dimension Id (in dp)
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultLineDimen(int dimenId){
+			mDefaultLineSize = mInflater.getContext().getResources().getDimensionPixelSize(dimenId);
+			return this;
+		}
+
+		/**
+		 * Sets the default line size
+		 *
+		 * @param pixels The line size in pixels
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultLineSize(int pixels){
+			mDefaultLineSize = pixels;
+			return this;
+		}
 	}
 }
