@@ -233,7 +233,7 @@ public class FormGenerator {
 		SwitchCompat switchField = (SwitchCompat)aSwitch.findViewById(R.id.fg_switch);
 		textView(switchField, title, "", leftIconId, 0, iconVisible);
 
-		mContainer.addView(switchField);
+		mContainer.addView(aSwitch);
 
 		return switchField;
 	}
