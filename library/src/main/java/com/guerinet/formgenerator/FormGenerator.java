@@ -144,12 +144,13 @@ public class FormGenerator {
 	/**
 	 * Adds a text box with left/right icons
 	 *
+	 * @param hint        The hint to show if there is no text
 	 * @param text        The text to show
 	 * @param leftIconId  The Id for the left icon, 0 if none
 	 * @param rightIconId The Id for the right icon, 0 if none (used for chevrons)
 	 * @return The {@link TextView}
 	 */
-	public TextView text(String text, int leftIconId, int rightIconId){
+	public TextView text(String hint, String text, int leftIconId, int rightIconId){
 		if(mText == null){
 			mText = mInflater.inflate(R.layout.text, mContainer, false);
 		}
@@ -159,6 +160,7 @@ public class FormGenerator {
 
 		//Text
 		TextView title = (TextView)mText.findViewById(R.id.title);
+		title.setHint(hint);
 		title.setText(text);
 		textColor(title);
 
@@ -180,14 +182,16 @@ public class FormGenerator {
 	/**
 	 * Adds a button box with left/right icons
 	 *
+	 * @param hint        The hint to show if there is no text
 	 * @param text        The button text to show
 	 * @param leftIconId  The Id for the left icon, 0 if none
 	 * @param rightIconId The Id for the right icon, 0 if none
 	 * @param listener    The {@link OnClickListener} to call if the button is pressed
 	 * @return The {@link TextView}
 	 */
-	public TextView button(String text, int leftIconId, int rightIconId, OnClickListener listener){
-		TextView title = text(text, leftIconId, rightIconId);
+	public TextView button(String hint, String text, int leftIconId, int rightIconId,
+			OnClickListener listener){
+		TextView title = text(hint, text, leftIconId, rightIconId);
 
 		//Set the OnClickListener on the parent
 		((View)title.getParent()).setOnClickListener(listener);
