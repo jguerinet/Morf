@@ -82,6 +82,10 @@ public class FormGenerator {
 	 * The space {@link View}
 	 */
 	private View mSpace;
+	/**
+	 * The line {@link View}
+	 */
+	private View mLine;
 
 	/**
 	 * Default Constructor
@@ -116,6 +120,20 @@ public class FormGenerator {
 		}
 
 		mContainer.addView(mSpace);
+	}
+
+	/**
+	 * Adds a line
+	 */
+	public void line(){
+		if(mLine == null){
+			mLine = mInflater.inflate(R.layout.line, mContainer, false);
+		}
+
+		//Process it
+		line(mLine, false);
+
+		mContainer.addView(mLine);
 	}
 
 	/* HELPERS */
