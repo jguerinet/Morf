@@ -51,6 +51,14 @@ public class FormGenerator {;
 	 * The default space size, 0 if unchanged (10dp by default)
 	 */
 	private int mDefaultSpaceSize;
+	/**
+	 * The default text color Id, 0 if none (defaults to black)
+	 */
+	private int mDefaultTextColorId;
+	/**
+	 * The default text color state list, 0 if none
+	 */
+	private int mDefaultTextColorStateList;
 
 	/**
 	 * Default Constructor
@@ -63,6 +71,8 @@ public class FormGenerator {;
 		mDefaultIconColorId = builder.mDefaultIconColorId;
 		mDefaultBackgroundId = builder.mDefaultBackgroundId;
 		mDefaultSpaceSize = builder.mDefaultSpaceSize;
+		mDefaultTextColorId = builder.mDefaultTextColorId;
+		mDefaultTextColorStateList = builder.mDefaultTextColorStateList;
 	}
 
 	/**
@@ -87,11 +97,26 @@ public class FormGenerator {;
 	private void icon(TextView textView, int position){
 		if(mDefaultIconColorId != 0){
 			//Get the color
-			int color = textView.getContext().getResources().getColor(mDefaultIconColorId);
+			int color = textView.getResources().getColor(mDefaultIconColorId);
 
 			//Apply it to the compound drawable at the given position
 			textView.getCompoundDrawables()[position].mutate().setColorFilter(
 					new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
+		}
+	}
+
+	/**
+	 * Colors the {@link TextView} text with the default color or color state list if there is one
+	 *
+	 * @param textView The {@link TextView}
+	 */
+	private void textColor(TextView textView){
+		if(mDefaultTextColorId != 0){
+			textView.setTextColor(textView.getResources().getColor(mDefaultTextColorId));
+		}
+		else if(mDefaultTextColorStateList != 0){
+			textView.setTextColor(textView.getResources()
+					.getColorStateList(mDefaultTextColorStateList));
 		}
 	}
 
@@ -115,6 +140,8 @@ public class FormGenerator {;
 		private int mDefaultIconColorId = 0;
 		private int mDefaultBackgroundId = 0;
 		private int mDefaultSpaceSize = 0;
+		private int mDefaultTextColorId = 0;
+		private int mDefaultTextColorStateList = 0;
 
 		/**
 		 * Default Constructor
@@ -179,6 +206,23 @@ public class FormGenerator {;
 		 */
 		public Builder setDefaultSpaceSize(int pixels){
 			mDefaultSpaceSize = pixels;
+			return this;
+		}
+
+		/**
+		 * Sets the default text color
+		 *
+		 * @param colorId   The color Id
+		 * @param stateList True if this is a state list, false if it's a solid color
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultTextColor(int colorId, boolean stateList){
+			if(stateList){
+				mDefaultTextColorStateList = colorId;
+			}
+			else{
+				mDefaultTextColorId = colorId;
+			}
 			return this;
 		}
 	}
