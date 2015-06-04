@@ -131,7 +131,7 @@ public class FormGenerator {
 	 */
 	public void space(){
 		if(mSpace == null){
-			mSpace = mInflater.inflate(R.layout.space, mContainer, false);
+			mSpace = mInflater.inflate(R.layout.fg_space, mContainer, false);
 		}
 
 		//Set the height if there's a custom one
@@ -147,7 +147,7 @@ public class FormGenerator {
 	 */
 	public void line(){
 		if(mLine == null){
-			mLine = mInflater.inflate(R.layout.line, mContainer, false);
+			mLine = mInflater.inflate(R.layout.fg_line, mContainer, false);
 		}
 
 		//Process it
@@ -167,12 +167,12 @@ public class FormGenerator {
 	 */
 	public EditText input(String text, String hint, int iconId, boolean iconVisible){
 		if(mInput == null){
-			mInput = mInflater.inflate(R.layout.input, mContainer, false);
+			mInput = mInflater.inflate(R.layout.fg_input, mContainer, false);
 			line(mInput);
 			background(mInput);
 		}
 
-		EditText input = (EditText) mInput.findViewById(R.id.input);
+		EditText input = (EditText) mInput.findViewById(R.id.fg_input);
 		textView(input, text, hint, iconId, 0, iconVisible);
 
 		mContainer.addView(mInput);
@@ -193,13 +193,13 @@ public class FormGenerator {
 	public TextView text(String text, String hint, int leftIconId, int rightIconId,
 			boolean iconVisible){
 		if(mText == null){
-			mText = mInflater.inflate(R.layout.text, mContainer, false);
+			mText = mInflater.inflate(R.layout.fg_text, mContainer, false);
 			line(mText);
 			background(mText);
 		}
 
 		//Text
-		TextView title = (TextView)mText.findViewById(R.id.title);
+		TextView title = (TextView)mText.findViewById(R.id.fg_title);
 		textView(title, text, hint, leftIconId, rightIconId, iconVisible);
 
 		//Set the button to not clickable
@@ -240,7 +240,7 @@ public class FormGenerator {
 	 */
 	public Button button(String title, OnClickListener listener){
 		if(mButton == null){
-			mButton = (Button)mInflater.inflate(R.layout.button, mContainer, false);
+			mButton = (Button)mInflater.inflate(R.layout.fg_button, mContainer, false);
 			background(mButton);
 		}
 
@@ -262,12 +262,12 @@ public class FormGenerator {
 	 */
 	public SwitchCompat aSwitch(String title, int leftIconId, boolean iconVisible){
 		if(mSwitch == null){
-			mSwitch = mInflater.inflate(R.layout.switch_field, mContainer, false);
+			mSwitch = mInflater.inflate(R.layout.fg_switch, mContainer, false);
 			background(mSwitch);
 			line(mSwitch);
 		}
 
-		SwitchCompat switchField = (SwitchCompat)mSwitch.findViewById(R.id.field_switch);
+		SwitchCompat switchField = (SwitchCompat)mSwitch.findViewById(R.id.fg_switch);
 		textView(switchField, title, "", leftIconId, 0, iconVisible);
 
 		mContainer.addView(switchField);
@@ -373,7 +373,7 @@ public class FormGenerator {
 		}
 
 		//Find the line
-		View line = view.findViewById(R.id.line);
+		View line = view.findViewById(R.id.fg_line);
 		if(line != null){
 			//Hide the line if needed
 			if(hideLine && !mShowLine){

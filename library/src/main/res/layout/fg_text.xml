@@ -4,19 +4,17 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/input"
-        android:padding="@dimen/padding_small"
-        android:singleLine="true"
-        android:background="@null"
+        android:id="@+id/fg_title"
+        android:background="@android:color/transparent"
         android:textSize="@dimen/text_body"
         android:textColor="@android:color/black"
-        android:inputType="text"
-        android:drawablePadding="@dimen/padding_small"
-        android:gravity="center_vertical"/>
+        android:padding="@dimen/padding_small"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/padding_small"/>
 
-    <include layout="@layout/line"/>
+    <include layout="@layout/fg_line"/>
 
 </LinearLayout>

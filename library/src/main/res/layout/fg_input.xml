@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.SwitchCompat
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/field_switch"
+        android:id="@+id/fg_input"
         android:padding="@dimen/padding_small"
-        app:showText="false"/>
+        android:singleLine="true"
+        android:background="@null"
+        android:textSize="@dimen/text_body"
+        android:textColor="@android:color/black"
+        android:inputType="text"
+        android:drawablePadding="@dimen/padding_small"
+        android:gravity="center_vertical"/>
 
-    <include layout="@layout/line"/>
+    <include layout="@layout/fg_line"/>
 
 </LinearLayout>
