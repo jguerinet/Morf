@@ -438,6 +438,15 @@ public class FormGenerator {
 		}
 
 		/**
+		 * Builds a {@link FormGenerator} based off of this {@link Builder}
+		 *
+		 * @return The created {@link FormGenerator} instance
+		 */
+		public FormGenerator build(){
+			return new FormGenerator(this);
+		}
+
+		/**
 		 * Sets the default icon color
 		 *
 		 * @param colorId The color resource Id
