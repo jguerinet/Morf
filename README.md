@@ -1,19 +1,56 @@
-# Readme File Template
+# Form Generator
 
 ## Summary
-Insert a quick summary about this repository.
+Generates customizable forms for Android 8+ (tested on 10+). Form items include:
+
+* Simple text with/without left/right icons
+* Text buttons with/without left/right icons
+* Standard Android buttons
+* Switches with/without a left icon
+* Input fields with/without a left icon
+* Lines
+* Spaces
+
+Customization includes:
+
+* Text color (size coming soon)
+* Background color (can be solid colors or a color state list)
+* Icon color
+* Padding size
+* Line width and color
+* Space width
+* Whether or not lines should be shown after form items
 
 ## Instructions
-Give some instructions on how to use this.
+To include this in your project, you can add it with Gradle by using [JitPack][1]:
 
-## Branches
-* Branch: List them here if needed
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
 
-##Packages
-* Package: List them here if needed
+	dependencies {
+	    compile 'com.github.jguerinet:form-generator:1.0.0'
+	}
+
+You can also attach the sources by using the [AARLinkSources][2] plugin:
+
+	aarLinkSources 'com.github.jguerinet:form-generator:1.0.0:sources@jar'
+
+[1]:https://jitpack.io
+[2]:https://github.com/xujiaao/AARLinkSources
+
+To use this in your project, first build your `FormGenerator` with its custom `Builder`, customizing
+anything you might want to change. The default values are:
+
+* Text Color: Black
+* Text Size: 14sp
+* Background: Transparent
+* Padding: 8dp
+* Line Width: 0.5 dp
+* Space Width: 10dp
 
 ## Gradle Dependencies
-* Gradle Dependency: List them here
+* appcompat-v7: AppCompat Support Library
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
