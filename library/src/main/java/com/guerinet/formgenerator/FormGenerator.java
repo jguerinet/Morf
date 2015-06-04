@@ -149,12 +149,13 @@ public class FormGenerator {
 	/**
 	 * Adds an input field with a left icon
 	 *
-	 * @param text      The input text
-	 * @param hint      The input hint
-	 * @param iconId    The Id of the icon to use
+	 * @param text        The input text
+	 * @param hint        The input hint
+	 * @param iconId      The Id of the icon to use
+	 * @param iconVisible True if the icon should be visible, false otherwise
 	 * @return The {@link EditText} where the user will be inputting
 	 */
-	public EditText input(String text, String hint, int iconId){
+	public EditText input(String text, String hint, int iconId, boolean iconVisible){
 		if(mInput == null){
 			mInput = mInflater.inflate(R.layout.input, mContainer, false);
 			line(mInput);
@@ -162,7 +163,7 @@ public class FormGenerator {
 		}
 
 		EditText input = (EditText) mInput.findViewById(R.id.input);
-		textView(input, text, hint, iconId, 0);
+		textView(input, text, hint, iconId, 0, iconVisible);
 
 		mContainer.addView(mInput);
 
@@ -176,9 +177,11 @@ public class FormGenerator {
 	 * @param hint        The hint to show if there is no text
 	 * @param leftIconId  The Id for the left icon, 0 if none
 	 * @param rightIconId The Id for the right icon, 0 if none (used for chevrons)
+	 * @param iconVisible True if the icon should be visible, false otherwise
 	 * @return The {@link TextView}
 	 */
-	public TextView text(String text, String hint, int leftIconId, int rightIconId){
+	public TextView text(String text, String hint, int leftIconId, int rightIconId,
+			boolean iconVisible){
 		if(mText == null){
 			mText = mInflater.inflate(R.layout.text, mContainer, false);
 			line(mText);
@@ -187,7 +190,7 @@ public class FormGenerator {
 
 		//Text
 		TextView title = (TextView)mText.findViewById(R.id.title);
-		textView(title, text, hint, leftIconId, rightIconId);
+		textView(title, text, hint, leftIconId, rightIconId, iconVisible);
 
 		//Set the button to not clickable
 		mText.setClickable(false);
@@ -204,12 +207,13 @@ public class FormGenerator {
 	 * @param hint        The hint to show if there is no text
 	 * @param leftIconId  The Id for the left icon, 0 if none
 	 * @param rightIconId The Id for the right icon, 0 if none
+	 * @param iconVisible True if the icon should be visible, false otherwise
 	 * @param listener    The {@link OnClickListener} to call if the button is pressed
 	 * @return The {@link TextView}
 	 */
 	public TextView button(String text, String hint, int leftIconId, int rightIconId,
-			OnClickListener listener){
-		TextView title = text(text, hint, leftIconId, rightIconId);
+			boolean iconVisible, OnClickListener listener){
+		TextView title = text(text, hint, leftIconId, rightIconId, iconVisible);
 
 		//Set the OnClickListener on the parent
 		((View)title.getParent()).setOnClickListener(listener);
@@ -227,10 +231,10 @@ public class FormGenerator {
 	 * @param hint        The hint
 	 * @param leftIconId  The left icon Id
 	 * @param rightIconId The right icon Id
+	 * @param iconVisible True if the left icon should be visible, false otherwise
 	 */
 	private void textView(TextView textView, String text, String hint, int leftIconId,
-			int rightIconId){
-
+			int rightIconId, boolean iconVisible){
 		//Text
 		textView.setHint(hint);
 		textView.setText(text);
@@ -239,6 +243,9 @@ public class FormGenerator {
 		//Icons
 		textView.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
 		icon(textView);
+		if(leftIconId != 0){
+			textView.getCompoundDrawables()[0].setAlpha(iconVisible ? 255 : 0);
+		}
 
 		//Padding
 		padding(textView);
