@@ -22,6 +22,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -91,6 +92,10 @@ public class FormGenerator {
 	 * The text {@link View}
 	 */
 	private View mText;
+	/**
+	 * The input {@link View}
+	 */
+	private View mInput;
 
 	/**
 	 * Default Constructor
@@ -142,34 +147,47 @@ public class FormGenerator {
 	}
 
 	/**
+	 * Adds an input field with a left icon
+	 *
+	 * @param text      The input text
+	 * @param hint      The input hint
+	 * @param iconId    The Id of the icon to use
+	 * @return The {@link EditText} where the user will be inputting
+	 */
+	public EditText input(String text, String hint, int iconId){
+		if(mInput == null){
+			mInput = mInflater.inflate(R.layout.input, mContainer, false);
+			line(mInput);
+			background(mInput);
+		}
+
+		EditText input = (EditText) mInput.findViewById(R.id.input);
+		textView(input, text, hint, iconId, 0);
+
+		mContainer.addView(mInput);
+
+		return input;
+	}
+
+	/**
 	 * Adds a text box with left/right icons
 	 *
-	 * @param hint        The hint to show if there is no text
 	 * @param text        The text to show
+	 * @param hint        The hint to show if there is no text
 	 * @param leftIconId  The Id for the left icon, 0 if none
 	 * @param rightIconId The Id for the right icon, 0 if none (used for chevrons)
 	 * @return The {@link TextView}
 	 */
-	public TextView text(String hint, String text, int leftIconId, int rightIconId){
+	public TextView text(String text, String hint, int leftIconId, int rightIconId){
 		if(mText == null){
 			mText = mInflater.inflate(R.layout.text, mContainer, false);
+			line(mText);
+			background(mText);
 		}
-		//Line + background
-		line(mText);
-		background(mText);
 
 		//Text
 		TextView title = (TextView)mText.findViewById(R.id.title);
-		title.setHint(hint);
-		title.setText(text);
-		textColor(title);
-
-		//Icons
-		title.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
-		icon(title);
-
-		//Padding
-		padding(title);
+		textView(title, text, hint, leftIconId, rightIconId);
 
 		//Set the button to not clickable
 		mText.setClickable(false);
@@ -182,16 +200,16 @@ public class FormGenerator {
 	/**
 	 * Adds a button box with left/right icons
 	 *
-	 * @param hint        The hint to show if there is no text
 	 * @param text        The button text to show
+	 * @param hint        The hint to show if there is no text
 	 * @param leftIconId  The Id for the left icon, 0 if none
 	 * @param rightIconId The Id for the right icon, 0 if none
 	 * @param listener    The {@link OnClickListener} to call if the button is pressed
 	 * @return The {@link TextView}
 	 */
-	public TextView button(String hint, String text, int leftIconId, int rightIconId,
+	public TextView button(String text, String hint, int leftIconId, int rightIconId,
 			OnClickListener listener){
-		TextView title = text(hint, text, leftIconId, rightIconId);
+		TextView title = text(text, hint, leftIconId, rightIconId);
 
 		//Set the OnClickListener on the parent
 		((View)title.getParent()).setOnClickListener(listener);
@@ -202,10 +220,35 @@ public class FormGenerator {
 	/* HELPERS */
 
 	/**
+	 * Sets up the given {@link TextView}
+	 *
+	 * @param textView    The {@link TextView}
+	 * @param text        The text
+	 * @param hint        The hint
+	 * @param leftIconId  The left icon Id
+	 * @param rightIconId The right icon Id
+	 */
+	private void textView(TextView textView, String text, String hint, int leftIconId,
+			int rightIconId){
+
+		//Text
+		textView.setHint(hint);
+		textView.setText(text);
+		textColor(textView);
+
+		//Icons
+		textView.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
+		icon(textView);
+
+		//Padding
+		padding(textView);
+	}
+
+	/**
 	 * Colors the {@link TextView} compound icons with the default icon color if there is one
 	 * @param textView The {@link TextView}
 	 */
-	void icon(TextView textView){
+	private void icon(TextView textView){
 		if(mDefaultIconColorId != 0){
 			//Get the color
 			int color = textView.getResources().getColor(mDefaultIconColorId);
