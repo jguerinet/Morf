@@ -2,14 +2,6 @@
 <resources>
     <dimen name="line">0.5dp</dimen>
     <dimen name="text_body">14sp</dimen>
-
-    <!-- Space sizes -->
     <dimen name="space_small">10dp</dimen>
-    <dimen name="space_medium">20dp</dimen>
-    <dimen name="space_large">30dp</dimen>
-    
-    <!-- Padding Sizes -->
     <dimen name="padding_small">8dp</dimen>
-    <dimen name="padding_medium">16dp</dimen>
-    <dimen name="padding_large">24dp</dimen>
 </resources>
