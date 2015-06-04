@@ -30,7 +30,7 @@ import android.widget.TextView;
  * @version 1.0.0
  * @since 1.0.0
  */
-public class FormGenerator {;
+public class FormGenerator {
 	/**
 	 * The {@link LayoutInflater}
 	 */
@@ -71,6 +71,10 @@ public class FormGenerator {;
 	 * The default line color Id, 0 if none (defaults to #EEEEEE)
 	 */
 	private int mDefaultLineColorId;
+	/**
+	 * True if we should show a line after a form item, false otherwise (defaults to true)
+	 */
+	private boolean mShowLine;
 
 	/**
 	 * Default Constructor
@@ -88,6 +92,7 @@ public class FormGenerator {;
 		mDefaultPaddingSize = builder.mDefaultPaddingSize;
 		mDefaultLineSize = builder.mDefaultLineSize;
 		mDefaultLineColorId = builder.mDefaultLineColorId;
+		mShowLine = builder.mShowLine;
 	}
 
 	/**
@@ -161,9 +166,10 @@ public class FormGenerator {;
 	/**
 	 * Sets the default line size and/or color on the given view
 	 *
-	 * @param view The {@link View} containing the line
+	 * @param view     The {@link View} containing the line
+	 * @param hideLine True if we should hide the line if requested, false if shown regardless
 	 */
-	private void line(View view){
+	private void line(View view, boolean hideLine){
 		//If there is no default size nor color, no need to continue
 		if(mDefaultLineSize == 0 && mDefaultLineColorId == 0){
 			return;
@@ -172,6 +178,11 @@ public class FormGenerator {;
 		//Find the line
 		View line = view.findViewById(R.id.line);
 		if(line != null){
+			//Hide the line if needed
+			if(hideLine && !mShowLine){
+				line.setVisibility(View.GONE);
+				return;;
+			}
 			//Set the size if there is one
 			if(mDefaultLineSize != 0){
 				line.getLayoutParams().height = mDefaultLineSize;
@@ -181,6 +192,10 @@ public class FormGenerator {;
 				line.setBackgroundResource(mDefaultLineColorId);
 			}
 		}
+	}
+
+	private void line(View view){
+		line(view, true);
 	}
 
 	/**
@@ -197,6 +212,7 @@ public class FormGenerator {;
 		private int mDefaultPaddingSize = 0;
 		private int mDefaultLineSize = 0;
 		private int mDefaultLineColorId = 0;
+		private boolean mShowLine = true;
 
 		/**
 		 * Default Constructor
@@ -334,6 +350,17 @@ public class FormGenerator {;
 		 */
 		public Builder setDefaultLineColorId(int colorId){
 			mDefaultLineColorId = colorId;
+			return this;
+		}
+
+		/**
+		 * Sets if the line should be shown after a form item by default or not
+		 *
+		 * @param showLine True if a line should be shown after a form item, false otherwise
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setShowLine(boolean showLine){
+			mShowLine = showLine;
 			return this;
 		}
 	}
