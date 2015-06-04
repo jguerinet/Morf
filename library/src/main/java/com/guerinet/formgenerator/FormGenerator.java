@@ -31,6 +31,7 @@ import android.widget.TextView;
  * @since 1.0.0
  */
 public class FormGenerator {
+	/* SETTINGS */
 	/**
 	 * The {@link LayoutInflater}
 	 */
@@ -76,6 +77,12 @@ public class FormGenerator {
 	 */
 	private boolean mShowLine;
 
+	/* VIEWS */
+	/**
+	 * The space {@link View}
+	 */
+	private View mSpace;
+
 	/**
 	 * Default Constructor
 	 *
@@ -99,11 +106,16 @@ public class FormGenerator {
 	 * Adds a space
 	 */
 	public void space(){
-		View view = mInflater.inflate(R.layout.space, mContainer);
+		if(mSpace == null){
+			mSpace = mInflater.inflate(R.layout.space, mContainer, false);
+		}
+
 		//Set the height if there's a custom one
 		if(mDefaultSpaceSize != 0){
-			view.getLayoutParams().height = mDefaultSpaceSize;
+			mSpace.getLayoutParams().height = mDefaultSpaceSize;
 		}
+
+		mContainer.addView(mSpace);
 	}
 
 	/* HELPERS */
@@ -181,7 +193,7 @@ public class FormGenerator {
 			//Hide the line if needed
 			if(hideLine && !mShowLine){
 				line.setVisibility(View.GONE);
-				return;;
+				return;
 			}
 			//Set the size if there is one
 			if(mDefaultLineSize != 0){
