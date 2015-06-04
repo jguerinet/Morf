@@ -67,6 +67,10 @@ public class FormGenerator {;
 	 * The default line size, 0 if none (defaults to 0.5 dp)
 	 */
 	private int mDefaultLineSize;
+	/**
+	 * The default line color Id, 0 if none (defaults to #EEEEEE)
+	 */
+	private int mDefaultLineColorId;
 
 	/**
 	 * Default Constructor
@@ -83,6 +87,7 @@ public class FormGenerator {;
 		mDefaultTextColorStateList = builder.mDefaultTextColorStateList;
 		mDefaultPaddingSize = builder.mDefaultPaddingSize;
 		mDefaultLineSize = builder.mDefaultLineSize;
+		mDefaultLineColorId = builder.mDefaultLineColorId;
 	}
 
 	/**
@@ -154,22 +159,27 @@ public class FormGenerator {;
 	}
 
 	/**
-	 * Sets the default line size on the given view
+	 * Sets the default line size and/or color on the given view
 	 *
 	 * @param view The {@link View} containing the line
 	 */
 	private void line(View view){
-		//If there is no default size, no need to continue
-		if(mDefaultLineSize == 0){
+		//If there is no default size nor color, no need to continue
+		if(mDefaultLineSize == 0 && mDefaultLineColorId == 0){
 			return;
 		}
 
 		//Find the line
 		View line = view.findViewById(R.id.line);
-
-		//If there is one, set the size
 		if(line != null){
-			line.getLayoutParams().height = mDefaultLineSize;
+			//Set the size if there is one
+			if(mDefaultLineSize != 0){
+				line.getLayoutParams().height = mDefaultLineSize;
+			}
+			//Set the color if there is one
+			if(mDefaultLineColorId != 0){
+				line.setBackgroundResource(mDefaultLineColorId);
+			}
 		}
 	}
 
@@ -185,7 +195,8 @@ public class FormGenerator {;
 		private int mDefaultTextColorId = 0;
 		private int mDefaultTextColorStateList = 0;
 		private int mDefaultPaddingSize = 0;
-		private int mDefaultLineSize;
+		private int mDefaultLineSize = 0;
+		private int mDefaultLineColorId = 0;
 
 		/**
 		 * Default Constructor
@@ -312,6 +323,17 @@ public class FormGenerator {;
 		 */
 		public Builder setDefaultLineSize(int pixels){
 			mDefaultLineSize = pixels;
+			return this;
+		}
+
+		/**
+		 * Sets the default line color Id
+		 *
+		 * @param colorId The color resource Id
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultLineColorId(int colorId){
+			mDefaultLineColorId = colorId;
 			return this;
 		}
 	}
