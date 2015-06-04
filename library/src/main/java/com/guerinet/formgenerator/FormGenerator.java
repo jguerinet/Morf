@@ -48,7 +48,7 @@ public class FormGenerator {;
 	 */
 	private int mDefaultBackgroundId;
 	/**
-	 * The default space size, 0 if unchanged (10dp by default)
+	 * The default space size, 0 if none (defaults to 10dp)
 	 */
 	private int mDefaultSpaceSize;
 	/**
@@ -59,6 +59,10 @@ public class FormGenerator {;
 	 * The default text color state list, 0 if none
 	 */
 	private int mDefaultTextColorStateList;
+	/**
+	 * The default padding size for the non-space/line items, 0 if none (defaults to 8dp)
+	 */
+	private int mDefaultPaddingSize;
 
 	/**
 	 * Default Constructor
@@ -73,6 +77,7 @@ public class FormGenerator {;
 		mDefaultSpaceSize = builder.mDefaultSpaceSize;
 		mDefaultTextColorId = builder.mDefaultTextColorId;
 		mDefaultTextColorStateList = builder.mDefaultTextColorStateList;
+		mDefaultPaddingSize = builder.mDefaultPaddingSize;
 	}
 
 	/**
@@ -121,6 +126,18 @@ public class FormGenerator {;
 	}
 
 	/**
+	 * Sets the {@link View} padding with the default padding if there is one
+	 *
+	 * @param view The {@link View}
+	 */
+	private void padding (View view){
+		if(mDefaultPaddingSize != 0){
+			view.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
+					mDefaultPaddingSize);
+		}
+	}
+
+	/**
 	 * Sets the background resource on the given view if there is one
 	 *
 	 * @param view The {@link View}
@@ -142,6 +159,7 @@ public class FormGenerator {;
 		private int mDefaultSpaceSize = 0;
 		private int mDefaultTextColorId = 0;
 		private int mDefaultTextColorStateList = 0;
+		private int mDefaultPaddingSize = 0;
 
 		/**
 		 * Default Constructor
@@ -225,5 +243,29 @@ public class FormGenerator {;
 			}
 			return this;
 		}
+
+		/**
+		 * Sets the default padding size
+		 *
+		 * @param dimenId The dimension Id (in dp)
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultPaddingDimen(int dimenId){
+			mDefaultPaddingSize = mInflater.getContext().getResources()
+					.getDimensionPixelSize(dimenId);
+			return this;
+		}
+
+		/**
+		 * Sets the default padding size
+		 *
+		 * @param pixels The padding size in pixels
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultPaddingSize(int pixels){
+			mDefaultPaddingSize = pixels;
+			return this;
+		}
+
 	}
 }
