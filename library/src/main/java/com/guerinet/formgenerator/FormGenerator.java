@@ -86,6 +86,10 @@ public class FormGenerator {
 	 * The line {@link View}
 	 */
 	private View mLine;
+	/**
+	 * The text {@link View}
+	 */
+	private View mText;
 
 	/**
 	 * Default Constructor
@@ -136,22 +140,58 @@ public class FormGenerator {
 		mContainer.addView(mLine);
 	}
 
+	/**
+	 * Adds a text box with left/right icons
+	 *
+	 * @param text        The text to show
+	 * @param leftIconId  The Id for the left icon, 0 if none
+	 * @param rightIconId The Id for the right icon, 0 if none (used for chevrons)
+	 * @return The {@link TextView}
+	 */
+	public TextView text(String text, int leftIconId, int rightIconId){
+		if(mText == null){
+			mText = mInflater.inflate(R.layout.text, mContainer, false);
+		}
+		//Line + background
+		line(mText);
+		background(mText);
+
+		//Text
+		TextView title = (TextView)mText.findViewById(R.id.title);
+		title.setText(text);
+		textColor(title);
+
+		//Icons
+		title.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
+		icon(title);
+
+		//Padding
+		padding(title);
+
+		//Set the button to not clickable
+		mText.setClickable(false);
+
+		mContainer.addView(mText);
+
+		return title;
+	}
+
 	/* HELPERS */
 
 	/**
-	 * Colors the {@link TextView} icon at the given position with the default icon color if there
-	 *  is one
+	 * Colors the {@link TextView} compound icons with the default icon color if there is one
 	 * @param textView The {@link TextView}
-	 * @param position The position of the compound drawable to color
 	 */
-	private void icon(TextView textView, int position){
+	void icon(TextView textView){
 		if(mDefaultIconColorId != 0){
 			//Get the color
 			int color = textView.getResources().getColor(mDefaultIconColorId);
 
-			//Apply it to the compound drawable at the given position
-			textView.getCompoundDrawables()[position].mutate().setColorFilter(
-					new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
+			for(int i = 0; i < 4; i ++){
+				//Apply it to the compound drawable at the given position
+				textView.getCompoundDrawables()[i].mutate().setColorFilter(
+						new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
+			}
 		}
 	}
 
@@ -224,8 +264,13 @@ public class FormGenerator {
 		}
 	}
 
+	/**
+	 * Sets the line parameters for the given {@link View}
+	 *
+	 * @param view The {@link View}
+	 */
 	private void line(View view){
-		line(view, true);
+		line(view, mShowLine);
 	}
 
 	/**
