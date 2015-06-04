@@ -22,6 +22,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -96,6 +97,10 @@ public class FormGenerator {
 	 * The input {@link View}
 	 */
 	private View mInput;
+	/**
+	 * The button {@link View}
+	 */
+	private Button mButton;
 
 	/**
 	 * Default Constructor
@@ -219,6 +224,27 @@ public class FormGenerator {
 		((View)title.getParent()).setOnClickListener(listener);
 
 		return title;
+	}
+
+	/**
+	 * Adds a standard {@link Button} (centered capitalized text)
+	 *
+	 * @param title    The button title
+	 * @param listener The {@link OnClickListener} to call when the button is clicked
+	 * @return The {@link Button}
+	 */
+	public Button button(String title, OnClickListener listener){
+		if(mButton == null){
+			mButton = (Button)mInflater.inflate(R.layout.button, mContainer, false);
+			background(mButton);
+		}
+
+		textView(mButton, title, "", 0, 0, true);
+		mButton.setOnClickListener(listener);
+
+		mContainer.addView(mButton);
+
+		return mButton;
 	}
 
 	/* HELPERS */
