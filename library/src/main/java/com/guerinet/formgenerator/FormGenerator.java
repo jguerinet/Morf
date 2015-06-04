@@ -21,6 +21,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -172,6 +173,24 @@ public class FormGenerator {
 		mText.setClickable(false);
 
 		mContainer.addView(mText);
+
+		return title;
+	}
+
+	/**
+	 * Adds a button box with left/right icons
+	 *
+	 * @param text        The button text to show
+	 * @param leftIconId  The Id for the left icon, 0 if none
+	 * @param rightIconId The Id for the right icon, 0 if none
+	 * @param listener    The {@link OnClickListener} to call if the button is pressed
+	 * @return The {@link TextView}
+	 */
+	public TextView button(String text, int leftIconId, int rightIconId, OnClickListener listener){
+		TextView title = text(text, leftIconId, rightIconId);
+
+		//Set the OnClickListener on the parent
+		((View)title.getParent()).setOnClickListener(listener);
 
 		return title;
 	}
