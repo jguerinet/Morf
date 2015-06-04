@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -101,6 +102,10 @@ public class FormGenerator {
 	 * The button {@link View}
 	 */
 	private Button mButton;
+	/**
+	 * The swich {@link View}
+	 */
+	private View mSwitch;
 
 	/**
 	 * Default Constructor
@@ -245,6 +250,29 @@ public class FormGenerator {
 		mContainer.addView(mButton);
 
 		return mButton;
+	}
+
+	/**
+	 * Adds a {@link SwitchCompat} with the given title
+	 *
+	 * @param title       The title of the field
+	 * @param leftIconId  The Id of the left icon, 0 if none
+	 * @param iconVisible True if the left icon should be visible, false otherwise
+	 * @return The {@link SwitchCompat}
+	 */
+	public SwitchCompat aSwitch(String title, int leftIconId, boolean iconVisible){
+		if(mSwitch == null){
+			mSwitch = mInflater.inflate(R.layout.switch_field, mContainer, false);
+			background(mSwitch);
+			line(mSwitch);
+		}
+
+		SwitchCompat switchField = (SwitchCompat)mSwitch.findViewById(R.id.field_switch);
+		textView(switchField, title, "", leftIconId, 0, iconVisible);
+
+		mContainer.addView(switchField);
+
+		return switchField;
 	}
 
 	/* HELPERS */
