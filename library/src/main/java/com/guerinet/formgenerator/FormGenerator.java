@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -316,8 +317,11 @@ public class FormGenerator {
 
 			for(int i = 0; i < 4; i ++){
 				//Apply it to the compound drawable at the given position
-				textView.getCompoundDrawables()[i].mutate().setColorFilter(
-						new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
+				Drawable drawable = textView.getCompoundDrawables()[i];
+				if(drawable != null){
+					drawable.mutate().setColorFilter(
+							new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
+				}
 			}
 		}
 	}
