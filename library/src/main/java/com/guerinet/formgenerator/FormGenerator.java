@@ -82,32 +82,6 @@ public class FormGenerator {
 	 */
 	private boolean mShowLine;
 
-	/* VIEWS */
-	/**
-	 * The space {@link View}
-	 */
-	private View mSpace;
-	/**
-	 * The line {@link View}
-	 */
-	private View mLine;
-	/**
-	 * The text {@link View}
-	 */
-	private View mText;
-	/**
-	 * The input {@link View}
-	 */
-	private View mInput;
-	/**
-	 * The button {@link View}
-	 */
-	private Button mButton;
-	/**
-	 * The swich {@link View}
-	 */
-	private View mSwitch;
-
 	/**
 	 * Default Constructor
 	 *
@@ -131,30 +105,26 @@ public class FormGenerator {
 	 * Adds a space
 	 */
 	public void space(){
-		if(mSpace == null){
-			mSpace = mInflater.inflate(R.layout.fg_space, mContainer, false);
-		}
+		View space = mInflater.inflate(R.layout.fg_space, mContainer, false);
 
 		//Set the height if there's a custom one
 		if(mDefaultSpaceSize != 0){
-			mSpace.getLayoutParams().height = mDefaultSpaceSize;
+			space.getLayoutParams().height = mDefaultSpaceSize;
 		}
 
-		mContainer.addView(mSpace);
+		mContainer.addView(space);
 	}
 
 	/**
 	 * Adds a line
 	 */
 	public void line(){
-		if(mLine == null){
-			mLine = mInflater.inflate(R.layout.fg_line, mContainer, false);
-		}
+		View line = mInflater.inflate(R.layout.fg_line, mContainer, false);
 
 		//Process it
-		line(mLine, false);
+		line(line, false);
 
-		mContainer.addView(mLine);
+		mContainer.addView(line);
 	}
 
 	/**
@@ -167,16 +137,14 @@ public class FormGenerator {
 	 * @return The {@link EditText} where the user will be inputting
 	 */
 	public EditText input(String text, String hint, int iconId, boolean iconVisible){
-		if(mInput == null){
-			mInput = mInflater.inflate(R.layout.fg_input, mContainer, false);
-			line(mInput);
-			background(mInput);
-		}
+		View inputField = mInflater.inflate(R.layout.fg_input, mContainer, false);
+		line(inputField);
+		background(inputField);
 
-		EditText input = (EditText) mInput.findViewById(R.id.fg_input);
+		EditText input = (EditText) inputField.findViewById(R.id.fg_input);
 		textView(input, text, hint, iconId, 0, iconVisible);
 
-		mContainer.addView(mInput);
+		mContainer.addView(inputField);
 
 		return input;
 	}
@@ -193,20 +161,18 @@ public class FormGenerator {
 	 */
 	public TextView text(String text, String hint, int leftIconId, int rightIconId,
 			boolean iconVisible){
-		if(mText == null){
-			mText = mInflater.inflate(R.layout.fg_text, mContainer, false);
-			line(mText);
-			background(mText);
-		}
+		View textField = mInflater.inflate(R.layout.fg_text, mContainer, false);
+		line(textField);
+		background(textField);
 
 		//Text
-		TextView title = (TextView)mText.findViewById(R.id.fg_title);
+		TextView title = (TextView)textField.findViewById(R.id.fg_title);
 		textView(title, text, hint, leftIconId, rightIconId, iconVisible);
 
 		//Set the button to not clickable
-		mText.setClickable(false);
+		textField.setClickable(false);
 
-		mContainer.addView(mText);
+		mContainer.addView(textField);
 
 		return title;
 	}
@@ -240,17 +206,15 @@ public class FormGenerator {
 	 * @return The {@link Button}
 	 */
 	public Button button(String title, OnClickListener listener){
-		if(mButton == null){
-			mButton = (Button)mInflater.inflate(R.layout.fg_button, mContainer, false);
-			background(mButton);
-		}
+		Button button = (Button)mInflater.inflate(R.layout.fg_button, mContainer, false);
+		background(button);
 
-		textView(mButton, title, "", 0, 0, true);
-		mButton.setOnClickListener(listener);
+		textView(button, title, "", 0, 0, true);
+		button.setOnClickListener(listener);
 
-		mContainer.addView(mButton);
+		mContainer.addView(button);
 
-		return mButton;
+		return button;
 	}
 
 	/**
@@ -262,13 +226,11 @@ public class FormGenerator {
 	 * @return The {@link SwitchCompat}
 	 */
 	public SwitchCompat aSwitch(String title, int leftIconId, boolean iconVisible){
-		if(mSwitch == null){
-			mSwitch = mInflater.inflate(R.layout.fg_switch, mContainer, false);
-			background(mSwitch);
-			line(mSwitch);
-		}
+		View aSwitch = mInflater.inflate(R.layout.fg_switch, mContainer, false);
+		background(aSwitch);
+		line(aSwitch);
 
-		SwitchCompat switchField = (SwitchCompat)mSwitch.findViewById(R.id.fg_switch);
+		SwitchCompat switchField = (SwitchCompat)aSwitch.findViewById(R.id.fg_switch);
 		textView(switchField, title, "", leftIconId, 0, iconVisible);
 
 		mContainer.addView(switchField);
