@@ -47,6 +47,10 @@ public class FormGenerator {;
 	 * The default background Id, 0 if none
 	 */
 	private int mDefaultBackgroundId;
+	/**
+	 * The default space size, 0 if unchanged (10dp by default)
+	 */
+	private int mDefaultSpaceSize;
 
 	/**
 	 * Default Constructor
@@ -58,6 +62,18 @@ public class FormGenerator {;
 		mContainer = builder.mContainer;
 		mDefaultIconColorId = builder.mDefaultIconColorId;
 		mDefaultBackgroundId = builder.mDefaultBackgroundId;
+		mDefaultSpaceSize = builder.mDefaultSpaceSize;
+	}
+
+	/**
+	 * Adds a space
+	 */
+	public void space(){
+		View view = mInflater.inflate(R.layout.space, mContainer);
+		//Set the height if there's a custom one
+		if(mDefaultSpaceSize != 0){
+			view.getLayoutParams().height = mDefaultSpaceSize;
+		}
 	}
 
 	/* HELPERS */
@@ -98,6 +114,7 @@ public class FormGenerator {;
 		private LinearLayout mContainer;
 		private int mDefaultIconColorId = 0;
 		private int mDefaultBackgroundId = 0;
+		private int mDefaultSpaceSize = 0;
 
 		/**
 		 * Default Constructor
@@ -139,6 +156,29 @@ public class FormGenerator {;
 		 */
 		public Builder setDefaultBackground(int backgroundId){
 			mDefaultBackgroundId = backgroundId;
+			return this;
+		}
+
+		/**
+		 * Sets the default space size
+		 *
+		 * @param dimenId The dimension Id (in dp)
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultSpaceDimen(int dimenId){
+			mDefaultSpaceSize = mInflater.getContext().getResources()
+					.getDimensionPixelSize(dimenId);
+			return this;
+		}
+
+		/**
+		 * Sets the default space size
+		 *
+		 * @param pixels The space size in pixels
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultSpaceSize(int pixels){
+			mDefaultSpaceSize = pixels;
 			return this;
 		}
 	}
