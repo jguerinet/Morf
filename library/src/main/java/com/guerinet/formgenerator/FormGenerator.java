@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.v7.widget.SwitchCompat;
@@ -67,6 +68,10 @@ public class FormGenerator {
 	 */
 	private int mDefaultTextColorId;
 	/**
+	 * The default typeface to use, null if none
+	 */
+	private Typeface mDefaultTextTypeface;
+	/**
 	 * The default text color state list, 0 if none
 	 */
 	private int mDefaultTextColorStateListId;
@@ -101,6 +106,7 @@ public class FormGenerator {
 		mDefaultTextSize = builder.mDefaultTextSize;
 		mDefaultTextColorId = builder.mDefaultTextColorId;
 		mDefaultTextColorStateListId = builder.mDefaultTextColorStateListId;
+		mDefaultTextTypeface = builder.mDefaultTextTypeface;
 		mDefaultPaddingSize = builder.mDefaultPaddingSize;
 		mDefaultLineSize = builder.mDefaultLineSize;
 		mDefaultLineColorId = builder.mDefaultLineColorId;
@@ -274,6 +280,11 @@ public class FormGenerator {
 		textView.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
 				mDefaultPaddingSize);
 
+		//Typeface
+		if(mDefaultTextTypeface != null){
+			textView.setTypeface(mDefaultTextTypeface);
+		}
+
 		//Icons
 		textView.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
 		icon(textView);
@@ -354,6 +365,7 @@ public class FormGenerator {
 		private int mDefaultTextSize;
 		private int mDefaultTextColorId = android.R.color.black;
 		private int mDefaultTextColorStateListId = 0;
+		private Typeface mDefaultTextTypeface = null;
 		private int mDefaultPaddingSize;
 		private int mDefaultLineSize;
 		private int mDefaultLineColorId = R.color.line;
@@ -481,6 +493,17 @@ public class FormGenerator {
 			else{
 				mDefaultTextColorId = colorId;
 			}
+			return this;
+		}
+
+		/**
+		 * Sets the default typeface for the text items
+		 *
+		 * @param typeface The {@link Typeface} to use
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultTypeface(Typeface typeface){
+			mDefaultTextTypeface = typeface;
 			return this;
 		}
 
