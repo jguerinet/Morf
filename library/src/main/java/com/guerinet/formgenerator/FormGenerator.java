@@ -55,11 +55,11 @@ public class FormGenerator {
 	 */
 	private int mDefaultBackgroundId;
 	/**
-	 * The default space size, 0 if none (defaults to 10dp)
+	 * The default space size, 10dp if none
 	 */
 	private int mDefaultSpaceSize;
 	/**
-	 * The default text color Id, 0 if none (defaults to black)
+	 * The default text color Id, black if none
 	 */
 	private int mDefaultTextColorId;
 	/**
@@ -67,7 +67,7 @@ public class FormGenerator {
 	 */
 	private int mDefaultTextColorStateList;
 	/**
-	 * The default padding size for the non-space/line items, 0 if none (defaults to 8dp)
+	 * The default padding size for the non-space/line items, 8dp if none
 	 */
 	private int mDefaultPaddingSize;
 	/**
@@ -252,7 +252,15 @@ public class FormGenerator {
 		//Text
 		textView.setHint(hint);
 		textView.setText(text);
-		textColor(textView);
+
+		//Text Color
+		if(mDefaultTextColorStateList != 0){
+			textView.setTextColor(textView.getResources()
+					.getColorStateList(mDefaultTextColorStateList));
+		}
+		else{
+			textView.setTextColor(textView.getResources().getColor(mDefaultTextColorId));
+		}
 
 		//Icons
 		textView.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
@@ -283,21 +291,6 @@ public class FormGenerator {
 							new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
 				}
 			}
-		}
-	}
-
-	/**
-	 * Colors the {@link TextView} text with the default color or color state list if there is one
-	 *
-	 * @param textView The {@link TextView}
-	 */
-	private void textColor(TextView textView){
-		if(mDefaultTextColorId != 0){
-			textView.setTextColor(textView.getResources().getColor(mDefaultTextColorId));
-		}
-		else if(mDefaultTextColorStateList != 0){
-			textView.setTextColor(textView.getResources()
-					.getColorStateList(mDefaultTextColorStateList));
 		}
 	}
 
@@ -361,7 +354,7 @@ public class FormGenerator {
 		private int mDefaultIconColorId = 0;
 		private int mDefaultBackgroundId = 0;
 		private int mDefaultSpaceSize;
-		private int mDefaultTextColorId = 0;
+		private int mDefaultTextColorId = android.R.color.black;
 		private int mDefaultTextColorStateList = 0;
 		private int mDefaultPaddingSize;
 		private int mDefaultLineSize = 0;
@@ -457,7 +450,7 @@ public class FormGenerator {
 		 * @param stateList True if this is a state list, false if it's a solid color
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextColor(int colorId, boolean stateList){
+		public Builder setDefaultTextColorId(int colorId, boolean stateList){
 			if(stateList){
 				mDefaultTextColorStateList = colorId;
 			}

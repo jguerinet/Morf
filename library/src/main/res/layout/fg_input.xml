@@ -12,7 +12,6 @@
         android:singleLine="true"
         android:background="@null"
         android:textSize="@dimen/text_body"
-        android:textColor="@android:color/black"
         android:inputType="text"
         android:gravity="center_vertical"/>
 
