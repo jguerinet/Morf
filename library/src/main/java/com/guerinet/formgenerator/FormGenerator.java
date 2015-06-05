@@ -71,7 +71,7 @@ public class FormGenerator {
 	 */
 	private int mDefaultPaddingSize;
 	/**
-	 * The default line size, 0 if none (defaults to 0.5 dp)
+	 * The default line size, 0.5 dp if none
 	 */
 	private int mDefaultLineSize;
 	/**
@@ -312,11 +312,6 @@ public class FormGenerator {
 	 * @param hideLine True if we should hide the line if requested, false if shown regardless
 	 */
 	private void line(View view, boolean hideLine){
-		//If there is no default size nor color, no need to continue
-		if(mDefaultLineColorId == 0){
-			return;
-		}
-
 		//Find the line
 		View line = view.findViewById(R.id.fg_line);
 		if(line != null){
@@ -325,10 +320,7 @@ public class FormGenerator {
 				line.setVisibility(View.GONE);
 				return;
 			}
-			//Set the size if there is one
-			if(mDefaultLineSize != 0){
-				line.getLayoutParams().height = mDefaultLineSize;
-			}
+			line.getLayoutParams().height = mDefaultLineSize;
 			line.setBackgroundResource(mDefaultLineColorId);
 		}
 	}
@@ -354,7 +346,7 @@ public class FormGenerator {
 		private int mDefaultTextColorId = android.R.color.black;
 		private int mDefaultTextColorStateListId = 0;
 		private int mDefaultPaddingSize;
-		private int mDefaultLineSize = 0;
+		private int mDefaultLineSize;
 		private int mDefaultLineColorId = R.color.line;
 		private boolean mShowLine = true;
 
@@ -373,6 +365,8 @@ public class FormGenerator {
 					.getDimensionPixelSize(R.dimen.space);
 			mDefaultPaddingSize = mInflater.getContext().getResources()
 					.getDimensionPixelSize(R.dimen.padding);
+			mDefaultLineSize = mInflater.getContext().getResources()
+					.getDimensionPixelSize(R.dimen.line);
 		}
 
 		/**
