@@ -23,6 +23,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.v7.widget.SwitchCompat;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -321,7 +322,7 @@ public class FormGenerator {
 		}
 
 		//Text Size
-		textView.setTextSize(mDefaultTextSize);
+		textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mDefaultTextSize);
 
 		//Padding
 		textView.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
