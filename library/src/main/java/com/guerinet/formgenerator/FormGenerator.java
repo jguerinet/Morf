@@ -75,7 +75,7 @@ public class FormGenerator {
 	 */
 	private int mDefaultLineSize;
 	/**
-	 * The default line color Id, 0 if none (defaults to #EEEEEE)
+	 * The default line color Id, #EEEEEE if none
 	 */
 	private int mDefaultLineColorId;
 	/**
@@ -313,7 +313,7 @@ public class FormGenerator {
 	 */
 	private void line(View view, boolean hideLine){
 		//If there is no default size nor color, no need to continue
-		if(mDefaultLineSize == 0 && mDefaultLineColorId == 0){
+		if(mDefaultLineColorId == 0){
 			return;
 		}
 
@@ -329,10 +329,7 @@ public class FormGenerator {
 			if(mDefaultLineSize != 0){
 				line.getLayoutParams().height = mDefaultLineSize;
 			}
-			//Set the color if there is one
-			if(mDefaultLineColorId != 0){
-				line.setBackgroundResource(mDefaultLineColorId);
-			}
+			line.setBackgroundResource(mDefaultLineColorId);
 		}
 	}
 
@@ -358,7 +355,7 @@ public class FormGenerator {
 		private int mDefaultTextColorStateListId = 0;
 		private int mDefaultPaddingSize;
 		private int mDefaultLineSize = 0;
-		private int mDefaultLineColorId = 0;
+		private int mDefaultLineColorId = R.color.line;
 		private boolean mShowLine = true;
 
 		/**
