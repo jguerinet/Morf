@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		fg.space();
+
 		fg.button("Form Item, Simple Button", new View.OnClickListener() {
 			@Override
 			public void onClick(View v){
@@ -59,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 						Toast.LENGTH_SHORT).show();
 			}
 		});
+
+		fg.space();
+		fg.line();
 
 		fg.input("", "Form Item: Input", 0, true);
 
