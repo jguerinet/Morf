@@ -16,6 +16,7 @@
 
 package com.guerinet.formgenerator.demo;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
@@ -38,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		LinearLayout container = (LinearLayout)findViewById(R.id.container);
+
 		//Get the default instance
-		FormGenerator fg = FormGenerator.get(this, (LinearLayout)findViewById(R.id.container));
+		FormGenerator fg = FormGenerator.get(this, container);
 
 		//Add the different form items
-		fg.text("Form Item: Text", "", 0, 0, true);
+		fg.text("Form Item: Text (default settings)", "", 0, 0, true);
 
 		fg.button("Form Item: Button", "", 0, 0, true, new View.OnClickListener() {
 			@Override
@@ -69,6 +72,54 @@ public class MainActivity extends AppCompatActivity {
 
 		SwitchCompat switchCompat = fg.aSwitch("Form Item: Switch", 0, true);
 		switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+				Toast.makeText(MainActivity.this, "Form Item: Switch changed", Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+
+		fg.space();
+		fg.space();
+		fg.space();
+		fg.space();
+
+		fg = new FormGenerator.Builder(this, container)
+				.setDefaultBackground(android.R.drawable.list_selector_background)
+				.setDefaultLineColorId(android.R.color.black)
+				.setDefaultLineSize(10)
+				.setDefaultTextColorId(android.R.color.holo_blue_dark, false)
+				.setDefaultTypeface(Typeface.SERIF)
+				.build();
+
+		//Add the different form items
+		fg.text("Form Item: Text (custom settings)", "", 0, 0, true);
+
+		fg.button("Form Item: Button", "", 0, 0, true, new View.OnClickListener() {
+			@Override
+			public void onClick(View v){
+				Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+
+		fg.space();
+
+		fg.button("Form Item, Simple Button", new View.OnClickListener() {
+			@Override
+			public void onClick(View v){
+				Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		fg.space();
+		fg.line();
+
+		fg.input("", "Form Item: Input", 0, true);
+
+		SwitchCompat switchCompat2 = fg.aSwitch("Form Item: Switch", 0, true);
+		switchCompat2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
 				Toast.makeText(MainActivity.this, "Form Item: Switch changed", Toast.LENGTH_SHORT)
