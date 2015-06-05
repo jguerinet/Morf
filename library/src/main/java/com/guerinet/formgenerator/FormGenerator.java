@@ -59,6 +59,10 @@ public class FormGenerator {
 	 */
 	private int mDefaultSpaceSize;
 	/**
+	 * The default text size, 14dp if none
+	 */
+	private int mDefaultTextSize;
+	/**
 	 * The default text color Id, black if none
 	 */
 	private int mDefaultTextColorId;
@@ -94,6 +98,7 @@ public class FormGenerator {
 		mDefaultIconColorId = builder.mDefaultIconColorId;
 		mDefaultBackgroundId = builder.mDefaultBackgroundId;
 		mDefaultSpaceSize = builder.mDefaultSpaceSize;
+		mDefaultTextSize = builder.mDefaultTextSize;
 		mDefaultTextColorId = builder.mDefaultTextColorId;
 		mDefaultTextColorStateListId = builder.mDefaultTextColorStateListId;
 		mDefaultPaddingSize = builder.mDefaultPaddingSize;
@@ -262,16 +267,19 @@ public class FormGenerator {
 			textView.setTextColor(textView.getResources().getColor(mDefaultTextColorId));
 		}
 
+		//Text Size
+		textView.setTextSize(mDefaultTextSize);
+
+		//Padding
+		textView.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
+				mDefaultPaddingSize);
+
 		//Icons
 		textView.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
 		icon(textView);
 		if(leftIconId != 0){
 			textView.getCompoundDrawables()[0].setAlpha(iconVisible ? 255 : 0);
 		}
-
-		//Padding
-		textView.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
-				mDefaultPaddingSize);
 	}
 
 	/**
@@ -343,6 +351,7 @@ public class FormGenerator {
 		private int mDefaultIconColorId = 0;
 		private int mDefaultBackgroundId = 0;
 		private int mDefaultSpaceSize;
+		private int mDefaultTextSize;
 		private int mDefaultTextColorId = android.R.color.black;
 		private int mDefaultTextColorStateListId = 0;
 		private int mDefaultPaddingSize;
@@ -367,6 +376,8 @@ public class FormGenerator {
 					.getDimensionPixelSize(R.dimen.padding);
 			mDefaultLineSize = mInflater.getContext().getResources()
 					.getDimensionPixelSize(R.dimen.line);
+			mDefaultTextSize = mInflater.getContext().getResources()
+					.getDimensionPixelSize(R.dimen.text);
 		}
 
 		/**
@@ -431,6 +442,28 @@ public class FormGenerator {
 		 */
 		public Builder setDefaultSpaceSize(int pixels){
 			mDefaultSpaceSize = pixels;
+			return this;
+		}
+
+		/**
+		 * Sets the default text size
+		 *
+		 * @param dimenId The dimension Id (in dp)
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultTextDimen(int dimenId){
+			mDefaultTextSize = mInflater.getContext().getResources().getDimensionPixelSize(dimenId);
+			return this;
+		}
+
+		/**
+		 * Sets the default text size
+		 *
+		 * @param pixels The text size in pixels
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultTextSize(int pixels){
+			mDefaultTextSize = pixels;
 			return this;
 		}
 

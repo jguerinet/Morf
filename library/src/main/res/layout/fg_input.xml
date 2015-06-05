@@ -11,7 +11,6 @@
         android:padding="@dimen/padding"
         android:singleLine="true"
         android:background="@null"
-        android:textSize="@dimen/text_body"
         android:inputType="text"
         android:gravity="center_vertical"/>
 

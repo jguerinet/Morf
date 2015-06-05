@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/fg_title"
         android:background="@android:color/transparent"
-        android:textSize="@dimen/text_body"
         android:gravity="center_vertical"
         android:drawablePadding="@dimen/padding"/>
 
