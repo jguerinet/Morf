@@ -18,6 +18,13 @@ package com.guerinet.formgenerator.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.guerinet.formgenerator.FormGenerator;
 
 /**
  * MainActivity. Demonstrates the default behavior of the FormGenerator
@@ -30,5 +37,38 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		//Get the default instance
+		FormGenerator fg = FormGenerator.get(this, (LinearLayout)findViewById(R.id.container));
+
+		//Add the different form items
+		fg.text("Form Item: Text", "", 0, 0, true);
+
+		fg.button("Form Item: Button", "", 0, 0, true, new View.OnClickListener() {
+			@Override
+			public void onClick(View v){
+				Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+
+		fg.button("Form Item, Simple Button", new View.OnClickListener() {
+			@Override
+			public void onClick(View v){
+				Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		fg.input("", "Form Item: Input", 0, true);
+
+		SwitchCompat switchCompat = fg.aSwitch("Form Item: Switch", 0, true);
+		switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+				Toast.makeText(MainActivity.this, "Form Item: Switch changed", Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
 	}
 }
