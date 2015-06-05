@@ -20,6 +20,7 @@ import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorRes;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -418,7 +419,8 @@ public class FormGenerator {
 		 * @param colorId The color resource Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultIconColor(int colorId){
+		@ColorRes
+		public Builder setDefaultIconColorId(int colorId){
 			mDefaultIconColorId = colorId;
 			return this;
 		}
