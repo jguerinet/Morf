@@ -3,5 +3,4 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:textColor="@android:color/black"
-    android:textSize="@dimen/text_body"
-    android:padding="@dimen/padding_small"/>
+    android:textSize="@dimen/text_body"/>

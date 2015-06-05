@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fg_switch"
-        android:padding="@dimen/padding_small"
         app:showText="false"/>
 
     <include layout="@layout/fg_line"/>

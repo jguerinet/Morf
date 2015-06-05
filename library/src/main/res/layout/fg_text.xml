@@ -11,9 +11,8 @@
         android:background="@android:color/transparent"
         android:textSize="@dimen/text_body"
         android:textColor="@android:color/black"
-        android:padding="@dimen/padding_small"
         android:gravity="center_vertical"
-        android:drawablePadding="@dimen/padding_small"/>
+        android:drawablePadding="@dimen/padding"/>
 
     <include layout="@layout/fg_line"/>
 

@@ -8,13 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fg_input"
-        android:padding="@dimen/padding_small"
+        android:padding="@dimen/padding"
         android:singleLine="true"
         android:background="@null"
         android:textSize="@dimen/text_body"
         android:textColor="@android:color/black"
         android:inputType="text"
-        android:drawablePadding="@dimen/padding_small"
         android:gravity="center_vertical"/>
 
     <include layout="@layout/fg_line"/>

@@ -107,11 +107,7 @@ public class FormGenerator {
 	 */
 	public void space(){
 		View space = mInflater.inflate(R.layout.fg_space, mContainer, false);
-
-		//Set the height if there's a custom one
-		if(mDefaultSpaceSize != 0){
-			space.getLayoutParams().height = mDefaultSpaceSize;
-		}
+		space.getLayoutParams().height = mDefaultSpaceSize;
 
 		mContainer.addView(space);
 	}
@@ -266,7 +262,8 @@ public class FormGenerator {
 		}
 
 		//Padding
-		padding(textView);
+		textView.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
+				mDefaultPaddingSize);
 	}
 
 	/**
@@ -301,18 +298,6 @@ public class FormGenerator {
 		else if(mDefaultTextColorStateList != 0){
 			textView.setTextColor(textView.getResources()
 					.getColorStateList(mDefaultTextColorStateList));
-		}
-	}
-
-	/**
-	 * Sets the {@link View} padding with the default padding if there is one
-	 *
-	 * @param view The {@link View}
-	 */
-	private void padding (View view){
-		if(mDefaultPaddingSize != 0){
-			view.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
-					mDefaultPaddingSize);
 		}
 	}
 
@@ -375,10 +360,10 @@ public class FormGenerator {
 		private LinearLayout mContainer;
 		private int mDefaultIconColorId = 0;
 		private int mDefaultBackgroundId = 0;
-		private int mDefaultSpaceSize = 0;
+		private int mDefaultSpaceSize;
 		private int mDefaultTextColorId = 0;
 		private int mDefaultTextColorStateList = 0;
-		private int mDefaultPaddingSize = 0;
+		private int mDefaultPaddingSize;
 		private int mDefaultLineSize = 0;
 		private int mDefaultLineColorId = 0;
 		private boolean mShowLine = true;
@@ -392,6 +377,12 @@ public class FormGenerator {
 		public Builder(LayoutInflater inflater, LinearLayout container){
 			mInflater = inflater;
 			mContainer = container;
+
+			//Set the default sizes
+			mDefaultSpaceSize = mInflater.getContext().getResources()
+					.getDimensionPixelSize(R.dimen.space);
+			mDefaultPaddingSize = mInflater.getContext().getResources()
+					.getDimensionPixelSize(R.dimen.padding);
 		}
 
 		/**
