@@ -38,6 +38,10 @@ import android.widget.TextView;
  * @since 1.0.0
  */
 public class FormGenerator {
+	/**
+	 * The singleton instance of the default {@link FormGenerator}
+	 */
+	private static FormGenerator singleton = null;
 	/* SETTINGS */
 	/**
 	 * The {@link LayoutInflater}
@@ -91,6 +95,26 @@ public class FormGenerator {
 	 * True if we should show a line after a form item, false otherwise (defaults to true)
 	 */
 	private boolean mShowLine;
+
+	/**
+	 * Returns the default {@link FormGenerator} set
+	 *
+	 * @param inflater  The {@link LayoutInflater}
+	 * @param container The container that the items should be in
+	 * @return The default {@link FormGenerator}
+	 */
+	public static FormGenerator get(LayoutInflater inflater, LinearLayout container){
+		//No singleton set, build from the default settings
+		if(singleton == null){
+			singleton = new Builder(inflater, container).build();
+		}
+		//Singleton set: Update the inflater and the container
+		else{
+			singleton.mInflater = inflater;
+			singleton.mContainer = container;
+		}
+		return singleton;
+	}
 
 	/**
 	 * Default Constructor
