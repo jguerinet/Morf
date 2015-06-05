@@ -19,9 +19,13 @@ package com.guerinet.formgenerator.demo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-
+/**
+ * MainActivity. Demonstrates the default behavior of the FormGenerator
+ * @author Julien Guerinet
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class MainActivity extends AppCompatActivity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
