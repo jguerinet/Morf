@@ -97,7 +97,8 @@ public class FormGenerator {
 	private boolean mShowLine;
 
 	/**
-	 * Returns the default {@link FormGenerator} set
+	 * Returns the default {@link FormGenerator}. This will use either the default generator set
+	 *  by the user, or a generator with the default values
 	 *
 	 * @param inflater  The {@link LayoutInflater}
 	 * @param container The container that the items should be in
@@ -114,6 +115,18 @@ public class FormGenerator {
 			singleton.mContainer = container;
 		}
 		return singleton;
+	}
+
+	/**
+	 * Returns the default {@link FormGenerator}. This will use either the default generator set
+	 *  by the user, or a generator with the default values
+	 *
+	 * @param context   The {@link LayoutInflater}
+	 * @param container The container that the items should be in
+	 * @return The default {@link FormGenerator}
+	 */
+	public static FormGenerator get(Context context, LinearLayout container){
+		return get(LayoutInflater.from(context), container);
 	}
 
 	/**
