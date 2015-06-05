@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 		//Get the default instance
 		FormGenerator fg = FormGenerator.get(this, container);
 
-		//Add the different form items
+		//Default Form
 		fg.text("Form Item: Text (default settings)", "", 0, 0, true);
 
 		fg.button("Form Item: Button", "", 0, 0, true, new View.OnClickListener() {
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.space();
 
+		//Custom Form
 		fg = new FormGenerator.Builder(this, container)
 				.setDefaultBackground(android.R.drawable.list_selector_background)
 				.setDefaultLineColorId(android.R.color.black)
