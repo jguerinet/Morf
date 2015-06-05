@@ -130,6 +130,16 @@ public class FormGenerator {
 	}
 
 	/**
+	 * Sets the default instance of the {@link FormGenerator} to use when
+	 *  {@link #get(Context, LinearLayout)} or {@link #get(LayoutInflater, LinearLayout)} is called
+	 *
+	 * @param fg The default {@link FormGenerator instance to use}
+	 */
+	public static void setInstance(FormGenerator fg){
+		singleton = fg;
+	}
+
+	/**
 	 * Default Constructor
 	 *
 	 * @param builder The {@link Builder} instance to construct the {@link FormGenerator} from
