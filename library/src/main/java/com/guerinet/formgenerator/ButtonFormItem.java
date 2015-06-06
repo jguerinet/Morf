@@ -43,6 +43,8 @@ public class ButtonFormItem extends TextViewFormItem {
 	public ButtonFormItem(FormGenerator fg, View view, String text, View.OnClickListener listener){
 		super(fg, view, text);
 		mView.setOnClickListener(listener);
+		//Bold buttons
+		style(mFG.mDefaultTextTypeface, Typeface.BOLD);
 	}
 
 	/**

@@ -374,6 +374,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public EditText build(){
+		super.build();
 		return mEditText;
 	}
 }
