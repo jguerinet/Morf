@@ -13,7 +13,9 @@ Generates customizable forms for Android 8+ (tested on 10+). Form items include:
 
 Customization includes:
 
-* Text color (size coming soon)
+* Text color
+* Text size
+* Text typeface
 * Background color (can be solid colors or a color state list)
 * Icon color
 * Padding size
@@ -39,15 +41,20 @@ You can also attach the sources by using the [AARLinkSources][2] plugin:
 [1]:https://jitpack.io
 [2]:https://github.com/xujiaao/AARLinkSources
 
-To use this in your project, first build your `FormGenerator` with its custom `Builder`, customizing
-anything you might want to change. The default values are:
+To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Builder`, customizing
+anything you might want to change. You can use the default `FormGenerator` instance by calling one of the `FormGenerator.get()` methods.
+You can set the default `FormGenerator` instance by calling `FormGenerator.setInstance()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
 
 * Text Color: Black
 * Text Size: 14sp
+* Text Typeface: null (default Android Typeface)
 * Background: Transparent
+* Icon Color: Null (no drawable tinting)
 * Padding: 8dp
 * Line Width: 0.5 dp
+* Line Color: #EEEEE
 * Space Width: 10dp
+* Lines after items: On
 
 ## Demo
 A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of buttons:
