@@ -12,7 +12,8 @@
         android:singleLine="true"
         android:background="@null"
         android:inputType="text"
-        android:gravity="center_vertical"/>
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/padding"/>
 
     <include layout="@layout/fg_line"/>
 
