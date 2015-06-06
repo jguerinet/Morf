@@ -178,7 +178,7 @@ public class FormGenerator {
 	 * @return The {@link LineItem}
 	 */
 	public LineItem line(){
-		return new LineItem(this, mInflater.inflate(R.layout.fg_line, mContainer, false), true);
+		return new LineItem(this, mInflater.inflate(R.layout.fg_line, mContainer, false));
 	}
 
 	/**

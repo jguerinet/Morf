@@ -37,7 +37,7 @@ public abstract class FormItem extends LineItem{
 	 * @param view The {@link View}
 	 */
 	public FormItem(FormGenerator fg, View view){
-		super(fg, view.findViewById(R.id.fg_line), fg.mShowLine);
+		super(view.findViewById(R.id.fg_line), fg);
 		mView = view;
 
 		mFG.mContainer.addView(mView);

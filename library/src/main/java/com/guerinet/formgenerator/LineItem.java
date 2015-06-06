@@ -39,19 +39,35 @@ public class LineItem {
 	/**
 	 * Default Constructor
 	 *
-	 * @param fg       The {@link FormGenerator} instance
 	 * @param line     The line {@link View}
-	 * @param showLine True if the line should be shown, false otherwise
+	 * @param fg       The {@link FormGenerator} instance
 	 */
-	public LineItem(FormGenerator fg, View line, boolean showLine){
-		mLine = line;
+	protected LineItem(View line, FormGenerator fg){
 		mFG = fg;
+		mLine = line;
 
 		if(mLine != null){
-			visibility(showLine);
+			visibility(mFG.mShowLine);
 			lineSize(mFG.mDefaultLineSize);
 			lineColor(mFG.mDefaultLineColorId);
 		}
+	}
+
+	/**
+	 * Constructor for the independent lines
+	 *
+	 * @param fg   The {@link FormGenerator}
+	 * @param line The line {@link View}
+	 */
+	public LineItem(FormGenerator fg, View line){
+		mLine = line;
+		mFG = fg;
+
+		mFG.mContainer.addView(mLine);
+
+		visibility(true);
+		lineSize(mFG.mDefaultLineSize);
+		lineColor(mFG.mDefaultLineColorId);
 	}
 
 	/**
@@ -92,7 +108,6 @@ public class LineItem {
 	 * @return The {@link View}
 	 */
 	public View build(){
-		mFG.mContainer.addView(mLine);
 		return mLine;
 	}
 
