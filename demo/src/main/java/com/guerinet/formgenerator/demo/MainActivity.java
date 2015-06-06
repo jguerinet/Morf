@@ -89,19 +89,21 @@ public class MainActivity extends AppCompatActivity {
 				.setDefaultBackground(android.R.drawable.list_selector_background)
 				.setDefaultLineColorId(android.R.color.black)
 				.setDefaultLineSize(10)
-				.setDefaultTextColorId(android.R.color.holo_blue_dark, false)
+				.setDefaultTextColorId(android.R.color.holo_red_dark, false)
 				.setDefaultTypeface(Typeface.SERIF)
+				.setDefaultIconColorId(android.R.color.holo_blue_dark)
 				.build();
 
 		//Add the different form items
-		fg.text("Form Item: Text (custom settings)", "", 0, 0, true);
+		fg.text("Form Item: Text (custom settings)", "", R.drawable.ic_info, 0, true);
 
-		fg.button("Form Item: Button", "", 0, 0, true, new View.OnClickListener() {
-			@Override
-			public void onClick(View v){
-				Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
-						.show();
-			}
+		fg.button("Form Item: Button", "", R.drawable.ic_info, R.drawable.ic_chevron_right, false,
+				new View.OnClickListener() {
+					@Override
+					public void onClick(View v){
+						Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
+								.show();
+					}
 		});
 
 		fg.space();
@@ -117,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.line();
 
-		fg.input("", "Form Item: Input", 0, true);
+		fg.input("", "Form Item: Input", R.drawable.ic_info, true);
 
-		SwitchCompat switchCompat2 = fg.aSwitch("Form Item: Switch", 0, true);
+		SwitchCompat switchCompat2 = fg.aSwitch("Form Item: Switch", R.drawable.ic_info, false);
 		switchCompat2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
