@@ -55,12 +55,12 @@ public class TextViewFormItem extends FormItem {
 	 * @param fg   The {@link FormGenerator} instance
 	 * @param view The {@link View}
 	 */
-	public TextViewFormItem(FormGenerator fg, View view, String text){
+	public TextViewFormItem(FormGenerator fg, View view, TextView textView, String text){
 		super(fg, view);
+		mTextView = textView;
 		mView.setClickable(false);
 		mResources = mView.getResources();
 
-		mTextView = (TextView)view.findViewById(R.id.fg_title);
 		mTextView.setText(text);
 
 		//Icons - set them all to nothing

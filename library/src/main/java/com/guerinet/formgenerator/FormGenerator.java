@@ -22,6 +22,7 @@ import android.support.annotation.ColorRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Creates various form items and adds them to a given container
@@ -195,8 +196,8 @@ public class FormGenerator {
 	 * @return The {@link TextViewFormItem}
 	 */
 	public TextViewFormItem text(String text){
-		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_text, mContainer, false),
-				text);
+		View view = mInflater.inflate(R.layout.fg_text, mContainer, false);
+		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text);
 	}
 
 	/**
