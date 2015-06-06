@@ -282,7 +282,7 @@ public class FormGenerator {
 		private LinearLayout mContainer;
 		private int mDefaultIconColorId = 0;
 		private int mDefaultBackgroundId = 0;
-		private int mDefaultInputBackgroundId =0 ;
+		private int mDefaultInputBackgroundId = 0;
 		private int mDefaultSpaceSize;
 		private int mDefaultTextSize;
 		private int mDefaultTextColorId = android.R.color.black;

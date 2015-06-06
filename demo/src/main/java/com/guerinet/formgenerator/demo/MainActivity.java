@@ -19,7 +19,6 @@ package com.guerinet.formgenerator.demo;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -45,15 +44,18 @@ public class MainActivity extends AppCompatActivity {
 		FormGenerator fg = FormGenerator.get(this, container);
 
 		//Default Form
-		fg.text("Form Item: Text (default settings)", "", 0, 0, true);
+		fg.text("Form Item: Text (default settings)");
 
-		fg.button("Form Item: Button", "", 0, 0, true, new View.OnClickListener() {
-			@Override
-			public void onClick(View v){
-				Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
-						.show();
-			}
-		});
+		fg.text("Form Item: Button")
+				.onClick(new View.OnClickListener() {
+					@Override
+					public void onClick(View v){
+						Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast
+								.LENGTH_SHORT)
+								.show();
+					}
+				})
+				.build();
 
 		fg.space();
 
@@ -68,16 +70,16 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.line();
 
-		fg.input("", "Form Item: Input", 0, true);
+		fg.input("").hint("Form Item: Input").build();
 
-		SwitchCompat switchCompat = fg.aSwitch("Form Item: Switch", 0, true);
-		switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-				Toast.makeText(MainActivity.this, "Form Item: Switch changed", Toast.LENGTH_SHORT)
-						.show();
-			}
-		});
+		fg.aSwitch("Form Item: Switch").onCheckChanged(new CompoundButton.OnCheckedChangeListener(){
+				@Override
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+					Toast.makeText(MainActivity.this, "Form Item: Switch changed",
+							Toast.LENGTH_SHORT).show();
+				}
+			})
+			.build();
 
 		fg.space();
 		fg.space();
@@ -95,16 +97,20 @@ public class MainActivity extends AppCompatActivity {
 				.build();
 
 		//Add the different form items
-		fg.text("Form Item: Text (custom settings)", "", R.drawable.ic_info, 0, true);
+		fg.text("Form Item: Text (custom settings)")
+				.leftIcon(R.drawable.ic_info)
+				.build();
 
-		fg.button("Form Item: Button", "", R.drawable.ic_info, R.drawable.ic_chevron_right, false,
-				new View.OnClickListener() {
+		fg.text("Form Item: Button")
+				.leftIcon(R.drawable.ic_info, false)
+				.rightIcon(R.drawable.ic_chevron_right)
+				.onClick(new View.OnClickListener() {
 					@Override
 					public void onClick(View v){
 						Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
 								.show();
 					}
-		});
+				}).build();
 
 		fg.space();
 
@@ -119,15 +125,19 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.line();
 
-		fg.input("", "Form Item: Input", R.drawable.ic_info, true);
+		fg.input("")
+				.hint("Form Item: Input")
+				.leftIcon(R.drawable.ic_info)
+				.build();
 
-		SwitchCompat switchCompat2 = fg.aSwitch("Form Item: Switch", R.drawable.ic_info, false);
-		switchCompat2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-				Toast.makeText(MainActivity.this, "Form Item: Switch changed", Toast.LENGTH_SHORT)
-						.show();
-			}
-		});
+		fg.aSwitch("Form Item: Switch")
+				.onCheckChanged(new CompoundButton.OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+						Toast.makeText(MainActivity.this, "Form Item: Switch changed",
+								Toast.LENGTH_SHORT).show();
+					}
+				})
+				.leftIcon(R.drawable.ic_info, false);
 	}
 }

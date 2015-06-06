@@ -7,7 +7,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fg_input"
+        android:id="@+id/fg_title"
         android:singleLine="true"
         android:inputType="text|textCapSentences"
         android:gravity="center_vertical"

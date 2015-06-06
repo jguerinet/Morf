@@ -16,7 +16,6 @@
 
 package com.guerinet.formgenerator;
 
-import android.content.res.Resources;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
@@ -36,10 +35,6 @@ public class LineItem {
 	 * The {@link FormGenerator} instance
 	 */
 	protected FormGenerator mFG;
-	/**
-	 * The {@link Resources}
-	 */
-	protected Resources mResources;
 
 	/**
 	 * Default Constructor
@@ -51,11 +46,12 @@ public class LineItem {
 	public LineItem(FormGenerator fg, View line, boolean showLine){
 		mLine = line;
 		mFG = fg;
-		mResources = mLine.getResources();
 
-		visibility(showLine);
-		lineSize(mFG.mDefaultLineSize);
-		lineColor(mFG.mDefaultLineColorId);
+		if(mLine != null){
+			visibility(showLine);
+			lineSize(mFG.mDefaultLineSize);
+			lineColor(mFG.mDefaultLineColorId);
+		}
 	}
 
 	/**
@@ -76,7 +72,7 @@ public class LineItem {
 	 * @return The {@link LineItem} instance
 	 */
 	public LineItem lineSizeDimen(@DimenRes int sizeDimen){
-		return lineSize(mResources.getDimensionPixelSize(sizeDimen));
+		return lineSize(mLine.getResources().getDimensionPixelSize(sizeDimen));
 	}
 
 	/**

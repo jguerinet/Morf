@@ -16,6 +16,7 @@
 
 package com.guerinet.formgenerator;
 
+import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Typeface;
@@ -43,6 +44,10 @@ public class TextViewFormItem extends FormItem {
 	 * The list of {@link Icon}s to add
 	 */
 	private Icon[] mIcons;
+	/**
+	 * The {@link Resources}
+	 */
+	protected Resources mResources;
 
 	/**
 	 * Default Constructor
@@ -53,6 +58,7 @@ public class TextViewFormItem extends FormItem {
 	public TextViewFormItem(FormGenerator fg, View view, String text){
 		super(fg, view);
 		mView.setClickable(false);
+		mResources = mView.getResources();
 
 		mTextView = (TextView)view.findViewById(R.id.fg_title);
 		mTextView.setText(text);

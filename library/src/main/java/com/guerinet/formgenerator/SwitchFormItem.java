@@ -41,7 +41,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 */
 	public SwitchFormItem(FormGenerator fg, View view, String text){
 		super(fg, view, text);
-		mSwitch = (SwitchCompat)view.findViewById(R.id.fg_switch);
+		mSwitch = (SwitchCompat)mTextView;
 	}
 
 	/**
