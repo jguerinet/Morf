@@ -19,13 +19,9 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.annotation.ColorRes;
-import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 /**
  * Creates various form items and adds them to a given container
@@ -173,7 +169,7 @@ public class FormGenerator {
 	}
 
 	/**
-	 * Adds a customizable line
+	 * Adds a line
 	 *
 	 * @return The {@link LineItem}
 	 */
@@ -182,14 +178,7 @@ public class FormGenerator {
 	}
 
 	/**
-	 * Adds a default line
-	 */
-	public View defaultLine(){
-		return line().view();
-	}
-
-	/**
-	 * Adds a customizable input item
+	 * Adds an input item
 	 *
 	 * @param text The text
 	 * @return The {@link EditTextFormItem}
@@ -200,17 +189,7 @@ public class FormGenerator {
 	}
 
 	/**
-	 * Adds a default input item
-	 *
-	 * @param text The text
-	 * @return The {@link EditText}
-	 */
-	public EditText defaultInput(String text){
-		return input(text).view();
-	}
-
-	/**
-	 * Adds a customizable text item
+	 * Adds a text item
 	 *
 	 * @param text The text
 	 * @return The {@link TextViewFormItem}
@@ -221,17 +200,7 @@ public class FormGenerator {
 	}
 
 	/**
-	 * Adds a default text item
-	 *
-	 * @param text The text
-	 * @return The {@link TextView}
-	 */
-	public TextView defaultText(String text){
-		return text(text).view();
-	}
-
-	/**
-	 * Adds a customizable standard button
+	 * Adds a standard button
 	 *
 	 * @param text     The text
 	 * @param listener The {@link View.OnClickListener}
@@ -243,18 +212,7 @@ public class FormGenerator {
 	}
 
 	/**
-	 * Adds a default standard button
-	 *
-	 * @param text     The text
-	 * @param listener The {@link View.OnClickListener}
-	 * @return The {@link TextView}
-	 */
-	public Button defaultButton(String text, View.OnClickListener listener){
-		return button(text, listener).view();
-	}
-
-	/**
-	 * Adds a customizable switch item
+	 * Adds a switch item
 	 *
 	 * @param text The text
 	 * @return The {@link SwitchFormItem}
@@ -262,16 +220,6 @@ public class FormGenerator {
 	public SwitchFormItem aSwitch(String text){
 		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
 				text);
-	}
-
-	/**
-	 * Adds the default switch item
-	 *
-	 * @param text The text
-	 * @return The {@link SwitchCompat}
-	 */
-	public SwitchCompat defaultSwitch(String text){
-		return aSwitch(text).view();
 	}
 
 	/**

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 		FormGenerator fg = FormGenerator.get(this, container);
 
 		//Default Form
-		fg.defaultText("Form Item: Text (default settings)");
+		fg.text("Form Item: Text (default settings)");
 
 		fg.text("Form Item: Button")
 				.onClick(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.space();
 
-		fg.defaultButton("Form Item, Simple Button", new View.OnClickListener() {
+		fg.button("Form Item, Simple Button", new View.OnClickListener() {
 			@Override
 			public void onClick(View v){
 				Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.space();
 
-		fg.defaultButton("Form Item, Simple Button", new View.OnClickListener() {
+		fg.button("Form Item, Simple Button", new View.OnClickListener() {
 			@Override
 			public void onClick(View v){
 				Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
