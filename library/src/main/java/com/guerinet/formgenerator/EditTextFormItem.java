@@ -368,6 +368,36 @@ public class EditTextFormItem extends TextViewFormItem {
 	}
 
 	/**
+	 * Sets the line size
+	 *
+	 * @param pixels The line size, in pixels
+	 * @return The {@link EditTextFormItem} instance
+	 */
+	public EditTextFormItem lineSize(int pixels){
+		return (EditTextFormItem)super.lineSize(pixels);
+	}
+
+	/**
+	 * Sets the line size
+	 *
+	 * @param sizeDimen The line size dimension Id
+	 * @return The {@link EditTextFormItem} instance
+	 */
+	public EditTextFormItem lineSizeDimen(@DimenRes int sizeDimen){
+		return (EditTextFormItem)super.lineSizeDimen(sizeDimen);
+	}
+
+	/**
+	 * Sets the line color
+	 *
+	 * @param colorId The color Id
+	 * @return The {@link EditTextFormItem} instance
+	 */
+	public EditTextFormItem lineColor(@DrawableRes int colorId){
+		return (EditTextFormItem)super.lineColor(colorId);
+	}
+	
+	/**
 	 * @return The {@link EditText}
 	 */
 	@Override

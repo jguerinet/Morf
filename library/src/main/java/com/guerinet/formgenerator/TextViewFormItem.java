@@ -419,6 +419,36 @@ public class TextViewFormItem extends FormItem {
 	}
 
 	/**
+	 * Sets the line size
+	 *
+	 * @param pixels The line size, in pixels
+	 * @return The {@link TextViewFormItem} instance
+	 */
+	public TextViewFormItem lineSize(int pixels){
+		return (TextViewFormItem)super.lineSize(pixels);
+	}
+
+	/**
+	 * Sets the line size
+	 *
+	 * @param sizeDimen The line size dimension Id
+	 * @return The {@link TextViewFormItem} instance
+	 */
+	public TextViewFormItem lineSizeDimen(@DimenRes int sizeDimen){
+		return (TextViewFormItem)super.lineSizeDimen(sizeDimen);
+	}
+
+	/**
+	 * Sets the line color
+	 *
+	 * @param colorId The color Id
+	 * @return The {@link TextViewFormItem} instance
+	 */
+	public TextViewFormItem lineColor(@DrawableRes int colorId){
+		return (TextViewFormItem)super.lineColor(colorId);
+	}
+
+	/**
 	 * @return The {@link TextView}
 	 */
 	@Override

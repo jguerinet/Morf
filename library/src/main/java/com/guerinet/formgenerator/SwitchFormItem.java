@@ -366,6 +366,36 @@ public class SwitchFormItem extends TextViewFormItem {
 	}
 
 	/**
+	 * Sets the line size
+	 *
+	 * @param pixels The line size, in pixels
+	 * @return The {@link SwitchFormItem} instance
+	 */
+	public SwitchFormItem lineSize(int pixels){
+		return (SwitchFormItem)super.lineSize(pixels);
+	}
+
+	/**
+	 * Sets the line size
+	 *
+	 * @param sizeDimen The line size dimension Id
+	 * @return The {@link SwitchFormItem} instance
+	 */
+	public SwitchFormItem lineSizeDimen(@DimenRes int sizeDimen){
+		return (SwitchFormItem)super.lineSizeDimen(sizeDimen);
+	}
+
+	/**
+	 * Sets the line color
+	 *
+	 * @param colorId The color Id
+	 * @return The {@link SwitchFormItem} instance
+	 */
+	public SwitchFormItem lineColor(@DrawableRes int colorId){
+		return (SwitchFormItem)super.lineColor(colorId);
+	}
+
+	/**
 	 * @return The {@link SwitchCompat}
 	 */
 	@Override
