@@ -17,17 +17,11 @@
 package com.guerinet.formgenerator;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.v7.widget.SwitchCompat;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -43,6 +37,7 @@ public class FormGenerator {
 	 * The singleton instance of the default {@link FormGenerator}
 	 */
 	private static FormGenerator singleton = null;
+
 	/* SETTINGS */
 	/**
 	 * The {@link LayoutInflater}
@@ -51,15 +46,15 @@ public class FormGenerator {
 	/**
 	 * The {@link LinearLayout} used as the form container
 	 */
-	private LinearLayout mContainer;
+	LinearLayout mContainer;
 	/**
 	 * The default icon color Id, 0 if none
 	 */
-	private int mDefaultIconColorId;
+	int mDefaultIconColorId;
 	/**
 	 * The default background Id, 0 if none
 	 */
-	private int mDefaultBackgroundId;
+	int mDefaultBackgroundId;
 	/**
 	 * The default space size, 10dp if none
 	 */
@@ -67,35 +62,35 @@ public class FormGenerator {
 	/**
 	 * The default text size, 14dp if none
 	 */
-	private int mDefaultTextSize;
+	int mDefaultTextSize;
 	/**
 	 * The default text color Id, black if none
 	 */
-	private int mDefaultTextColorId;
+	int mDefaultTextColorId;
 	/**
 	 * The default typeface to use, null if none
 	 */
-	private Typeface mDefaultTextTypeface;
+	Typeface mDefaultTextTypeface;
 	/**
 	 * The default text color state list, 0 if none
 	 */
-	private int mDefaultTextColorStateListId;
+	int mDefaultTextColorStateListId;
 	/**
 	 * The default padding size for the non-space/line items, 8dp if none
 	 */
-	private int mDefaultPaddingSize;
+	int mDefaultPaddingSize;
 	/**
 	 * The default line size, 0.5 dp if none
 	 */
-	private int mDefaultLineSize;
+	int mDefaultLineSize;
 	/**
 	 * The default line color Id, #EEEEEE if none
 	 */
-	private int mDefaultLineColorId;
+	int mDefaultLineColorId;
 	/**
 	 * True if we should show a line after a form item, false otherwise (defaults to true)
 	 */
-	private boolean mShowLine;
+	boolean mShowLine;
 
 	/**
 	 * Returns the default {@link FormGenerator}. This will use either the default generator set
@@ -171,234 +166,47 @@ public class FormGenerator {
 		mContainer.addView(space);
 	}
 
-	/**
-	 * Adds a line
-	 */
-	public void line(){
-		View line = mInflater.inflate(R.layout.fg_line, mContainer, false);
-
-		//Process it
-		line(line, false);
-
-		mContainer.addView(line);
+	public LineItem line(){
+		return new LineItem(this, mInflater.inflate(R.layout.fg_line, mContainer, false), true);
 	}
 
 	/**
-	 * Adds an input field with a left icon
-	 *
-	 * @param text        The input text
-	 * @param hint        The input hint
-	 * @param iconId      The Id of the icon to use
-	 * @param iconVisible True if the icon should be visible, false otherwise
-	 * @return The {@link EditText} where the user will be inputting
+	 * Adds a default line
 	 */
-	public EditText input(String text, String hint, int iconId, boolean iconVisible){
-		View inputField = mInflater.inflate(R.layout.fg_input, mContainer, false);
-		line(inputField);
-		background(inputField);
-
-		EditText input = (EditText) inputField.findViewById(R.id.fg_input);
-		textView(input, text, hint, iconId, 0, iconVisible);
-
-		mContainer.addView(inputField);
-
-		return input;
+	public View defaultLine(){
+		return line().build();
 	}
 
-	/**
-	 * Adds a text box with left/right icons
-	 *
-	 * @param text        The text to show
-	 * @param hint        The hint to show if there is no text
-	 * @param leftIconId  The Id for the left icon, 0 if none
-	 * @param rightIconId The Id for the right icon, 0 if none (used for chevrons)
-	 * @param iconVisible True if the icon should be visible, false otherwise
-	 * @return The {@link TextView}
-	 */
-	public TextView text(String text, String hint, int leftIconId, int rightIconId,
-			boolean iconVisible){
-		View textField = mInflater.inflate(R.layout.fg_text, mContainer, false);
-		line(textField);
-		background(textField);
-
-		//Text
-		TextView title = (TextView)textField.findViewById(R.id.fg_title);
-		textView(title, text, hint, leftIconId, rightIconId, iconVisible);
-
-		//Set the button to not clickable
-		textField.setClickable(false);
-
-		mContainer.addView(textField);
-
-		return title;
+	public EditTextFormItem input(){
+		return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false));
 	}
 
-	/**
-	 * Adds a button box with left/right icons
-	 *
-	 * @param text        The button text to show
-	 * @param hint        The hint to show if there is no text
-	 * @param leftIconId  The Id for the left icon, 0 if none
-	 * @param rightIconId The Id for the right icon, 0 if none
-	 * @param iconVisible True if the icon should be visible, false otherwise
-	 * @param listener    The {@link OnClickListener} to call if the button is pressed
-	 * @return The {@link TextView}
-	 */
-	public TextView button(String text, String hint, int leftIconId, int rightIconId,
-			boolean iconVisible, OnClickListener listener){
-		TextView title = text(text, hint, leftIconId, rightIconId, iconVisible);
-
-		//Set the OnClickListener on the parent
-		((View)title.getParent()).setOnClickListener(listener);
-
-		return title;
+	public EditText defaultInput(){
+		return input().build();
 	}
 
-	/**
-	 * Adds a standard {@link Button} (centered capitalized text)
-	 *
-	 * @param title    The button title
-	 * @param listener The {@link OnClickListener} to call when the button is clicked
-	 * @return The {@link Button}
-	 */
-	public Button button(String title, OnClickListener listener){
-		Button button = (Button)mInflater.inflate(R.layout.fg_button, mContainer, false);
-		background(button);
-
-		textView(button, title, "", 0, 0, true);
-		button.setOnClickListener(listener);
-
-		mContainer.addView(button);
-
-		return button;
+	public TextViewFormItem text(){
+		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_text, mContainer, false));
 	}
 
-	/**
-	 * Adds a {@link SwitchCompat} with the given title
-	 *
-	 * @param title       The title of the field
-	 * @param leftIconId  The Id of the left icon, 0 if none
-	 * @param iconVisible True if the left icon should be visible, false otherwise
-	 * @return The {@link SwitchCompat}
-	 */
-	public SwitchCompat aSwitch(String title, int leftIconId, boolean iconVisible){
-		View aSwitch = mInflater.inflate(R.layout.fg_switch, mContainer, false);
-		background(aSwitch);
-		line(aSwitch);
-
-		SwitchCompat switchField = (SwitchCompat)aSwitch.findViewById(R.id.fg_switch);
-		textView(switchField, title, "", leftIconId, 0, iconVisible);
-
-		mContainer.addView(aSwitch);
-
-		return switchField;
+	public TextView defaultText(){
+		return text().build();
 	}
 
-	/* HELPERS */
-
-	/**
-	 * Sets up the given {@link TextView}
-	 *
-	 * @param textView    The {@link TextView}
-	 * @param text        The text
-	 * @param hint        The hint
-	 * @param leftIconId  The left icon Id
-	 * @param rightIconId The right icon Id
-	 * @param iconVisible True if the left icon should be visible, false otherwise
-	 */
-	private void textView(TextView textView, String text, String hint, int leftIconId,
-			int rightIconId, boolean iconVisible){
-		//Text
-		textView.setHint(hint);
-		textView.setText(text);
-
-		//Text Color
-		if(mDefaultTextColorStateListId != 0){
-			textView.setTextColor(textView.getResources()
-					.getColorStateList(mDefaultTextColorStateListId));
-		}
-		else{
-			textView.setTextColor(textView.getResources().getColor(mDefaultTextColorId));
-		}
-
-		//Text Size
-		textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mDefaultTextSize);
-
-		//Padding
-		textView.setPadding(mDefaultPaddingSize, mDefaultPaddingSize, mDefaultPaddingSize,
-				mDefaultPaddingSize);
-
-		//Typeface
-		if(mDefaultTextTypeface != null){
-			textView.setTypeface(mDefaultTextTypeface);
-		}
-
-		//Icons
-		textView.setCompoundDrawablesWithIntrinsicBounds(leftIconId, 0, rightIconId, 0);
-		icon(textView);
-		if(leftIconId != 0){
-			textView.getCompoundDrawables()[0].setAlpha(iconVisible ? 255 : 0);
-		}
+	public TextViewFormItem button(){
+		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false));
 	}
 
-	/**
-	 * Colors the {@link TextView} compound icons with the default icon color if there is one
-	 * @param textView The {@link TextView}
-	 */
-	private void icon(TextView textView){
-		if(mDefaultIconColorId != 0){
-			//Get the color
-			int color = textView.getResources().getColor(mDefaultIconColorId);
-
-			for(int i = 0; i < 4; i ++){
-				//Apply it to the compound drawable at the given position
-				Drawable drawable = textView.getCompoundDrawables()[i];
-				if(drawable != null){
-					drawable.mutate().setColorFilter(
-							new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
-				}
-			}
-		}
+	public TextView defaultButton(){
+		return button().build();
 	}
 
-	/**
-	 * Sets the background resource on the given view if there is one
-	 *
-	 * @param view The {@link View}
-	 */
-	private void background(View view){
-		if(mDefaultBackgroundId != 0){
-			view.setBackgroundResource(mDefaultBackgroundId);
-		}
+	public SwitchFormItem aSwitch(){
+		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false));
 	}
 
-	/**
-	 * Sets the default line size and/or color on the given view
-	 *
-	 * @param view     The {@link View} containing the line
-	 * @param hideLine True if we should hide the line if requested, false if shown regardless
-	 */
-	private void line(View view, boolean hideLine){
-		//Find the line
-		View line = view.findViewById(R.id.fg_line);
-		if(line != null){
-			//Hide the line if needed
-			if(hideLine && !mShowLine){
-				line.setVisibility(View.GONE);
-				return;
-			}
-			line.getLayoutParams().height = mDefaultLineSize;
-			line.setBackgroundResource(mDefaultLineColorId);
-		}
-	}
-
-	/**
-	 * Sets the line parameters for the given {@link View}
-	 *
-	 * @param view The {@link View}
-	 */
-	private void line(View view){
-		line(view, mShowLine);
+	public SwitchCompat defaultSwitch(){
+		return aSwitch().build();
 	}
 
 	/**
