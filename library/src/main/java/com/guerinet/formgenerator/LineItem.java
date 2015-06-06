@@ -103,11 +103,9 @@ public class LineItem {
 	}
 
 	/**
-	 * Builds the {@link View} and adds it to the container
-	 *
 	 * @return The {@link View}
 	 */
-	public View build(){
+	public View view(){
 		return mLine;
 	}
 

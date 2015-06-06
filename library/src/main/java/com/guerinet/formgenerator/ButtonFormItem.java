@@ -341,13 +341,10 @@ public class ButtonFormItem extends TextViewFormItem {
 	}
 
 	/**
-	 * Builds the {@link Button} form item
-	 *
 	 * @return The {@link Button}
 	 */
 	@Override
-	public Button build(){
-		super.build();
+	public Button view(){
 		return (Button)mTextView;
 	}
 }

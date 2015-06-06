@@ -235,6 +235,39 @@ public class TextViewFormItem extends FormItem {
 	}
 
 	/**
+	 * Sets up the icon
+	 *
+	 * @param position The icon position
+	 * @param iconId   The icon Id
+	 * @param colorId  The color Id
+	 * @param visible  True if the icon should be visible, false otherwise
+	 */
+	private void icon(int position, @DrawableRes int iconId, @ColorRes int colorId,
+			boolean visible){
+		mIcons[position] = new Icon(iconId, colorId, visible);
+
+		//Set all of the icons
+		mTextView.setCompoundDrawablesWithIntrinsicBounds(mIcons[0].mDrawableId,
+				mIcons[1].mDrawableId, mIcons[2].mDrawableId, mIcons[3].mDrawableId);
+
+		//Apply the tinting and alpha
+		for(int i = 0; i < 4; i++){
+			Icon icon = mIcons[i];
+			Drawable drawable = mTextView.getCompoundDrawables()[i];
+			if(drawable != null){
+				drawable = drawable.mutate();
+				if(!icon.mVisible){
+					drawable.setAlpha(0);
+				}
+				else{
+					drawable.setColorFilter(new PorterDuffColorFilter(
+							mResources.getColor(icon.mColorId),PorterDuff.Mode.SRC_ATOP));
+				}
+			}
+		}
+	}
+
+	/**
 	 * Sets the left icon
 	 *
 	 * @param iconId  The icon resource Id
@@ -242,7 +275,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible){
-		mIcons[0] = new Icon(iconId, mFG.mDefaultIconColorId, visible);
+		icon(0, iconId, mFG.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -254,7 +287,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible){
-		mIcons[1] = new Icon(iconId, mFG.mDefaultIconColorId, visible);
+		icon(1, iconId, mFG.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -266,7 +299,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible){
-		mIcons[2] = new Icon(iconId, mFG.mDefaultIconColorId, visible);
+		icon(2, iconId, mFG.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -278,7 +311,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible){
-		mIcons[3] = new Icon(iconId, mFG.mDefaultIconColorId, visible);
+		icon(3, iconId, mFG.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -289,7 +322,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId){
-		mIcons[0] = new Icon(iconId, mFG.mDefaultIconColorId, true);
+		icon(0, iconId, mFG.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -300,7 +333,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId){
-		mIcons[1] = new Icon(iconId, mFG.mDefaultIconColorId, true);
+		icon(1, iconId, mFG.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -311,7 +344,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId){
-		mIcons[2] = new Icon(iconId, mFG.mDefaultIconColorId, true);
+		icon(2, iconId, mFG.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -322,7 +355,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId){
-		mIcons[3] = new Icon(iconId, mFG.mDefaultIconColorId, true);
+		icon(3, iconId, mFG.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -334,7 +367,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId){
-		mIcons[0] = new Icon(iconId, colorId, true);
+		icon(0, iconId, colorId, true);
 		return this;
 	}
 
@@ -346,7 +379,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId){
-		mIcons[1] = new Icon(iconId, colorId, true);
+		icon(1, iconId, colorId, true);
 		return this;
 	}
 
@@ -358,7 +391,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId){
-		mIcons[2] = new Icon(iconId, colorId, true);
+		icon(2, iconId, colorId, true);
 		return this;
 	}
 
@@ -370,7 +403,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId){
-		mIcons[3] = new Icon(iconId, colorId, true);
+		icon(3, iconId, colorId, true);
 		return this;
 	}
 
@@ -386,33 +419,10 @@ public class TextViewFormItem extends FormItem {
 	}
 
 	/**
-	 * Builds the {@link TextView} form item
-	 *
 	 * @return The {@link TextView}
 	 */
 	@Override
-	public TextView build(){
-		super.build();
-
-		//Icons
-		mTextView.setCompoundDrawablesWithIntrinsicBounds(mIcons[0].mDrawableId,
-				mIcons[1].mDrawableId, mIcons[2].mDrawableId, mIcons[3].mDrawableId);
-
-		for(int i = 0; i < 4; i ++){
-			//Apply it to the compound drawable at the given position
-			Drawable drawable = mTextView.getCompoundDrawables()[i];
-			if(drawable != null){
-				Icon icon = mIcons[i];
-				if(!icon.mVisible){
-					drawable.setAlpha(0);
-				}
-				else{
-					drawable.mutate().setColorFilter(new PorterDuffColorFilter(
-							mResources.getColor(icon.mColorId), PorterDuff.Mode.SRC_ATOP));
-				}
-			}
-		}
-
+	public TextView view(){
 		return mTextView;
 	}
 

@@ -366,13 +366,10 @@ public class SwitchFormItem extends TextViewFormItem {
 	}
 
 	/**
-	 * Builds the switch form item
-	 *
 	 * @return The {@link SwitchCompat}
 	 */
 	@Override
-	public SwitchCompat build(){
-		super.build();
+	public SwitchCompat view(){
 		return mSwitch;
 	}
 }

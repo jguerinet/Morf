@@ -80,11 +80,9 @@ public abstract class FormItem extends LineItem{
 	}
 
 	/**
-	 * Builds the view and adds it to the container
-	 *
 	 * @return The {@link View}
 	 */
-	public View build(){
+	public View view(){
 		return mView;
 	}
 }

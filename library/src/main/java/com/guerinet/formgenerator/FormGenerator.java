@@ -185,7 +185,7 @@ public class FormGenerator {
 	 * Adds a default line
 	 */
 	public View defaultLine(){
-		return line().build();
+		return line().view();
 	}
 
 	/**
@@ -206,7 +206,7 @@ public class FormGenerator {
 	 * @return The {@link EditText}
 	 */
 	public EditText defaultInput(String text){
-		return input(text).build();
+		return input(text).view();
 	}
 
 	/**
@@ -227,7 +227,7 @@ public class FormGenerator {
 	 * @return The {@link TextView}
 	 */
 	public TextView defaultText(String text){
-		return text(text).build();
+		return text(text).view();
 	}
 
 	/**
@@ -250,7 +250,7 @@ public class FormGenerator {
 	 * @return The {@link TextView}
 	 */
 	public Button defaultButton(String text, View.OnClickListener listener){
-		return button(text, listener).build();
+		return button(text, listener).view();
 	}
 
 	/**
@@ -271,7 +271,7 @@ public class FormGenerator {
 	 * @return The {@link SwitchCompat}
 	 */
 	public SwitchCompat defaultSwitch(String text){
-		return aSwitch(text).build();
+		return aSwitch(text).view();
 	}
 
 	/**

@@ -368,13 +368,10 @@ public class EditTextFormItem extends TextViewFormItem {
 	}
 
 	/**
-	 * Builds the input form item
-	 *
 	 * @return The {@link EditText}
 	 */
 	@Override
-	public EditText build(){
-		super.build();
+	public EditText view(){
 		return mEditText;
 	}
 }
