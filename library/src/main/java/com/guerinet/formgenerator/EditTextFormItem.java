@@ -40,6 +40,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	public EditTextFormItem(FormGenerator fg, View view){
 		super(fg, view);
 		mEditText = (EditText)mView.findViewById(R.id.fg_input);
+		//Set the right background
+		background(mFG.mDefaultInputBackgroundId);
 	}
 
 	/**

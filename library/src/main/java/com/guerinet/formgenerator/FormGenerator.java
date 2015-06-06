@@ -56,6 +56,10 @@ public class FormGenerator {
 	 */
 	int mDefaultBackgroundId;
 	/**
+	 * The default background Id for the input item, 0 if none
+	 */
+	int mDefaultInputBackgroundId;
+	/**
 	 * The default space size, 10dp if none
 	 */
 	private int mDefaultSpaceSize;
@@ -145,6 +149,7 @@ public class FormGenerator {
 		mContainer = builder.mContainer;
 		mDefaultIconColorId = builder.mDefaultIconColorId;
 		mDefaultBackgroundId = builder.mDefaultBackgroundId;
+		mDefaultInputBackgroundId = builder.mDefaultInputBackgroundId;
 		mDefaultSpaceSize = builder.mDefaultSpaceSize;
 		mDefaultTextSize = builder.mDefaultTextSize;
 		mDefaultTextColorId = builder.mDefaultTextColorId;
@@ -217,6 +222,7 @@ public class FormGenerator {
 		private LinearLayout mContainer;
 		private int mDefaultIconColorId = 0;
 		private int mDefaultBackgroundId = 0;
+		private int mDefaultInputBackgroundId =0 ;
 		private int mDefaultSpaceSize;
 		private int mDefaultTextSize;
 		private int mDefaultTextColorId = android.R.color.black;
@@ -287,6 +293,17 @@ public class FormGenerator {
 		 */
 		public Builder setDefaultBackground(int backgroundId){
 			mDefaultBackgroundId = backgroundId;
+			return this;
+		}
+
+		/**
+		 * Sets the default background for the input fields
+		 *
+		 * @param backgroundId The background resource Id (can be a color or drawable)
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setInputDefaultBackground(int backgroundId){
+			mDefaultInputBackgroundId = backgroundId;
 			return this;
 		}
 
