@@ -400,7 +400,11 @@ public class TextViewFormItem extends FormItem {
 		return this;
 	}
 
-
+	/**
+	 * Builds the {@link TextView} form item
+	 *
+	 * @return The {@link TextView}
+	 */
 	@Override
 	public TextView build(){
 		super.build();
