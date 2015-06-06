@@ -182,36 +182,40 @@ public class FormGenerator {
 		return line().build();
 	}
 
-	public EditTextFormItem input(){
-		return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false));
+	public EditTextFormItem input(String text){
+		return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false),
+				text);
 	}
 
-	public EditText defaultInput(){
-		return input().build();
+	public EditText defaultInput(String text){
+		return input(text).build();
 	}
 
-	public TextViewFormItem text(){
-		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_text, mContainer, false));
+	public TextViewFormItem text(String text){
+		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_text, mContainer, false),
+				text);
 	}
 
-	public TextView defaultText(){
-		return text().build();
+	public TextView defaultText(String text){
+		return text(text).build();
 	}
 
-	public TextViewFormItem button(){
-		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false));
+	public TextViewFormItem button(String text){
+		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
+				text);
 	}
 
-	public TextView defaultButton(){
-		return button().build();
+	public TextView defaultButton(String text){
+		return button(text).build();
 	}
 
-	public SwitchFormItem aSwitch(){
-		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false));
+	public SwitchFormItem aSwitch(String text){
+		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
+				text);
 	}
 
-	public SwitchCompat defaultSwitch(){
-		return aSwitch().build();
+	public SwitchCompat defaultSwitch(String text){
+		return aSwitch(text).build();
 	}
 
 	/**

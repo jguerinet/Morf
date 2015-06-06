@@ -36,9 +36,10 @@ public class EditTextFormItem extends TextViewFormItem {
 	 *
 	 * @param fg   The {@link FormGenerator} instance
 	 * @param view The {@link View}
+	 * @param text The text
 	 */
-	public EditTextFormItem(FormGenerator fg, View view){
-		super(fg, view);
+	public EditTextFormItem(FormGenerator fg, View view, String text){
+		super(fg, view, text);
 		mEditText = (EditText)mView.findViewById(R.id.fg_input);
 		//Set the right background
 		background(mFG.mDefaultInputBackgroundId);

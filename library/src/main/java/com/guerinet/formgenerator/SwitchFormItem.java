@@ -37,9 +37,10 @@ public class SwitchFormItem extends TextViewFormItem {
 	 *
 	 * @param fg   The {@link FormGenerator} instance
 	 * @param view The {@link View}
+	 * @param text The text
 	 */
-	public SwitchFormItem(FormGenerator fg, View view){
-		super(fg, view);
+	public SwitchFormItem(FormGenerator fg, View view, String text){
+		super(fg, view, text);
 		mSwitch = (SwitchCompat)view.findViewById(R.id.fg_switch);
 	}
 

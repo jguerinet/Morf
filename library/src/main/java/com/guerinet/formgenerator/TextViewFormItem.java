@@ -50,11 +50,12 @@ public class TextViewFormItem extends FormItem {
 	 * @param fg   The {@link FormGenerator} instance
 	 * @param view The {@link View}
 	 */
-	public TextViewFormItem(FormGenerator fg, View view){
+	public TextViewFormItem(FormGenerator fg, View view, String text){
 		super(fg, view);
 		mView.setClickable(false);
 
 		mTextView = (TextView)view.findViewById(R.id.fg_title);
+		mTextView.setText(text);
 
 		//Icons - set them all to nothing
 		mIcons = new Icon[4];
@@ -79,28 +80,6 @@ public class TextViewFormItem extends FormItem {
 
 		//Typeface
 		typeface(mFG.mDefaultTextTypeface);
-	}
-
-	/**
-	 * Sets the {@link TextView} text
-	 *
-	 * @param text The text
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	public TextViewFormItem text(String text){
-		mTextView.setText(text);
-		return this;
-	}
-
-	/**
-	 * Sets the {@link TextView} text
-	 *
-	 * @param stringId The String Id
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	public TextViewFormItem text(@StringRes int stringId){
-		mTextView.setText(stringId);
-		return this;
 	}
 
 	/**
