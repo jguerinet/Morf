@@ -171,6 +171,11 @@ public class FormGenerator {
 		mContainer.addView(space);
 	}
 
+	/**
+	 * Adds a customizable line
+	 *
+	 * @return The {@link LineItem}
+	 */
 	public LineItem line(){
 		return new LineItem(this, mInflater.inflate(R.layout.fg_line, mContainer, false), true);
 	}
@@ -182,38 +187,86 @@ public class FormGenerator {
 		return line().build();
 	}
 
+	/**
+	 * Adds a customizable input item
+	 *
+	 * @param text The text
+	 * @return The {@link EditTextFormItem}
+	 */
 	public EditTextFormItem input(String text){
 		return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false),
 				text);
 	}
 
+	/**
+	 * Adds a default input item
+	 *
+	 * @param text The text
+	 * @return The {@link EditText}
+	 */
 	public EditText defaultInput(String text){
 		return input(text).build();
 	}
 
+	/**
+	 * Adds a customizable text item
+	 *
+	 * @param text The text
+	 * @return The {@link TextViewFormItem}
+	 */
 	public TextViewFormItem text(String text){
 		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_text, mContainer, false),
 				text);
 	}
 
+	/**
+	 * Adds a default text item
+	 *
+	 * @param text The text
+	 * @return The {@link TextView}
+	 */
 	public TextView defaultText(String text){
 		return text(text).build();
 	}
 
+	/**
+	 * Adds a customizable standard button
+	 *
+	 * @param text The text
+	 * @return The {@link TextViewFormItem}
+	 */
 	public TextViewFormItem button(String text){
 		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
 				text);
 	}
 
+	/**
+	 * Adds a default standard button
+	 *
+	 * @param text The text
+	 * @return The {@link TextView}
+	 */
 	public TextView defaultButton(String text){
 		return button(text).build();
 	}
 
+	/**
+	 * Adds a customizable switch item
+	 *
+	 * @param text The text
+	 * @return The {@link SwitchFormItem}
+	 */
 	public SwitchFormItem aSwitch(String text){
 		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
 				text);
 	}
 
+	/**
+	 * Adds the default switch item
+	 *
+	 * @param text The text
+	 * @return The {@link SwitchCompat}
+	 */
 	public SwitchCompat defaultSwitch(String text){
 		return aSwitch(text).build();
 	}
