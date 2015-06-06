@@ -49,6 +49,12 @@ anything you might want to change. The default values are:
 * Line Width: 0.5 dp
 * Space Width: 10dp
 
+## Demo
+A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of buttons:
+the top one is the default settings for FormGenerator, the bottom is a customized FormGenerator (changed text color, background selector, line width, line color). Below is a screenshot:
+
+![Demo Screenshot](assets/demo_screenshot.png)
+
 ## Gradle Dependencies
 * appcompat-v7: AppCompat Support Library
 
