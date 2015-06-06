@@ -50,13 +50,13 @@ public class FormGenerator {
 	 */
 	int mDefaultIconColorId;
 	/**
-	 * The default background Id, 0 if none
+	 * The default background Id, null if none
 	 */
-	int mDefaultBackgroundId;
+	Integer mDefaultBackgroundId;
 	/**
-	 * The default background Id for the input item, 0 if none
+	 * The default background Id for the input item, null if none
 	 */
-	int mDefaultInputBackgroundId;
+	Integer mDefaultInputBackgroundId;
 	/**
 	 * The default space size, 10dp if none
 	 */
@@ -230,8 +230,8 @@ public class FormGenerator {
 		private LayoutInflater mInflater;
 		private LinearLayout mContainer;
 		private int mDefaultIconColorId = 0;
-		private int mDefaultBackgroundId = 0;
-		private int mDefaultInputBackgroundId = 0;
+		private Integer mDefaultBackgroundId = null;
+		private Integer mDefaultInputBackgroundId = null;
 		private int mDefaultSpaceSize;
 		private int mDefaultTextSize;
 		private int mDefaultTextColorId = android.R.color.black;

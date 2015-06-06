@@ -43,7 +43,7 @@ public abstract class FormItem extends LineItem{
 		mFG.mContainer.addView(mView);
 
 		//Set the default background
-		if(mFG.mDefaultBackgroundId != 0){
+		if(mFG.mDefaultBackgroundId != null){
 			view.setBackgroundResource(mFG.mDefaultBackgroundId);
 		}
 	}

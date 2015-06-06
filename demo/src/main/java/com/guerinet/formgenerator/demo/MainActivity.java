@@ -71,13 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.input("").hint("Form Item: Input");
 
-		fg.aSwitch("Form Item: Switch").onCheckChanged(new CompoundButton.OnCheckedChangeListener(){
-				@Override
-				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-					Toast.makeText(MainActivity.this, "Form Item: Switch changed",
-							Toast.LENGTH_SHORT).show();
-				}
-			});
+		fg.aSwitch("Form Item: Switch").onCheckChanged(new CompoundButton.OnCheckedChangeListener
+				() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+				Toast.makeText(MainActivity.this, "Form Item: Switch changed",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
 
 		fg.space();
 		fg.space();
@@ -124,7 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.input("")
 				.hint("Form Item: Input")
-				.leftIcon(R.drawable.ic_info);
+				.leftIcon(R.drawable.ic_info)
+				.inputBackground(0);
 
 		fg.aSwitch("Form Item: Switch")
 				.onCheckChanged(new CompoundButton.OnCheckedChangeListener() {

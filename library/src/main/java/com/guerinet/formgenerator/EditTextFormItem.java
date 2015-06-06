@@ -49,7 +49,9 @@ public class EditTextFormItem extends TextViewFormItem {
 		mEditText = (EditText)mTextView;
 
 		//Set the right background
-		background(mFG.mDefaultInputBackgroundId);
+		if(mFG.mDefaultInputBackgroundId != null){
+			inputBackground(mFG.mDefaultInputBackgroundId);
+		}
 	}
 
 	/**
@@ -71,6 +73,17 @@ public class EditTextFormItem extends TextViewFormItem {
 	 */
 	public EditTextFormItem inputType(int type){
 		mEditText.setInputType(type);
+		return this;
+	}
+
+	/**
+	 *  Sets the {@link EditText} background
+	 *
+	 * @param backgroundId The background Id
+	 * @return The {@link FormItem} instance
+	 */
+	public EditTextFormItem inputBackground(int backgroundId){
+		mEditText.setBackgroundResource(backgroundId);
 		return this;
 	}
 
