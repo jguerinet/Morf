@@ -54,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
 								.LENGTH_SHORT)
 								.show();
 					}
-				})
-				.build();
+				});
 
 		fg.space();
 
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.line();
 
-		fg.input("").hint("Form Item: Input").build();
+		fg.input("").hint("Form Item: Input");
 
 		fg.aSwitch("Form Item: Switch").onCheckChanged(new CompoundButton.OnCheckedChangeListener(){
 				@Override
@@ -78,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
 					Toast.makeText(MainActivity.this, "Form Item: Switch changed",
 							Toast.LENGTH_SHORT).show();
 				}
-			})
-			.build();
+			});
 
 		fg.space();
 		fg.space();
@@ -98,8 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
 		//Add the different form items
 		fg.text("Form Item: Text (custom settings)")
-				.leftIcon(R.drawable.ic_info)
-				.build();
+				.leftIcon(R.drawable.ic_info);
 
 		fg.text("Form Item: Button")
 				.leftIcon(R.drawable.ic_info, false)
@@ -110,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 						Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
 								.show();
 					}
-				}).build();
+				});
 
 		fg.space();
 
@@ -127,8 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.input("")
 				.hint("Form Item: Input")
-				.leftIcon(R.drawable.ic_info)
-				.build();
+				.leftIcon(R.drawable.ic_info);
 
 		fg.aSwitch("Form Item: Switch")
 				.onCheckChanged(new CompoundButton.OnCheckedChangeListener() {
@@ -138,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
 								Toast.LENGTH_SHORT).show();
 					}
 				})
-				.leftIcon(R.drawable.ic_info, false)
-				.build();
+				.leftIcon(R.drawable.ic_info, false);
 	}
 }

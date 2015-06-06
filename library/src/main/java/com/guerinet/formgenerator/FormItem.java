@@ -40,6 +40,8 @@ public abstract class FormItem extends LineItem{
 		super(fg, view.findViewById(R.id.fg_line), fg.mShowLine);
 		mView = view;
 
+		mFG.mContainer.addView(mView);
+
 		//Set the default background
 		if(mFG.mDefaultBackgroundId != 0){
 			view.setBackgroundResource(mFG.mDefaultBackgroundId);
@@ -83,7 +85,6 @@ public abstract class FormItem extends LineItem{
 	 * @return The {@link View}
 	 */
 	public View build(){
-		mFG.mContainer.addView(mView);
 		return mView;
 	}
 }
