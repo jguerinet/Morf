@@ -58,7 +58,7 @@ You can set the default `FormGenerator` instance by calling `FormGenerator.setIn
 
 ## Demo
 A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of buttons:
-the top one is the default settings for FormGenerator, the bottom is a customized FormGenerator (changed text color, background selector, line width, line color). Below is a screenshot:
+the top one is the default settings for FormGenerator, the bottom is a customized FormGenerator (changed text color, background selector, line width, line color, icon, and icon color). Below is a screenshot:
 
 ![Demo Screenshot](assets/demo_screenshot.png)
 
