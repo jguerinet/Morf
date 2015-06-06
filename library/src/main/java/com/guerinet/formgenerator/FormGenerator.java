@@ -22,6 +22,7 @@ import android.support.annotation.ColorRes;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -232,22 +233,24 @@ public class FormGenerator {
 	/**
 	 * Adds a customizable standard button
 	 *
-	 * @param text The text
+	 * @param text     The text
+	 * @param listener The {@link View.OnClickListener}
 	 * @return The {@link TextViewFormItem}
 	 */
-	public TextViewFormItem button(String text){
-		return new TextViewFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
-				text);
+	public ButtonFormItem button(String text, View.OnClickListener listener){
+		return new ButtonFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
+				text, listener);
 	}
 
 	/**
 	 * Adds a default standard button
 	 *
-	 * @param text The text
+	 * @param text     The text
+	 * @param listener The {@link View.OnClickListener}
 	 * @return The {@link TextView}
 	 */
-	public TextView defaultButton(String text){
-		return button(text).build();
+	public Button defaultButton(String text, View.OnClickListener listener){
+		return button(text, listener).build();
 	}
 
 	/**

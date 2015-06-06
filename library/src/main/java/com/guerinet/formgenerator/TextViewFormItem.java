@@ -38,7 +38,7 @@ public class TextViewFormItem extends FormItem {
 	/**
 	 * The {@link TextView}
 	 */
-	private TextView mTextView;
+	protected TextView mTextView;
 	/**
 	 * The list of {@link Icon}s to add
 	 */
