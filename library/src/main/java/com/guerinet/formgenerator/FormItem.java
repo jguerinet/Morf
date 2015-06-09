@@ -44,7 +44,7 @@ public abstract class FormItem extends LineItem{
 
 		//Set the default background
 		if(mFG.mDefaultBackgroundId != null){
-			view.setBackgroundResource(mFG.mDefaultBackgroundId);
+			background(mFG.mDefaultBackgroundId);
 		}
 	}
 

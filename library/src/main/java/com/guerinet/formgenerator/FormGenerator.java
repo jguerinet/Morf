@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -325,7 +326,7 @@ public class FormGenerator {
 		 * @param colorId The space color Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultSpaceColor(@ColorRes int colorId){
+		public Builder setDefaultSpaceColor(@DrawableRes int colorId){
 			mDefaultBackgroundId = colorId;
 			return this;
 		}

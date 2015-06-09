@@ -17,6 +17,7 @@
 package com.guerinet.formgenerator;
 
 import android.support.annotation.DimenRes;
+import android.support.annotation.DrawableRes;
 import android.view.View;
 
 /**
@@ -44,6 +45,10 @@ public class SpaceItem extends Item {
 		mFG.mContainer.addView(mSpace);
 
 		size(mFG.mDefaultSpaceSize);
+		//Set the default space color
+		if(mFG.mDefaultSpaceColorId != null){
+			background(mFG.mDefaultSpaceColorId);
+		}
 	}
 
 	/**
@@ -65,6 +70,17 @@ public class SpaceItem extends Item {
 	 */
 	public SpaceItem sizeDimen(@DimenRes int sizeDimen){
 		return size(mSpace.getResources().getDimensionPixelSize(sizeDimen));
+	}
+
+	/**
+	 * Sets the space color
+	 *
+	 * @param colorId The color Id
+	 * @return The {@link SpaceItem} instance
+	 */
+	public SpaceItem background(@DrawableRes int colorId){
+		mSpace.setBackgroundResource(colorId);
+		return this;
 	}
 
 	@Override
