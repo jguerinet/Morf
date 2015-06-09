@@ -26,15 +26,11 @@ import android.view.View;
  * @version 2.0.0
  * @since 2.0.0
  */
-public class LineItem {
+public class LineItem extends Item {
 	/**
 	 * The line {@link View}
 	 */
 	private View mLine;
-	/**
-	 * The {@link FormGenerator} instance
-	 */
-	protected FormGenerator mFG;
 
 	/**
 	 * Default Constructor
@@ -43,7 +39,7 @@ public class LineItem {
 	 * @param fg       The {@link FormGenerator} instance
 	 */
 	protected LineItem(View line, FormGenerator fg){
-		mFG = fg;
+		super(fg);
 		mLine = line;
 
 		if(mLine != null){
@@ -60,8 +56,8 @@ public class LineItem {
 	 * @param line The line {@link View}
 	 */
 	public LineItem(FormGenerator fg, View line){
+		super(fg);
 		mLine = line;
-		mFG = fg;
 
 		mFG.mContainer.addView(mLine);
 
@@ -105,6 +101,7 @@ public class LineItem {
 	/**
 	 * @return The {@link View}
 	 */
+	@Override
 	public View view(){
 		return mLine;
 	}
