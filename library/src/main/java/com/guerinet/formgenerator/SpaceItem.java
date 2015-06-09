@@ -25,15 +25,11 @@ import android.view.View;
  * @version 2.0.0
  * @since 2.0.0
  */
-public class SpaceItem {
+public class SpaceItem extends Item {
 	/**
 	 * The space {@link View}
 	 */
 	private View mSpace;
-	/**
-	 * The {@link FormGenerator} instance
-	 */
-	private FormGenerator mFG;
 
 	/***
 	 * Default Constructor
@@ -42,7 +38,7 @@ public class SpaceItem {
 	 * @param space The space {@link View}
 	 */
 	public SpaceItem(FormGenerator fg, View space){
-		mFG = fg;
+		super(fg);
 		mSpace = space;
 
 		mFG.mContainer.addView(mSpace);
@@ -69,5 +65,10 @@ public class SpaceItem {
 	 */
 	public SpaceItem sizeDimen(@DimenRes int sizeDimen){
 		return size(mSpace.getResources().getDimensionPixelSize(sizeDimen));
+	}
+
+	@Override
+	public View view(){
+		return mSpace;
 	}
 }

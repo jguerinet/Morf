@@ -98,9 +98,6 @@ public class LineItem extends Item {
 		return this;
 	}
 
-	/**
-	 * @return The {@link View}
-	 */
 	@Override
 	public View view(){
 		return mLine;
