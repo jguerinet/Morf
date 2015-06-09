@@ -58,6 +58,10 @@ public class FormGenerator {
 	 */
 	Integer mDefaultInputBackgroundId;
 	/**
+	 * The default color for the space, transparent if none
+	 */
+	Integer mDefaultSpaceColorId;
+	/**
 	 * The default space size, 10dp if none
 	 */
 	int mDefaultSpaceSize;
@@ -148,6 +152,7 @@ public class FormGenerator {
 		mDefaultIconColorId = builder.mDefaultIconColorId;
 		mDefaultBackgroundId = builder.mDefaultBackgroundId;
 		mDefaultInputBackgroundId = builder.mDefaultInputBackgroundId;
+		mDefaultSpaceColorId = builder.mDefaultSpaceColorId;
 		mDefaultSpaceSize = builder.mDefaultSpaceSize;
 		mDefaultTextSize = builder.mDefaultTextSize;
 		mDefaultTextColorId = builder.mDefaultTextColorId;
@@ -229,6 +234,7 @@ public class FormGenerator {
 		private int mDefaultIconColorId = 0;
 		private Integer mDefaultBackgroundId = null;
 		private Integer mDefaultInputBackgroundId = null;
+		private Integer mDefaultSpaceColorId = android.R.color.transparent;
 		private int mDefaultSpaceSize;
 		private int mDefaultTextSize;
 		private int mDefaultTextColorId = android.R.color.black;
@@ -310,6 +316,17 @@ public class FormGenerator {
 		 */
 		public Builder setInputDefaultBackground(int backgroundId){
 			mDefaultInputBackgroundId = backgroundId;
+			return this;
+		}
+
+		/**
+		 * Sets the default space color
+		 *
+		 * @param colorId The space color Id
+		 * @return The {@link Builder} instance
+		 */
+		public Builder setDefaultSpaceColor(@ColorRes int colorId){
+			mDefaultBackgroundId = colorId;
 			return this;
 		}
 
