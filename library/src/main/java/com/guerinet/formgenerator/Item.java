@@ -23,4 +23,17 @@ package com.guerinet.formgenerator;
  * @since 2.0.0
  */
 public abstract class Item {
+	/**
+	 * The {@link FormGenerator} instance
+	 */
+	protected FormGenerator mFG;
+
+	/**
+	 * Default Constructor
+	 *
+	 * @param fg The {@link FormGenerator} instance
+	 */
+	protected Item(FormGenerator fg){
+		mFG = fg;
+	}
 }
