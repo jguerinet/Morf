@@ -16,6 +16,8 @@
 
 package com.guerinet.formgenerator;
 
+import android.view.View;
+
 /**
  * The base class for all items that could be present on a form
  * @author Julien Guerinet
@@ -36,4 +38,9 @@ public abstract class Item {
 	protected Item(FormGenerator fg){
 		mFG = fg;
 	}
+
+	/**
+	 * @return The {@link View}
+	 */
+	public abstract View view();
 }
