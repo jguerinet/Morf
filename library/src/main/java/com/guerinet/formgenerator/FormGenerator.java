@@ -326,8 +326,8 @@ public class FormGenerator {
 		 * @param colorId The space color Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultSpaceColor(@DrawableRes int colorId){
-			mDefaultBackgroundId = colorId;
+		public Builder setDefaultSpaceColorId(@DrawableRes int colorId){
+			mDefaultSpaceColorId = colorId;
 			return this;
 		}
 
