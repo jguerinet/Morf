@@ -60,7 +60,7 @@ public class FormGenerator {
 	/**
 	 * The default space size, 10dp if none
 	 */
-	private int mDefaultSpaceSize;
+	int mDefaultSpaceSize;
 	/**
 	 * The default text size, 14dp if none
 	 */
@@ -162,11 +162,8 @@ public class FormGenerator {
 	/**
 	 * Adds a space
 	 */
-	public void space(){
-		View space = mInflater.inflate(R.layout.fg_space, mContainer, false);
-		space.getLayoutParams().height = mDefaultSpaceSize;
-
-		mContainer.addView(space);
+	public SpaceItem space(){
+		return new SpaceItem(this, mInflater.inflate(R.layout.fg_space, mContainer, false));
 	}
 
 	/**
