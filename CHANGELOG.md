@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.0.0 (2015-06-09)
+* Added possibility to customize the space color
+* Added possibility to customize the input background
+* Added possibility to set the backgrounds for any form item (except the lines) to @null
+* Reworked how the views were created and added to the container: each specific view can now be customized independently of the default settings
+
 ## Version 1.1.0 (2015-06-05)
 * Added demo project to demonstrate library capabilities
 * Added possibility to customize the text size
