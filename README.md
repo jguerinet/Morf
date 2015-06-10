@@ -59,6 +59,7 @@ You can set the default `FormGenerator` instance by calling `FormGenerator.setIn
 * Space Color: Transparent
 * Lines after items: True
 
+Once you set your default FormGenerator, you can always customize the default values for one specific page by deconstructing it into a `Builder`, changing the desired fields, and rebuilding it.
 Each item can be further customized if you need to have some properties that are different from the default properties. When adding each item, there are a number of methods you can call to further customize the item itself.
 To get the associated view, simple call `view()` at the end of your customization. All of the above properties can be customized per form item, as well as:
 
