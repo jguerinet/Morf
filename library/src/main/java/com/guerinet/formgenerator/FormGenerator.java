@@ -166,6 +166,15 @@ public class FormGenerator {
 	}
 
 	/**
+	 * Deconstructs a {@link FormGenerator} into a new {@link Builder} instance
+	 *
+	 * @return The new {@link Builder} instance
+	 */
+	public Builder deconstruct(){
+		return new Builder(this);
+	}
+
+	/**
 	 * Adds a space
 	 */
 	public SpaceItem space(){
@@ -275,6 +284,29 @@ public class FormGenerator {
 		 */
 		public Builder(Context context, LinearLayout container){
 			this(LayoutInflater.from(context), container);
+		}
+
+		/**
+		 * Creates a {@link Builder} from a {@link FormGenerator}
+		 *
+		 * @param fg The {@link FormGenerator}
+		 */
+		private Builder(FormGenerator fg){
+			mInflater = fg.mInflater;
+			mContainer = fg.mContainer;
+			mDefaultIconColorId = fg.mDefaultIconColorId;
+			mDefaultBackgroundId = fg.mDefaultBackgroundId;
+			mDefaultInputBackgroundId = fg.mDefaultInputBackgroundId;
+			mDefaultSpaceColorId = fg.mDefaultSpaceColorId;
+			mDefaultSpaceSize = fg.mDefaultSpaceSize;
+			mDefaultTextSize = fg.mDefaultTextSize;
+			mDefaultTextColorId = fg.mDefaultTextColorId;
+			mDefaultTextColorStateListId = fg.mDefaultTextColorStateListId;
+			mDefaultTextTypeface = fg.mDefaultTextTypeface;
+			mDefaultPaddingSize = fg.mDefaultPaddingSize;
+			mDefaultLineSize = fg.mDefaultLineSize;
+			mDefaultLineColorId = fg.mDefaultLineColorId;
+			mShowLine = fg.mShowLine;
 		}
 
 		/**
