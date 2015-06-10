@@ -3,11 +3,11 @@
 ## Summary
 Generates customizable forms for Android 8+ (tested on 10+). Form items include:
 
-* Simple text with/without left/right icons
-* Text buttons with/without left/right icons
+* Simple text
+* Text buttons
 * Standard Android buttons
-* Switches with/without a left icon
-* Input fields with/without a left icon
+* Switches
+* Input fields
 * Lines
 * Spaces
 
@@ -16,11 +16,12 @@ Customization includes:
 * Text color
 * Text size
 * Text typeface
-* Background color (can be solid colors or a color state list)
+* Background color (can be solid colors, drawables, or a color state list)
+* Input background (For the EditTexts)
 * Icon color
 * Padding size
 * Line width and color
-* Space width
+* Space width and color
 * Whether or not lines should be shown after form items
 
 ## Instructions
@@ -31,30 +32,42 @@ To include this in your project, you can add it with Gradle by using [JitPack][1
     }
 
 	dependencies {
-	    compile 'com.github.jguerinet:form-generator:1.1.0'
+	    compile 'com.github.jguerinet:form-generator:2.0.0'
 	}
 
 You can also attach the sources by using the [AARLinkSources][2] plugin:
 
-	aarLinkSources 'com.github.jguerinet:form-generator:1.1.0:sources@jar'
+	aarLinkSources 'com.github.jguerinet:form-generator:2.0.0:sources@jar'
 
 [1]:https://jitpack.io
 [2]:https://github.com/xujiaao/AARLinkSources
 
 To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Builder`, customizing
-anything you might want to change. You can use the default `FormGenerator` instance by calling one of the `FormGenerator.get()` methods.
+anything you might want to change or you can use the default `FormGenerator` instance by calling one of the `FormGenerator.get()` methods.
 You can set the default `FormGenerator` instance by calling `FormGenerator.setInstance()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
 
 * Text Color: Black
 * Text Size: 14sp
 * Text Typeface: null (default Android Typeface)
 * Background: Transparent
+* Input Background: Default Android background
 * Icon Color: Null (no drawable tinting)
 * Padding: 8dp
 * Line Width: 0.5 dp
 * Line Color: #EEEEE
 * Space Width: 10dp
-* Lines after items: On
+* Space Color: Transparent
+* Lines after items: True
+
+Each item can be further customized if you need to have some properties that are different from the default properties. When adding each item, there are a number of methods you can call to further customize the item itself.
+To get the associated view, simple call `view()` at the end of your customization. All of the above properties can be customized per form item, as well as:
+
+* Check state for `Switch`es
+* Setting an `OnCheckedChangeListener` for `Switch`es
+* Setting an `OnClickListener` for all form items except the spaces and lines
+* Setting the input type on the `EditText`s (default is capitalized sentences)
+* Setting if the `EditText` should be single line or not (default is true)
+* Setting icons on all form items except the spaces and lines
 
 ## Demo
 A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of buttons:
