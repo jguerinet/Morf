@@ -24,7 +24,7 @@ import android.view.View;
  * @version 2.0.0
  * @since 2.0.0
  */
-public abstract class FormItem extends LineItem{
+abstract class FormItem extends LineItem{
 	/**
 	 * The form item {@link View}
 	 */
