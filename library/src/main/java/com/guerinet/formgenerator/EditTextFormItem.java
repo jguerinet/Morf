@@ -28,7 +28,7 @@ import android.widget.EditText;
 /**
  * Builder for an input form item
  * @author Julien Guerinet
- * @version 2.0.0
+ * @version 2.0.1
  * @since 2.0.0
  */
 public class EditTextFormItem extends TextViewFormItem {

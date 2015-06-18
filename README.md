@@ -32,12 +32,12 @@ To include this in your project, you can add it with Gradle by using [JitPack][1
     }
 
 	dependencies {
-	    compile 'com.github.jguerinet:form-generator:2.0.0'
+	    compile 'com.github.jguerinet:form-generator:2.0.1'
 	}
 
 You can also attach the sources by using the [AARLinkSources][2] plugin:
 
-	aarLinkSources 'com.github.jguerinet:form-generator:2.0.0:sources@jar'
+	aarLinkSources 'com.github.jguerinet:form-generator:2.0.1:sources@jar'
 
 [1]:https://jitpack.io
 [2]:https://github.com/xujiaao/AARLinkSources

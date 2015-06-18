@@ -28,7 +28,7 @@ import android.widget.TextView;
 /**
  * Creates various form items and adds them to a given container
  * @author Julien Guerinet
- * @version 1.0.0
+ * @version 2.0.1
  * @since 1.0.0
  */
 public class FormGenerator {

@@ -32,7 +32,7 @@ import android.widget.TextView;
 /**
  * Builder for a {@link TextView} form item (buttons, texts, and inputs)
  * @author Julien Guerinet
- * @version 2.0.0
+ * @version 2.0.1
  * @since 2.0.0
  */
 public class TextViewFormItem extends FormItem {

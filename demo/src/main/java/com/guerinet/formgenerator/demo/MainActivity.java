@@ -86,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 
 		//Custom Form
-		fg = new FormGenerator.Builder(this, container)
+		fg = new FormGenerator.Builder()
 				.setDefaultBackground(android.R.drawable.list_selector_background)
 				.setDefaultLineColorId(android.R.color.black)
 				.setDefaultLineSize(10)
 				.setDefaultTextColorId(android.R.color.holo_red_dark, false)
 				.setDefaultTypeface(Typeface.SERIF)
 				.setDefaultIconColorId(android.R.color.holo_blue_dark)
-				.build();
+				.build(this, container);
 
 		//Add the different form items
 		fg.text("Form Item: Text (custom settings)")

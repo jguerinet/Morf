@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.0.1 (2015-06-18)
+* Fixed bug where some super class methods for the form items were not overridden
+* Builder no longer depends on the LayoutInflater and a container, only the FormGenerator does
+
 ## Version 2.0.0 (2015-06-09)
 * Added possibility to customize the space color
 * Added possibility to customize the input background
