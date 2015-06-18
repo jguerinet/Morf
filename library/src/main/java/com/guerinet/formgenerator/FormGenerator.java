@@ -33,9 +33,9 @@ import android.widget.TextView;
  */
 public class FormGenerator {
 	/**
-	 * The singleton instance of the default {@link FormGenerator}
+	 * The singleton instance of the default {@link Builder} to use
 	 */
-	private static FormGenerator singleton = null;
+	private static Builder singleton = null;
 
 	/* SETTINGS */
 	/**
@@ -110,14 +110,10 @@ public class FormGenerator {
 	public static FormGenerator get(LayoutInflater inflater, LinearLayout container){
 		//No singleton set, build from the default settings
 		if(singleton == null){
-			singleton = new Builder(inflater, container).build();
+			singleton = new Builder();
 		}
-		//Singleton set: Update the inflater and the container
-		else{
-			singleton.mInflater = inflater;
-			singleton.mContainer = container;
-		}
-		return singleton;
+
+		return singleton.build(inflater, container);
 	}
 
 	/**
@@ -136,20 +132,22 @@ public class FormGenerator {
 	 * Sets the default instance of the {@link FormGenerator} to use when
 	 *  {@link #get(Context, LinearLayout)} or {@link #get(LayoutInflater, LinearLayout)} is called
 	 *
-	 * @param fg The default {@link FormGenerator instance to use}
+	 * @param builder The {@link Builder} instance
 	 */
-	public static void setInstance(FormGenerator fg){
-		singleton = fg;
+	public static void setInstance(Builder builder){
+		singleton = builder;
 	}
 
 	/**
 	 * Default Constructor
 	 *
-	 * @param builder The {@link Builder} instance to construct the {@link FormGenerator} from
+	 * @param builder   The {@link Builder} instance to construct the {@link FormGenerator} from
+	 * @param inflater  The {@link LayoutInflater} instance
+	 * @param container The container to add the form items to
 	 */
-	private FormGenerator(Builder builder){
-		mInflater = builder.mInflater;
-		mContainer = builder.mContainer;
+	private FormGenerator(Builder builder, LayoutInflater inflater, LinearLayout container){
+		mInflater = inflater;
+		mContainer = container;
 		mDefaultIconColorId = builder.mDefaultIconColorId;
 		mDefaultBackgroundId = builder.mDefaultBackgroundId;
 		mDefaultInputBackgroundId = builder.mDefaultInputBackgroundId;
@@ -239,52 +237,28 @@ public class FormGenerator {
 	 * The Form Generator builder
 	 */
 	public static class Builder {
-		private LayoutInflater mInflater;
-		private LinearLayout mContainer;
 		private int mDefaultIconColorId = 0;
 		private Integer mDefaultBackgroundId = null;
 		private Integer mDefaultInputBackgroundId = null;
 		private Integer mDefaultSpaceColorId = android.R.color.transparent;
-		private int mDefaultSpaceSize;
-		private int mDefaultTextSize;
+		private Integer mDefaultSpaceSize = null;
+		private int mDefaultSpaceSizeId = R.dimen.space;
+		private Integer mDefaultTextSize = null;
+		private int mDefaultTextSizeId = R.dimen.text;
 		private int mDefaultTextColorId = android.R.color.black;
 		private int mDefaultTextColorStateListId = 0;
 		private Typeface mDefaultTextTypeface = null;
-		private int mDefaultPaddingSize;
-		private int mDefaultLineSize;
+		private Integer mDefaultPaddingSize = null;
+		private int mDefaultPaddingSizeId = R.dimen.padding;
+		private Integer mDefaultLineSize = null;
+		private int mDefaultLineSizeId = R.dimen.line;
 		private int mDefaultLineColorId = R.color.line;
 		private boolean mShowLine = true;
 
 		/**
 		 * Default Constructor
-		 *
-		 * @param inflater  The {@link LayoutInflater}
-		 * @param container The container to put all of the generated form items in
 		 */
-		public Builder(LayoutInflater inflater, LinearLayout container){
-			mInflater = inflater;
-			mContainer = container;
-
-			//Set the default sizes
-			mDefaultSpaceSize = mInflater.getContext().getResources()
-					.getDimensionPixelSize(R.dimen.space);
-			mDefaultPaddingSize = mInflater.getContext().getResources()
-					.getDimensionPixelSize(R.dimen.padding);
-			mDefaultLineSize = mInflater.getContext().getResources()
-					.getDimensionPixelSize(R.dimen.line);
-			mDefaultTextSize = mInflater.getContext().getResources()
-					.getDimensionPixelSize(R.dimen.text);
-		}
-
-		/**
-		 * Constructor that uses a {@link Context} to get the {@link LayoutInflater}
-		 *
-		 * @param context   The app {@link Context}
-		 * @param container The container to put all of the generated form items in
-		 */
-		public Builder(Context context, LinearLayout container){
-			this(LayoutInflater.from(context), container);
-		}
+		public Builder(){}
 
 		/**
 		 * Creates a {@link Builder} from a {@link FormGenerator}
@@ -292,8 +266,6 @@ public class FormGenerator {
 		 * @param fg The {@link FormGenerator}
 		 */
 		private Builder(FormGenerator fg){
-			mInflater = fg.mInflater;
-			mContainer = fg.mContainer;
 			mDefaultIconColorId = fg.mDefaultIconColorId;
 			mDefaultBackgroundId = fg.mDefaultBackgroundId;
 			mDefaultInputBackgroundId = fg.mDefaultInputBackgroundId;
@@ -312,10 +284,41 @@ public class FormGenerator {
 		/**
 		 * Builds a {@link FormGenerator} based off of this {@link Builder}
 		 *
+		 * @param inflater  The {@link LayoutInflater} instance
+		 * @param container The container for the views
 		 * @return The created {@link FormGenerator} instance
 		 */
-		public FormGenerator build(){
-			return new FormGenerator(this);
+		public FormGenerator build(LayoutInflater inflater, LinearLayout container){
+			//Set the sizes
+			if(mDefaultPaddingSize == null){
+				mDefaultPaddingSize = inflater.getContext().getResources()
+						.getDimensionPixelSize(mDefaultPaddingSizeId);
+			}
+			if(mDefaultSpaceSize == null){
+				mDefaultSpaceSize = inflater.getContext().getResources()
+						.getDimensionPixelSize(mDefaultSpaceSizeId);
+			}
+			if(mDefaultLineSize == null){
+				mDefaultLineSize = inflater.getContext().getResources()
+						.getDimensionPixelSize(mDefaultLineSizeId);
+			}
+			if(mDefaultTextSize == null){
+				mDefaultTextSize = inflater.getContext().getResources()
+						.getDimensionPixelSize(mDefaultTextSizeId);
+			}
+
+			return new FormGenerator(this, inflater, container);
+		}
+
+		/**
+		 * Builds a {@link FormGenerator} based off of this {@link Builder}
+		 *
+		 * @param context   The app {@link Context}
+		 * @param container The container for the views
+		 * @return The created {@link FormGenerator} instance
+		 */
+		public FormGenerator build(Context context, LinearLayout container){
+			return build(LayoutInflater.from(context), container);
 		}
 
 		/**
@@ -324,8 +327,7 @@ public class FormGenerator {
 		 * @param colorId The color resource Id
 		 * @return The {@link Builder} instance
 		 */
-		@ColorRes
-		public Builder setDefaultIconColorId(int colorId){
+		public Builder setDefaultIconColorId(@ColorRes int colorId){
 			mDefaultIconColorId = colorId;
 			return this;
 		}
@@ -370,8 +372,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultSpaceDimen(int dimenId){
-			mDefaultSpaceSize = mInflater.getContext().getResources()
-					.getDimensionPixelSize(dimenId);
+			mDefaultSpaceSizeId = dimenId;
 			return this;
 		}
 
@@ -393,7 +394,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultTextDimen(int dimenId){
-			mDefaultTextSize = mInflater.getContext().getResources().getDimensionPixelSize(dimenId);
+			mDefaultTextSizeId = dimenId;
 			return this;
 		}
 
@@ -443,8 +444,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultPaddingDimen(int dimenId){
-			mDefaultPaddingSize = mInflater.getContext().getResources()
-					.getDimensionPixelSize(dimenId);
+			mDefaultPaddingSizeId = dimenId;
 			return this;
 		}
 
@@ -466,7 +466,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultLineDimen(int dimenId){
-			mDefaultLineSize = mInflater.getContext().getResources().getDimensionPixelSize(dimenId);
+			mDefaultLineSizeId = dimenId;
 			return this;
 		}
 
