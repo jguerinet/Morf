@@ -346,6 +346,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @param pixels The line size, in pixels
 	 * @return The {@link ButtonFormItem} instance
 	 */
+	@Override
 	public ButtonFormItem lineSize(int pixels){
 		return (ButtonFormItem)super.lineSize(pixels);
 	}
@@ -356,6 +357,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link ButtonFormItem} instance
 	 */
+	@Override
 	public ButtonFormItem lineSizeDimen(@DimenRes int sizeDimen){
 		return (ButtonFormItem)super.lineSizeDimen(sizeDimen);
 	}
@@ -366,8 +368,31 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @param colorId The color Id
 	 * @return The {@link ButtonFormItem} instance
 	 */
+	@Override
 	public ButtonFormItem lineColor(@DrawableRes int colorId){
 		return (ButtonFormItem)super.lineColor(colorId);
+	}
+
+	/**
+	 * Sets the line visibility
+	 *
+	 * @param show True if the line should be visible, false otherwise
+	 * @return The {@link LineItem} instance
+	 */
+	@Override
+	public ButtonFormItem showLine(boolean show){
+		return (ButtonFormItem)super.showLine(show);
+	}
+
+	/**
+	 * Sets the background
+	 *
+	 * @param backgroundId The background Id
+	 * @return The {@link FormItem} instance
+	 */
+	@Override
+	public ButtonFormItem background(int backgroundId){
+		return (ButtonFormItem)super.background(backgroundId);
 	}
 
 	/**

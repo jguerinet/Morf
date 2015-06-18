@@ -386,6 +386,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @param pixels The line size, in pixels
 	 * @return The {@link EditTextFormItem} instance
 	 */
+	@Override
 	public EditTextFormItem lineSize(int pixels){
 		return (EditTextFormItem)super.lineSize(pixels);
 	}
@@ -396,6 +397,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link EditTextFormItem} instance
 	 */
+	@Override
 	public EditTextFormItem lineSizeDimen(@DimenRes int sizeDimen){
 		return (EditTextFormItem)super.lineSizeDimen(sizeDimen);
 	}
@@ -406,8 +408,31 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @param colorId The color Id
 	 * @return The {@link EditTextFormItem} instance
 	 */
+	@Override
 	public EditTextFormItem lineColor(@DrawableRes int colorId){
 		return (EditTextFormItem)super.lineColor(colorId);
+	}
+
+	/**
+	 * Sets the line visibility
+	 *
+	 * @param show True if the line should be visible, false otherwise
+	 * @return The {@link LineItem} instance
+	 */
+	@Override
+	public EditTextFormItem showLine(boolean show){
+		return (EditTextFormItem)super.showLine(show);
+	}
+
+	/**
+	 * Sets the background
+	 *
+	 * @param backgroundId The background Id
+	 * @return The {@link FormItem} instance
+	 */
+	@Override
+	public EditTextFormItem background(int backgroundId){
+		return (EditTextFormItem)super.background(backgroundId);
 	}
 	
 	/**

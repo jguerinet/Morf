@@ -49,7 +49,7 @@ abstract class FormItem extends LineItem{
 	}
 
 	/**
-	 *  Sets the background
+	 * Sets the background
 	 *
 	 * @param backgroundId The background Id
 	 * @return The {@link FormItem} instance
