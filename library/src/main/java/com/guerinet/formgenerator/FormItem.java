@@ -60,26 +60,6 @@ public abstract class FormItem extends LineItem{
 	}
 
 	/**
-	 * Shows the line after the form item
-	 *
-	 * @return The {@link FormItem} instance
-	 */
-	public FormItem showLine(){
-		visibility(true);
-		return this;
-	}
-
-	/**
-	 * Hides the line after the form item
-	 *
-	 * @return The {@link FormItem} instance
-	 */
-	public FormItem hideLine(){
-		visibility(false);
-		return this;
-	}
-
-	/**
 	 * @return The {@link View}
 	 */
 	public View view(){

@@ -43,7 +43,7 @@ public class LineItem extends Item {
 		mLine = line;
 
 		if(mLine != null){
-			visibility(mFG.mShowLine);
+			showLine(mFG.mShowLine);
 			lineSize(mFG.mDefaultLineSize);
 			lineColor(mFG.mDefaultLineColorId);
 		}
@@ -61,7 +61,7 @@ public class LineItem extends Item {
 
 		mFG.mContainer.addView(mLine);
 
-		visibility(true);
+		showLine(true);
 		lineSize(mFG.mDefaultLineSize);
 		lineColor(mFG.mDefaultLineColorId);
 	}
@@ -98,19 +98,19 @@ public class LineItem extends Item {
 		return this;
 	}
 
-	@Override
-	public View view(){
-		return mLine;
-	}
-
-	/* HELPERS */
-
 	/**
 	 * Sets the line visibility
 	 *
 	 * @param show True if the line should be visible, false otherwise
+	 * @return The {@link LineItem} instance
 	 */
-	protected void visibility(boolean show){
+	public LineItem showLine(boolean show){
 		mLine.setVisibility(show ? View.VISIBLE : View.GONE);
+		return this;
+	}
+
+	@Override
+	public View view(){
+		return mLine;
 	}
 }
