@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.0.2 (2015-10-19)
+* Updated dependencies
+
 ## Version 2.0.1 (2015-06-18)
 * Fixed bug where some super class methods for the form items were not overridden
 * Builder no longer depends on the LayoutInflater and a container, only the FormGenerator does
