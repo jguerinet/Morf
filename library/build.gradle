@@ -15,19 +15,19 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'android-maven'
+apply plugin: 'com.github.dcendents.android-maven'
 
 archivesBaseName="form-generator"
-version = "2.0.1"
+version = "2.0.2"
 
 android{
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "22.0.1"
 
     defaultConfig{
         minSdkVersion 8
-        targetSdkVersion 22
-        versionCode 6
+        targetSdkVersion 23
+        versionCode 7
         versionName version
     }
     buildTypes{
@@ -44,7 +44,7 @@ android{
 
 dependencies{
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:appcompat-v7:23.1.0'
 }
 
 task androidJavadocs(type: Javadoc) {
