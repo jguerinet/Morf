@@ -23,9 +23,10 @@ Customization includes:
 * Line width and color
 * Space width and color
 * Whether or not lines should be shown after form items
+* Switch on and off text
 
 ## Instructions
-To include this in your project, you can add it with Gradle by using [JitPack][1]:
+To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io):
 
     repositories {
         maven { url "https://jitpack.io" }
@@ -35,16 +36,9 @@ To include this in your project, you can add it with Gradle by using [JitPack][1
 	    compile 'com.github.jguerinet:form-generator:2.0.2'
 	}
 
-You can also attach the sources by using the [AARLinkSources][2] plugin:
-
-	aarLinkSources 'com.github.jguerinet:form-generator:2.0.2:sources@jar'
-
-[1]:https://jitpack.io
-[2]:https://github.com/xujiaao/AARLinkSources
-
 To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Builder`, customizing
-anything you might want to change or you can use the default `FormGenerator` instance by calling one of the `FormGenerator.get()` methods.
-You can set the default `FormGenerator` instance by calling `FormGenerator.setInstance()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
+anything you might want to change or you can use the default `FormGenerator` instance by calling one of the `FormGenerator.bind()` methods.
+You can set the default `FormGenerator` instance by calling `FormGenerator.set()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
 
 * Text Color: Black
 * Text Size: 14sp
@@ -59,11 +53,13 @@ You can set the default `FormGenerator` instance by calling `FormGenerator.setIn
 * Space Color: Transparent
 * Lines after items: True
 
-Once you set your default FormGenerator, you can always customize the default values for one specific page by deconstructing it into a `Builder`, changing the desired fields, and rebuilding it.
+Once you set your default FormGenerator, you can always customize it by calling `FormGenerator.get()` and changing the desired fields. You can also construct a new builder instance from your default one by calling
+`FormGenerator.get().newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance. 
 Each item can be further customized if you need to have some properties that are different from the default properties. When adding each item, there are a number of methods you can call to further customize the item itself.
 To get the associated view, simple call `view()` at the end of your customization. All of the above properties can be customized per form item, as well as:
 
 * Check state for `Switch`es
+* On and off text for `Switch`es (not recommended as the text is poorly rendered on Lollipop-style `Switch`es
 * Setting an `OnCheckedChangeListener` for `Switch`es
 * Setting an `OnClickListener` for all form items except the spaces and lines
 * Setting the input type on the `EditText`s (default is capitalized sentences)

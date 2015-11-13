@@ -251,6 +251,29 @@ public class FormGenerator {
 		 */
 		public Builder(){}
 
+        /**
+         * @return A new {@link Builder} instance, generated from the given one
+         */
+        public Builder newInstance() {
+            Builder builder = new Builder();
+
+            //Set the values from the given instance
+            builder.mDefaultIconColorId = mDefaultIconColorId;
+            builder.mDefaultBackgroundId = mDefaultBackgroundId;
+            builder.mDefaultInputBackgroundId = mDefaultInputBackgroundId;
+            builder.mDefaultSpaceColorId = mDefaultSpaceColorId;
+            builder.mDefaultSpaceSizeId = mDefaultSpaceSizeId;
+            builder.mDefaultTextSizeId = mDefaultTextSizeId;
+            builder.mDefaultTextColorId = mDefaultTextColorId;
+            builder.mDefaultTextColorStateListId = mDefaultTextColorStateListId;
+            builder.mDefaultTextTypeface = mDefaultTextTypeface;
+            builder.mDefaultPaddingSizeId = mDefaultPaddingSizeId;
+            builder.mDefaultLineSizeId = mDefaultLineSizeId;
+            builder.mDefaultLineColorId = mDefaultLineColorId;
+            builder.mShowLine = mShowLine;
+            return builder;
+        }
+
 		/**
 		 * Binds a {@link Builder} to a given view
 		 *
