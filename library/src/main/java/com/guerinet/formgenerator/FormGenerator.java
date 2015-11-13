@@ -152,7 +152,8 @@ public class FormGenerator {
 	 */
 	public TextViewFormItem text(String text){
 		View view = mInflater.inflate(R.layout.fg_text, mContainer, false);
-		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text);
+		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
+                true);
 	}
 
 	/**

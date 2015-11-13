@@ -53,11 +53,15 @@ public class TextViewFormItem extends FormItem {
 	/**
 	 * Default Constructor
 	 *
-	 * @param fg   The {@link FormGenerator} instance
-	 * @param view The {@link View}
+	 * @param fg         The {@link FormGenerator} instance
+	 * @param view       The {@link View}
+     * @param textView   The {@link TextView}
+     * @param text       The text to use on the TextView
+     * @param background True if the default background should be applied, false otherwise
 	 */
-	public TextViewFormItem(FormGenerator fg, View view, TextView textView, String text){
-		super(fg, view);
+	public TextViewFormItem(FormGenerator fg, View view, TextView textView, String text,
+            boolean background){
+		super(fg, view, background);
 		mTextView = textView;
 		mView.setClickable(false);
 		mContext = mView.getContext();

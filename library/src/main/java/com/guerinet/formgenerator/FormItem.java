@@ -33,17 +33,18 @@ abstract class FormItem extends LineItem{
 	/**
 	 * Default Constructor
 	 *
-	 * @param fg   The {@link FormGenerator} instance
-	 * @param view The {@link View}
+	 * @param fg         The {@link FormGenerator} instance
+	 * @param view       The {@link View}
+     * @param background True if the default background should be applied, false otherwise
 	 */
-	public FormItem(FormGenerator fg, View view){
+	public FormItem(FormGenerator fg, View view, boolean background){
 		super(view.findViewById(R.id.fg_line), fg);
 		mView = view;
 
 		mFG.mContainer.addView(mView);
 
 		//Set the default background
-		if(mFG.mBuilder.mDefaultBackgroundId != null){
+		if(background && mFG.mBuilder.mDefaultBackgroundId != null){
 			background(mFG.mBuilder.mDefaultBackgroundId);
 		}
 	}

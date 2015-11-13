@@ -48,7 +48,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @param text The text
 	 */
 	public SwitchFormItem(FormGenerator fg, View view, String text){
-		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text);
+		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
 		mSwitch = (SwitchCompat)mTextView;
         //Set the switch typeface
         mSwitch.setSwitchTypeface(mFG.mBuilder.mDefaultTextTypeface);
