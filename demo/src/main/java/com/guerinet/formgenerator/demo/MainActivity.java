@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 		LinearLayout container = (LinearLayout)findViewById(R.id.container);
 
 		//Get the default instance
-		FormGenerator fg = FormGenerator.get(this, container);
+		FormGenerator fg = FormGenerator.bind(this, container);
 
 		//Default Form
 		fg.text("Form Item: Text (default settings)");
