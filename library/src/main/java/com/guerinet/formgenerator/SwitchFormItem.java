@@ -25,6 +25,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 /**
  * Builder for a {@link SwitchCompat} form item
@@ -364,6 +365,17 @@ public class SwitchFormItem extends TextViewFormItem {
 	public SwitchFormItem onClick(View.OnClickListener listener){
 		return (SwitchFormItem) super.onClick(listener);
 	}
+
+    /**
+     * Sets the {@link TextView} gravity
+     *
+     * @param gravity The gravity
+     * @return The {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem gravity(int gravity) {
+        return (SwitchFormItem) super.gravity(gravity);
+    }
 
 	/**
 	 * Sets the line size

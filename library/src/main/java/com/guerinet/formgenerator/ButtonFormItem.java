@@ -23,6 +23,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Builder for a {@link Button} form item
@@ -339,6 +340,17 @@ public class ButtonFormItem extends TextViewFormItem {
 	public ButtonFormItem onClick(View.OnClickListener listener){
 		return (ButtonFormItem) super.onClick(listener);
 	}
+
+    /**
+     * Sets the {@link TextView} gravity
+     *
+     * @param gravity The gravity
+     * @return The {@link ButtonFormItem} instance
+     */
+    @Override
+    public ButtonFormItem gravity(int gravity) {
+        return (ButtonFormItem) super.gravity(gravity);
+    }
 
 	/**
 	 * Sets the line size

@@ -418,6 +418,17 @@ public class TextViewFormItem extends FormItem {
 		return this;
 	}
 
+    /**
+     * Sets the {@link TextView} gravity
+     *
+     * @param gravity The gravity
+     * @return The {@link TextViewFormItem} instance
+     */
+    public TextViewFormItem gravity(int gravity) {
+        mTextView.setGravity(gravity);
+        return this;
+    }
+
 	/**
 	 * Sets the line size
 	 *

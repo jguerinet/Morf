@@ -24,6 +24,7 @@ import android.support.annotation.StringRes;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Builder for an input form item
@@ -379,6 +380,17 @@ public class EditTextFormItem extends TextViewFormItem {
 	public EditTextFormItem onClick(View.OnClickListener listener){
 		return (EditTextFormItem) super.onClick(listener);
 	}
+
+    /**
+     * Sets the {@link TextView} gravity
+     *
+     * @param gravity The gravity
+     * @return The {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem gravity(int gravity) {
+        return (EditTextFormItem) super.gravity(gravity);
+    }
 
 	/**
 	 * Sets the line size
