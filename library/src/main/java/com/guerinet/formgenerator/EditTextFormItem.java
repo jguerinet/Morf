@@ -88,6 +88,16 @@ public class EditTextFormItem extends TextViewFormItem {
 		return this;
 	}
 
+    /**
+     * Sets the {@link EditText} as single line
+     *
+     * @return The {@link EditTextFormItem} instance
+     */
+    public EditTextFormItem editTextSingleLine() {
+        mEditText.setSingleLine();
+        return this;
+    }
+
 	/**
 	 * Sets the {@link Button} hint
 	 *
@@ -390,7 +400,6 @@ public class EditTextFormItem extends TextViewFormItem {
     public EditTextFormItem singleLine() {
         return (EditTextFormItem) super.singleLine();
     }
-
 
     /**
      * Sets the {@link TextView} gravity
