@@ -377,6 +377,16 @@ public class SwitchFormItem extends TextViewFormItem {
         return (SwitchFormItem) super.gravity(gravity);
     }
 
+    /**
+     * Sets the {@link TextView} to be single line
+     *
+     * @return The {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem singleLine() {
+        return (SwitchFormItem) super.singleLine();
+    }
+
 	/**
 	 * Sets the line size
 	 *

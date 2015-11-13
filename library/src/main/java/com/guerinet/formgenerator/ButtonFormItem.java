@@ -352,6 +352,16 @@ public class ButtonFormItem extends TextViewFormItem {
         return (ButtonFormItem) super.gravity(gravity);
     }
 
+    /**
+     * Sets the {@link TextView} to be single line
+     *
+     * @return The {@link ButtonFormItem} instance
+     */
+    @Override
+    public ButtonFormItem singleLine() {
+        return (ButtonFormItem) super.singleLine();
+    }
+
 	/**
 	 * Sets the line size
 	 *

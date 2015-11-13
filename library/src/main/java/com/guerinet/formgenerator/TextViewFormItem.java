@@ -430,6 +430,16 @@ public class TextViewFormItem extends FormItem {
         return this;
     }
 
+    /**
+     * Sets the {@link TextView} to be single line
+     *
+     * @return The {@link TextViewFormItem} instance
+     */
+    public TextViewFormItem singleLine() {
+        mTextView.setSingleLine();
+        return this;
+    }
+
 	/**
 	 * Sets the line size
 	 *

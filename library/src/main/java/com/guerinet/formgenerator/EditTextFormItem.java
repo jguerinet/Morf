@@ -382,6 +382,17 @@ public class EditTextFormItem extends TextViewFormItem {
 	}
 
     /**
+     * Sets the {@link TextView} to be single line
+     *
+     * @return The {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem singleLine() {
+        return (EditTextFormItem) super.singleLine();
+    }
+
+
+    /**
      * Sets the {@link TextView} gravity
      *
      * @param gravity The gravity
