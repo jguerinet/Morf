@@ -89,11 +89,10 @@ public class MainActivity extends AppCompatActivity {
 		fg = new FormGenerator.Builder()
 				.setDefaultBackground(android.R.drawable.list_selector_background)
 				.setDefaultLineColorId(android.R.color.black)
-				.setDefaultLineSize(10)
 				.setDefaultTextColorId(android.R.color.holo_red_dark, false)
 				.setDefaultTypeface(Typeface.SERIF)
 				.setDefaultIconColorId(android.R.color.holo_blue_dark)
-				.build(this, container);
+				.bind(this, container);
 
 		//Add the different form items
 		fg.text("Form Item: Text (custom settings)")
@@ -105,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
 				.onClick(new View.OnClickListener() {
 					@Override
 					public void onClick(View v){
-						Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast.LENGTH_SHORT)
-								.show();
+						Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
+                                Toast.LENGTH_SHORT).show();
 					}
 				});
 
