@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 2.1.0 (2015-11-13)
+* Added gravity to the form items
+* Now using Drawable tinting instead of a color filter to color the icons 
+* Added the single line option to the form items with a text field
+* Added the single line option to the EditTextFormItem
+* Added the ellipsize option to the form items with a text field
+* Completely reworked the `get()`, `set()`, and `bind()` methods to make it more clear (see README for more info) 
+* Added the on and off text on the SwitchFormItem
+* Added method to initialize a new Builder instance from an old one, allowing you to base a Builder instance from your default one 
+* ButtonFormItem no longer inherits the default background
+
 ## Version 2.0.2 (2015-10-19)
 * Updated dependencies
 

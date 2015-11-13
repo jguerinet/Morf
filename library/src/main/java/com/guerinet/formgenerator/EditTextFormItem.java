@@ -30,7 +30,7 @@ import android.widget.TextView;
 /**
  * Builder for an input form item
  * @author Julien Guerinet
- * @version 2.0.1
+ * @version 2.1.0
  * @since 2.0.0
  */
 public class EditTextFormItem extends TextViewFormItem {

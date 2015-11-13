@@ -18,7 +18,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 archivesBaseName="form-generator"
-version = "2.0.2"
+version = "2.1.0"
 
 android{
     compileSdkVersion 23
@@ -27,7 +27,7 @@ android{
     defaultConfig{
         minSdkVersion 8
         targetSdkVersion 23
-        versionCode 7
+        versionCode 8
         versionName version
     }
     buildTypes{

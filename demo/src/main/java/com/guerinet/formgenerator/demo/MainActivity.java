@@ -29,7 +29,7 @@ import com.guerinet.formgenerator.FormGenerator;
 /**
  * MainActivity. Demonstrates the default behavior of the FormGenerator
  * @author Julien Guerinet
- * @version 1.0.0
+ * @version 2.1.0
  * @since 1.0.0
  */
 public class MainActivity extends AppCompatActivity {

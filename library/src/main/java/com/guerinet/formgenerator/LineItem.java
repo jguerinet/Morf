@@ -24,7 +24,7 @@ import android.view.View;
 /**
  * Builder for a line. Base class for all classes
  * @author Julien Guerinet
- * @version 2.0.1
+ * @version 2.1.0
  * @since 2.0.0
  */
 public class LineItem extends Item {
