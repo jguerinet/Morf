@@ -50,6 +50,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	public SwitchFormItem(FormGenerator fg, View view, String text){
 		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text);
 		mSwitch = (SwitchCompat)mTextView;
+        //Set the switch typeface
+        mSwitch.setSwitchTypeface(mFG.mBuilder.mDefaultTextTypeface);
 	}
 
 	/**
@@ -73,6 +75,76 @@ public class SwitchFormItem extends TextViewFormItem {
 		mSwitch.setOnCheckedChangeListener(listener);
 		return this;
 	}
+
+    /**
+     * Sets the on text
+     *
+     * @param on The off text
+     * @return The {@link SwitchFormItem} instance
+     */
+    public SwitchFormItem textOn(String on) {
+        mSwitch.setShowText(true);
+        mSwitch.setTextOn(on);
+        return this;
+    }
+
+    /**
+     * Sets the on text
+     *
+     * @param onId The on text String Id
+     * @return The {@link SwitchFormItem} instance
+     */
+    public SwitchFormItem textOn(@StringRes int onId) {
+        return textOn(mContext.getString(onId));
+    }
+
+    /**
+     * Sets the off text
+     *
+     * @param off The off text
+     * @return The {@link SwitchFormItem} instance
+     */
+    public SwitchFormItem textOff(String off) {
+        mSwitch.setShowText(true);
+        mSwitch.setTextOff(off);
+        return this;
+    }
+
+    /**
+     * Sets the off text
+     *
+     * @param offId The off text String Id
+     * @return The {@link SwitchFormItem} instance
+     */
+    public SwitchFormItem textOff(@StringRes int offId) {
+        return textOff(mContext.getString(offId));
+    }
+
+    /**
+     * Sets both the on and off text
+     *
+     * @param on  The on text
+     * @param off The off text
+     * @return The {@link SwitchFormItem} instance
+     */
+    public SwitchFormItem switchText(String on, String off) {
+        textOn(on);
+        textOff(off);
+        return this;
+    }
+
+    /**
+     * Sets both the on and off text
+     *
+     * @param onId  The on text String Id
+     * @param offId The off text String Id
+     * @return The {@link SwitchFormItem} instance
+     */
+    public SwitchFormItem switchText(@StringRes int onId, @StringRes int offId) {
+        textOn(onId);
+        textOff(offId);
+        return this;
+    }
 
 	/**
 	 * Sets the {@link Button} hint
@@ -153,8 +225,11 @@ public class SwitchFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public SwitchFormItem typeface(Typeface typeface){
-        //Set the typeface on the switch as well
-        mSwitch.setSwitchTypeface(typeface);
+        //Set the typeface on the switch as well if it is non null
+        //  (it will be when first initialized)
+        if (mSwitch != null) {
+            mSwitch.setSwitchTypeface(typeface);
+        }
 		return (SwitchFormItem)super.typeface(typeface);
 	}
 
