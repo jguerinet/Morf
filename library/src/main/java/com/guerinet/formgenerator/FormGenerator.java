@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,58 +47,10 @@ public class FormGenerator {
 	 * The {@link LinearLayout} used as the form container
 	 */
 	LinearLayout mContainer;
-	/**
-	 * The default icon color Id, 0 if none
-	 */
-	int mDefaultIconColorId;
-	/**
-	 * The default background Id, null if none
-	 */
-	Integer mDefaultBackgroundId;
-	/**
-	 * The default background Id for the input item, null if none
-	 */
-	Integer mDefaultInputBackgroundId;
-	/**
-	 * The default color for the space, transparent if none
-	 */
-	Integer mDefaultSpaceColorId;
-	/**
-	 * The default space size, 10dp if none
-	 */
-	int mDefaultSpaceSize;
-	/**
-	 * The default text size, 14dp if none
-	 */
-	int mDefaultTextSize;
-	/**
-	 * The default text color Id, black if none
-	 */
-	int mDefaultTextColorId;
-	/**
-	 * The default typeface to use, null if none
-	 */
-	Typeface mDefaultTextTypeface;
-	/**
-	 * The default text color state list, 0 if none
-	 */
-	int mDefaultTextColorStateListId;
-	/**
-	 * The default padding size for the non-space/line items, 8dp if none
-	 */
-	int mDefaultPaddingSize;
-	/**
-	 * The default line size, 0.5 dp if none
-	 */
-	int mDefaultLineSize;
-	/**
-	 * The default line color Id, #EEEEEE if none
-	 */
-	int mDefaultLineColorId;
-	/**
-	 * True if we should show a line after a form item, false otherwise (defaults to true)
-	 */
-	boolean mShowLine;
+    /**
+     * The {@link Builder} instance to use to construct this FormGenerator
+     */
+    protected Builder mBuilder;
 
 	/**
 	 * Binds the default {@link FormGenerator} to the given layout and returns it.
@@ -109,12 +62,12 @@ public class FormGenerator {
 	 * @return The default {@link FormGenerator}
 	 */
 	public static FormGenerator bind(LayoutInflater inflater, LinearLayout container){
-		//No singleton set, build from the default settings
+		//No singleton set, bind from the default settings
 		if(singleton == null){
 			singleton = new Builder();
 		}
 
-		return singleton.build(inflater, container);
+        return new FormGenerator(singleton, inflater, container);
 	}
 
 	/**
@@ -130,6 +83,9 @@ public class FormGenerator {
 		return bind(LayoutInflater.from(context), container);
 	}
 
+    /**
+     * @return The default {@link Builder} instance
+     */
     public static Builder get() {
         if (singleton == null) {
             singleton = new Builder();
@@ -158,19 +114,7 @@ public class FormGenerator {
 	private FormGenerator(Builder builder, LayoutInflater inflater, LinearLayout container){
 		mInflater = inflater;
 		mContainer = container;
-		mDefaultIconColorId = builder.mDefaultIconColorId;
-		mDefaultBackgroundId = builder.mDefaultBackgroundId;
-		mDefaultInputBackgroundId = builder.mDefaultInputBackgroundId;
-		mDefaultSpaceColorId = builder.mDefaultSpaceColorId;
-		mDefaultSpaceSize = builder.mDefaultSpaceSize;
-		mDefaultTextSize = builder.mDefaultTextSize;
-		mDefaultTextColorId = builder.mDefaultTextColorId;
-		mDefaultTextColorStateListId = builder.mDefaultTextColorStateListId;
-		mDefaultTextTypeface = builder.mDefaultTextTypeface;
-		mDefaultPaddingSize = builder.mDefaultPaddingSize;
-		mDefaultLineSize = builder.mDefaultLineSize;
-		mDefaultLineColorId = builder.mDefaultLineColorId;
-		mShowLine = builder.mShowLine;
+        mBuilder = builder;
 	}
 
 	/**
@@ -238,23 +182,69 @@ public class FormGenerator {
 	 * The Form Generator builder
 	 */
 	public static class Builder {
-		private int mDefaultIconColorId = 0;
-		private Integer mDefaultBackgroundId = null;
-		private Integer mDefaultInputBackgroundId = null;
-		private Integer mDefaultSpaceColorId = android.R.color.transparent;
-		private Integer mDefaultSpaceSize = null;
-		private int mDefaultSpaceSizeId = R.dimen.space;
-		private Integer mDefaultTextSize = null;
-		private int mDefaultTextSizeId = R.dimen.text;
-		private int mDefaultTextColorId = android.R.color.black;
-		private int mDefaultTextColorStateListId = 0;
-		private Typeface mDefaultTextTypeface = null;
-		private Integer mDefaultPaddingSize = null;
-		private int mDefaultPaddingSizeId = R.dimen.padding;
-		private Integer mDefaultLineSize = null;
-		private int mDefaultLineSizeId = R.dimen.line;
-		private int mDefaultLineColorId = R.color.line;
-		private boolean mShowLine = true;
+        /**
+         * The default icon color Id, 0 if none
+         */
+        @ColorRes
+        int mDefaultIconColorId = 0;
+        /**
+         * The default background Id, null if none
+         */
+        @ColorRes @DrawableRes
+        Integer mDefaultBackgroundId = null;
+        /**
+         * The default background Id for the input item, null if none
+         */
+        @ColorRes @DrawableRes
+        Integer mDefaultInputBackgroundId = null;
+        /**
+         * The default color for the space, transparent if none
+         */
+        @ColorRes @DrawableRes
+        int mDefaultSpaceColorId = android.R.color.transparent;
+        /**
+         * The default space size Id, 10dp if none
+         */
+        @DimenRes
+        int mDefaultSpaceSizeId = R.dimen.space;
+        /**
+         * The default text size, 14dp if none
+         */
+        @DimenRes
+        int mDefaultTextSizeId = R.dimen.text;
+        /**
+         * The default text color Id, black if none
+         */
+        @ColorRes
+        int mDefaultTextColorId = android.R.color.black;
+        /**
+         * The default text color state list, 0 if none
+         */
+        @ColorRes
+        int mDefaultTextColorStateListId = 0;
+        /**
+         * The default typeface to use, null if none
+         */
+        Typeface mDefaultTextTypeface = null;
+        /**
+         * The default padding size for the non-space/line items, 8dp if none
+         */
+        @DimenRes
+        int mDefaultPaddingSizeId = R.dimen.padding;
+        /**
+         * The default line size, 0.5 dp if none
+         */
+        @DimenRes
+        int mDefaultLineSizeId = R.dimen.line;
+        /**
+         * The default line color Id, #EEEEEE if none
+         */
+        @ColorRes @DrawableRes
+        int mDefaultLineColorId = R.color.line;
+        /**
+         * True if we should show a line after a form item, false otherwise (defaults to true)
+         */
+        boolean mShowLine = true;
 
 		/**
 		 * Default Constructor
@@ -262,52 +252,13 @@ public class FormGenerator {
 		public Builder(){}
 
 		/**
-		 * Creates a {@link Builder} from a {@link FormGenerator}
-		 *
-		 * @param fg The {@link FormGenerator}
-		 */
-		private Builder(FormGenerator fg){
-			mDefaultIconColorId = fg.mDefaultIconColorId;
-			mDefaultBackgroundId = fg.mDefaultBackgroundId;
-			mDefaultInputBackgroundId = fg.mDefaultInputBackgroundId;
-			mDefaultSpaceColorId = fg.mDefaultSpaceColorId;
-			mDefaultSpaceSize = fg.mDefaultSpaceSize;
-			mDefaultTextSize = fg.mDefaultTextSize;
-			mDefaultTextColorId = fg.mDefaultTextColorId;
-			mDefaultTextColorStateListId = fg.mDefaultTextColorStateListId;
-			mDefaultTextTypeface = fg.mDefaultTextTypeface;
-			mDefaultPaddingSize = fg.mDefaultPaddingSize;
-			mDefaultLineSize = fg.mDefaultLineSize;
-			mDefaultLineColorId = fg.mDefaultLineColorId;
-			mShowLine = fg.mShowLine;
-		}
-
-		/**
-		 * Builds a {@link FormGenerator} based off of this {@link Builder}
+		 * Binds a {@link Builder} to a given view
 		 *
 		 * @param inflater  The {@link LayoutInflater} instance
 		 * @param container The container for the views
 		 * @return The created {@link FormGenerator} instance
 		 */
-		public FormGenerator build(LayoutInflater inflater, LinearLayout container){
-			//Set the sizes
-			if(mDefaultPaddingSize == null){
-				mDefaultPaddingSize = inflater.getContext().getResources()
-						.getDimensionPixelSize(mDefaultPaddingSizeId);
-			}
-			if(mDefaultSpaceSize == null){
-				mDefaultSpaceSize = inflater.getContext().getResources()
-						.getDimensionPixelSize(mDefaultSpaceSizeId);
-			}
-			if(mDefaultLineSize == null){
-				mDefaultLineSize = inflater.getContext().getResources()
-						.getDimensionPixelSize(mDefaultLineSizeId);
-			}
-			if(mDefaultTextSize == null){
-				mDefaultTextSize = inflater.getContext().getResources()
-						.getDimensionPixelSize(mDefaultTextSizeId);
-			}
-
+		public FormGenerator bind(LayoutInflater inflater, LinearLayout container){
 			return new FormGenerator(this, inflater, container);
 		}
 
@@ -318,8 +269,8 @@ public class FormGenerator {
 		 * @param container The container for the views
 		 * @return The created {@link FormGenerator} instance
 		 */
-		public FormGenerator build(Context context, LinearLayout container){
-			return build(LayoutInflater.from(context), container);
+		public FormGenerator bind(Context context, LinearLayout container){
+			return bind(LayoutInflater.from(context), container);
 		}
 
 		/**
@@ -339,7 +290,7 @@ public class FormGenerator {
 		 * @param backgroundId The background resource Id (can be a color or a drawable)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultBackground(int backgroundId){
+		public Builder setDefaultBackground(@ColorRes @DrawableRes int backgroundId){
 			mDefaultBackgroundId = backgroundId;
 			return this;
 		}
@@ -350,7 +301,7 @@ public class FormGenerator {
 		 * @param backgroundId The background resource Id (can be a color or drawable)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setInputDefaultBackground(int backgroundId){
+		public Builder setInputDefaultBackground(@ColorRes @DrawableRes int backgroundId){
 			mDefaultInputBackgroundId = backgroundId;
 			return this;
 		}
@@ -361,7 +312,7 @@ public class FormGenerator {
 		 * @param colorId The space color Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultSpaceColorId(@DrawableRes int colorId){
+		public Builder setDefaultSpaceColorId(@ColorRes int colorId){
 			mDefaultSpaceColorId = colorId;
 			return this;
 		}
@@ -372,21 +323,8 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultSpaceDimen(int dimenId){
-            //Clear the padding size in pixels
-            mDefaultSpaceSize = null;
+		public Builder setDefaultSpaceSize(@DimenRes int dimenId){
 			mDefaultSpaceSizeId = dimenId;
-			return this;
-		}
-
-		/**
-		 * Sets the default space size
-		 *
-		 * @param pixels The space size in pixels
-		 * @return The {@link Builder} instance
-		 */
-		public Builder setDefaultSpaceSize(int pixels){
-			mDefaultSpaceSize = pixels;
 			return this;
 		}
 
@@ -396,21 +334,8 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextDimen(int dimenId){
-            //Clear the padding size in pixels
-            mDefaultTextSize = null;
+		public Builder setDefaultTextSize(@DimenRes int dimenId){
 			mDefaultTextSizeId = dimenId;
-			return this;
-		}
-
-		/**
-		 * Sets the default text size
-		 *
-		 * @param pixels The text size in pixels
-		 * @return The {@link Builder} instance
-		 */
-		public Builder setDefaultTextSize(int pixels){
-			mDefaultTextSize = pixels;
 			return this;
 		}
 
@@ -421,7 +346,7 @@ public class FormGenerator {
 		 * @param stateList True if this is a state list, false if it's a solid color
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextColorId(int colorId, boolean stateList){
+		public Builder setDefaultTextColorId(@ColorRes int colorId, boolean stateList){
 			if(stateList){
 				mDefaultTextColorStateListId = colorId;
 			}
@@ -448,21 +373,8 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultPaddingDimen(int dimenId){
-            //Clear the default padding size
-            mDefaultPaddingSize = null;
+		public Builder setDefaultPaddingSize(@DimenRes int dimenId){
 			mDefaultPaddingSizeId = dimenId;
-			return this;
-		}
-
-		/**
-		 * Sets the default padding size
-		 *
-		 * @param pixels The padding size in pixels
-		 * @return The {@link Builder} instance
-		 */
-		public Builder setDefaultPaddingSize(int pixels){
-			mDefaultPaddingSize = pixels;
 			return this;
 		}
 
@@ -472,21 +384,8 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultLineDimen(int dimenId){
-            //Clear the default line size
-            mDefaultLineSize = null;
+		public Builder setDefaultLineSize(@DimenRes int dimenId){
 			mDefaultLineSizeId = dimenId;
-			return this;
-		}
-
-		/**
-		 * Sets the default line size
-		 *
-		 * @param pixels The line size in pixels
-		 * @return The {@link Builder} instance
-		 */
-		public Builder setDefaultLineSize(int pixels){
-			mDefaultLineSize = pixels;
 			return this;
 		}
 
@@ -496,7 +395,7 @@ public class FormGenerator {
 		 * @param colorId The color resource Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultLineColorId(int colorId){
+		public Builder setDefaultLineColorId(@ColorRes @DrawableRes int colorId){
 			mDefaultLineColorId = colorId;
 			return this;
 		}

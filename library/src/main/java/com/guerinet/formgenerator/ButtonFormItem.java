@@ -46,7 +46,7 @@ public class ButtonFormItem extends TextViewFormItem {
 		super(fg, view, (Button)view.findViewById(R.id.fg_button), text);
 		mView.setOnClickListener(listener);
 		//Bold buttons
-		style(mFG.mDefaultTextTypeface, Typeface.BOLD);
+		style(mFG.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
 	}
 
 	/**
@@ -90,45 +90,9 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem textSizeDimen(@DimenRes int dimenId){
-		return (ButtonFormItem)super.textSizeDimen(dimenId);
-	}
-
-	/**
-	 * Sets the {@link Button} text size
-	 *
-	 * @param textSize The text size, in pixels
-	 * @return The {@link ButtonFormItem} instance
-	 */
-	@Override
-	public ButtonFormItem textSize(int textSize){
-		return (ButtonFormItem)super.textSize(textSize);
-	}
-
-	/**
-	 * Sets the {@link Button} padding
-	 *
-	 * @param left   The left padding, in pixels
-	 * @param top    The top padding, in pixels
-	 * @param right  The right padding, in pixels
-	 * @param bottom The bottom padding, in pixels
-	 * @return The {@link ButtonFormItem} instance
-	 */
-	@Override
-	public ButtonFormItem padding(int left, int top, int right, int bottom){
-		return (ButtonFormItem)super.padding(left, top, right, bottom);
-	}
-
-	/**
-	 * Sets the {@link Button} padding
-	 *
-	 * @param padding The padding to use for all sides, in pixels
-	 * @return The {@link ButtonFormItem} instance
-	 */
-	@Override
-	public ButtonFormItem padding(int padding){
-		return (ButtonFormItem)super.padding(padding);
-	}
+	public ButtonFormItem textSize(@DimenRes int dimenId){
+		return (ButtonFormItem)super.textSize(dimenId);
+ 	}
 
 	/**
 	 * Sets the {@link Button} padding
@@ -140,9 +104,9 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem paddingDimen(@DimenRes int leftId, @DimenRes int topId,
-			@DimenRes int rightId, @DimenRes int bottomId){
-		return (ButtonFormItem)super.paddingDimen(leftId, topId, rightId, bottomId);
+	public ButtonFormItem padding(@DimenRes int leftId, @DimenRes int topId,
+            @DimenRes int rightId, @DimenRes int bottomId){
+		return (ButtonFormItem) super.padding(leftId, topId, rightId, bottomId);
 	}
 
 	/**
@@ -152,8 +116,8 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem paddingDimen(@DimenRes int dimenId){
-		return (ButtonFormItem)super.paddingDimen(dimenId);
+	public ButtonFormItem padding(@DimenRes int dimenId){
+		return (ButtonFormItem) super.padding(dimenId);
 	}
 
 	/**
@@ -164,7 +128,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public ButtonFormItem typeface(Typeface typeface){
-		return (ButtonFormItem)super.typeface(typeface);
+		return (ButtonFormItem) super.typeface(typeface);
 	}
 
 	/**
@@ -176,7 +140,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public ButtonFormItem style(Typeface typeface, int style){
-		return (ButtonFormItem)super.style(typeface, style);
+		return (ButtonFormItem) super.style(typeface, style);
 	}
 
 	/**
@@ -377,23 +341,12 @@ public class ButtonFormItem extends TextViewFormItem {
 	/**
 	 * Sets the line size
 	 *
-	 * @param pixels The line size, in pixels
-	 * @return The {@link ButtonFormItem} instance
-	 */
-	@Override
-	public ButtonFormItem lineSize(int pixels){
-		return (ButtonFormItem)super.lineSize(pixels);
-	}
-
-	/**
-	 * Sets the line size
-	 *
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem lineSizeDimen(@DimenRes int sizeDimen){
-		return (ButtonFormItem)super.lineSizeDimen(sizeDimen);
+	public ButtonFormItem lineSize(@DimenRes int sizeDimen){
+		return (ButtonFormItem)super.lineSize(sizeDimen);
 	}
 
 	/**
@@ -403,7 +356,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem lineColor(@DrawableRes int colorId){
+	public ButtonFormItem lineColor(@ColorRes @DrawableRes int colorId){
 		return (ButtonFormItem)super.lineColor(colorId);
 	}
 
@@ -425,7 +378,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem background(int backgroundId){
+	public ButtonFormItem background(@ColorRes @DrawableRes int backgroundId){
 		return (ButtonFormItem)super.background(backgroundId);
 	}
 

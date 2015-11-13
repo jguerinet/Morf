@@ -43,8 +43,8 @@ abstract class FormItem extends LineItem{
 		mFG.mContainer.addView(mView);
 
 		//Set the default background
-		if(mFG.mDefaultBackgroundId != null){
-			background(mFG.mDefaultBackgroundId);
+		if(mFG.mBuilder.mDefaultBackgroundId != null){
+			background(mFG.mBuilder.mDefaultBackgroundId);
 		}
 	}
 

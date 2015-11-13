@@ -16,6 +16,7 @@
 
 package com.guerinet.formgenerator;
 
+import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
@@ -43,9 +44,9 @@ public class LineItem extends Item {
 		mLine = line;
 
 		if(mLine != null){
-			showLine(mFG.mShowLine);
-			lineSize(mFG.mDefaultLineSize);
-			lineColor(mFG.mDefaultLineColorId);
+			showLine(mFG.mBuilder.mShowLine);
+			lineSize(mFG.mBuilder.mDefaultLineSizeId);
+			lineColor(mFG.mBuilder.mDefaultLineColorId);
 		}
 	}
 
@@ -62,19 +63,8 @@ public class LineItem extends Item {
 		mFG.mContainer.addView(mLine);
 
 		showLine(true);
-		lineSize(mFG.mDefaultLineSize);
-		lineColor(mFG.mDefaultLineColorId);
-	}
-
-	/**
-	 * Sets the line size
-	 *
-	 * @param pixels The line size, in pixels
-	 * @return The {@link LineItem} instance
-	 */
-	public LineItem lineSize(int pixels){
-		mLine.getLayoutParams().height = pixels;
-		return this;
+		lineSize(mFG.mBuilder.mDefaultLineSizeId);
+		lineColor(mFG.mBuilder.mDefaultLineColorId);
 	}
 
 	/**
@@ -83,8 +73,9 @@ public class LineItem extends Item {
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link LineItem} instance
 	 */
-	public LineItem lineSizeDimen(@DimenRes int sizeDimen){
-		return lineSize(mLine.getResources().getDimensionPixelSize(sizeDimen));
+	public LineItem lineSize(@DimenRes int sizeDimen){
+        mLine.getLayoutParams().height = mLine.getResources().getDimensionPixelSize(sizeDimen);
+        return this;
 	}
 
 	/**
@@ -93,7 +84,7 @@ public class LineItem extends Item {
 	 * @param colorId The color Id
 	 * @return The {@link LineItem} instance
 	 */
-	public LineItem lineColor(@DrawableRes int colorId){
+	public LineItem lineColor(@DrawableRes @ColorRes int colorId){
 		mLine.setBackgroundResource(colorId);
 		return this;
 	}

@@ -47,12 +47,12 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @param text The text
 	 */
 	public EditTextFormItem(FormGenerator fg, View view, String text){
-		super(fg, view, (EditText)view.findViewById(R.id.fg_input), text);
+		super(fg, view, (EditText) view.findViewById(R.id.fg_input), text);
 		mEditText = (EditText)mTextView;
 
 		//Set the right background
-		if(mFG.mDefaultInputBackgroundId != null){
-			inputBackground(mFG.mDefaultInputBackgroundId);
+		if(mFG.mBuilder.mDefaultInputBackgroundId != null){
+			inputBackground(mFG.mBuilder.mDefaultInputBackgroundId);
 		}
 	}
 
@@ -129,55 +129,19 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem textColor(int colorId, boolean stateList){
+	public EditTextFormItem textColor(@ColorRes int colorId, boolean stateList){
 		return (EditTextFormItem)super.textColor(colorId, stateList);
 	}
 
-	/**
-	 * Sets the {@link Button} text size
-	 *
-	 * @param dimenId The dimension Id
-	 * @return The {@link EditTextFormItem} instance
-	 */
+    /**
+     * Sets the {@link Button} text size
+     *
+     * @param dimenId The dimension Id
+     * @return The {@link EditTextFormItem} instance
+     */
 	@Override
-	public EditTextFormItem textSizeDimen(@DimenRes int dimenId){
-		return (EditTextFormItem)super.textSizeDimen(dimenId);
-	}
-
-	/**
-	 * Sets the {@link Button} text size
-	 *
-	 * @param textSize The text size, in pixels
-	 * @return The {@link EditTextFormItem} instance
-	 */
-	@Override
-	public EditTextFormItem textSize(int textSize){
-		return (EditTextFormItem)super.textSize(textSize);
-	}
-
-	/**
-	 * Sets the {@link Button} padding
-	 *
-	 * @param left   The left padding, in pixels
-	 * @param top    The top padding, in pixels
-	 * @param right  The right padding, in pixels
-	 * @param bottom The bottom padding, in pixels
-	 * @return The {@link EditTextFormItem} instance
-	 */
-	@Override
-	public EditTextFormItem padding(int left, int top, int right, int bottom){
-		return (EditTextFormItem)super.padding(left, top, right, bottom);
-	}
-
-	/**
-	 * Sets the {@link Button} padding
-	 *
-	 * @param padding The padding to use for all sides, in pixels
-	 * @return The {@link EditTextFormItem} instance
-	 */
-	@Override
-	public EditTextFormItem padding(int padding){
-		return (EditTextFormItem)super.padding(padding);
+	public EditTextFormItem textSize(@DimenRes int dimenId){
+		return (EditTextFormItem)super.textSize(dimenId);
 	}
 
 	/**
@@ -190,9 +154,9 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem paddingDimen(@DimenRes int leftId, @DimenRes int topId,
-			@DimenRes int rightId, @DimenRes int bottomId){
-		return (EditTextFormItem)super.paddingDimen(leftId, topId, rightId, bottomId);
+	public EditTextFormItem padding(@DimenRes int leftId, @DimenRes int topId,
+            @DimenRes int rightId, @DimenRes int bottomId){
+		return (EditTextFormItem)super.padding(leftId, topId, rightId, bottomId);
 	}
 
 	/**
@@ -202,8 +166,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem paddingDimen(@DimenRes int dimenId){
-		return (EditTextFormItem)super.paddingDimen(dimenId);
+	public EditTextFormItem padding(@DimenRes int dimenId){
+		return (EditTextFormItem)super.padding(dimenId);
 	}
 
 	/**
@@ -427,23 +391,12 @@ public class EditTextFormItem extends TextViewFormItem {
 	/**
 	 * Sets the line size
 	 *
-	 * @param pixels The line size, in pixels
-	 * @return The {@link EditTextFormItem} instance
-	 */
-	@Override
-	public EditTextFormItem lineSize(int pixels){
-		return (EditTextFormItem)super.lineSize(pixels);
-	}
-
-	/**
-	 * Sets the line size
-	 *
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem lineSizeDimen(@DimenRes int sizeDimen){
-		return (EditTextFormItem)super.lineSizeDimen(sizeDimen);
+	public EditTextFormItem lineSize(@DimenRes int sizeDimen){
+		return (EditTextFormItem)super.lineSize(sizeDimen);
 	}
 
 	/**
@@ -453,7 +406,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem lineColor(@DrawableRes int colorId){
+	public EditTextFormItem lineColor(@ColorRes @DrawableRes int colorId){
 		return (EditTextFormItem)super.lineColor(colorId);
 	}
 
@@ -475,7 +428,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem background(int backgroundId){
+	public EditTextFormItem background(@ColorRes @DrawableRes int backgroundId){
 		return (EditTextFormItem)super.background(backgroundId);
 	}
 	

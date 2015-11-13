@@ -115,44 +115,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem textSizeDimen(@DimenRes int dimenId){
-		return (SwitchFormItem)super.textSizeDimen(dimenId);
-	}
-
-	/**
-	 * Sets the {@link Button} text size
-	 *
-	 * @param textSize The text size, in pixels
-	 * @return The {@link SwitchFormItem} instance
-	 */
-	@Override
-	public SwitchFormItem textSize(int textSize){
-		return (SwitchFormItem)super.textSize(textSize);
-	}
-
-	/**
-	 * Sets the {@link Button} padding
-	 *
-	 * @param left   The left padding, in pixels
-	 * @param top    The top padding, in pixels
-	 * @param right  The right padding, in pixels
-	 * @param bottom The bottom padding, in pixels
-	 * @return The {@link SwitchFormItem} instance
-	 */
-	@Override
-	public SwitchFormItem padding(int left, int top, int right, int bottom){
-		return (SwitchFormItem)super.padding(left, top, right, bottom);
-	}
-
-	/**
-	 * Sets the {@link Button} padding
-	 *
-	 * @param padding The padding to use for all sides, in pixels
-	 * @return The {@link SwitchFormItem} instance
-	 */
-	@Override
-	public SwitchFormItem padding(int padding){
-		return (SwitchFormItem)super.padding(padding);
+	public SwitchFormItem textSize(@DimenRes int dimenId){
+		return (SwitchFormItem)super.textSize(dimenId);
 	}
 
 	/**
@@ -165,9 +129,9 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem paddingDimen(@DimenRes int leftId, @DimenRes int topId,
-			@DimenRes int rightId, @DimenRes int bottomId){
-		return (SwitchFormItem)super.paddingDimen(leftId, topId, rightId, bottomId);
+	public SwitchFormItem padding(@DimenRes int leftId, @DimenRes int topId,
+            @DimenRes int rightId, @DimenRes int bottomId){
+		return (SwitchFormItem)super.padding(leftId, topId, rightId, bottomId);
 	}
 
 	/**
@@ -177,8 +141,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem paddingDimen(@DimenRes int dimenId){
-		return (SwitchFormItem)super.paddingDimen(dimenId);
+	public SwitchFormItem padding(@DimenRes int dimenId){
+		return (SwitchFormItem)super.padding(dimenId);
 	}
 
 	/**
@@ -402,23 +366,12 @@ public class SwitchFormItem extends TextViewFormItem {
 	/**
 	 * Sets the line size
 	 *
-	 * @param pixels The line size, in pixels
-	 * @return The {@link SwitchFormItem} instance
-	 */
-	@Override
-	public SwitchFormItem lineSize(int pixels){
-		return (SwitchFormItem)super.lineSize(pixels);
-	}
-
-	/**
-	 * Sets the line size
-	 *
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem lineSizeDimen(@DimenRes int sizeDimen){
-		return (SwitchFormItem)super.lineSizeDimen(sizeDimen);
+	public SwitchFormItem lineSize(@DimenRes int sizeDimen){
+		return (SwitchFormItem)super.lineSize(sizeDimen);
 	}
 
 	/**
@@ -428,7 +381,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem lineColor(@DrawableRes int colorId){
+	public SwitchFormItem lineColor(@ColorRes @DrawableRes int colorId){
 		return (SwitchFormItem)super.lineColor(colorId);
 	}
 
@@ -450,7 +403,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem background(int backgroundId){
+	public SwitchFormItem background(@ColorRes @DrawableRes int backgroundId){
 		return (SwitchFormItem)super.background(backgroundId);
 	}
 

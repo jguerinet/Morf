@@ -72,21 +72,21 @@ public class TextViewFormItem extends FormItem {
 		mIcons[3] = new Icon(0, 0, false);
 
 		//Text Color
-		if(mFG.mDefaultTextColorStateListId != 0){
-			textColor(mFG.mDefaultTextColorStateListId, true);
+		if(mFG.mBuilder.mDefaultTextColorStateListId != 0){
+			textColor(mFG.mBuilder.mDefaultTextColorStateListId, true);
 		}
 		else{
-			textColor(mFG.mDefaultTextColorId, false);
+			textColor(mFG.mBuilder.mDefaultTextColorId, false);
 		}
 
 		//Text Size
-		textSize(mFG.mDefaultTextSize);
+		textSize(mFG.mBuilder.mDefaultTextSizeId);
 
 		//Padding
-		padding(mFG.mDefaultPaddingSize);
+		padding(mFG.mBuilder.mDefaultPaddingSizeId);
 
 		//Typeface
-		typeface(mFG.mDefaultTextTypeface);
+		typeface(mFG.mBuilder.mDefaultTextTypeface);
 	}
 
 	/**
@@ -134,43 +134,10 @@ public class TextViewFormItem extends FormItem {
 	 * @param dimenId The dimension Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem textSizeDimen(@DimenRes int dimenId){
-		return textSize(mContext.getResources().getDimensionPixelSize(dimenId));
-	}
-
-	/**
-	 * Sets the {@link TextView} text size
-	 *
-	 * @param textSize The text size, in pixels
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	public TextViewFormItem textSize(int textSize){
-		mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-		return this;
-	}
-
-	/**
-	 * Sets the {@link TextView} padding
-	 *
-	 * @param left   The left padding, in pixels
-	 * @param top    The top padding, in pixels
-	 * @param right  The right padding, in pixels
-	 * @param bottom The bottom padding, in pixels
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	public TextViewFormItem padding(int left, int top, int right, int bottom){
-		mTextView.setPadding(left, top, right, bottom);
-		return this;
-	}
-
-	/**
-	 * Sets the {@link TextView} padding
-	 *
-	 * @param padding The padding to use for all sides, in pixels
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	public TextViewFormItem padding(int padding){
-		return padding(padding, padding, padding, padding);
+	public TextViewFormItem textSize(@DimenRes int dimenId){
+        mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                mContext.getResources().getDimensionPixelSize(dimenId));
+        return this;
 	}
 
 	/**
@@ -182,12 +149,13 @@ public class TextViewFormItem extends FormItem {
 	 * @param bottomId The dimension Id for the bottom padding
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem paddingDimen(@DimenRes int leftId, @DimenRes int topId,
-			@DimenRes int rightId, @DimenRes int bottomId){
-		return padding(mContext.getResources().getDimensionPixelSize(leftId),
+	public TextViewFormItem padding(@DimenRes int leftId, @DimenRes int topId,
+            @DimenRes int rightId, @DimenRes int bottomId){
+        mTextView.setPadding(mContext.getResources().getDimensionPixelSize(leftId),
                 mContext.getResources().getDimensionPixelSize(topId),
                 mContext.getResources().getDimensionPixelSize(rightId),
                 mContext.getResources().getDimensionPixelSize(bottomId));
+        return this;
 	}
 
 	/**
@@ -196,8 +164,8 @@ public class TextViewFormItem extends FormItem {
 	 * @param dimenId The dimension Id to use for all sides
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem paddingDimen(@DimenRes int dimenId){
-		return paddingDimen(dimenId, dimenId, dimenId, dimenId);
+	public TextViewFormItem padding(@DimenRes int dimenId){
+		return padding(dimenId, dimenId, dimenId, dimenId);
 	}
 
 	/**
@@ -231,7 +199,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem style(int style){
-		mTextView.setTypeface(mFG.mDefaultTextTypeface, style);
+		mTextView.setTypeface(mFG.mBuilder.mDefaultTextTypeface, style);
 		return this;
 	}
 
@@ -277,7 +245,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible){
-		icon(0, iconId, mFG.mDefaultIconColorId, visible);
+		icon(0, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -289,7 +257,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible){
-		icon(1, iconId, mFG.mDefaultIconColorId, visible);
+		icon(1, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -301,7 +269,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible){
-		icon(2, iconId, mFG.mDefaultIconColorId, visible);
+		icon(2, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -313,7 +281,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible){
-		icon(3, iconId, mFG.mDefaultIconColorId, visible);
+		icon(3, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -324,7 +292,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId){
-		icon(0, iconId, mFG.mDefaultIconColorId, true);
+		icon(0, iconId, mFG.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -335,7 +303,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId){
-		icon(1, iconId, mFG.mDefaultIconColorId, true);
+		icon(1, iconId, mFG.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -346,7 +314,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId){
-		icon(2, iconId, mFG.mDefaultIconColorId, true);
+		icon(2, iconId, mFG.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -357,7 +325,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId){
-		icon(3, iconId, mFG.mDefaultIconColorId, true);
+		icon(3, iconId, mFG.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -452,26 +420,15 @@ public class TextViewFormItem extends FormItem {
         return this;
     }
 
-	/**
-	 * Sets the line size
-	 *
-	 * @param pixels The line size, in pixels
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	@Override
-	public TextViewFormItem lineSize(int pixels){
-		return (TextViewFormItem)super.lineSize(pixels);
-	}
-
-	/**
+    /**
 	 * Sets the line size
 	 *
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
-	public TextViewFormItem lineSizeDimen(@DimenRes int sizeDimen){
-		return (TextViewFormItem)super.lineSizeDimen(sizeDimen);
+	public TextViewFormItem lineSize(@DimenRes int sizeDimen){
+		return (TextViewFormItem) super.lineSize(sizeDimen);
 	}
 
 	/**
@@ -481,7 +438,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
-	public TextViewFormItem lineColor(@DrawableRes int colorId){
+	public TextViewFormItem lineColor(@ColorRes @DrawableRes int colorId){
 		return (TextViewFormItem)super.lineColor(colorId);
 	}
 
@@ -503,7 +460,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
-	public TextViewFormItem background(int backgroundId){
+	public TextViewFormItem background(@ColorRes @DrawableRes int backgroundId){
 		return (TextViewFormItem)super.background(backgroundId);
 	}
 
