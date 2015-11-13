@@ -77,8 +77,8 @@ the top one is the default settings for FormGenerator, the bottom is a customize
 ![Demo Screenshot](assets/demo_screenshot.png)
 
 ## Gradle Dependencies
-* Android AppCompat
-* Android Design
+* [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
+* [Android Design](http://developer.android.com/tools/support-library/features.html#design)
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
