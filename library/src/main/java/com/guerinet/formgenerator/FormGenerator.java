@@ -30,7 +30,7 @@ import android.widget.TextView;
 /**
  * Creates various form items and adds them to a given container
  * @author Julien Guerinet
- * @version 2.1.0
+ * @version 2.1.1
  * @since 1.0.0
  */
 public class FormGenerator {

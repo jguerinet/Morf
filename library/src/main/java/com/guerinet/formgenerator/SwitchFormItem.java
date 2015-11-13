@@ -31,7 +31,7 @@ import android.widget.TextView;
 /**
  * Builder for a {@link SwitchCompat} form item
  * @author Julien Guerinet
- * @version 2.1.0
+ * @version 2.1.1
  * @since 2.0.0
  */
 public class SwitchFormItem extends TextViewFormItem {

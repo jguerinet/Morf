@@ -33,7 +33,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
     }
 
 	dependencies {
-	    compile 'com.github.jguerinet:form-generator:2.1.0'
+	    compile 'com.github.jguerinet:form-generator:2.1.1'
 	}
 
 To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Builder`, customizing

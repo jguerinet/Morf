@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.1.1 (2015-11-13)
+* Added the possibility to initialize TextViewFormItems or its descendants with a string resource Id 
+
 ## Version 2.1.0 (2015-11-13)
 * Added gravity to the form items
 * Now using Drawable tinting instead of a color filter to color the icons 
