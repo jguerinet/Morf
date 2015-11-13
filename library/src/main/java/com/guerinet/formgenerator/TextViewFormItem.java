@@ -16,15 +16,15 @@
 
 package com.guerinet.formgenerator;
 
-import android.content.res.Resources;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
+import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
@@ -45,9 +45,9 @@ public class TextViewFormItem extends FormItem {
 	 */
 	private Icon[] mIcons;
 	/**
-	 * The {@link Resources}
+	 * The {@link Context}
 	 */
-	protected Resources mResources;
+	protected Context mContext;
 
 	/**
 	 * Default Constructor
@@ -59,7 +59,7 @@ public class TextViewFormItem extends FormItem {
 		super(fg, view);
 		mTextView = textView;
 		mView.setClickable(false);
-		mResources = mView.getResources();
+		mContext = mView.getContext();
 
 		mTextView.setText(text);
 
@@ -119,10 +119,10 @@ public class TextViewFormItem extends FormItem {
 	 */
 	public TextViewFormItem textColor(int colorId, boolean stateList){
 		if(stateList){
-			mTextView.setTextColor(mResources.getColorStateList(colorId));
+			mTextView.setTextColor(ContextCompat.getColorStateList(mContext, colorId));
 		}
 		else{
-			mTextView.setTextColor(mResources.getColor(colorId));
+			mTextView.setTextColor(ContextCompat.getColor(mContext, colorId));
 		}
 		return this;
 	}
@@ -134,7 +134,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem textSizeDimen(@DimenRes int dimenId){
-		return textSize(mResources.getDimensionPixelSize(dimenId));
+		return textSize(mContext.getResources().getDimensionPixelSize(dimenId));
 	}
 
 	/**
@@ -183,10 +183,10 @@ public class TextViewFormItem extends FormItem {
 	 */
 	public TextViewFormItem paddingDimen(@DimenRes int leftId, @DimenRes int topId,
 			@DimenRes int rightId, @DimenRes int bottomId){
-		return padding(mResources.getDimensionPixelSize(leftId),
-				mResources.getDimensionPixelSize(topId),
-				mResources.getDimensionPixelSize(rightId),
-				mResources.getDimensionPixelSize(bottomId));
+		return padding(mContext.getResources().getDimensionPixelSize(leftId),
+                mContext.getResources().getDimensionPixelSize(topId),
+                mContext.getResources().getDimensionPixelSize(rightId),
+                mContext.getResources().getDimensionPixelSize(bottomId));
 	}
 
 	/**
@@ -255,13 +255,14 @@ public class TextViewFormItem extends FormItem {
 			Icon icon = mIcons[i];
 			Drawable drawable = mTextView.getCompoundDrawables()[i];
 			if(drawable != null){
-				drawable = drawable.mutate();
+                //Wrap it in the design support library
+				drawable = DrawableCompat.wrap(drawable);
 				if(!icon.mVisible){
 					drawable.setAlpha(0);
 				}
 				else{
-					drawable.setColorFilter(new PorterDuffColorFilter(
-							mResources.getColor(icon.mColorId),PorterDuff.Mode.SRC_ATOP));
+                    DrawableCompat.setTint(drawable,
+                            ContextCompat.getColor(mContext, icon.mColorId));
 				}
 			}
 		}
