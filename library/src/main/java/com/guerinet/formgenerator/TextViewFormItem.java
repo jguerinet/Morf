@@ -255,7 +255,7 @@ public class TextViewFormItem extends FormItem {
 			Drawable drawable = mTextView.getCompoundDrawables()[i];
 			if(drawable != null){
                 //Wrap it in the design support library
-				drawable = DrawableCompat.wrap(drawable);
+				drawable = DrawableCompat.wrap(drawable).mutate();
 				if(!icon.mVisible){
 					drawable.setAlpha(0);
 				}
