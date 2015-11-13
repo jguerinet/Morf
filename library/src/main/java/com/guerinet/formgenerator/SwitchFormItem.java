@@ -54,7 +54,22 @@ public class SwitchFormItem extends TextViewFormItem {
         mSwitch.setSwitchTypeface(mFG.mBuilder.mDefaultTextTypeface);
 	}
 
-	/**
+    /**
+     * Constructor which takes a resource Id for the text
+     *
+     * @param fg   The {@link FormGenerator} instance
+     * @param view The {@link View}
+     * @param text The text Id
+     */
+    public SwitchFormItem(FormGenerator fg, View view, @StringRes int text){
+        super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
+        mSwitch = (SwitchCompat)mTextView;
+        //Set the switch typeface
+        mSwitch.setSwitchTypeface(mFG.mBuilder.mDefaultTextTypeface);
+    }
+
+
+    /**
 	 * Sets the {@link SwitchCompat}'s checked state
 	 *
 	 * @param checked True if the {@link SwitchCompat} should be checked, false otherwise

@@ -49,6 +49,22 @@ public class ButtonFormItem extends TextViewFormItem {
 		style(mFG.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
 	}
 
+    /**
+     * Constructor which takes a String resource Id to set the text
+     *
+     * @param fg       The {@link FormGenerator} instance
+     * @param view     The {@link View}
+     * @param text     The text Id
+     * @param listener The {@link View.OnClickListener}
+     */
+    public ButtonFormItem(FormGenerator fg, View view, @StringRes int text,
+            View.OnClickListener listener){
+        super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
+        mView.setOnClickListener(listener);
+        //Bold buttons
+        style(mFG.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
+    }
+
 	/**
 	 * Sets the {@link Button} hint
 	 *

@@ -21,6 +21,7 @@ import android.graphics.Typeface;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.StringRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -144,6 +145,17 @@ public class FormGenerator {
 				text);
 	}
 
+    /**
+     * Adds an input item
+     *
+     * @param text The text Id
+     * @return The {@link EditTextFormItem}
+     */
+    public EditTextFormItem input(@StringRes int text){
+        return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false),
+                text);
+    }
+
 	/**
 	 * Adds a text item
 	 *
@@ -155,6 +167,18 @@ public class FormGenerator {
 		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
                 true);
 	}
+
+    /**
+     * Adds a text item
+     *
+     * @param text The text Id
+     * @return The {@link TextViewFormItem}
+     */
+    public TextViewFormItem text(@StringRes int text){
+        View view = mInflater.inflate(R.layout.fg_text, mContainer, false);
+        return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
+                true);
+    }
 
 	/**
 	 * Adds a standard button
@@ -168,6 +192,18 @@ public class FormGenerator {
 				text, listener);
 	}
 
+    /**
+     * Adds a standard button
+     *
+     * @param text     The text Id
+     * @param listener The {@link View.OnClickListener}
+     * @return The {@link TextViewFormItem}
+     */
+    public ButtonFormItem button(@StringRes int text, View.OnClickListener listener){
+        return new ButtonFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
+                text, listener);
+    }
+
 	/**
 	 * Adds a switch item
 	 *
@@ -178,6 +214,17 @@ public class FormGenerator {
 		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
 				text);
 	}
+
+    /**
+     * Adds a switch item
+     *
+     * @param text The text Id
+     * @return The {@link SwitchFormItem}
+     */
+    public SwitchFormItem aSwitch(@StringRes int text) {
+        return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
+                text);
+    }
 
 	/**
 	 * The Form Generator builder

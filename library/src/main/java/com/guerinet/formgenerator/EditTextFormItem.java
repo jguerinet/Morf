@@ -56,6 +56,23 @@ public class EditTextFormItem extends TextViewFormItem {
 		}
 	}
 
+    /**
+     * Constructor which takes a resource Id for the text
+     *
+     * @param fg   The {@link FormGenerator} instance
+     * @param view The {@link View}
+     * @param text The text Id
+     */
+    public EditTextFormItem(FormGenerator fg, View view, @StringRes int text){
+        super(fg, view, (EditText) view.findViewById(R.id.fg_input), text, true);
+        mEditText = (EditText)mTextView;
+
+        //Set the right background
+        if(mFG.mBuilder.mDefaultInputBackgroundId != null){
+            inputBackground(mFG.mBuilder.mDefaultInputBackgroundId);
+        }
+    }
+
 	/**
 	 * Sets if the {@link EditText} should be single line or not. Default is true
 	 *

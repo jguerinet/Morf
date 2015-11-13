@@ -51,22 +51,18 @@ public class TextViewFormItem extends FormItem {
 	protected Context mContext;
 
 	/**
-	 * Default Constructor
+	 * Private Constructor that sets up all of the properties of the form item
 	 *
 	 * @param fg         The {@link FormGenerator} instance
 	 * @param view       The {@link View}
      * @param textView   The {@link TextView}
-     * @param text       The text to use on the TextView
      * @param background True if the default background should be applied, false otherwise
 	 */
-	public TextViewFormItem(FormGenerator fg, View view, TextView textView, String text,
-            boolean background){
+	private TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background){
 		super(fg, view, background);
 		mTextView = textView;
 		mView.setClickable(false);
 		mContext = mView.getContext();
-
-		mTextView.setText(text);
 
 		//Icons - set them all to nothing
 		mIcons = new Icon[4];
@@ -92,6 +88,36 @@ public class TextViewFormItem extends FormItem {
 		//Typeface
 		typeface(mFG.mBuilder.mDefaultTextTypeface);
 	}
+
+    /**
+     * Default Constructor
+     *
+     * @param fg         The {@link FormGenerator} instance
+     * @param view       The {@link View}
+     * @param textView   The {@link TextView}
+     * @param text       The text to use on the TextView
+     * @param background True if the default background should be applied, false otherwise
+     */
+    public TextViewFormItem(FormGenerator fg, View view, TextView textView, String text,
+            boolean background) {
+        this(fg, view, textView, background);
+        mTextView.setText(text);
+    }
+
+    /**
+     * Constructor which takes a String resource Id for the text
+     *
+     * @param fg         The {@link FormGenerator} instance
+     * @param view       The {@link View}
+     * @param textView   The {@link TextView}
+     * @param text       The text Id to use in the TextView
+     * @param background True if the default background should be applied, false otherwise
+     */
+    public TextViewFormItem(FormGenerator fg, View view, TextView textView, @StringRes int text,
+            boolean background) {
+        this(fg, view, textView, background);
+        mTextView.setText(text);
+    }
 
 	/**
 	 * Sets the {@link TextView} hint
