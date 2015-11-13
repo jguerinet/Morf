@@ -100,14 +100,15 @@ public class FormGenerator {
 	boolean mShowLine;
 
 	/**
-	 * Returns the default {@link FormGenerator}. This will use either the default generator set
-	 *  by the user, or a generator with the default values
+	 * Binds the default {@link FormGenerator} to the given layout and returns it.
+     *  This will use either the default generator set by the user,
+     *  or a generator with the default values
 	 *
 	 * @param inflater  The {@link LayoutInflater}
 	 * @param container The container that the items should be in
 	 * @return The default {@link FormGenerator}
 	 */
-	public static FormGenerator get(LayoutInflater inflater, LinearLayout container){
+	public static FormGenerator bind(LayoutInflater inflater, LinearLayout container){
 		//No singleton set, build from the default settings
 		if(singleton == null){
 			singleton = new Builder();
@@ -117,24 +118,33 @@ public class FormGenerator {
 	}
 
 	/**
-	 * Returns the default {@link FormGenerator}. This will use either the default generator set
-	 *  by the user, or a generator with the default values
+	 * Binds the default {@link FormGenerator} to the given layout and returns it.
+     *  This will use either the default generator set by the user,
+     *  or a generator with the default values
 	 *
 	 * @param context   The {@link LayoutInflater}
 	 * @param container The container that the items should be in
 	 * @return The default {@link FormGenerator}
 	 */
-	public static FormGenerator get(Context context, LinearLayout container){
-		return get(LayoutInflater.from(context), container);
+	public static FormGenerator bind(Context context, LinearLayout container){
+		return bind(LayoutInflater.from(context), container);
 	}
+
+    public static Builder get() {
+        if (singleton == null) {
+            singleton = new Builder();
+        }
+        return singleton;
+    }
 
 	/**
 	 * Sets the default instance of the {@link FormGenerator} to use when
-	 *  {@link #get(Context, LinearLayout)} or {@link #get(LayoutInflater, LinearLayout)} is called
+	 *  {@link #get()}, {@link #bind(Context, LinearLayout)} or
+     *  {@link #bind(LayoutInflater, LinearLayout)} is called
 	 *
 	 * @param builder The {@link Builder} instance
 	 */
-	public static void setInstance(Builder builder){
+	public static void set(Builder builder){
 		singleton = builder;
 	}
 
@@ -161,15 +171,6 @@ public class FormGenerator {
 		mDefaultLineSize = builder.mDefaultLineSize;
 		mDefaultLineColorId = builder.mDefaultLineColorId;
 		mShowLine = builder.mShowLine;
-	}
-
-	/**
-	 * Deconstructs a {@link FormGenerator} into a new {@link Builder} instance
-	 *
-	 * @return The new {@link Builder} instance
-	 */
-	public Builder deconstruct(){
-		return new Builder(this);
 	}
 
 	/**
