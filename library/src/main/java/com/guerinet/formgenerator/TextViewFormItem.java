@@ -466,7 +466,7 @@ public class TextViewFormItem extends FormItem {
 	 * Sets the background
 	 *
 	 * @param backgroundId The background Id
-	 * @return The {@link FormItem} instance
+	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
 	public TextViewFormItem background(int backgroundId){

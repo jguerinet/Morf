@@ -388,7 +388,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * Sets the background
 	 *
 	 * @param backgroundId The background Id
-	 * @return The {@link FormItem} instance
+	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
 	public ButtonFormItem background(int backgroundId){

@@ -413,7 +413,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * Sets the background
 	 *
 	 * @param backgroundId The background Id
-	 * @return The {@link FormItem} instance
+	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
 	public SwitchFormItem background(int backgroundId){

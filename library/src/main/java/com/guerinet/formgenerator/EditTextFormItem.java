@@ -80,7 +80,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 *  Sets the {@link EditText} background
 	 *
 	 * @param backgroundId The background Id
-	 * @return The {@link FormItem} instance
+	 * @return The {@link EditTextFormItem} instance
 	 */
 	public EditTextFormItem inputBackground(int backgroundId){
 		mEditText.setBackgroundResource(backgroundId);
@@ -428,7 +428,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * Sets the background
 	 *
 	 * @param backgroundId The background Id
-	 * @return The {@link FormItem} instance
+	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
 	public EditTextFormItem background(int backgroundId){
