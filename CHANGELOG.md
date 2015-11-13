@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.1.2 (2015-11-13)
+* Fixed bug where the icon drawable was no longer being mutated when set
+
 ## Version 2.1.1 (2015-11-13)
 * Added the possibility to initialize TextViewFormItems or its descendants with a string resource Id 
 

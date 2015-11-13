@@ -24,7 +24,7 @@ import android.view.View;
 /**
  * Builder for a space.
  * @author Julien Guerinet
- * @version 2.1.1
+ * @version 2.1.2
  * @since 2.0.0
  */
 public class SpaceItem extends Item {
