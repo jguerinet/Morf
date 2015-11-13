@@ -153,6 +153,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public SwitchFormItem typeface(Typeface typeface){
+        //Set the typeface on the switch as well
+        mSwitch.setSwitchTypeface(typeface);
 		return (SwitchFormItem)super.typeface(typeface);
 	}
 
