@@ -373,6 +373,8 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultSpaceDimen(int dimenId){
+            //Clear the padding size in pixels
+            mDefaultSpaceSize = null;
 			mDefaultSpaceSizeId = dimenId;
 			return this;
 		}
@@ -395,6 +397,8 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultTextDimen(int dimenId){
+            //Clear the padding size in pixels
+            mDefaultTextSize = null;
 			mDefaultTextSizeId = dimenId;
 			return this;
 		}
@@ -445,6 +449,8 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultPaddingDimen(int dimenId){
+            //Clear the default padding size
+            mDefaultPaddingSize = null;
 			mDefaultPaddingSizeId = dimenId;
 			return this;
 		}
@@ -467,6 +473,8 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultLineDimen(int dimenId){
+            //Clear the default line size
+            mDefaultLineSize = null;
 			mDefaultLineSizeId = dimenId;
 			return this;
 		}
