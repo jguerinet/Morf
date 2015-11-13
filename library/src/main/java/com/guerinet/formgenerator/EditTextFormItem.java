@@ -21,6 +21,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -399,6 +400,17 @@ public class EditTextFormItem extends TextViewFormItem {
     @Override
     public EditTextFormItem singleLine() {
         return (EditTextFormItem) super.singleLine();
+    }
+
+    /**
+     * Sets the {@link TextView} ellipsize option
+     *
+     * @param type The ellipsize type
+     * @return The {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem ellipsize(TextUtils.TruncateAt type) {
+        return (EditTextFormItem) super.ellipsize(type);
     }
 
     /**

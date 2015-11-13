@@ -21,6 +21,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -360,6 +361,17 @@ public class ButtonFormItem extends TextViewFormItem {
     @Override
     public ButtonFormItem singleLine() {
         return (ButtonFormItem) super.singleLine();
+    }
+
+    /**
+     * Sets the {@link TextView} ellipsize option
+     *
+     * @param type The ellipsize type
+     * @return The {@link ButtonFormItem} instance
+     */
+    @Override
+    public ButtonFormItem ellipsize(TextUtils.TruncateAt type) {
+        return (ButtonFormItem) super.ellipsize(type);
     }
 
 	/**

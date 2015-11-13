@@ -22,6 +22,7 @@ import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.SwitchCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -385,6 +386,17 @@ public class SwitchFormItem extends TextViewFormItem {
     @Override
     public SwitchFormItem singleLine() {
         return (SwitchFormItem) super.singleLine();
+    }
+
+    /**
+     * Sets the {@link TextView} ellipsize option
+     *
+     * @param type The ellipsize type
+     * @return The {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem ellipsize(TextUtils.TruncateAt type) {
+        return (SwitchFormItem) super.ellipsize(type);
     }
 
 	/**

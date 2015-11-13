@@ -25,6 +25,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
@@ -437,6 +438,17 @@ public class TextViewFormItem extends FormItem {
      */
     public TextViewFormItem singleLine() {
         mTextView.setSingleLine();
+        return this;
+    }
+
+    /**
+     * Sets the {@link TextView} ellipsize option
+     *
+     * @param type The ellipsize type
+     * @return The {@link TextViewFormItem} instance
+     */
+    public TextViewFormItem ellipsize(TextUtils.TruncateAt type) {
+        mTextView.setEllipsize(type);
         return this;
     }
 
