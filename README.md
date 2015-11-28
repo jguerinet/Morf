@@ -1,11 +1,12 @@
 # Form Generator
 
 ## Summary
-Generates customizable forms for Android 8+ (tested on 10+). Form items include:
+Generates customizable forms for Android 11+. Form items include:
 
 * Simple text
 * Text buttons
 * Standard Android buttons
+* Standard Android borderless buttons
 * Switches
 * Input fields
 * Lines
