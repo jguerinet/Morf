@@ -62,9 +62,9 @@ public class FormGenerator {
 	 * @param container The container that the items should be in
 	 * @return The default {@link FormGenerator}
 	 */
-	public static FormGenerator bind(LayoutInflater inflater, LinearLayout container){
+	public static FormGenerator bind(LayoutInflater inflater, LinearLayout container) {
 		//No singleton set, bind from the default settings
-		if(singleton == null){
+		if (singleton == null) {
 			singleton = new Builder();
 		}
 
@@ -80,7 +80,7 @@ public class FormGenerator {
 	 * @param container The container that the items should be in
 	 * @return The default {@link FormGenerator}
 	 */
-	public static FormGenerator bind(Context context, LinearLayout container){
+	public static FormGenerator bind(Context context, LinearLayout container) {
 		return bind(LayoutInflater.from(context), container);
 	}
 
@@ -101,7 +101,7 @@ public class FormGenerator {
 	 *
 	 * @param builder The {@link Builder} instance
 	 */
-	public static void set(Builder builder){
+	public static void set(Builder builder) {
 		singleton = builder;
 	}
 
@@ -112,7 +112,7 @@ public class FormGenerator {
 	 * @param inflater  The {@link LayoutInflater} instance
 	 * @param container The container to add the form items to
 	 */
-	private FormGenerator(Builder builder, LayoutInflater inflater, LinearLayout container){
+	private FormGenerator(Builder builder, LayoutInflater inflater, LinearLayout container) {
 		mInflater = inflater;
 		mContainer = container;
         mBuilder = builder;
@@ -121,7 +121,7 @@ public class FormGenerator {
 	/**
 	 * Adds a space
 	 */
-	public SpaceItem space(){
+	public SpaceItem space() {
 		return new SpaceItem(this, mInflater.inflate(R.layout.fg_space, mContainer, false));
 	}
 
@@ -130,7 +130,7 @@ public class FormGenerator {
 	 *
 	 * @return The {@link LineItem}
 	 */
-	public LineItem line(){
+	public LineItem line() {
 		return new LineItem(this, mInflater.inflate(R.layout.fg_line, mContainer, false));
 	}
 
@@ -140,7 +140,7 @@ public class FormGenerator {
 	 * @param text The text
 	 * @return The {@link EditTextFormItem}
 	 */
-	public EditTextFormItem input(String text){
+	public EditTextFormItem input(String text) {
 		return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false),
 				text);
 	}
@@ -151,7 +151,7 @@ public class FormGenerator {
      * @param text The text Id
      * @return The {@link EditTextFormItem}
      */
-    public EditTextFormItem input(@StringRes int text){
+    public EditTextFormItem input(@StringRes int text) {
         return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false),
                 text);
     }
@@ -162,7 +162,7 @@ public class FormGenerator {
 	 * @param text The text
 	 * @return The {@link TextViewFormItem}
 	 */
-	public TextViewFormItem text(String text){
+	public TextViewFormItem text(String text) {
 		View view = mInflater.inflate(R.layout.fg_text, mContainer, false);
 		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
                 true);
@@ -174,7 +174,7 @@ public class FormGenerator {
      * @param text The text Id
      * @return The {@link TextViewFormItem}
      */
-    public TextViewFormItem text(@StringRes int text){
+    public TextViewFormItem text(@StringRes int text) {
         View view = mInflater.inflate(R.layout.fg_text, mContainer, false);
         return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
                 true);
@@ -187,7 +187,7 @@ public class FormGenerator {
 	 * @param listener The {@link View.OnClickListener}
 	 * @return The {@link TextViewFormItem}
 	 */
-	public ButtonFormItem button(String text, View.OnClickListener listener){
+	public ButtonFormItem button(String text, View.OnClickListener listener) {
 		return new ButtonFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
 				text, listener);
 	}
@@ -199,9 +199,33 @@ public class FormGenerator {
      * @param listener The {@link View.OnClickListener}
      * @return The {@link TextViewFormItem}
      */
-    public ButtonFormItem button(@StringRes int text, View.OnClickListener listener){
+    public ButtonFormItem button(@StringRes int text, View.OnClickListener listener) {
         return new ButtonFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
                 text, listener);
+    }
+
+    /**
+     * Adds a borderless button
+     *
+     * @param text     The text
+     * @param listener The {@link View.OnClickListener}
+     * @return The {@link ButtonFormItem}
+     */
+    public ButtonFormItem borderlessButton(String text, View.OnClickListener listener) {
+        return new ButtonFormItem(this, mInflater.inflate(
+                R.layout.fg_button_borderless, mContainer, false), text, listener);
+    }
+
+    /**
+     * Adds a borderless button
+     *
+     * @param text     The text Id
+     * @param listener The {@link View.OnClickListener}
+     * @return The {@link ButtonFormItem}
+     */
+    public ButtonFormItem borderlessButton(@StringRes int text, View.OnClickListener listener) {
+        return new ButtonFormItem(this, mInflater.inflate(
+                R.layout.fg_button_borderless, mContainer, false), text, listener);
     }
 
 	/**
@@ -210,7 +234,7 @@ public class FormGenerator {
 	 * @param text The text
 	 * @return The {@link SwitchFormItem}
 	 */
-	public SwitchFormItem aSwitch(String text){
+	public SwitchFormItem aSwitch(String text) {
 		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
 				text);
 	}
@@ -329,7 +353,7 @@ public class FormGenerator {
 		 * @param container The container for the views
 		 * @return The created {@link FormGenerator} instance
 		 */
-		public FormGenerator bind(LayoutInflater inflater, LinearLayout container){
+		public FormGenerator bind(LayoutInflater inflater, LinearLayout container) {
 			return new FormGenerator(this, inflater, container);
 		}
 
@@ -340,7 +364,7 @@ public class FormGenerator {
 		 * @param container The container for the views
 		 * @return The created {@link FormGenerator} instance
 		 */
-		public FormGenerator bind(Context context, LinearLayout container){
+		public FormGenerator bind(Context context, LinearLayout container) {
 			return bind(LayoutInflater.from(context), container);
 		}
 
@@ -350,7 +374,7 @@ public class FormGenerator {
 		 * @param colorId The color resource Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultIconColorId(@ColorRes int colorId){
+		public Builder setDefaultIconColorId(@ColorRes int colorId) {
 			mDefaultIconColorId = colorId;
 			return this;
 		}
@@ -361,7 +385,7 @@ public class FormGenerator {
 		 * @param backgroundId The background resource Id (can be a color or a drawable)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultBackground(@ColorRes @DrawableRes int backgroundId){
+		public Builder setDefaultBackground(@ColorRes @DrawableRes int backgroundId) {
 			mDefaultBackgroundId = backgroundId;
 			return this;
 		}
@@ -372,7 +396,7 @@ public class FormGenerator {
 		 * @param backgroundId The background resource Id (can be a color or drawable)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setInputDefaultBackground(@ColorRes @DrawableRes int backgroundId){
+		public Builder setInputDefaultBackground(@ColorRes @DrawableRes int backgroundId) {
 			mDefaultInputBackgroundId = backgroundId;
 			return this;
 		}
@@ -383,7 +407,7 @@ public class FormGenerator {
 		 * @param colorId The space color Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultSpaceColorId(@ColorRes int colorId){
+		public Builder setDefaultSpaceColorId(@ColorRes int colorId) {
 			mDefaultSpaceColorId = colorId;
 			return this;
 		}
@@ -394,7 +418,7 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultSpaceSize(@DimenRes int dimenId){
+		public Builder setDefaultSpaceSize(@DimenRes int dimenId) {
 			mDefaultSpaceSizeId = dimenId;
 			return this;
 		}
@@ -405,7 +429,7 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextSize(@DimenRes int dimenId){
+		public Builder setDefaultTextSize(@DimenRes int dimenId) {
 			mDefaultTextSizeId = dimenId;
 			return this;
 		}
@@ -417,7 +441,7 @@ public class FormGenerator {
 		 * @param stateList True if this is a state list, false if it's a solid color
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextColorId(@ColorRes int colorId, boolean stateList){
+		public Builder setDefaultTextColorId(@ColorRes int colorId, boolean stateList) {
 			if(stateList){
 				mDefaultTextColorStateListId = colorId;
 			}
@@ -433,7 +457,7 @@ public class FormGenerator {
 		 * @param typeface The {@link Typeface} to use
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTypeface(Typeface typeface){
+		public Builder setDefaultTypeface(Typeface typeface) {
 			mDefaultTextTypeface = typeface;
 			return this;
 		}
@@ -444,7 +468,7 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultPaddingSize(@DimenRes int dimenId){
+		public Builder setDefaultPaddingSize(@DimenRes int dimenId) {
 			mDefaultPaddingSizeId = dimenId;
 			return this;
 		}
@@ -455,7 +479,7 @@ public class FormGenerator {
 		 * @param dimenId The dimension Id (in dp)
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultLineSize(@DimenRes int dimenId){
+		public Builder setDefaultLineSize(@DimenRes int dimenId) {
 			mDefaultLineSizeId = dimenId;
 			return this;
 		}
@@ -466,7 +490,7 @@ public class FormGenerator {
 		 * @param colorId The color resource Id
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultLineColorId(@ColorRes @DrawableRes int colorId){
+		public Builder setDefaultLineColorId(@ColorRes @DrawableRes int colorId) {
 			mDefaultLineColorId = colorId;
 			return this;
 		}
@@ -477,7 +501,7 @@ public class FormGenerator {
 		 * @param showLine True if a line should be shown after a form item, false otherwise
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setShowLine(boolean showLine){
+		public Builder setShowLine(boolean showLine) {
 			mShowLine = showLine;
 			return this;
 		}

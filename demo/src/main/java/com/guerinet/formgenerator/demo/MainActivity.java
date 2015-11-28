@@ -48,23 +48,31 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.text("Form Item: Button")
 				.onClick(new View.OnClickListener() {
-					@Override
-					public void onClick(View v){
-						Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast
-								.LENGTH_SHORT)
-								.show();
-					}
-				});
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast
+                                .LENGTH_SHORT)
+                                .show();
+                    }
+                });
 
 		fg.space();
 
 		fg.button("Form Item, Simple Button", new View.OnClickListener() {
-			@Override
-			public void onClick(View v){
-				Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
-						Toast.LENGTH_SHORT).show();
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fg.borderlessButton("Form Item, Borderless Button", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
 		fg.space();
 		fg.line();
@@ -102,22 +110,30 @@ public class MainActivity extends AppCompatActivity {
 				.leftIcon(R.drawable.ic_info, false)
 				.rightIcon(R.drawable.ic_chevron_right)
 				.onClick(new View.OnClickListener() {
-					@Override
-					public void onClick(View v){
-						Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
                                 Toast.LENGTH_SHORT).show();
-					}
-				});
+                    }
+                });
 
 		fg.space();
 
 		fg.button("Form Item, Simple Button", new View.OnClickListener() {
-			@Override
-			public void onClick(View v){
-				Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
-						Toast.LENGTH_SHORT).show();
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fg.borderlessButton("Form Item, Borderless Button", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Form Item: Borderless Button Clicked",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
 		fg.space();
 		fg.line();
