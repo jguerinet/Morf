@@ -29,7 +29,6 @@ import android.widget.TextView;
 /**
  * Builder for a {@link Button} form item
  * @author Julien Guerinet
- * @version 2.1.2
  * @since 2.0.0
  */
 public class ButtonFormItem extends TextViewFormItem {

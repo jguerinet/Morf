@@ -21,7 +21,6 @@ import android.view.View;
 /**
  * Base Builder for all of the form items (except for line and space)
  * @author Julien Guerinet
- * @version 2.1.2
  * @since 2.0.0
  */
 abstract class FormItem extends LineItem{

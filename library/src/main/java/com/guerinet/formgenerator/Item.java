@@ -21,7 +21,6 @@ import android.view.View;
 /**
  * The base class for all items that could be present on a form
  * @author Julien Guerinet
- * @version 2.1.2
  * @since 2.0.0
  */
 abstract class Item {
