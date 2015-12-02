@@ -27,14 +27,15 @@ Customization includes:
 * Switch on and off text
 
 ## Instructions
-To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io):
+To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). 
+Replace X.X.X below with the latest version found on the [Releases](https://github.com/jguerinet/form-generator/releases) page:
 
     repositories {
         maven { url "https://jitpack.io" }
     }
 
 	dependencies {
-	    compile 'com.guerinet:form-generator:2.1.2'
+	    compile 'com.guerinet:form-generator:X.X.X'
 	}
 
 To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Builder`, customizing

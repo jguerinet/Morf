@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.1.3 (2015-12-01)
+* Added the borderless button 
+
 ## Version 2.1.2 (2015-11-13)
 * Fixed bug where the icon drawable was no longer being mutated when set
 
