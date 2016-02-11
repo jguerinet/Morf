@@ -27,7 +27,8 @@ Customization includes:
 * Switch on and off text
 
 ## Instructions
-To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). 
+[![Release](https://jitpack.io/v/User/Repo.svg)](https://jitpack.io/#com.guerinet/form-generator)
+To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io).
 Replace X.X.X below with the latest version found on the [Releases](https://github.com/jguerinet/form-generator/releases) page:
 
     repositories {
@@ -56,7 +57,7 @@ You can set the default `FormGenerator` instance by calling `FormGenerator.set()
 * Lines after items: True
 
 Once you set your default FormGenerator, you can always customize it by calling `FormGenerator.get()` and changing the desired fields. You can also construct a new builder instance from your default one by calling
-`FormGenerator.get().newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance. 
+`FormGenerator.get().newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance.
 Each item can be further customized if you need to have some properties that are different from the default properties. When adding each item, there are a number of methods you can call to further customize the item itself.
 To get the associated view, simple call `view()` at the end of your customization. All of the above properties can be customized per form item, as well as:
 
