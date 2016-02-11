@@ -27,7 +27,8 @@ Customization includes:
 * Switch on and off text
 
 ## Instructions
-[![Release](https://jitpack.io/v/User/Repo.svg)](https://jitpack.io/#com.guerinet/form-generator)
+[![Release](https://jitpack.io/v/com.guerinet/form-generator.svg)](https://jitpack.io/#com.guerinet/form-generator)
+
 To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io).
 Replace X.X.X below with the latest version found on the [Releases](https://github.com/jguerinet/form-generator/releases) page:
 
