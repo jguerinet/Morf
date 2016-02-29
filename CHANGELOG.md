@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.1.4 (2016-02-29)
+* Fix: Fixed bug where app would crash when the default color Id was not set 
+
 ## Version 2.1.3 (2015-12-01)
 * Added the borderless button 
 
