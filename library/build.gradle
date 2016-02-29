@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 archivesBaseName="form-generator"
-version = "2.1.4"
+version = "2.1.5"
 
 android{
     compileSdkVersion 23
@@ -27,7 +27,7 @@ android{
     defaultConfig{
         minSdkVersion 11
         targetSdkVersion 23
-        versionCode 12
+        versionCode 13
         versionName version
     }
     buildTypes{
