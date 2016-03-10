@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,16 +104,6 @@ public class EditTextFormItem extends TextViewFormItem {
 		mEditText.setBackgroundResource(backgroundId);
 		return this;
 	}
-
-    /**
-     * Sets the {@link EditText} as single line
-     *
-     * @return The {@link EditTextFormItem} instance
-     */
-    public EditTextFormItem editTextSingleLine() {
-        mEditText.setSingleLine();
-        return this;
-    }
 
 	/**
 	 * Sets the {@link Button} hint
