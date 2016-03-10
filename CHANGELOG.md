@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.1.5 (2016-03-10)
+* Fix: Now using the Application Context to tint a drawable to avoid memory leaks 
+* Update: Removed `setSingleLine()` from EditTextFormItem since it was a duplicate
+
 ## Version 2.1.4 (2016-02-29)
 * Fix: Fixed bug where app would crash when the default color Id was not set 
 
