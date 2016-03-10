@@ -259,8 +259,8 @@ public class TextViewFormItem extends FormItem {
 					drawable.setAlpha(0);
 				}
 				else if (icon.mColorId != 0){
-                    DrawableCompat.setTint(drawable,
-                            ContextCompat.getColor(mContext, icon.mColorId));
+                    DrawableCompat.setTint(drawable, ContextCompat.getColor(
+                            mContext.getApplicationContext(), icon.mColorId));
 				}
 			}
 		}
