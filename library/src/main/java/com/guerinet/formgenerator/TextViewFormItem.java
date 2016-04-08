@@ -16,7 +16,6 @@
 
 package com.guerinet.formgenerator;
 
-import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.CallSuper;
@@ -49,10 +48,6 @@ public class TextViewFormItem extends LineItem {
 	 * The list of {@link Icon}s to add
 	 */
 	private final Icon[] icons;
-	/**
-	 * The {@link Context}
-	 */
-	protected final Context context;
 
 	/**
 	 * Private Constructor that sets up all of the properties of the form item
@@ -67,7 +62,6 @@ public class TextViewFormItem extends LineItem {
         this.view = view;
 		this.textView = textView;
 		this.view.setClickable(false);
-		context = this.view.getContext();
 
 		// Icons - set them all to nothing
 		icons = new Icon[4];
