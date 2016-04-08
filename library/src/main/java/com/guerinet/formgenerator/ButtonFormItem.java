@@ -402,6 +402,6 @@ public class ButtonFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public Button view(){
-		return (Button)mTextView;
+		return (Button) textView;
 	}
 }

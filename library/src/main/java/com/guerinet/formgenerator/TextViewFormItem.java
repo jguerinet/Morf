@@ -39,15 +39,15 @@ public class TextViewFormItem extends FormItem {
 	/**
 	 * The {@link TextView}
 	 */
-	protected TextView mTextView;
+	protected final TextView textView;
 	/**
 	 * The list of {@link Icon}s to add
 	 */
-	private Icon[] mIcons;
+	private final Icon[] icons;
 	/**
 	 * The {@link Context}
 	 */
-	protected Context mContext;
+	protected final Context context;
 
 	/**
 	 * Private Constructor that sets up all of the properties of the form item
@@ -57,34 +57,33 @@ public class TextViewFormItem extends FormItem {
      * @param textView   The {@link TextView}
      * @param background True if the default background should be applied, false otherwise
 	 */
-	private TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background){
+	private TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background) {
 		super(fg, view, background);
-		mTextView = textView;
+		this.textView = textView;
 		this.view.setClickable(false);
-		mContext = this.view.getContext();
+		context = this.view.getContext();
 
-		//Icons - set them all to nothing
-		mIcons = new Icon[4];
-		mIcons[0] = new Icon(0, 0, false);
-		mIcons[1] = new Icon(0, 0, false);
-		mIcons[2] = new Icon(0, 0, false);
-		mIcons[3] = new Icon(0, 0, false);
+		// Icons - set them all to nothing
+		icons = new Icon[4];
+		icons[0] = new Icon(0, 0, false);
+		icons[1] = new Icon(0, 0, false);
+		icons[2] = new Icon(0, 0, false);
+		icons[3] = new Icon(0, 0, false);
 
-		//Text Color
-		if(this.fg.mBuilder.mDefaultTextColorStateListId != 0){
+		// Text Color
+		if (this.fg.mBuilder.mDefaultTextColorStateListId != 0) {
 			textColor(this.fg.mBuilder.mDefaultTextColorStateListId, true);
-		}
-		else{
+		} else {
 			textColor(this.fg.mBuilder.mDefaultTextColorId, false);
 		}
 
-		//Text Size
+		// Text Size
 		textSize(this.fg.mBuilder.mDefaultTextSizeId);
 
-		//Padding
+		// Padding
 		padding(this.fg.mBuilder.mDefaultPaddingSizeId);
 
-		//Typeface
+		// Typeface
 		typeface(this.fg.mBuilder.mDefaultTextTypeface);
 	}
 
@@ -100,7 +99,7 @@ public class TextViewFormItem extends FormItem {
     public TextViewFormItem(FormGenerator fg, View view, TextView textView, String text,
             boolean background) {
         this(fg, view, textView, background);
-        mTextView.setText(text);
+        this.textView.setText(text);
     }
 
     /**
@@ -115,7 +114,7 @@ public class TextViewFormItem extends FormItem {
     public TextViewFormItem(FormGenerator fg, View view, TextView textView, @StringRes int text,
             boolean background) {
         this(fg, view, textView, background);
-        mTextView.setText(text);
+        this.textView.setText(text);
     }
 
 	/**
@@ -124,8 +123,8 @@ public class TextViewFormItem extends FormItem {
 	 * @param hint The hint
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem hint(String hint){
-		mTextView.setHint(hint);
+	public TextViewFormItem hint(String hint) {
+		textView.setHint(hint);
 		return this;
 	}
 
@@ -135,8 +134,8 @@ public class TextViewFormItem extends FormItem {
 	 * @param stringId The String Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem hint(@StringRes int stringId){
-		mTextView.setHint(stringId);
+	public TextViewFormItem hint(@StringRes int stringId) {
+		textView.setHint(stringId);
 		return this;
 	}
 
@@ -147,12 +146,11 @@ public class TextViewFormItem extends FormItem {
 	 * @param stateList True if the color is a state list, false if it's a solid color
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem textColor(int colorId, boolean stateList){
-		if(stateList){
-			mTextView.setTextColor(ContextCompat.getColorStateList(mContext, colorId));
-		}
-		else{
-			mTextView.setTextColor(ContextCompat.getColor(mContext, colorId));
+	public TextViewFormItem textColor(int colorId, boolean stateList) {
+		if (stateList) {
+			textView.setTextColor(ContextCompat.getColorStateList(context, colorId));
+		} else {
+			textView.setTextColor(ContextCompat.getColor(context, colorId));
 		}
 		return this;
 	}
@@ -163,9 +161,9 @@ public class TextViewFormItem extends FormItem {
 	 * @param dimenId The dimension Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem textSize(@DimenRes int dimenId){
-        mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                mContext.getResources().getDimensionPixelSize(dimenId));
+	public TextViewFormItem textSize(@DimenRes int dimenId) {
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                context.getResources().getDimensionPixelSize(dimenId));
         return this;
 	}
 
@@ -179,11 +177,11 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem padding(@DimenRes int leftId, @DimenRes int topId,
-            @DimenRes int rightId, @DimenRes int bottomId){
-        mTextView.setPadding(mContext.getResources().getDimensionPixelSize(leftId),
-                mContext.getResources().getDimensionPixelSize(topId),
-                mContext.getResources().getDimensionPixelSize(rightId),
-                mContext.getResources().getDimensionPixelSize(bottomId));
+            @DimenRes int rightId, @DimenRes int bottomId) {
+        textView.setPadding(context.getResources().getDimensionPixelSize(leftId),
+                context.getResources().getDimensionPixelSize(topId),
+                context.getResources().getDimensionPixelSize(rightId),
+                context.getResources().getDimensionPixelSize(bottomId));
         return this;
 	}
 
@@ -193,7 +191,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param dimenId The dimension Id to use for all sides
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem padding(@DimenRes int dimenId){
+	public TextViewFormItem padding(@DimenRes int dimenId) {
 		return padding(dimenId, dimenId, dimenId, dimenId);
 	}
 
@@ -203,8 +201,8 @@ public class TextViewFormItem extends FormItem {
 	 * @param typeface The {@link Typeface}
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem typeface(Typeface typeface){
-		mTextView.setTypeface(typeface);
+	public TextViewFormItem typeface(Typeface typeface) {
+		textView.setTypeface(typeface);
 		return this;
 	}
 
@@ -215,8 +213,8 @@ public class TextViewFormItem extends FormItem {
 	 * @param style    The style
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem style(Typeface typeface, int style){
-		mTextView.setTypeface(typeface, style);
+	public TextViewFormItem style(Typeface typeface, int style) {
+		textView.setTypeface(typeface, style);
 		return this;
 	}
 
@@ -227,8 +225,8 @@ public class TextViewFormItem extends FormItem {
 	 * @param style The style
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem style(int style){
-		mTextView.setTypeface(fg.mBuilder.mDefaultTextTypeface, style);
+	public TextViewFormItem style(int style) {
+		textView.setTypeface(fg.mBuilder.mDefaultTextTypeface, style);
 		return this;
 	}
 
@@ -241,26 +239,25 @@ public class TextViewFormItem extends FormItem {
 	 * @param visible  True if the icon should be visible, false otherwise
 	 */
 	private void icon(int position, @DrawableRes int iconId, @ColorRes int colorId,
-			boolean visible){
-		mIcons[position] = new Icon(iconId, colorId, visible);
+			boolean visible) {
+		icons[position] = new Icon(iconId, colorId, visible);
 
-		//Set all of the icons
-		mTextView.setCompoundDrawablesWithIntrinsicBounds(mIcons[0].mDrawableId,
-				mIcons[1].mDrawableId, mIcons[2].mDrawableId, mIcons[3].mDrawableId);
+		// Set all of the icons
+		textView.setCompoundDrawablesWithIntrinsicBounds(icons[0].drawableId,
+				icons[1].drawableId, icons[2].drawableId, icons[3].drawableId);
 
-		//Apply the tinting and alpha
-		for(int i = 0; i < 4; i++){
-			Icon icon = mIcons[i];
-			Drawable drawable = mTextView.getCompoundDrawables()[i];
-			if(drawable != null){
+		// Apply the tinting and alpha
+		for (int i = 0; i < 4; i++) {
+			Icon icon = icons[i];
+			Drawable drawable = textView.getCompoundDrawables()[i];
+			if (drawable != null) {
                 //Wrap it in the design support library
 				drawable = DrawableCompat.wrap(drawable).mutate();
-				if(!icon.mVisible){
+                if (!icon.visible) {
 					drawable.setAlpha(0);
-				}
-				else if (icon.mColorId != 0){
+				} else if (icon.colorId != 0) {
                     DrawableCompat.setTint(drawable, ContextCompat.getColor(
-                            mContext.getApplicationContext(), icon.mColorId));
+                            context.getApplicationContext(), icon.colorId));
 				}
 			}
 		}
@@ -273,7 +270,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param visible True if the icon should be visible, false otherwise
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible){
+	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible) {
 		icon(0, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
@@ -285,7 +282,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param visible True if the icon should be visible, false otherwise
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible){
+	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible) {
 		icon(1, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
@@ -297,7 +294,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param visible True if the icon should be visible, false otherwise
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible){
+	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible) {
 		icon(2, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
@@ -309,7 +306,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param visible True if the icon should be visible, false otherwise
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible){
+	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible) {
 		icon(3, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
@@ -320,7 +317,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param iconId  The icon resource Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem leftIcon(@DrawableRes int iconId){
+	public TextViewFormItem leftIcon(@DrawableRes int iconId) {
 		icon(0, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
@@ -331,7 +328,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param iconId  The icon resource Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem topIcon(@DrawableRes int iconId){
+	public TextViewFormItem topIcon(@DrawableRes int iconId) {
 		icon(1, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
@@ -342,7 +339,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param iconId  The icon resource Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem rightIcon(@DrawableRes int iconId){
+	public TextViewFormItem rightIcon(@DrawableRes int iconId) {
 		icon(2, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
@@ -353,7 +350,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param iconId  The icon resource Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem bottomIcon(@DrawableRes int iconId){
+	public TextViewFormItem bottomIcon(@DrawableRes int iconId) {
 		icon(3, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
@@ -365,7 +362,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param colorId The color Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public TextViewFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		icon(0, iconId, colorId, true);
 		return this;
 	}
@@ -377,7 +374,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param colorId The color Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public TextViewFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		icon(1, iconId, colorId, true);
 		return this;
 	}
@@ -389,7 +386,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param colorId The color Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public TextViewFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		icon(2, iconId, colorId, true);
 		return this;
 	}
@@ -401,7 +398,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param colorId The color Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public TextViewFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		icon(3, iconId, colorId, true);
 		return this;
 	}
@@ -412,7 +409,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param listener The {@link View.OnClickListener}
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem onClick(View.OnClickListener listener){
+	public TextViewFormItem onClick(View.OnClickListener listener) {
 		view.setOnClickListener(listener);
 		return this;
 	}
@@ -424,7 +421,7 @@ public class TextViewFormItem extends FormItem {
      * @return The {@link TextViewFormItem} instance
      */
     public TextViewFormItem gravity(int gravity) {
-        mTextView.setGravity(gravity);
+        textView.setGravity(gravity);
         return this;
     }
 
@@ -434,7 +431,7 @@ public class TextViewFormItem extends FormItem {
      * @return The {@link TextViewFormItem} instance
      */
     public TextViewFormItem singleLine() {
-        mTextView.setSingleLine();
+        textView.setSingleLine();
         return this;
     }
 
@@ -445,7 +442,7 @@ public class TextViewFormItem extends FormItem {
      * @return The {@link TextViewFormItem} instance
      */
     public TextViewFormItem ellipsize(TextUtils.TruncateAt type) {
-        mTextView.setEllipsize(type);
+        textView.setEllipsize(type);
         return this;
     }
 
@@ -456,7 +453,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
-	public TextViewFormItem lineSize(@DimenRes int sizeDimen){
+	public TextViewFormItem lineSize(@DimenRes int sizeDimen) {
 		return (TextViewFormItem) super.lineSize(sizeDimen);
 	}
 
@@ -467,7 +464,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
-	public TextViewFormItem lineColor(@ColorRes @DrawableRes int colorId){
+	public TextViewFormItem lineColor(@ColorRes @DrawableRes int colorId) {
 		return (TextViewFormItem)super.lineColor(colorId);
 	}
 
@@ -478,7 +475,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link LineItem} instance
 	 */
 	@Override
-	public TextViewFormItem showLine(boolean show){
+	public TextViewFormItem showLine(boolean show) {
 		return (TextViewFormItem)super.showLine(show);
 	}
 
@@ -489,7 +486,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
-	public TextViewFormItem background(@ColorRes @DrawableRes int backgroundId){
+	public TextViewFormItem background(@ColorRes @DrawableRes int backgroundId) {
 		return (TextViewFormItem)super.background(backgroundId);
 	}
 
@@ -497,8 +494,8 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextView}
 	 */
 	@Override
-	public TextView view(){
-		return mTextView;
+	public TextView view() {
+		return textView;
 	}
 
 	/**
@@ -508,15 +505,17 @@ public class TextViewFormItem extends FormItem {
 		/**
 		 * The drawable resource
 		 */
-		private int mDrawableId;
+        @DrawableRes
+		private final int drawableId;
 		/**
 		 * The icon color
 		 */
-		private int mColorId;
+        @ColorRes
+		private final int colorId;
 		/**
 		 * True if the icon should be visible, false otherwise
 		 */
-		private boolean mVisible;
+		private final boolean visible;
 
 		/**
 		 * Default Constructor
@@ -526,9 +525,9 @@ public class TextViewFormItem extends FormItem {
 		 * @param visibility True if the icon should be visible, false otherwise
 		 */
 		private Icon(@DrawableRes int drawableId, @ColorRes int colorId, boolean visibility){
-			mDrawableId = drawableId;
-			mColorId = colorId;
-			mVisible = visibility;
+			this.drawableId = drawableId;
+			this.colorId = colorId;
+			visible = visibility;
 		}
 	}
 }

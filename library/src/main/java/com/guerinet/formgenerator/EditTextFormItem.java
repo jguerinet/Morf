@@ -47,7 +47,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 */
 	public EditTextFormItem(FormGenerator fg, View view, String text){
 		super(fg, view, (EditText) view.findViewById(R.id.fg_input), text, true);
-		mEditText = (EditText)mTextView;
+		mEditText = (EditText) textView;
 
 		//Set the right background
 		if(this.fg.mBuilder.mDefaultInputBackgroundId != null){
@@ -64,7 +64,7 @@ public class EditTextFormItem extends TextViewFormItem {
      */
     public EditTextFormItem(FormGenerator fg, View view, @StringRes int text){
         super(fg, view, (EditText) view.findViewById(R.id.fg_input), text, true);
-        mEditText = (EditText)mTextView;
+        mEditText = (EditText) textView;
 
         //Set the right background
         if(this.fg.mBuilder.mDefaultInputBackgroundId != null){

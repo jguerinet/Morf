@@ -48,7 +48,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 */
 	public SwitchFormItem(FormGenerator fg, View view, String text){
 		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
-		mSwitch = (SwitchCompat)mTextView;
+		mSwitch = (SwitchCompat) textView;
         //Set the switch typeface
         mSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
 	}
@@ -62,7 +62,7 @@ public class SwitchFormItem extends TextViewFormItem {
      */
     public SwitchFormItem(FormGenerator fg, View view, @StringRes int text){
         super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
-        mSwitch = (SwitchCompat)mTextView;
+        mSwitch = (SwitchCompat) textView;
         //Set the switch typeface
         mSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
     }
@@ -109,7 +109,7 @@ public class SwitchFormItem extends TextViewFormItem {
      * @return The {@link SwitchFormItem} instance
      */
     public SwitchFormItem textOn(@StringRes int onId) {
-        return textOn(mContext.getString(onId));
+        return textOn(context.getString(onId));
     }
 
     /**
@@ -131,7 +131,7 @@ public class SwitchFormItem extends TextViewFormItem {
      * @return The {@link SwitchFormItem} instance
      */
     public SwitchFormItem textOff(@StringRes int offId) {
-        return textOff(mContext.getString(offId));
+        return textOff(context.getString(offId));
     }
 
     /**
