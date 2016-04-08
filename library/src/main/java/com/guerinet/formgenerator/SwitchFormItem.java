@@ -24,6 +24,7 @@ import android.support.annotation.StringRes;
 import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -495,6 +496,16 @@ public class SwitchFormItem extends TextViewFormItem {
 	public SwitchFormItem background(@ColorRes @DrawableRes int backgroundId) {
 		return (SwitchFormItem) super.background(backgroundId);
 	}
+
+    /**
+     * Sets the {@link ViewGroup.LayoutParams} for this view
+     *
+     * @param params The {@link ViewGroup.LayoutParams} to set
+     * @return The {@link SwitchFormItem} instance
+     */
+    public SwitchFormItem layoutParams(ViewGroup.LayoutParams params) {
+        return (SwitchFormItem) super.layoutParams(params);
+    }
 
 	/**
 	 * @return The {@link SwitchCompat}

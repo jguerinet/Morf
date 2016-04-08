@@ -27,6 +27,7 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
@@ -478,6 +479,16 @@ public class TextViewFormItem extends FormItem {
 	public TextViewFormItem background(@ColorRes @DrawableRes int backgroundId) {
 		return (TextViewFormItem)super.background(backgroundId);
 	}
+
+    /**
+     * Sets the {@link ViewGroup.LayoutParams} for this view
+     *
+     * @param params The {@link ViewGroup.LayoutParams} to set
+     * @return The {@link TextViewFormItem} instance
+     */
+    public TextViewFormItem layoutParams(ViewGroup.LayoutParams params) {
+        return (TextViewFormItem) super.layoutParams(params);
+    }
 
 	/**
 	 * @return The {@link TextView}

@@ -17,6 +17,7 @@
 package com.guerinet.formgenerator;
 
 import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * Base Builder for all of the form items (except for line and space)
@@ -59,9 +60,21 @@ abstract class FormItem extends LineItem {
 		return this;
 	}
 
+    /**
+     * Sets the {@link ViewGroup.LayoutParams} for this view
+     *
+     * @param params The {@link ViewGroup.LayoutParams} to set
+     * @return The {@link FormItem} instance
+     */
+    public FormItem layoutParams(ViewGroup.LayoutParams params) {
+        view.setLayoutParams(params);
+        return this;
+    }
+
 	/**
 	 * @return The {@link View}
 	 */
+    @Override
 	public View view() {
 		return view;
 	}

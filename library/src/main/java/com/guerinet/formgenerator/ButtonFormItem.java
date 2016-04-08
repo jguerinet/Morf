@@ -23,6 +23,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -394,6 +395,16 @@ public class ButtonFormItem extends TextViewFormItem {
 	public ButtonFormItem background(@ColorRes @DrawableRes int backgroundId) {
 		return (ButtonFormItem) super.background(backgroundId);
 	}
+
+    /**
+     * Sets the {@link ViewGroup.LayoutParams} for this view
+     *
+     * @param params The {@link ViewGroup.LayoutParams} to set
+     * @return The {@link ButtonFormItem} instance
+     */
+    public ButtonFormItem layoutParams(ViewGroup.LayoutParams params) {
+        return (ButtonFormItem) super.layoutParams(params);
+    }
 
 	@Override
 	public Button view() {

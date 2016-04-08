@@ -23,6 +23,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -424,6 +425,16 @@ public class EditTextFormItem extends TextViewFormItem {
 	public EditTextFormItem background(@ColorRes @DrawableRes int backgroundId) {
 		return (EditTextFormItem) super.background(backgroundId);
 	}
+
+    /**
+     * Sets the {@link ViewGroup.LayoutParams} for this view
+     *
+     * @param params The {@link ViewGroup.LayoutParams} to set
+     * @return The {@link EditTextFormItem} instance
+     */
+    public EditTextFormItem layoutParams(ViewGroup.LayoutParams params) {
+        return (EditTextFormItem) super.layoutParams(params);
+    }
 	
 	/**
 	 * @return The {@link EditText}
