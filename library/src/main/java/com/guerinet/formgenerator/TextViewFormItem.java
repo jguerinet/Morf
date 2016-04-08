@@ -24,7 +24,6 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -72,11 +71,7 @@ public class TextViewFormItem extends FormItem {
 		icons[3] = new Icon(0, 0, false);
 
 		// Text Color
-		if (this.fg.builder.defaultTextColorStateListId != 0) {
-			textColor(this.fg.builder.defaultTextColorStateListId, true);
-		} else {
-			textColor(this.fg.builder.defaultTextColorId, false);
-		}
+        textColor(this.fg.builder.defaultTextColor);
 
 		// Text Size
 		textSize(this.fg.builder.defaultTextSizeId);
@@ -143,16 +138,11 @@ public class TextViewFormItem extends FormItem {
 	/**
 	 * Sets the {@link TextView} text color
 	 *
-	 * @param colorId   The resource Id
-	 * @param stateList True if the color is a state list, false if it's a solid color
+	 * @param color The color
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem textColor(int colorId, boolean stateList) {
-		if (stateList) {
-			textView.setTextColor(ContextCompat.getColorStateList(context, colorId));
-		} else {
-			textView.setTextColor(ContextCompat.getColor(context, colorId));
-		}
+	public TextViewFormItem textColor(@ColorInt int color) {
+        textView.setTextColor(color);
 		return this;
 	}
 

@@ -90,13 +90,12 @@ public class ButtonFormItem extends TextViewFormItem {
 	/**
 	 * Sets the {@link Button} text color
 	 *
-	 * @param colorId   The resource Id
-	 * @param stateList True if the color is a state list, false if it's a solid color
+	 * @param color The color
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem textColor(int colorId, boolean stateList) {
-		return (ButtonFormItem) super.textColor(colorId, stateList);
+	public ButtonFormItem textColor(@ColorInt int color) {
+		return (ButtonFormItem) super.textColor(color);
 	}
 
 	/**

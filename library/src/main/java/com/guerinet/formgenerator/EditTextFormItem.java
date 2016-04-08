@@ -120,13 +120,12 @@ public class EditTextFormItem extends TextViewFormItem {
 	/**
 	 * Sets the {@link Button} text color
 	 *
-	 * @param colorId   The resource Id
-	 * @param stateList True if the color is a state list, false if it's a solid color
+	 * @param color The color
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem textColor(@ColorRes int colorId, boolean stateList) {
-		return (EditTextFormItem) super.textColor(colorId, stateList);
+	public EditTextFormItem textColor(@ColorInt int color) {
+		return (EditTextFormItem) super.textColor(color);
 	}
 
     /**

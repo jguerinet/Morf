@@ -17,6 +17,7 @@
 package com.guerinet.formgenerator;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -290,13 +291,8 @@ public class FormGenerator {
         /**
          * The default text color Id, black if none
          */
-        @ColorRes
-        int defaultTextColorId = android.R.color.black;
-        /**
-         * The default text color state list, 0 if none
-         */
-        @ColorRes
-        int defaultTextColorStateListId = 0;
+        @ColorInt
+        int defaultTextColor = Color.BLACK;
         /**
          * The default typeface to use, null if none
          */
@@ -339,8 +335,7 @@ public class FormGenerator {
             builder.defaultSpaceColorId = defaultSpaceColorId;
             builder.defaultSpaceSizeId = defaultSpaceSizeId;
             builder.defaultTextSizeId = defaultTextSizeId;
-            builder.defaultTextColorId = defaultTextColorId;
-            builder.defaultTextColorStateListId = defaultTextColorStateListId;
+            builder.defaultTextColor = defaultTextColor;
             builder.defaultTextTypeface = defaultTextTypeface;
             builder.defaultPaddingSizeId = defaultPaddingSizeId;
             builder.defaultLineSizeId = defaultLineSizeId;
@@ -440,17 +435,11 @@ public class FormGenerator {
 		/**
 		 * Sets the default text color
 		 *
-		 * @param colorId   The color Id
-		 * @param stateList True if this is a state list, false if it's a solid color
+		 * @param color The color
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextColorId(@ColorRes int colorId, boolean stateList) {
-			if(stateList){
-				defaultTextColorStateListId = colorId;
-			}
-			else{
-				defaultTextColorId = colorId;
-			}
+		public Builder setDefaultTextColor(@ColorInt int color) {
+            defaultTextColor = color;
 			return this;
 		}
 

@@ -186,13 +186,12 @@ public class SwitchFormItem extends TextViewFormItem {
 	/**
 	 * Sets the {@link Button} text color
 	 *
-	 * @param colorId   The resource Id
-	 * @param stateList True if the color is a state list, false if it's a solid color
+	 * @param color The color
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem textColor(int colorId, boolean stateList) {
-		return (SwitchFormItem) super.textColor(colorId, stateList);
+	public SwitchFormItem textColor(int color) {
+		return (SwitchFormItem) super.textColor(color);
 	}
 
 	/**

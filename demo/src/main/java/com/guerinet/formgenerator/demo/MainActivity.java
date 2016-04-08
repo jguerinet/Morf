@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 		fg = new FormGenerator.Builder()
 				.setDefaultBackground(android.R.drawable.list_selector_background)
 				.setDefaultLineColorId(android.R.color.black)
-				.setDefaultTextColorId(android.R.color.holo_red_dark, false)
+				.setDefaultTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark))
 				.setDefaultTypeface(Typeface.SERIF)
 				.setDefaultIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark))
 				.bind(this, container);
