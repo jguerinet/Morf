@@ -37,7 +37,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	/**
 	 * The {@link SwitchCompat}
 	 */
-	private SwitchCompat mSwitch;
+	private final SwitchCompat aSwitch;
 
 	/**
 	 * Default Constructor
@@ -46,11 +46,11 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @param view The {@link View}
 	 * @param text The text
 	 */
-	public SwitchFormItem(FormGenerator fg, View view, String text){
+	public SwitchFormItem(FormGenerator fg, View view, String text) {
 		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
-		mSwitch = (SwitchCompat) textView;
-        //Set the switch typeface
-        mSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
+		aSwitch = (SwitchCompat) textView;
+        // Set the switch typeface
+        aSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
 	}
 
     /**
@@ -60,11 +60,11 @@ public class SwitchFormItem extends TextViewFormItem {
      * @param view The {@link View}
      * @param text The text Id
      */
-    public SwitchFormItem(FormGenerator fg, View view, @StringRes int text){
+    public SwitchFormItem(FormGenerator fg, View view, @StringRes int text) {
         super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
-        mSwitch = (SwitchCompat) textView;
-        //Set the switch typeface
-        mSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
+        aSwitch = (SwitchCompat) textView;
+        // Set the switch typeface
+        aSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
     }
 
 
@@ -74,8 +74,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @param checked True if the {@link SwitchCompat} should be checked, false otherwise
 	 * @return The {@link SwitchFormItem} instance
 	 */
-	public SwitchFormItem checked(boolean checked){
-		mSwitch.setChecked(checked);
+	public SwitchFormItem checked(boolean checked) {
+		aSwitch.setChecked(checked);
 		return this;
 	}
 
@@ -85,8 +85,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @param listener The {@link CompoundButton.OnCheckedChangeListener}
 	 * @return The {@link SwitchFormItem} instance
 	 */
-	public SwitchFormItem onCheckChanged(CompoundButton.OnCheckedChangeListener listener){
-		mSwitch.setOnCheckedChangeListener(listener);
+	public SwitchFormItem onCheckChanged(CompoundButton.OnCheckedChangeListener listener) {
+		aSwitch.setOnCheckedChangeListener(listener);
 		return this;
 	}
 
@@ -97,8 +97,8 @@ public class SwitchFormItem extends TextViewFormItem {
      * @return The {@link SwitchFormItem} instance
      */
     public SwitchFormItem textOn(String on) {
-        mSwitch.setShowText(true);
-        mSwitch.setTextOn(on);
+        aSwitch.setShowText(true);
+        aSwitch.setTextOn(on);
         return this;
     }
 
@@ -119,8 +119,8 @@ public class SwitchFormItem extends TextViewFormItem {
      * @return The {@link SwitchFormItem} instance
      */
     public SwitchFormItem textOff(String off) {
-        mSwitch.setShowText(true);
-        mSwitch.setTextOff(off);
+        aSwitch.setShowText(true);
+        aSwitch.setTextOff(off);
         return this;
     }
 
@@ -167,8 +167,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem hint(String hint){
-		return (SwitchFormItem)super.hint(hint);
+	public SwitchFormItem hint(String hint) {
+		return (SwitchFormItem) super.hint(hint);
 	}
 
 	/**
@@ -178,8 +178,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem hint(@StringRes int stringId){
-		return (SwitchFormItem)super.hint(stringId);
+	public SwitchFormItem hint(@StringRes int stringId) {
+		return (SwitchFormItem) super.hint(stringId);
 	}
 
 	/**
@@ -190,8 +190,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem textColor(int colorId, boolean stateList){
-		return (SwitchFormItem)super.textColor(colorId, stateList);
+	public SwitchFormItem textColor(int colorId, boolean stateList) {
+		return (SwitchFormItem) super.textColor(colorId, stateList);
 	}
 
 	/**
@@ -201,8 +201,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem textSize(@DimenRes int dimenId){
-		return (SwitchFormItem)super.textSize(dimenId);
+	public SwitchFormItem textSize(@DimenRes int dimenId) {
+		return (SwitchFormItem) super.textSize(dimenId);
 	}
 
 	/**
@@ -216,8 +216,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public SwitchFormItem padding(@DimenRes int leftId, @DimenRes int topId,
-            @DimenRes int rightId, @DimenRes int bottomId){
-		return (SwitchFormItem)super.padding(leftId, topId, rightId, bottomId);
+            @DimenRes int rightId, @DimenRes int bottomId) {
+		return (SwitchFormItem) super.padding(leftId, topId, rightId, bottomId);
 	}
 
 	/**
@@ -227,8 +227,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem padding(@DimenRes int dimenId){
-		return (SwitchFormItem)super.padding(dimenId);
+	public SwitchFormItem padding(@DimenRes int dimenId) {
+		return (SwitchFormItem) super.padding(dimenId);
 	}
 
 	/**
@@ -238,13 +238,13 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem typeface(Typeface typeface){
+	public SwitchFormItem typeface(Typeface typeface) {
         //Set the typeface on the switch as well if it is non null
         //  (it will be when first initialized)
-        if (mSwitch != null) {
-            mSwitch.setSwitchTypeface(typeface);
+        if (aSwitch != null) {
+            aSwitch.setSwitchTypeface(typeface);
         }
-		return (SwitchFormItem)super.typeface(typeface);
+		return (SwitchFormItem) super.typeface(typeface);
 	}
 
 	/**
@@ -255,8 +255,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem style(Typeface typeface, int style){
-		return (SwitchFormItem)super.style(typeface, style);
+	public SwitchFormItem style(Typeface typeface, int style) {
+		return (SwitchFormItem) super.style(typeface, style);
 	}
 
 	/**
@@ -267,7 +267,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem style(int style){
+	public SwitchFormItem style(int style) {
 		return (SwitchFormItem) super.style(style);
 	}
 
@@ -279,7 +279,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem leftIcon(@DrawableRes int iconId, boolean visible){
+	public SwitchFormItem leftIcon(@DrawableRes int iconId, boolean visible) {
 		return (SwitchFormItem) super.leftIcon(iconId, visible);
 	}
 
@@ -291,7 +291,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem topIcon(@DrawableRes int iconId, boolean visible){
+	public SwitchFormItem topIcon(@DrawableRes int iconId, boolean visible) {
 		return (SwitchFormItem) super.topIcon(iconId, visible);
 	}
 
@@ -303,7 +303,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem rightIcon(@DrawableRes int iconId, boolean visible){
+	public SwitchFormItem rightIcon(@DrawableRes int iconId, boolean visible) {
 		return (SwitchFormItem) super.rightIcon(iconId, visible);
 	}
 
@@ -315,7 +315,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem bottomIcon(@DrawableRes int iconId, boolean visible){
+	public SwitchFormItem bottomIcon(@DrawableRes int iconId, boolean visible) {
 		return (SwitchFormItem) super.bottomIcon(iconId, visible);
 	}
 
@@ -326,7 +326,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem leftIcon(@DrawableRes int iconId){
+	public SwitchFormItem leftIcon(@DrawableRes int iconId) {
 		return (SwitchFormItem) super.leftIcon(iconId);
 	}
 
@@ -337,7 +337,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem topIcon(@DrawableRes int iconId){
+	public SwitchFormItem topIcon(@DrawableRes int iconId) {
 		return (SwitchFormItem) super.topIcon(iconId);
 	}
 
@@ -348,7 +348,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem rightIcon(@DrawableRes int iconId){
+	public SwitchFormItem rightIcon(@DrawableRes int iconId) {
 		return (SwitchFormItem) super.rightIcon(iconId);
 	}
 
@@ -359,7 +359,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem bottomIcon(@DrawableRes int iconId){
+	public SwitchFormItem bottomIcon(@DrawableRes int iconId) {
 		return (SwitchFormItem) super.bottomIcon(iconId);
 	}
 
@@ -371,7 +371,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public SwitchFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (SwitchFormItem) super.leftIcon(iconId, colorId);
 	}
 
@@ -383,7 +383,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public SwitchFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (SwitchFormItem) super.topIcon(iconId, colorId);
 	}
 
@@ -395,7 +395,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public SwitchFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (SwitchFormItem) super.rightIcon(iconId, colorId);
 	}
 
@@ -407,7 +407,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public SwitchFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (SwitchFormItem) super.bottomIcon(iconId, colorId);
 	}
 
@@ -418,7 +418,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem onClick(View.OnClickListener listener){
+	public SwitchFormItem onClick(View.OnClickListener listener) {
 		return (SwitchFormItem) super.onClick(listener);
 	}
 
@@ -461,8 +461,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem lineSize(@DimenRes int sizeDimen){
-		return (SwitchFormItem)super.lineSize(sizeDimen);
+	public SwitchFormItem lineSize(@DimenRes int sizeDimen) {
+		return (SwitchFormItem) super.lineSize(sizeDimen);
 	}
 
 	/**
@@ -472,8 +472,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem lineColor(@ColorRes @DrawableRes int colorId){
-		return (SwitchFormItem)super.lineColor(colorId);
+	public SwitchFormItem lineColor(@ColorRes @DrawableRes int colorId) {
+		return (SwitchFormItem) super.lineColor(colorId);
 	}
 
 	/**
@@ -483,8 +483,8 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link LineItem} instance
 	 */
 	@Override
-	public SwitchFormItem showLine(boolean show){
-		return (SwitchFormItem)super.showLine(show);
+	public SwitchFormItem showLine(boolean show) {
+		return (SwitchFormItem) super.showLine(show);
 	}
 
 	/**
@@ -494,15 +494,15 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem background(@ColorRes @DrawableRes int backgroundId){
-		return (SwitchFormItem)super.background(backgroundId);
+	public SwitchFormItem background(@ColorRes @DrawableRes int backgroundId) {
+		return (SwitchFormItem) super.background(backgroundId);
 	}
 
 	/**
 	 * @return The {@link SwitchCompat}
 	 */
 	@Override
-	public SwitchCompat view(){
-		return mSwitch;
+	public SwitchCompat view() {
+		return aSwitch;
 	}
 }
