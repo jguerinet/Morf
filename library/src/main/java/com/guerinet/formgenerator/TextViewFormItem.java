@@ -240,28 +240,6 @@ public class TextViewFormItem extends LineItem {
 	 */
 	private void icon(int position, @DrawableRes int iconId, @ColorInt int color, boolean visible) {
 		icons[position] = new Icon(iconId, color, visible);
-
-		// Set all of the icons
-		textView.setCompoundDrawablesWithIntrinsicBounds(icons[0].drawableId,
-				icons[1].drawableId, icons[2].drawableId, icons[3].drawableId);
-
-        // Set the compound drawable padding
-        textView.setCompoundDrawablePadding(fg.builder.defaultDrawablePaddingSize);
-
-		// Apply the tinting and alpha
-		for (int i = 0; i < 4; i++) {
-			Icon icon = icons[i];
-			Drawable drawable = textView.getCompoundDrawables()[i];
-			if (drawable != null) {
-                //Wrap it in the design support library
-				drawable = DrawableCompat.wrap(drawable).mutate();
-                if (!icon.visible) {
-					drawable.setAlpha(0);
-				} else if (icon.colorId != -1) {
-                    DrawableCompat.setTint(drawable, icon.colorId);
-				}
-			}
-		}
 	}
 
 	/**
@@ -510,6 +488,28 @@ public class TextViewFormItem extends LineItem {
     @CallSuper
 	@Override
 	public TextView build() {
+        // Set all of the icons
+        textView.setCompoundDrawablesWithIntrinsicBounds(icons[0].drawableId,
+                icons[1].drawableId, icons[2].drawableId, icons[3].drawableId);
+
+        // Set the compound drawable padding
+        textView.setCompoundDrawablePadding(fg.builder.defaultDrawablePaddingSize);
+
+        // Apply the tinting and alpha
+        for (int i = 0; i < 4; i++) {
+            Icon icon = icons[i];
+            Drawable drawable = textView.getCompoundDrawables()[i];
+            if (drawable != null) {
+                // Wrap it in the design support library
+                drawable = DrawableCompat.wrap(drawable).mutate();
+                if (!icon.visible) {
+                    drawable.setAlpha(0);
+                } else if (icon.colorId != -1) {
+                    DrawableCompat.setTint(drawable, icon.colorId);
+                }
+            }
+        }
+
         // Add the view to the container
         fg.container.addView(view);
 
