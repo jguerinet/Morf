@@ -77,7 +77,7 @@ public class TextViewFormItem extends FormItem {
 		textSize(this.fg.builder.defaultTextSizeId);
 
 		// Padding
-		padding(this.fg.builder.defaultPaddingSizeId);
+		padding(this.fg.builder.defaultPaddingSize);
 
 		// Typeface
 		typeface(this.fg.builder.defaultTextTypeface);
@@ -161,29 +161,25 @@ public class TextViewFormItem extends FormItem {
 	/**
 	 * Sets the {@link TextView} padding
 	 *
-	 * @param leftId   The dimension Id for the left padding
-	 * @param topId    The dimension Id for the top padding
-	 * @param rightId  The dimension Id for the right padding
-	 * @param bottomId The dimension Id for the bottom padding
+	 * @param left   The size for the left padding, in <strong>pixels</strong>
+	 * @param top    The size for the top padding, in <strong>pixels</strong>
+	 * @param right  The size for the right padding, in <strong>pixels</strong>
+	 * @param bottom The size for the bottom padding, in <strong>pixels</strong>
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem padding(@DimenRes int leftId, @DimenRes int topId,
-            @DimenRes int rightId, @DimenRes int bottomId) {
-        textView.setPadding(context.getResources().getDimensionPixelSize(leftId),
-                context.getResources().getDimensionPixelSize(topId),
-                context.getResources().getDimensionPixelSize(rightId),
-                context.getResources().getDimensionPixelSize(bottomId));
+	public TextViewFormItem padding(int left, int top, int right, int bottom) {
+        textView.setPadding(left, top, right, bottom);
         return this;
 	}
 
 	/**
 	 * Sets the {@link TextView} padding
 	 *
-	 * @param dimenId The dimension Id to use for all sides
+	 * @param pixels The size to use for all sides, in <strong>pixels</strong>
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem padding(@DimenRes int dimenId) {
-		return padding(dimenId, dimenId, dimenId, dimenId);
+	public TextViewFormItem padding(int pixels) {
+		return padding(pixels, pixels, pixels, pixels);
 	}
 
 	/**

@@ -297,10 +297,9 @@ public class FormGenerator {
          */
         Typeface defaultTextTypeface = null;
         /**
-         * The default padding size for the non-space/line items, 8dp if none
+         * The default padding size for the non-space/line items, 0 if none
          */
-        @DimenRes
-        int defaultPaddingSizeId = R.dimen.padding;
+        int defaultPaddingSize = 0;
         /**
          * The default line size, 0.5 dp if none
          */
@@ -336,7 +335,7 @@ public class FormGenerator {
             builder.defaultTextSizeId = defaultTextSizeId;
             builder.defaultTextColor = defaultTextColor;
             builder.defaultTextTypeface = defaultTextTypeface;
-            builder.defaultPaddingSizeId = defaultPaddingSizeId;
+            builder.defaultPaddingSize = defaultPaddingSize;
             builder.defaultLineSizeId = defaultLineSizeId;
             builder.defaultLineColorId = defaultLineColorId;
             builder.showLine = showLine;
@@ -456,11 +455,11 @@ public class FormGenerator {
 		/**
 		 * Sets the default padding size
 		 *
-		 * @param dimenId The dimension Id (in dp)
+		 * @param pixels The padding size in <strong>pixels</strong>
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultPaddingSize(@DimenRes int dimenId) {
-			defaultPaddingSizeId = dimenId;
+		public Builder setDefaultPaddingSize(int pixels) {
+			defaultPaddingSize = pixels;
 			return this;
 		}
 

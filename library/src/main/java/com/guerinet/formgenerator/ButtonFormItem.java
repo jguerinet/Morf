@@ -112,27 +112,26 @@ public class ButtonFormItem extends TextViewFormItem {
 	/**
 	 * Sets the {@link Button} padding
 	 *
-	 * @param leftId   The dimension Id for the left padding
-	 * @param topId    The dimension Id for the top padding
-	 * @param rightId  The dimension Id for the right padding
-	 * @param bottomId The dimension Id for the bottom padding
+	 * @param left   The size for the left padding, in <strong>pixels</strong>
+	 * @param top    The size for the top padding, in <strong>pixels</strong>
+	 * @param right  The size for the right padding, in <strong>pixels</strong>
+	 * @param bottom The size for the bottom padding, in <strong>pixels</strong>
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem padding(@DimenRes int leftId, @DimenRes int topId,
-            @DimenRes int rightId, @DimenRes int bottomId) {
-		return (ButtonFormItem) super.padding(leftId, topId, rightId, bottomId);
+	public ButtonFormItem padding(int left, int top, int right, int bottom) {
+		return (ButtonFormItem) super.padding(left, top, right, bottom);
 	}
 
 	/**
 	 * Sets the {@link Button} padding
 	 *
-	 * @param dimenId The dimension Id to use for all sides
+	 * @param pixels The size to use for all sides, in <strong>pixels</strong>
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem padding(@DimenRes int dimenId) {
-		return (ButtonFormItem) super.padding(dimenId);
+	public ButtonFormItem padding(int pixels) {
+		return (ButtonFormItem) super.padding(pixels);
 	}
 
 	/**
