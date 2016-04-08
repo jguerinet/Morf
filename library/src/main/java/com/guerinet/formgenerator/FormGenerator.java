@@ -299,6 +299,10 @@ public class FormGenerator {
          */
         int defaultPaddingSize = 0;
         /**
+         * Default padding size between a view and its compound drawable, defaults to 0
+         */
+        int defaultDrawablePaddingSize = 0;
+        /**
          * The default line size, 0 if none
          */
         int defaultLineSize = 0;
@@ -334,6 +338,7 @@ public class FormGenerator {
             builder.defaultTextColor = defaultTextColor;
             builder.defaultTextTypeface = defaultTextTypeface;
             builder.defaultPaddingSize = defaultPaddingSize;
+            builder.defaultDrawablePaddingSize = defaultDrawablePaddingSize;
             builder.defaultLineSize = defaultLineSize;
             builder.defaultLineColorId = defaultLineColorId;
             builder.showLine = showLine;
@@ -460,6 +465,17 @@ public class FormGenerator {
 			defaultPaddingSize = pixels;
 			return this;
 		}
+
+        /**
+         * Sets the default padding size between a view and its compound drawable
+         *
+         * @param pixels The padding size, in <strong>pixels</strong>
+         * @return The {@link Builder} instance
+         */
+        public Builder setDefaultDrawablePaddingSize(int pixels) {
+            defaultDrawablePaddingSize = pixels;
+            return this;
+        }
 
 		/**
 		 * Sets the default line size
