@@ -98,8 +98,13 @@ public class LineItem extends Item {
 		return this;
 	}
 
+    /**
+     * Returns the line
+     *
+     * @return The {@link View}
+     */
 	@Override
-	public View view() {
+	public View build() {
 		return line;
 	}
 }

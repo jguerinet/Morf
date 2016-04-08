@@ -435,12 +435,15 @@ public class EditTextFormItem extends TextViewFormItem {
     public EditTextFormItem layoutParams(ViewGroup.LayoutParams params) {
         return (EditTextFormItem) super.layoutParams(params);
     }
-	
-	/**
-	 * @return The {@link EditText}
-	 */
+
+    /**
+     * Builds the view, adds it to the container, and returns the {@link EditText}
+     *
+     * @return The {@link EditText}
+     */
 	@Override
-	public EditText view() {
+	public EditText build() {
+        super.build();
 		return editText;
 	}
 }

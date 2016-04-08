@@ -507,11 +507,14 @@ public class SwitchFormItem extends TextViewFormItem {
         return (SwitchFormItem) super.layoutParams(params);
     }
 
-	/**
-	 * @return The {@link SwitchCompat}
-	 */
+    /**
+     * Builds the view, adds it to the container, and returns the {@link SwitchCompat}
+     *
+     * @return The {@link SwitchCompat}
+     */
 	@Override
-	public SwitchCompat view() {
+	public SwitchCompat build() {
+        super.build();
 		return aSwitch;
 	}
 }

@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.CallSuper;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -31,11 +32,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Builder for a {@link TextView} form item (buttons, texts, and inputs)
+ * Builder for a {@link TextView} form item (buttons, texts, switches, and inputs)
  * @author Julien Guerinet
  * @since 2.0.0
  */
-public class TextViewFormItem extends FormItem {
+public class TextViewFormItem extends LineItem {
+    /**
+     * The form item {@link View}
+     */
+    protected final View view;
 	/**
 	 * The {@link TextView}
 	 */
@@ -58,7 +63,8 @@ public class TextViewFormItem extends FormItem {
      * @param background True if the default background should be applied, false otherwise
 	 */
 	private TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background) {
-		super(fg, view, background);
+		super(view.findViewById(R.id.fg_line), fg);
+        this.view = view;
 		this.textView = textView;
 		this.view.setClickable(false);
 		context = this.view.getContext();
@@ -69,6 +75,11 @@ public class TextViewFormItem extends FormItem {
 		icons[1] = new Icon(0, 0, false);
 		icons[2] = new Icon(0, 0, false);
 		icons[3] = new Icon(0, 0, false);
+
+        // Background
+        if (background && this.fg.builder.defaultBackgroundId != null) {
+            background(this.fg.builder.defaultBackgroundId);
+        }
 
 		// Text Color
         textColor(this.fg.builder.defaultTextColor);
@@ -469,16 +480,16 @@ public class TextViewFormItem extends FormItem {
 		return (TextViewFormItem)super.showLine(show);
 	}
 
-	/**
-	 * Sets the background
-	 *
-	 * @param backgroundId The background Id
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	@Override
-	public TextViewFormItem background(@ColorRes @DrawableRes int backgroundId) {
-		return (TextViewFormItem)super.background(backgroundId);
-	}
+    /**
+     * Sets the background
+     *
+     * @param backgroundId The background Id
+     * @return The {@link TextViewFormItem} instance
+     */
+    public TextViewFormItem background(int backgroundId) {
+        view.setBackgroundResource(backgroundId);
+        return this;
+    }
 
     /**
      * Sets the {@link ViewGroup.LayoutParams} for this view
@@ -487,14 +498,21 @@ public class TextViewFormItem extends FormItem {
      * @return The {@link TextViewFormItem} instance
      */
     public TextViewFormItem layoutParams(ViewGroup.LayoutParams params) {
-        return (TextViewFormItem) super.layoutParams(params);
+        view.setLayoutParams(params);
+        return this;
     }
 
-	/**
-	 * @return The {@link TextView}
-	 */
+    /**
+     * Builds the view, adds it to the container, and returns the {@link TextView}
+     *
+     * @return The {@link TextView}
+     */
+    @CallSuper
 	@Override
-	public TextView view() {
+	public TextView build() {
+        // Add the view to the container
+        fg.container.addView(view);
+
 		return textView;
 	}
 

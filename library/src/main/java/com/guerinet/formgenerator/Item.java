@@ -39,7 +39,9 @@ abstract class Item {
 	}
 
 	/**
+     * Builds the view, adds it to the container, and returns the important part of the whole view
+     *
 	 * @return The {@link View}
 	 */
-	public abstract View view();
+	public abstract View build();
 }
