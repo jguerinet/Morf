@@ -19,7 +19,6 @@ package com.guerinet.formgenerator;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.text.TextUtils;
@@ -385,12 +384,12 @@ public class EditTextFormItem extends TextViewFormItem {
 	/**
 	 * Sets the line size
 	 *
-	 * @param sizeDimen The line size dimension Id
+	 * @param pixels The line size, in <strong>pixels</strong>
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem lineSize(@DimenRes int sizeDimen) {
-		return (EditTextFormItem) super.lineSize(sizeDimen);
+	public EditTextFormItem lineSize(int pixels) {
+		return (EditTextFormItem) super.lineSize(pixels);
 	}
 
 	/**

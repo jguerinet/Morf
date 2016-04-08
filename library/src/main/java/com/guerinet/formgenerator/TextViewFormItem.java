@@ -21,7 +21,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -436,12 +435,12 @@ public class TextViewFormItem extends FormItem {
     /**
 	 * Sets the line size
 	 *
-	 * @param sizeDimen The line size dimension Id
+	 * @param pixels The line size dimension Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	@Override
-	public TextViewFormItem lineSize(@DimenRes int sizeDimen) {
-		return (TextViewFormItem) super.lineSize(sizeDimen);
+	public TextViewFormItem lineSize(int pixels) {
+		return (TextViewFormItem) super.lineSize(pixels);
 	}
 
 	/**

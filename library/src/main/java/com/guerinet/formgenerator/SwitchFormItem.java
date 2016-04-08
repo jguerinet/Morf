@@ -19,7 +19,6 @@ package com.guerinet.formgenerator;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.SwitchCompat;
@@ -456,12 +455,12 @@ public class SwitchFormItem extends TextViewFormItem {
 	/**
 	 * Sets the line size
 	 *
-	 * @param sizeDimen The line size dimension Id
+	 * @param pixels The line size, in <strong>pixels</strong>
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem lineSize(@DimenRes int sizeDimen) {
-		return (SwitchFormItem) super.lineSize(sizeDimen);
+	public SwitchFormItem lineSize(int pixels) {
+		return (SwitchFormItem) super.lineSize(pixels);
 	}
 
 	/**

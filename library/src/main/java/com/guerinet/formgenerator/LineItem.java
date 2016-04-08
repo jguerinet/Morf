@@ -17,7 +17,6 @@
 package com.guerinet.formgenerator;
 
 import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
 
@@ -44,7 +43,7 @@ public class LineItem extends Item {
 
         if (this.line != null) {
 			showLine(this.fg.builder.showLine);
-			lineSize(this.fg.builder.defaultLineSizeId);
+			lineSize(this.fg.builder.defaultLineSize);
 			lineColor(this.fg.builder.defaultLineColorId);
 		}
 	}
@@ -62,18 +61,18 @@ public class LineItem extends Item {
 		this.fg.container.addView(this.line);
 
 		showLine(true);
-		lineSize(this.fg.builder.defaultLineSizeId);
+		lineSize(this.fg.builder.defaultLineSize);
 		lineColor(this.fg.builder.defaultLineColorId);
 	}
 
 	/**
 	 * Sets the line size
 	 *
-	 * @param sizeDimen The line size dimension Id
+	 * @param pixels The line size, in <strong>pixels</strong>
 	 * @return The {@link LineItem} instance
 	 */
-	public LineItem lineSize(@DimenRes int sizeDimen) {
-        line.getLayoutParams().height = line.getResources().getDimensionPixelSize(sizeDimen);
+	public LineItem lineSize(int pixels) {
+        line.getLayoutParams().height = pixels;
         return this;
 	}
 

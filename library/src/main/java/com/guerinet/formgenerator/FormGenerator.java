@@ -21,7 +21,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.view.LayoutInflater;
@@ -300,14 +299,14 @@ public class FormGenerator {
          */
         int defaultPaddingSize = 0;
         /**
-         * The default line size, 0.5 dp if none
+         * The default line size, 0 if none
          */
-        @DimenRes
-        int defaultLineSizeId = R.dimen.line;
+        int defaultLineSize = 0;
         /**
          * The default line color Id, #EEEEEE if none
          */
-        @ColorRes @DrawableRes
+        @ColorRes
+        @DrawableRes
         int defaultLineColorId = R.color.line;
         /**
          * True if we should show a line after a form item, false otherwise (defaults to true)
@@ -335,7 +334,7 @@ public class FormGenerator {
             builder.defaultTextColor = defaultTextColor;
             builder.defaultTextTypeface = defaultTextTypeface;
             builder.defaultPaddingSize = defaultPaddingSize;
-            builder.defaultLineSizeId = defaultLineSizeId;
+            builder.defaultLineSize = defaultLineSize;
             builder.defaultLineColorId = defaultLineColorId;
             builder.showLine = showLine;
             return builder;
@@ -465,11 +464,11 @@ public class FormGenerator {
 		/**
 		 * Sets the default line size
 		 *
-		 * @param dimenId The dimension Id (in dp)
+		 * @param pixels The line size, in <strong>pixels</strong>
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultLineSize(@DimenRes int dimenId) {
-			defaultLineSizeId = dimenId;
+		public Builder setDefaultLineSize(int pixels) {
+			defaultLineSize = pixels;
 			return this;
 		}
 
