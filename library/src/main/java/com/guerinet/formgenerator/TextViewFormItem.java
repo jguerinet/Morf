@@ -233,6 +233,9 @@ public class TextViewFormItem extends FormItem {
 		textView.setCompoundDrawablesWithIntrinsicBounds(icons[0].drawableId,
 				icons[1].drawableId, icons[2].drawableId, icons[3].drawableId);
 
+        // Set the compound drawable padding
+        textView.setCompoundDrawablePadding(fg.builder.defaultDrawablePaddingSize);
+
 		// Apply the tinting and alpha
 		for (int i = 0; i < 4; i++) {
 			Icon icon = icons[i];
