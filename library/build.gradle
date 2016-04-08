@@ -18,7 +18,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 archivesBaseName="form-generator"
-version = "2.1.6"
+version = "2.2.0"
 
 android{
     compileSdkVersion 23
