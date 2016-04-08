@@ -104,16 +104,6 @@ public class SwitchFormItem extends TextViewFormItem {
     }
 
     /**
-     * Sets the on text
-     *
-     * @param onId The on text String Id
-     * @return The {@link SwitchFormItem} instance
-     */
-    public SwitchFormItem textOn(@StringRes int onId) {
-        return textOn(context.getString(onId));
-    }
-
-    /**
      * Sets the off text
      *
      * @param off The off text
@@ -126,16 +116,6 @@ public class SwitchFormItem extends TextViewFormItem {
     }
 
     /**
-     * Sets the off text
-     *
-     * @param offId The off text String Id
-     * @return The {@link SwitchFormItem} instance
-     */
-    public SwitchFormItem textOff(@StringRes int offId) {
-        return textOff(context.getString(offId));
-    }
-
-    /**
      * Sets both the on and off text
      *
      * @param on  The on text
@@ -145,19 +125,6 @@ public class SwitchFormItem extends TextViewFormItem {
     public SwitchFormItem switchText(String on, String off) {
         textOn(on);
         textOff(off);
-        return this;
-    }
-
-    /**
-     * Sets both the on and off text
-     *
-     * @param onId  The on text String Id
-     * @param offId The off text String Id
-     * @return The {@link SwitchFormItem} instance
-     */
-    public SwitchFormItem switchText(@StringRes int onId, @StringRes int offId) {
-        textOn(onId);
-        textOff(offId);
         return this;
     }
 
