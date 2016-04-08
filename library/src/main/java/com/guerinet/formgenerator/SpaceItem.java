@@ -42,10 +42,10 @@ public class SpaceItem extends Item {
 		super(fg);
 		this.space = space;
 
-		this.fg.mContainer.addView(this.space);
+		this.fg.container.addView(this.space);
 
-		size(this.fg.mBuilder.mDefaultSpaceSizeId);
-        background(this.fg.mBuilder.mDefaultSpaceColorId);
+		size(this.fg.builder.defaultSpaceSizeId);
+        background(this.fg.builder.defaultSpaceColorId);
 	}
 
 	/**

@@ -40,11 +40,11 @@ abstract class FormItem extends LineItem {
 		super(view.findViewById(R.id.fg_line), fg);
 		this.view = view;
 
-		this.fg.mContainer.addView(this.view);
+		this.fg.container.addView(this.view);
 
 		//Set the default background
-        if (background && this.fg.mBuilder.mDefaultBackgroundId != null) {
-			background(this.fg.mBuilder.mDefaultBackgroundId);
+        if (background && this.fg.builder.defaultBackgroundId != null) {
+			background(this.fg.builder.defaultBackgroundId);
 		}
 	}
 

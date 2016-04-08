@@ -50,8 +50,8 @@ public class EditTextFormItem extends TextViewFormItem {
 		editText = (EditText) textView;
 
 		// Set the right background
-		if (this.fg.mBuilder.mDefaultInputBackgroundId != null) {
-			inputBackground(this.fg.mBuilder.mDefaultInputBackgroundId);
+		if (this.fg.builder.defaultInputBackgroundId != null) {
+			inputBackground(this.fg.builder.defaultInputBackgroundId);
 		}
 	}
 
@@ -67,8 +67,8 @@ public class EditTextFormItem extends TextViewFormItem {
         editText = (EditText) textView;
 
         // Set the right background
-        if (this.fg.mBuilder.mDefaultInputBackgroundId != null) {
-            inputBackground(this.fg.mBuilder.mDefaultInputBackgroundId);
+        if (this.fg.builder.defaultInputBackgroundId != null) {
+            inputBackground(this.fg.builder.defaultInputBackgroundId);
         }
     }
 

@@ -50,7 +50,7 @@ public class SwitchFormItem extends TextViewFormItem {
 		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
 		aSwitch = (SwitchCompat) textView;
         // Set the switch typeface
-        aSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
+        aSwitch.setSwitchTypeface(this.fg.builder.defaultTextTypeface);
 	}
 
     /**
@@ -64,7 +64,7 @@ public class SwitchFormItem extends TextViewFormItem {
         super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
         aSwitch = (SwitchCompat) textView;
         // Set the switch typeface
-        aSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
+        aSwitch.setSwitchTypeface(this.fg.builder.defaultTextTypeface);
     }
 
 

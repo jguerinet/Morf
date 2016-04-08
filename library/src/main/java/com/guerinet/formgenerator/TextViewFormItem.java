@@ -71,20 +71,20 @@ public class TextViewFormItem extends FormItem {
 		icons[3] = new Icon(0, 0, false);
 
 		// Text Color
-		if (this.fg.mBuilder.mDefaultTextColorStateListId != 0) {
-			textColor(this.fg.mBuilder.mDefaultTextColorStateListId, true);
+		if (this.fg.builder.defaultTextColorStateListId != 0) {
+			textColor(this.fg.builder.defaultTextColorStateListId, true);
 		} else {
-			textColor(this.fg.mBuilder.mDefaultTextColorId, false);
+			textColor(this.fg.builder.defaultTextColorId, false);
 		}
 
 		// Text Size
-		textSize(this.fg.mBuilder.mDefaultTextSizeId);
+		textSize(this.fg.builder.defaultTextSizeId);
 
 		// Padding
-		padding(this.fg.mBuilder.mDefaultPaddingSizeId);
+		padding(this.fg.builder.defaultPaddingSizeId);
 
 		// Typeface
-		typeface(this.fg.mBuilder.mDefaultTextTypeface);
+		typeface(this.fg.builder.defaultTextTypeface);
 	}
 
     /**
@@ -226,7 +226,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem style(int style) {
-		textView.setTypeface(fg.mBuilder.mDefaultTextTypeface, style);
+		textView.setTypeface(fg.builder.defaultTextTypeface, style);
 		return this;
 	}
 
@@ -271,7 +271,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible) {
-		icon(0, iconId, fg.mBuilder.mDefaultIconColorId, visible);
+		icon(0, iconId, fg.builder.defaultIconColorId, visible);
 		return this;
 	}
 
@@ -283,7 +283,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible) {
-		icon(1, iconId, fg.mBuilder.mDefaultIconColorId, visible);
+		icon(1, iconId, fg.builder.defaultIconColorId, visible);
 		return this;
 	}
 
@@ -295,7 +295,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible) {
-		icon(2, iconId, fg.mBuilder.mDefaultIconColorId, visible);
+		icon(2, iconId, fg.builder.defaultIconColorId, visible);
 		return this;
 	}
 
@@ -307,7 +307,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible) {
-		icon(3, iconId, fg.mBuilder.mDefaultIconColorId, visible);
+		icon(3, iconId, fg.builder.defaultIconColorId, visible);
 		return this;
 	}
 
@@ -318,7 +318,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId) {
-		icon(0, iconId, fg.mBuilder.mDefaultIconColorId, true);
+		icon(0, iconId, fg.builder.defaultIconColorId, true);
 		return this;
 	}
 
@@ -329,7 +329,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId) {
-		icon(1, iconId, fg.mBuilder.mDefaultIconColorId, true);
+		icon(1, iconId, fg.builder.defaultIconColorId, true);
 		return this;
 	}
 
@@ -340,7 +340,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId) {
-		icon(2, iconId, fg.mBuilder.mDefaultIconColorId, true);
+		icon(2, iconId, fg.builder.defaultIconColorId, true);
 		return this;
 	}
 
@@ -351,7 +351,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId) {
-		icon(3, iconId, fg.mBuilder.mDefaultIconColorId, true);
+		icon(3, iconId, fg.builder.defaultIconColorId, true);
 		return this;
 	}
 

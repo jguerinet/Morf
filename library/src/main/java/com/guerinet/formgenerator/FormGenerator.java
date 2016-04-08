@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,15 +42,15 @@ public class FormGenerator {
 	/**
 	 * The {@link LayoutInflater}
 	 */
-	private LayoutInflater mInflater;
+	private LayoutInflater inflater;
 	/**
 	 * The {@link LinearLayout} used as the form container
 	 */
-	LinearLayout mContainer;
+	LinearLayout container;
     /**
      * The {@link Builder} instance to use to construct this FormGenerator
      */
-    protected Builder mBuilder;
+    protected Builder builder;
 
 	/**
 	 * Binds the default {@link FormGenerator} to the given layout and returns it.
@@ -62,7 +62,7 @@ public class FormGenerator {
 	 * @return The default {@link FormGenerator}
 	 */
 	public static FormGenerator bind(LayoutInflater inflater, LinearLayout container) {
-		//No singleton set, bind from the default settings
+		// No singleton set, bind from the default settings
 		if (singleton == null) {
 			singleton = new Builder();
 		}
@@ -112,16 +112,16 @@ public class FormGenerator {
 	 * @param container The container to add the form items to
 	 */
 	private FormGenerator(Builder builder, LayoutInflater inflater, LinearLayout container) {
-		mInflater = inflater;
-		mContainer = container;
-        mBuilder = builder;
+		this.inflater = inflater;
+		this.container = container;
+        this.builder = builder;
 	}
 
 	/**
 	 * Adds a space
 	 */
 	public SpaceItem space() {
-		return new SpaceItem(this, mInflater.inflate(R.layout.fg_space, mContainer, false));
+		return new SpaceItem(this, inflater.inflate(R.layout.fg_space, container, false));
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class FormGenerator {
 	 * @return The {@link LineItem}
 	 */
 	public LineItem line() {
-		return new LineItem(this, mInflater.inflate(R.layout.fg_line, mContainer, false));
+		return new LineItem(this, inflater.inflate(R.layout.fg_line, container, false));
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class FormGenerator {
 	 * @return The {@link EditTextFormItem}
 	 */
 	public EditTextFormItem input(String text) {
-		return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false),
+		return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false),
 				text);
 	}
 
@@ -151,7 +151,7 @@ public class FormGenerator {
      * @return The {@link EditTextFormItem}
      */
     public EditTextFormItem input(@StringRes int text) {
-        return new EditTextFormItem(this, mInflater.inflate(R.layout.fg_input, mContainer, false),
+        return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false),
                 text);
     }
 
@@ -162,7 +162,7 @@ public class FormGenerator {
 	 * @return The {@link TextViewFormItem}
 	 */
 	public TextViewFormItem text(String text) {
-		View view = mInflater.inflate(R.layout.fg_text, mContainer, false);
+		View view = inflater.inflate(R.layout.fg_text, container, false);
 		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
                 true);
 	}
@@ -174,7 +174,7 @@ public class FormGenerator {
      * @return The {@link TextViewFormItem}
      */
     public TextViewFormItem text(@StringRes int text) {
-        View view = mInflater.inflate(R.layout.fg_text, mContainer, false);
+        View view = inflater.inflate(R.layout.fg_text, container, false);
         return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
                 true);
     }
@@ -187,7 +187,7 @@ public class FormGenerator {
 	 * @return The {@link TextViewFormItem}
 	 */
 	public ButtonFormItem button(String text, View.OnClickListener listener) {
-		return new ButtonFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
+		return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false),
 				text, listener);
 	}
 
@@ -199,7 +199,7 @@ public class FormGenerator {
      * @return The {@link TextViewFormItem}
      */
     public ButtonFormItem button(@StringRes int text, View.OnClickListener listener) {
-        return new ButtonFormItem(this, mInflater.inflate(R.layout.fg_button, mContainer, false),
+        return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false),
                 text, listener);
     }
 
@@ -211,8 +211,8 @@ public class FormGenerator {
      * @return The {@link ButtonFormItem}
      */
     public ButtonFormItem borderlessButton(String text, View.OnClickListener listener) {
-        return new ButtonFormItem(this, mInflater.inflate(
-                R.layout.fg_button_borderless, mContainer, false), text, listener);
+        return new ButtonFormItem(this, inflater.inflate(
+                R.layout.fg_button_borderless, container, false), text, listener);
     }
 
     /**
@@ -223,8 +223,8 @@ public class FormGenerator {
      * @return The {@link ButtonFormItem}
      */
     public ButtonFormItem borderlessButton(@StringRes int text, View.OnClickListener listener) {
-        return new ButtonFormItem(this, mInflater.inflate(
-                R.layout.fg_button_borderless, mContainer, false), text, listener);
+        return new ButtonFormItem(this, inflater.inflate(
+                R.layout.fg_button_borderless, container, false), text, listener);
     }
 
 	/**
@@ -234,7 +234,7 @@ public class FormGenerator {
 	 * @return The {@link SwitchFormItem}
 	 */
 	public SwitchFormItem aSwitch(String text) {
-		return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
+		return new SwitchFormItem(this, inflater.inflate(R.layout.fg_switch, container, false),
 				text);
 	}
 
@@ -245,7 +245,7 @@ public class FormGenerator {
      * @return The {@link SwitchFormItem}
      */
     public SwitchFormItem aSwitch(@StringRes int text) {
-        return new SwitchFormItem(this, mInflater.inflate(R.layout.fg_switch, mContainer, false),
+        return new SwitchFormItem(this, inflater.inflate(R.layout.fg_switch, container, false),
                 text);
     }
 
@@ -257,70 +257,73 @@ public class FormGenerator {
          * The default icon color Id, 0 if none
          */
         @ColorRes
-        int mDefaultIconColorId = 0;
+        int defaultIconColorId = 0;
         /**
          * The default background Id, null if none
          */
-        @ColorRes @DrawableRes
-        Integer mDefaultBackgroundId = null;
+        @ColorRes
+        @DrawableRes
+        Integer defaultBackgroundId = null;
         /**
          * The default background Id for the input item, null if none
          */
-        @ColorRes @DrawableRes
-        Integer mDefaultInputBackgroundId = null;
+        @ColorRes
+        @DrawableRes
+        Integer defaultInputBackgroundId = null;
         /**
          * The default color for the space, transparent if none
          */
-        @ColorRes @DrawableRes
-        int mDefaultSpaceColorId = android.R.color.transparent;
+        @ColorRes
+        @DrawableRes
+        int defaultSpaceColorId = android.R.color.transparent;
         /**
          * The default space size Id, 10dp if none
          */
         @DimenRes
-        int mDefaultSpaceSizeId = R.dimen.space;
+        int defaultSpaceSizeId = R.dimen.space;
         /**
          * The default text size, 14dp if none
          */
         @DimenRes
-        int mDefaultTextSizeId = R.dimen.text;
+        int defaultTextSizeId = R.dimen.text;
         /**
          * The default text color Id, black if none
          */
         @ColorRes
-        int mDefaultTextColorId = android.R.color.black;
+        int defaultTextColorId = android.R.color.black;
         /**
          * The default text color state list, 0 if none
          */
         @ColorRes
-        int mDefaultTextColorStateListId = 0;
+        int defaultTextColorStateListId = 0;
         /**
          * The default typeface to use, null if none
          */
-        Typeface mDefaultTextTypeface = null;
+        Typeface defaultTextTypeface = null;
         /**
          * The default padding size for the non-space/line items, 8dp if none
          */
         @DimenRes
-        int mDefaultPaddingSizeId = R.dimen.padding;
+        int defaultPaddingSizeId = R.dimen.padding;
         /**
          * The default line size, 0.5 dp if none
          */
         @DimenRes
-        int mDefaultLineSizeId = R.dimen.line;
+        int defaultLineSizeId = R.dimen.line;
         /**
          * The default line color Id, #EEEEEE if none
          */
         @ColorRes @DrawableRes
-        int mDefaultLineColorId = R.color.line;
+        int defaultLineColorId = R.color.line;
         /**
          * True if we should show a line after a form item, false otherwise (defaults to true)
          */
-        boolean mShowLine = true;
+        boolean showLine = true;
 
 		/**
 		 * Default Constructor
 		 */
-		public Builder(){}
+		public Builder() {}
 
         /**
          * @return A new {@link Builder} instance, generated from the given one
@@ -329,19 +332,19 @@ public class FormGenerator {
             Builder builder = new Builder();
 
             //Set the values from the given instance
-            builder.mDefaultIconColorId = mDefaultIconColorId;
-            builder.mDefaultBackgroundId = mDefaultBackgroundId;
-            builder.mDefaultInputBackgroundId = mDefaultInputBackgroundId;
-            builder.mDefaultSpaceColorId = mDefaultSpaceColorId;
-            builder.mDefaultSpaceSizeId = mDefaultSpaceSizeId;
-            builder.mDefaultTextSizeId = mDefaultTextSizeId;
-            builder.mDefaultTextColorId = mDefaultTextColorId;
-            builder.mDefaultTextColorStateListId = mDefaultTextColorStateListId;
-            builder.mDefaultTextTypeface = mDefaultTextTypeface;
-            builder.mDefaultPaddingSizeId = mDefaultPaddingSizeId;
-            builder.mDefaultLineSizeId = mDefaultLineSizeId;
-            builder.mDefaultLineColorId = mDefaultLineColorId;
-            builder.mShowLine = mShowLine;
+            builder.defaultIconColorId = defaultIconColorId;
+            builder.defaultBackgroundId = defaultBackgroundId;
+            builder.defaultInputBackgroundId = defaultInputBackgroundId;
+            builder.defaultSpaceColorId = defaultSpaceColorId;
+            builder.defaultSpaceSizeId = defaultSpaceSizeId;
+            builder.defaultTextSizeId = defaultTextSizeId;
+            builder.defaultTextColorId = defaultTextColorId;
+            builder.defaultTextColorStateListId = defaultTextColorStateListId;
+            builder.defaultTextTypeface = defaultTextTypeface;
+            builder.defaultPaddingSizeId = defaultPaddingSizeId;
+            builder.defaultLineSizeId = defaultLineSizeId;
+            builder.defaultLineColorId = defaultLineColorId;
+            builder.showLine = showLine;
             return builder;
         }
 
@@ -374,7 +377,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultIconColorId(@ColorRes int colorId) {
-			mDefaultIconColorId = colorId;
+			defaultIconColorId = colorId;
 			return this;
 		}
 
@@ -385,7 +388,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultBackground(@ColorRes @DrawableRes int backgroundId) {
-			mDefaultBackgroundId = backgroundId;
+			defaultBackgroundId = backgroundId;
 			return this;
 		}
 
@@ -396,7 +399,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setInputDefaultBackground(@ColorRes @DrawableRes int backgroundId) {
-			mDefaultInputBackgroundId = backgroundId;
+			defaultInputBackgroundId = backgroundId;
 			return this;
 		}
 
@@ -407,7 +410,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultSpaceColorId(@ColorRes int colorId) {
-			mDefaultSpaceColorId = colorId;
+			defaultSpaceColorId = colorId;
 			return this;
 		}
 
@@ -418,7 +421,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultSpaceSize(@DimenRes int dimenId) {
-			mDefaultSpaceSizeId = dimenId;
+			defaultSpaceSizeId = dimenId;
 			return this;
 		}
 
@@ -429,7 +432,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultTextSize(@DimenRes int dimenId) {
-			mDefaultTextSizeId = dimenId;
+			defaultTextSizeId = dimenId;
 			return this;
 		}
 
@@ -442,10 +445,10 @@ public class FormGenerator {
 		 */
 		public Builder setDefaultTextColorId(@ColorRes int colorId, boolean stateList) {
 			if(stateList){
-				mDefaultTextColorStateListId = colorId;
+				defaultTextColorStateListId = colorId;
 			}
 			else{
-				mDefaultTextColorId = colorId;
+				defaultTextColorId = colorId;
 			}
 			return this;
 		}
@@ -457,7 +460,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultTypeface(Typeface typeface) {
-			mDefaultTextTypeface = typeface;
+			defaultTextTypeface = typeface;
 			return this;
 		}
 
@@ -468,7 +471,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultPaddingSize(@DimenRes int dimenId) {
-			mDefaultPaddingSizeId = dimenId;
+			defaultPaddingSizeId = dimenId;
 			return this;
 		}
 
@@ -479,7 +482,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultLineSize(@DimenRes int dimenId) {
-			mDefaultLineSizeId = dimenId;
+			defaultLineSizeId = dimenId;
 			return this;
 		}
 
@@ -490,7 +493,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setDefaultLineColorId(@ColorRes @DrawableRes int colorId) {
-			mDefaultLineColorId = colorId;
+			defaultLineColorId = colorId;
 			return this;
 		}
 
@@ -501,7 +504,7 @@ public class FormGenerator {
 		 * @return The {@link Builder} instance
 		 */
 		public Builder setShowLine(boolean showLine) {
-			mShowLine = showLine;
+			this.showLine = showLine;
 			return this;
 		}
 	}

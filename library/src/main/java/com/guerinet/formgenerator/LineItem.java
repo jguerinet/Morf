@@ -43,9 +43,9 @@ public class LineItem extends Item {
 		this.line = line;
 
         if (this.line != null) {
-			showLine(this.fg.mBuilder.mShowLine);
-			lineSize(this.fg.mBuilder.mDefaultLineSizeId);
-			lineColor(this.fg.mBuilder.mDefaultLineColorId);
+			showLine(this.fg.builder.showLine);
+			lineSize(this.fg.builder.defaultLineSizeId);
+			lineColor(this.fg.builder.defaultLineColorId);
 		}
 	}
 
@@ -59,11 +59,11 @@ public class LineItem extends Item {
 		super(fg);
 		this.line = line;
 
-		this.fg.mContainer.addView(this.line);
+		this.fg.container.addView(this.line);
 
 		showLine(true);
-		lineSize(this.fg.mBuilder.mDefaultLineSizeId);
-		lineColor(this.fg.mBuilder.mDefaultLineColorId);
+		lineSize(this.fg.builder.defaultLineSizeId);
+		lineColor(this.fg.builder.defaultLineColorId);
 	}
 
 	/**

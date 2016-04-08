@@ -45,7 +45,7 @@ public class ButtonFormItem extends TextViewFormItem {
 		super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
 		this.view.setOnClickListener(listener);
 		// Bold buttons
-		style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
+		style(this.fg.builder.defaultTextTypeface, Typeface.BOLD);
 	}
 
     /**
@@ -61,7 +61,7 @@ public class ButtonFormItem extends TextViewFormItem {
         super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
         this.view.setOnClickListener(listener);
         // Bold buttons
-        style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
+        style(this.fg.builder.defaultTextTypeface, Typeface.BOLD);
     }
 
 	/**
