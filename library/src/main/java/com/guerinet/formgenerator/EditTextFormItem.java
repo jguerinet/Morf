@@ -448,6 +448,14 @@ public class EditTextFormItem extends TextViewFormItem {
     }
 
     /**
+     * @return The {@link EditText}
+     */
+    @Override
+    public EditText view() {
+        return editText;
+    }
+
+    /**
      * Builds the view, adds it to the container, and returns the {@link EditText}
      *
      * @return The {@link EditText}

@@ -519,6 +519,14 @@ public class SwitchFormItem extends TextViewFormItem {
     }
 
     /**
+     * @return The {@link SwitchCompat}
+     */
+    @Override
+    public SwitchCompat view() {
+        return aSwitch;
+    }
+
+    /**
      * Builds the view, adds it to the container, and returns the {@link SwitchCompat}
      *
      * @return The {@link SwitchCompat}

@@ -499,6 +499,13 @@ public class TextViewFormItem extends LineItem {
     }
 
     /**
+     * @return The {@link TextView}
+     */
+    public TextView view() {
+        return textView;
+    }
+
+    /**
      * Builds the view, adds it to the container, and returns the {@link TextView}
      *
      * @return The {@link TextView}
@@ -531,7 +538,7 @@ public class TextViewFormItem extends LineItem {
         // Add the view to the container
         fg.container.addView(view);
 
-		return textView;
+		return view();
 	}
 
 	/**
