@@ -426,6 +426,17 @@ public class TextViewFormItem extends LineItem {
     }
 
     /**
+     * Sets the view visibility
+     *
+     * @param visibility View visibility, should be one of View.VISIBLE, View.INVISIBLE, View.GONE
+     * @return The {@link TextViewFormItem} instance
+     */
+    public TextViewFormItem visibility(int visibility) {
+        view.setVisibility(visibility);
+        return this;
+    }
+
+    /**
 	 * Sets the line size
 	 *
 	 * @param pixels The line size dimension Id

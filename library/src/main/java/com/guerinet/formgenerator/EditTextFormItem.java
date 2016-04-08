@@ -372,6 +372,17 @@ public class EditTextFormItem extends TextViewFormItem {
     }
 
     /**
+     * Sets the view visibility
+     *
+     * @param visibility View visibility, should be one of View.VISIBLE, View.INVISIBLE, View.GONE
+     * @return The {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem visibility(int visibility) {
+        return (EditTextFormItem) super.visibility(visibility);
+    }
+
+    /**
      * Sets the {@link TextView} gravity
      *
      * @param gravity The gravity

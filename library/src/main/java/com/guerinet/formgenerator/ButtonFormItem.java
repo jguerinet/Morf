@@ -352,6 +352,17 @@ public class ButtonFormItem extends TextViewFormItem {
         return (ButtonFormItem) super.ellipsize(type);
     }
 
+    /**
+     * Sets the view visibility
+     *
+     * @param visibility View visibility, should be one of View.VISIBLE, View.INVISIBLE, View.GONE
+     * @return The {@link ButtonFormItem} instance
+     */
+    @Override
+    public ButtonFormItem visibility(int visibility) {
+        return (ButtonFormItem) super.visibility(visibility);
+    }
+
 	/**
 	 * Sets the line size
 	 *

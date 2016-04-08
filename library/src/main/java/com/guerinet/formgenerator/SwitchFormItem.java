@@ -453,6 +453,17 @@ public class SwitchFormItem extends TextViewFormItem {
         return (SwitchFormItem) super.ellipsize(type);
     }
 
+    /**
+     * Sets the view visibility
+     *
+     * @param visibility View visibility, should be one of View.VISIBLE, View.INVISIBLE, View.GONE
+     * @return The {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem visibility(int visibility) {
+        return (SwitchFormItem) super.visibility(visibility);
+    }
+
 	/**
 	 * Sets the line size
 	 *
