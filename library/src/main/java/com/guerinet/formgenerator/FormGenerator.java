@@ -22,6 +22,7 @@ import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +63,8 @@ public class FormGenerator {
 	 * @param container The container that the items should be in
 	 * @return The default {@link FormGenerator}
 	 */
-	public static FormGenerator bind(LayoutInflater inflater, LinearLayout container) {
+	public static FormGenerator bind(@NonNull LayoutInflater inflater,
+            @NonNull LinearLayout container) {
 		// No singleton set, bind from the default settings
 		if (singleton == null) {
 			singleton = new Builder();
@@ -80,7 +82,7 @@ public class FormGenerator {
 	 * @param container The container that the items should be in
 	 * @return The default {@link FormGenerator}
 	 */
-	public static FormGenerator bind(Context context, LinearLayout container) {
+	public static FormGenerator bind(@NonNull Context context, @NonNull LinearLayout container) {
 		return bind(LayoutInflater.from(context), container);
 	}
 
