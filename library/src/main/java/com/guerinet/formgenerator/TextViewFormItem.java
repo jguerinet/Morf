@@ -492,6 +492,13 @@ public class TextViewFormItem extends LineItem {
     }
 
     /**
+     * @return Parent {@link View}
+     */
+    public View parent() {
+        return view;
+    }
+
+    /**
      * Builds the view, adds it to the container, and returns the {@link TextView}
      *
      * @return The {@link TextView}
