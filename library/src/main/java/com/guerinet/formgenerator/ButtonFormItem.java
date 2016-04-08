@@ -41,10 +41,10 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @param text     The text
 	 * @param listener The {@link View.OnClickListener}
 	 */
-	public ButtonFormItem(FormGenerator fg, View view, String text, View.OnClickListener listener){
+	public ButtonFormItem(FormGenerator fg, View view, String text, View.OnClickListener listener) {
 		super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
 		this.view.setOnClickListener(listener);
-		//Bold buttons
+		// Bold buttons
 		style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
 	}
 
@@ -57,10 +57,10 @@ public class ButtonFormItem extends TextViewFormItem {
      * @param listener The {@link View.OnClickListener}
      */
     public ButtonFormItem(FormGenerator fg, View view, @StringRes int text,
-            View.OnClickListener listener){
+            View.OnClickListener listener) {
         super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
         this.view.setOnClickListener(listener);
-        //Bold buttons
+        // Bold buttons
         style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
     }
 
@@ -71,8 +71,8 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem hint(String hint){
-		return (ButtonFormItem)super.hint(hint);
+	public ButtonFormItem hint(String hint) {
+		return (ButtonFormItem) super.hint(hint);
 	}
 
 	/**
@@ -82,8 +82,8 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem hint(@StringRes int stringId){
-		return (ButtonFormItem)super.hint(stringId);
+	public ButtonFormItem hint(@StringRes int stringId) {
+		return (ButtonFormItem) super.hint(stringId);
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem textColor(int colorId, boolean stateList){
-		return (ButtonFormItem)super.textColor(colorId, stateList);
+	public ButtonFormItem textColor(int colorId, boolean stateList) {
+		return (ButtonFormItem) super.textColor(colorId, stateList);
 	}
 
 	/**
@@ -105,8 +105,8 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem textSize(@DimenRes int dimenId){
-		return (ButtonFormItem)super.textSize(dimenId);
+	public ButtonFormItem textSize(@DimenRes int dimenId) {
+		return (ButtonFormItem) super.textSize(dimenId);
  	}
 
 	/**
@@ -120,7 +120,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public ButtonFormItem padding(@DimenRes int leftId, @DimenRes int topId,
-            @DimenRes int rightId, @DimenRes int bottomId){
+            @DimenRes int rightId, @DimenRes int bottomId) {
 		return (ButtonFormItem) super.padding(leftId, topId, rightId, bottomId);
 	}
 
@@ -131,7 +131,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem padding(@DimenRes int dimenId){
+	public ButtonFormItem padding(@DimenRes int dimenId) {
 		return (ButtonFormItem) super.padding(dimenId);
 	}
 
@@ -142,7 +142,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem typeface(Typeface typeface){
+	public ButtonFormItem typeface(Typeface typeface) {
 		return (ButtonFormItem) super.typeface(typeface);
 	}
 
@@ -154,7 +154,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem style(Typeface typeface, int style){
+	public ButtonFormItem style(Typeface typeface, int style) {
 		return (ButtonFormItem) super.style(typeface, style);
 	}
 
@@ -166,7 +166,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem style(int style){
+	public ButtonFormItem style(int style) {
 		return (ButtonFormItem) super.style(style);
 	}
 
@@ -178,7 +178,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem leftIcon(@DrawableRes int iconId, boolean visible){
+	public ButtonFormItem leftIcon(@DrawableRes int iconId, boolean visible) {
 		return (ButtonFormItem) super.leftIcon(iconId, visible);
 	}
 
@@ -190,7 +190,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem topIcon(@DrawableRes int iconId, boolean visible){
+	public ButtonFormItem topIcon(@DrawableRes int iconId, boolean visible) {
 		return (ButtonFormItem) super.topIcon(iconId, visible);
 	}
 
@@ -202,7 +202,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem rightIcon(@DrawableRes int iconId, boolean visible){
+	public ButtonFormItem rightIcon(@DrawableRes int iconId, boolean visible) {
 		return (ButtonFormItem) super.rightIcon(iconId, visible);
 	}
 
@@ -214,7 +214,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem bottomIcon(@DrawableRes int iconId, boolean visible){
+	public ButtonFormItem bottomIcon(@DrawableRes int iconId, boolean visible) {
 		return (ButtonFormItem) super.bottomIcon(iconId, visible);
 	}
 
@@ -225,7 +225,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem leftIcon(@DrawableRes int iconId){
+	public ButtonFormItem leftIcon(@DrawableRes int iconId) {
 		return (ButtonFormItem) super.leftIcon(iconId);
 	}
 
@@ -236,7 +236,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem topIcon(@DrawableRes int iconId){
+	public ButtonFormItem topIcon(@DrawableRes int iconId) {
 		return (ButtonFormItem) super.topIcon(iconId);
 	}
 
@@ -247,7 +247,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem rightIcon(@DrawableRes int iconId){
+	public ButtonFormItem rightIcon(@DrawableRes int iconId) {
 		return (ButtonFormItem) super.rightIcon(iconId);
 	}
 
@@ -258,7 +258,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem bottomIcon(@DrawableRes int iconId){
+	public ButtonFormItem bottomIcon(@DrawableRes int iconId) {
 		return (ButtonFormItem) super.bottomIcon(iconId);
 	}
 
@@ -270,7 +270,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public ButtonFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (ButtonFormItem) super.leftIcon(iconId, colorId);
 	}
 
@@ -282,7 +282,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public ButtonFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (ButtonFormItem) super.topIcon(iconId, colorId);
 	}
 
@@ -294,7 +294,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public ButtonFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (ButtonFormItem) super.rightIcon(iconId, colorId);
 	}
 
@@ -306,7 +306,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public ButtonFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (ButtonFormItem) super.bottomIcon(iconId, colorId);
 	}
 
@@ -317,7 +317,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem onClick(View.OnClickListener listener){
+	public ButtonFormItem onClick(View.OnClickListener listener) {
 		return (ButtonFormItem) super.onClick(listener);
 	}
 
@@ -360,8 +360,8 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem lineSize(@DimenRes int sizeDimen){
-		return (ButtonFormItem)super.lineSize(sizeDimen);
+	public ButtonFormItem lineSize(@DimenRes int sizeDimen) {
+		return (ButtonFormItem) super.lineSize(sizeDimen);
 	}
 
 	/**
@@ -371,19 +371,19 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem lineColor(@ColorRes @DrawableRes int colorId){
-		return (ButtonFormItem)super.lineColor(colorId);
+	public ButtonFormItem lineColor(@ColorRes @DrawableRes int colorId) {
+		return (ButtonFormItem) super.lineColor(colorId);
 	}
 
 	/**
 	 * Sets the line visibility
 	 *
 	 * @param show True if the line should be visible, false otherwise
-	 * @return The {@link LineItem} instance
+	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem showLine(boolean show){
-		return (ButtonFormItem)super.showLine(show);
+	public ButtonFormItem showLine(boolean show) {
+		return (ButtonFormItem) super.showLine(show);
 	}
 
 	/**
@@ -393,15 +393,12 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem background(@ColorRes @DrawableRes int backgroundId){
-		return (ButtonFormItem)super.background(backgroundId);
+	public ButtonFormItem background(@ColorRes @DrawableRes int backgroundId) {
+		return (ButtonFormItem) super.background(backgroundId);
 	}
 
-	/**
-	 * @return The {@link Button}
-	 */
 	@Override
-	public Button view(){
+	public Button view() {
 		return (Button) textView;
 	}
 }
