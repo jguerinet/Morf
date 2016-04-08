@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,8 +50,8 @@ public class EditTextFormItem extends TextViewFormItem {
 		mEditText = (EditText)mTextView;
 
 		//Set the right background
-		if(mFG.mBuilder.mDefaultInputBackgroundId != null){
-			inputBackground(mFG.mBuilder.mDefaultInputBackgroundId);
+		if(this.fg.mBuilder.mDefaultInputBackgroundId != null){
+			inputBackground(this.fg.mBuilder.mDefaultInputBackgroundId);
 		}
 	}
 
@@ -67,8 +67,8 @@ public class EditTextFormItem extends TextViewFormItem {
         mEditText = (EditText)mTextView;
 
         //Set the right background
-        if(mFG.mBuilder.mDefaultInputBackgroundId != null){
-            inputBackground(mFG.mBuilder.mDefaultInputBackgroundId);
+        if(this.fg.mBuilder.mDefaultInputBackgroundId != null){
+            inputBackground(this.fg.mBuilder.mDefaultInputBackgroundId);
         }
     }
 

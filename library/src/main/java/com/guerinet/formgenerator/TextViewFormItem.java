@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,21 +71,21 @@ public class TextViewFormItem extends FormItem {
 		mIcons[3] = new Icon(0, 0, false);
 
 		//Text Color
-		if(mFG.mBuilder.mDefaultTextColorStateListId != 0){
-			textColor(mFG.mBuilder.mDefaultTextColorStateListId, true);
+		if(this.fg.mBuilder.mDefaultTextColorStateListId != 0){
+			textColor(this.fg.mBuilder.mDefaultTextColorStateListId, true);
 		}
 		else{
-			textColor(mFG.mBuilder.mDefaultTextColorId, false);
+			textColor(this.fg.mBuilder.mDefaultTextColorId, false);
 		}
 
 		//Text Size
-		textSize(mFG.mBuilder.mDefaultTextSizeId);
+		textSize(this.fg.mBuilder.mDefaultTextSizeId);
 
 		//Padding
-		padding(mFG.mBuilder.mDefaultPaddingSizeId);
+		padding(this.fg.mBuilder.mDefaultPaddingSizeId);
 
 		//Typeface
-		typeface(mFG.mBuilder.mDefaultTextTypeface);
+		typeface(this.fg.mBuilder.mDefaultTextTypeface);
 	}
 
     /**
@@ -228,7 +228,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem style(int style){
-		mTextView.setTypeface(mFG.mBuilder.mDefaultTextTypeface, style);
+		mTextView.setTypeface(fg.mBuilder.mDefaultTextTypeface, style);
 		return this;
 	}
 
@@ -274,7 +274,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible){
-		icon(0, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
+		icon(0, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -286,7 +286,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible){
-		icon(1, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
+		icon(1, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -298,7 +298,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible){
-		icon(2, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
+		icon(2, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -310,7 +310,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible){
-		icon(3, iconId, mFG.mBuilder.mDefaultIconColorId, visible);
+		icon(3, iconId, fg.mBuilder.mDefaultIconColorId, visible);
 		return this;
 	}
 
@@ -321,7 +321,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId){
-		icon(0, iconId, mFG.mBuilder.mDefaultIconColorId, true);
+		icon(0, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -332,7 +332,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId){
-		icon(1, iconId, mFG.mBuilder.mDefaultIconColorId, true);
+		icon(1, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -343,7 +343,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId){
-		icon(2, iconId, mFG.mBuilder.mDefaultIconColorId, true);
+		icon(2, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 
@@ -354,7 +354,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId){
-		icon(3, iconId, mFG.mBuilder.mDefaultIconColorId, true);
+		icon(3, iconId, fg.mBuilder.mDefaultIconColorId, true);
 		return this;
 	}
 

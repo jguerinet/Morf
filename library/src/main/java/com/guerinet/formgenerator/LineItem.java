@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,9 +43,9 @@ public class LineItem extends Item {
 		mLine = line;
 
 		if(mLine != null){
-			showLine(mFG.mBuilder.mShowLine);
-			lineSize(mFG.mBuilder.mDefaultLineSizeId);
-			lineColor(mFG.mBuilder.mDefaultLineColorId);
+			showLine(this.fg.mBuilder.mShowLine);
+			lineSize(this.fg.mBuilder.mDefaultLineSizeId);
+			lineColor(this.fg.mBuilder.mDefaultLineColorId);
 		}
 	}
 
@@ -59,11 +59,11 @@ public class LineItem extends Item {
 		super(fg);
 		mLine = line;
 
-		mFG.mContainer.addView(mLine);
+		this.fg.mContainer.addView(mLine);
 
 		showLine(true);
-		lineSize(mFG.mBuilder.mDefaultLineSizeId);
-		lineColor(mFG.mBuilder.mDefaultLineColorId);
+		lineSize(this.fg.mBuilder.mDefaultLineSizeId);
+		lineColor(this.fg.mBuilder.mDefaultLineColorId);
 	}
 
 	/**

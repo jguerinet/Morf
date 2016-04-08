@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ public class SwitchFormItem extends TextViewFormItem {
 		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
 		mSwitch = (SwitchCompat)mTextView;
         //Set the switch typeface
-        mSwitch.setSwitchTypeface(mFG.mBuilder.mDefaultTextTypeface);
+        mSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
 	}
 
     /**
@@ -64,7 +64,7 @@ public class SwitchFormItem extends TextViewFormItem {
         super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
         mSwitch = (SwitchCompat)mTextView;
         //Set the switch typeface
-        mSwitch.setSwitchTypeface(mFG.mBuilder.mDefaultTextTypeface);
+        mSwitch.setSwitchTypeface(this.fg.mBuilder.mDefaultTextTypeface);
     }
 
 

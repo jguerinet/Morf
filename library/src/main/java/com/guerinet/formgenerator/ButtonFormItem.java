@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,7 @@ public class ButtonFormItem extends TextViewFormItem {
 		super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
 		mView.setOnClickListener(listener);
 		//Bold buttons
-		style(mFG.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
+		style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
 	}
 
     /**
@@ -61,7 +61,7 @@ public class ButtonFormItem extends TextViewFormItem {
         super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
         mView.setOnClickListener(listener);
         //Bold buttons
-        style(mFG.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
+        style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
     }
 
 	/**

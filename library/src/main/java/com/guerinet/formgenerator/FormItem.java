@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,11 +40,11 @@ abstract class FormItem extends LineItem{
 		super(view.findViewById(R.id.fg_line), fg);
 		mView = view;
 
-		mFG.mContainer.addView(mView);
+		this.fg.mContainer.addView(mView);
 
 		//Set the default background
-		if(background && mFG.mBuilder.mDefaultBackgroundId != null){
-			background(mFG.mBuilder.mDefaultBackgroundId);
+		if(background && this.fg.mBuilder.mDefaultBackgroundId != null){
+			background(this.fg.mBuilder.mDefaultBackgroundId);
 		}
 	}
 

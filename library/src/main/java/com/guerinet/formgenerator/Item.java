@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Julien Guerinet
+ * Copyright 2015-2016 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,15 +27,15 @@ abstract class Item {
 	/**
 	 * The {@link FormGenerator} instance
 	 */
-	protected FormGenerator mFG;
+	protected FormGenerator fg;
 
 	/**
 	 * Default Constructor
 	 *
 	 * @param fg The {@link FormGenerator} instance
 	 */
-	protected Item(FormGenerator fg){
-		mFG = fg;
+	protected Item(FormGenerator fg) {
+		this.fg = fg;
 	}
 
 	/**
