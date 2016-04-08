@@ -17,7 +17,6 @@
 package com.guerinet.formgenerator;
 
 import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
 
@@ -44,18 +43,18 @@ public class SpaceItem extends Item {
 
 		this.fg.container.addView(this.space);
 
-		size(this.fg.builder.defaultSpaceSizeId);
+		size(this.fg.builder.defaultSpaceSize);
         background(this.fg.builder.defaultSpaceColorId);
 	}
 
 	/**
 	 * Sets the space size
 	 *
-	 * @param sizeDimen The space size dimension Id
+	 * @param pixels The space size in <strong>pixels</strong>
 	 * @return The {@link SpaceItem} instance
 	 */
-	public SpaceItem size(@DimenRes int sizeDimen) {
-		space.getLayoutParams().height = space.getResources().getDimensionPixelSize(sizeDimen);
+	public SpaceItem size(int pixels) {
+		space.getLayoutParams().height = pixels;
 		return this;
 	}
 

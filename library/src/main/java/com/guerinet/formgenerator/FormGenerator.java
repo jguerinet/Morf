@@ -279,10 +279,9 @@ public class FormGenerator {
         @DrawableRes
         int defaultSpaceColorId = android.R.color.transparent;
         /**
-         * The default space size Id, 10dp if none
+         * The default space size Id, 0 if none
          */
-        @DimenRes
-        int defaultSpaceSizeId = R.dimen.space;
+        int defaultSpaceSize = 0;
         /**
          * The default text size, 14dp if none
          */
@@ -333,7 +332,7 @@ public class FormGenerator {
             builder.defaultBackgroundId = defaultBackgroundId;
             builder.defaultInputBackgroundId = defaultInputBackgroundId;
             builder.defaultSpaceColorId = defaultSpaceColorId;
-            builder.defaultSpaceSizeId = defaultSpaceSizeId;
+            builder.defaultSpaceSize = defaultSpaceSize;
             builder.defaultTextSizeId = defaultTextSizeId;
             builder.defaultTextColor = defaultTextColor;
             builder.defaultTextTypeface = defaultTextTypeface;
@@ -413,11 +412,11 @@ public class FormGenerator {
 		/**
 		 * Sets the default space size
 		 *
-		 * @param dimenId The dimension Id (in dp)
+		 * @param pixels The size in <strong>pixels</strong>
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultSpaceSize(@DimenRes int dimenId) {
-			defaultSpaceSizeId = dimenId;
+		public Builder setDefaultSpaceSize(int pixels) {
+			defaultSpaceSize = pixels;
 			return this;
 		}
 
