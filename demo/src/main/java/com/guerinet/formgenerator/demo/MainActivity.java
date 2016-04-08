@@ -20,7 +20,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -38,13 +40,14 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		LinearLayout container = (LinearLayout)findViewById(R.id.container);
+		LinearLayout container = (LinearLayout) findViewById(R.id.container);
 
 		//Get the default instance
 		FormGenerator fg = FormGenerator.bind(this, container);
 
 		//Default Form
-		fg.text("Form Item: Text (default settings)");
+		fg.text("Form Item: Text (default settings)")
+                .build();
 
 		fg.text("Form Item: Button")
 				.onClick(new View.OnClickListener() {
@@ -54,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                                 .LENGTH_SHORT)
                                 .show();
                     }
-                });
+                })
+                .build();
 
 		fg.space();
 
@@ -64,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
                         Toast.LENGTH_SHORT).show();
             }
-        });
+        })
+                .build();
 
         fg.borderlessButton("Form Item, Borderless Button", new View.OnClickListener() {
             @Override
@@ -72,12 +77,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
                         Toast.LENGTH_SHORT).show();
             }
-        });
+        })
+                .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
+                .build();
 
 		fg.space();
 		fg.line();
 
-		fg.input("").hint("Form Item: Input");
+		fg.input("").hint("Form Item: Input").build();
 
 		fg.aSwitch("Form Item: Switch").onCheckChanged(new CompoundButton.OnCheckedChangeListener
 				() {
@@ -86,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 				Toast.makeText(MainActivity.this, "Form Item: Switch changed",
 						Toast.LENGTH_SHORT).show();
 			}
-		});
+		}).build();
 
 		fg.space();
 		fg.space();
@@ -104,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
 		//Add the different form items
 		fg.text("Form Item: Text (custom settings)")
-				.leftIcon(R.drawable.ic_info);
+				.leftIcon(R.drawable.ic_info)
+                .build();
 
 		fg.text("Form Item: Button")
 				.leftIcon(R.drawable.ic_info, false)
@@ -115,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
                                 Toast.LENGTH_SHORT).show();
                     }
-                });
+                })
+                .build();
 
 		fg.space();
 
@@ -125,7 +135,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
                         Toast.LENGTH_SHORT).show();
             }
-        });
+        })
+                .build();
 
         fg.borderlessButton("Form Item, Borderless Button", new View.OnClickListener() {
             @Override
@@ -133,7 +144,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Form Item: Borderless Button Clicked",
                         Toast.LENGTH_SHORT).show();
             }
-        });
+        })
+                .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
+                .build();
 
 		fg.space();
 		fg.line();
@@ -141,7 +155,8 @@ public class MainActivity extends AppCompatActivity {
 		fg.input("")
 				.hint("Form Item: Input")
 				.leftIcon(R.drawable.ic_info)
-				.inputBackground(0);
+				.inputBackground(0)
+                .build();
 
 		fg.aSwitch("Form Item: Switch")
 				.onCheckChanged(new CompoundButton.OnCheckedChangeListener() {
@@ -152,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
 					}
 				})
                 .switchText("On", "Off")
-				.leftIcon(R.drawable.ic_info, false);
+				.leftIcon(R.drawable.ic_info, false)
+                .build();
 	}
 }
