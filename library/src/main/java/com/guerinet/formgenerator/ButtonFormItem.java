@@ -101,12 +101,12 @@ public class ButtonFormItem extends TextViewFormItem {
 	/**
 	 * Sets the {@link Button} text size
 	 *
-	 * @param dimenId The dimension Id
+	 * @param pixels The text size, in <strong>pixels</strong>
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem textSize(@DimenRes int dimenId) {
-		return (ButtonFormItem) super.textSize(dimenId);
+	public ButtonFormItem textSize(int pixels) {
+		return (ButtonFormItem) super.textSize(pixels);
  	}
 
 	/**

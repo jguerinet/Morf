@@ -283,10 +283,9 @@ public class FormGenerator {
          */
         int defaultSpaceSize = 0;
         /**
-         * The default text size, 14dp if none
+         * The default text size, app default if none
          */
-        @DimenRes
-        int defaultTextSizeId = R.dimen.text;
+        int defaultTextSize = -1;
         /**
          * The default text color Id, black if none
          */
@@ -332,7 +331,7 @@ public class FormGenerator {
             builder.defaultInputBackgroundId = defaultInputBackgroundId;
             builder.defaultSpaceColorId = defaultSpaceColorId;
             builder.defaultSpaceSize = defaultSpaceSize;
-            builder.defaultTextSizeId = defaultTextSizeId;
+            builder.defaultTextSize = defaultTextSize;
             builder.defaultTextColor = defaultTextColor;
             builder.defaultTextTypeface = defaultTextTypeface;
             builder.defaultPaddingSize = defaultPaddingSize;
@@ -422,11 +421,11 @@ public class FormGenerator {
 		/**
 		 * Sets the default text size
 		 *
-		 * @param dimenId The dimension Id (in dp)
+		 * @param pixels Default text size, in <strong>pixels</strong>
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextSize(@DimenRes int dimenId) {
-			defaultTextSizeId = dimenId;
+		public Builder setDefaultTextSize(int pixels) {
+			defaultTextSize = pixels;
 			return this;
 		}
 

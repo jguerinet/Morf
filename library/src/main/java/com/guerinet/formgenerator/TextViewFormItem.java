@@ -74,7 +74,7 @@ public class TextViewFormItem extends FormItem {
         textColor(this.fg.builder.defaultTextColor);
 
 		// Text Size
-		textSize(this.fg.builder.defaultTextSizeId);
+		textSize(this.fg.builder.defaultTextSize);
 
 		// Padding
 		padding(this.fg.builder.defaultPaddingSize);
@@ -149,12 +149,14 @@ public class TextViewFormItem extends FormItem {
 	/**
 	 * Sets the {@link TextView} text size
 	 *
-	 * @param dimenId The dimension Id
+	 * @param pixels The text size, in <strong>pixels</strong>
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem textSize(@DimenRes int dimenId) {
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                context.getResources().getDimensionPixelSize(dimenId));
+	public TextViewFormItem textSize(int pixels) {
+        // If it's -1, don't do anything
+        if (pixels != -1) {
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, pixels);
+        }
         return this;
 	}
 
