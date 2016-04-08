@@ -30,7 +30,7 @@ public class LineItem extends Item {
 	/**
 	 * The line {@link View}
 	 */
-	private View mLine;
+	private final View line;
 
 	/**
 	 * Default Constructor
@@ -38,11 +38,11 @@ public class LineItem extends Item {
 	 * @param line     The line {@link View}
 	 * @param fg       The {@link FormGenerator} instance
 	 */
-	protected LineItem(View line, FormGenerator fg){
+	protected LineItem(View line, FormGenerator fg) {
 		super(fg);
-		mLine = line;
+		this.line = line;
 
-		if(mLine != null){
+        if (this.line != null) {
 			showLine(this.fg.mBuilder.mShowLine);
 			lineSize(this.fg.mBuilder.mDefaultLineSizeId);
 			lineColor(this.fg.mBuilder.mDefaultLineColorId);
@@ -55,11 +55,11 @@ public class LineItem extends Item {
 	 * @param fg   The {@link FormGenerator}
 	 * @param line The line {@link View}
 	 */
-	public LineItem(FormGenerator fg, View line){
+	public LineItem(FormGenerator fg, View line) {
 		super(fg);
-		mLine = line;
+		this.line = line;
 
-		this.fg.mContainer.addView(mLine);
+		this.fg.mContainer.addView(this.line);
 
 		showLine(true);
 		lineSize(this.fg.mBuilder.mDefaultLineSizeId);
@@ -72,8 +72,8 @@ public class LineItem extends Item {
 	 * @param sizeDimen The line size dimension Id
 	 * @return The {@link LineItem} instance
 	 */
-	public LineItem lineSize(@DimenRes int sizeDimen){
-        mLine.getLayoutParams().height = mLine.getResources().getDimensionPixelSize(sizeDimen);
+	public LineItem lineSize(@DimenRes int sizeDimen) {
+        line.getLayoutParams().height = line.getResources().getDimensionPixelSize(sizeDimen);
         return this;
 	}
 
@@ -83,8 +83,8 @@ public class LineItem extends Item {
 	 * @param colorId The color Id
 	 * @return The {@link LineItem} instance
 	 */
-	public LineItem lineColor(@DrawableRes @ColorRes int colorId){
-		mLine.setBackgroundResource(colorId);
+	public LineItem lineColor(@DrawableRes @ColorRes int colorId) {
+		line.setBackgroundResource(colorId);
 		return this;
 	}
 
@@ -94,13 +94,13 @@ public class LineItem extends Item {
 	 * @param show True if the line should be visible, false otherwise
 	 * @return The {@link LineItem} instance
 	 */
-	public LineItem showLine(boolean show){
-		mLine.setVisibility(show ? View.VISIBLE : View.GONE);
+	public LineItem showLine(boolean show) {
+		line.setVisibility(show ? View.VISIBLE : View.GONE);
 		return this;
 	}
 
 	@Override
-	public View view(){
-		return mLine;
+	public View view() {
+		return line;
 	}
 }
