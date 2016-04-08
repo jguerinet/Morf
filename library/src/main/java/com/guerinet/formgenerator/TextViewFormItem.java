@@ -27,7 +27,7 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -475,14 +475,26 @@ public class TextViewFormItem extends LineItem {
     }
 
     /**
-     * Sets the {@link ViewGroup.LayoutParams} for this view
+     * Sets the {@link LinearLayout.LayoutParams} for this view
      *
-     * @param params The {@link ViewGroup.LayoutParams} to set
+     * @param params The {@link LinearLayout.LayoutParams} to set
      * @return The {@link TextViewFormItem} instance
      */
-    public TextViewFormItem layoutParams(ViewGroup.LayoutParams params) {
+    public TextViewFormItem layoutParams(LinearLayout.LayoutParams params) {
         view.setLayoutParams(params);
         return this;
+    }
+
+    /**
+     * Sets the {@link LinearLayout.LayoutParams} for this view, as well as its layout_gravity
+     *
+     * @param params  The {@link LinearLayout.LayoutParams} to set
+     * @param gravity The layout_gravity to set
+     * @return The {@link TextViewFormItem} instance
+     */
+    public TextViewFormItem layoutParams(LinearLayout.LayoutParams params, int gravity) {
+        params.gravity = gravity;
+        return layoutParams(params);
     }
 
     /**

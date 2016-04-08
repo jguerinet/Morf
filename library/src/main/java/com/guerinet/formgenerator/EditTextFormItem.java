@@ -23,9 +23,9 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -438,13 +438,25 @@ public class EditTextFormItem extends TextViewFormItem {
 	}
 
     /**
-     * Sets the {@link ViewGroup.LayoutParams} for this view
+     * Sets the {@link LinearLayout.LayoutParams} for this view
      *
-     * @param params The {@link ViewGroup.LayoutParams} to set
+     * @param params The {@link LinearLayout.LayoutParams} to set
      * @return The {@link EditTextFormItem} instance
      */
-    public EditTextFormItem layoutParams(ViewGroup.LayoutParams params) {
+    public EditTextFormItem layoutParams(LinearLayout.LayoutParams params) {
         return (EditTextFormItem) super.layoutParams(params);
+    }
+
+
+    /**
+     * Sets the {@link LinearLayout.LayoutParams} for this view, as well as its layout_gravity
+     *
+     * @param params  The {@link LinearLayout.LayoutParams} to set
+     * @param gravity The layout_gravity to set
+     * @return The {@link EditTextFormItem} instance
+     */
+    public EditTextFormItem layoutParams(LinearLayout.LayoutParams params, int gravity) {
+        return (EditTextFormItem) super.layoutParams(params, gravity);
     }
 
     /**

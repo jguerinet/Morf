@@ -306,7 +306,7 @@ public class FormGenerator {
         /**
          * The default padding size for the non-space/line items, 0 if none
          */
-        int defaultPaddingSize = 0;
+        int defaultPaddingSize = -1;
         /**
          * Default padding size between a view and its compound drawable, defaults to 0
          */
