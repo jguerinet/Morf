@@ -18,6 +18,7 @@ package com.guerinet.formgenerator;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
@@ -254,10 +255,10 @@ public class FormGenerator {
 	 */
 	public static class Builder {
         /**
-         * The default icon color Id, 0 if none
+         * The default icon color Id, -1 if none
          */
-        @ColorRes
-        int defaultIconColorId = 0;
+        @ColorInt
+        int defaultIconColor = -1;
         /**
          * The default background Id, null if none
          */
@@ -332,7 +333,7 @@ public class FormGenerator {
             Builder builder = new Builder();
 
             //Set the values from the given instance
-            builder.defaultIconColorId = defaultIconColorId;
+            builder.defaultIconColor = defaultIconColor;
             builder.defaultBackgroundId = defaultBackgroundId;
             builder.defaultInputBackgroundId = defaultInputBackgroundId;
             builder.defaultSpaceColorId = defaultSpaceColorId;
@@ -373,11 +374,11 @@ public class FormGenerator {
 		/**
 		 * Sets the default icon color
 		 *
-		 * @param colorId The color resource Id
+		 * @param color The color
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultIconColorId(@ColorRes int colorId) {
-			defaultIconColorId = colorId;
+		public Builder setDefaultIconColor(@ColorInt int color) {
+			defaultIconColor = color;
 			return this;
 		}
 

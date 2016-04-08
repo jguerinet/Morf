@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
@@ -235,12 +236,11 @@ public class TextViewFormItem extends FormItem {
 	 *
 	 * @param position The icon position
 	 * @param iconId   The icon Id
-	 * @param colorId  The color Id
+	 * @param color    The color
 	 * @param visible  True if the icon should be visible, false otherwise
 	 */
-	private void icon(int position, @DrawableRes int iconId, @ColorRes int colorId,
-			boolean visible) {
-		icons[position] = new Icon(iconId, colorId, visible);
+	private void icon(int position, @DrawableRes int iconId, @ColorInt int color, boolean visible) {
+		icons[position] = new Icon(iconId, color, visible);
 
 		// Set all of the icons
 		textView.setCompoundDrawablesWithIntrinsicBounds(icons[0].drawableId,
@@ -255,9 +255,8 @@ public class TextViewFormItem extends FormItem {
 				drawable = DrawableCompat.wrap(drawable).mutate();
                 if (!icon.visible) {
 					drawable.setAlpha(0);
-				} else if (icon.colorId != 0) {
-                    DrawableCompat.setTint(drawable, ContextCompat.getColor(
-                            context.getApplicationContext(), icon.colorId));
+				} else if (icon.colorId != -1) {
+                    DrawableCompat.setTint(drawable, icon.colorId);
 				}
 			}
 		}
@@ -271,7 +270,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible) {
-		icon(0, iconId, fg.builder.defaultIconColorId, visible);
+		icon(0, iconId, fg.builder.defaultIconColor, visible);
 		return this;
 	}
 
@@ -283,7 +282,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible) {
-		icon(1, iconId, fg.builder.defaultIconColorId, visible);
+		icon(1, iconId, fg.builder.defaultIconColor, visible);
 		return this;
 	}
 
@@ -295,7 +294,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible) {
-		icon(2, iconId, fg.builder.defaultIconColorId, visible);
+		icon(2, iconId, fg.builder.defaultIconColor, visible);
 		return this;
 	}
 
@@ -307,7 +306,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible) {
-		icon(3, iconId, fg.builder.defaultIconColorId, visible);
+		icon(3, iconId, fg.builder.defaultIconColor, visible);
 		return this;
 	}
 
@@ -318,7 +317,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId) {
-		icon(0, iconId, fg.builder.defaultIconColorId, true);
+		icon(0, iconId, fg.builder.defaultIconColor, true);
 		return this;
 	}
 
@@ -329,7 +328,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId) {
-		icon(1, iconId, fg.builder.defaultIconColorId, true);
+		icon(1, iconId, fg.builder.defaultIconColor, true);
 		return this;
 	}
 
@@ -340,7 +339,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId) {
-		icon(2, iconId, fg.builder.defaultIconColorId, true);
+		icon(2, iconId, fg.builder.defaultIconColor, true);
 		return this;
 	}
 
@@ -351,31 +350,31 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId) {
-		icon(3, iconId, fg.builder.defaultIconColorId, true);
+		icon(3, iconId, fg.builder.defaultIconColor, true);
 		return this;
 	}
 
 	/**
 	 * Sets the left icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		icon(0, iconId, colorId, true);
+	public TextViewFormItem leftIcon(@DrawableRes int iconId, @ColorInt int color) {
+		icon(0, iconId, color, true);
 		return this;
 	}
 
 	/**
 	 * Sets the top icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		icon(1, iconId, colorId, true);
+	public TextViewFormItem topIcon(@DrawableRes int iconId, @ColorInt int color) {
+		icon(1, iconId, color, true);
 		return this;
 	}
 
@@ -383,11 +382,11 @@ public class TextViewFormItem extends FormItem {
 	 * Sets the right icon
 	 *
 	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param color The color
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		icon(2, iconId, colorId, true);
+	public TextViewFormItem rightIcon(@DrawableRes int iconId, @ColorInt int color) {
+		icon(2, iconId, color, true);
 		return this;
 	}
 
@@ -398,7 +397,7 @@ public class TextViewFormItem extends FormItem {
 	 * @param colorId The color Id
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId) {
+	public TextViewFormItem bottomIcon(@DrawableRes int iconId, @ColorInt int colorId) {
 		icon(3, iconId, colorId, true);
 		return this;
 	}
@@ -510,7 +509,7 @@ public class TextViewFormItem extends FormItem {
 		/**
 		 * The icon color
 		 */
-        @ColorRes
+        @ColorInt
 		private final int colorId;
 		/**
 		 * True if the icon should be visible, false otherwise
@@ -521,10 +520,10 @@ public class TextViewFormItem extends FormItem {
 		 * Default Constructor
 		 *
 		 * @param drawableId The drawable resource
-		 * @param colorId    The color Id
+		 * @param colorId    The color
 		 * @param visibility True if the icon should be visible, false otherwise
 		 */
-		private Icon(@DrawableRes int drawableId, @ColorRes int colorId, boolean visibility){
+		private Icon(@DrawableRes int drawableId, @ColorInt int colorId, boolean visibility){
 			this.drawableId = drawableId;
 			this.colorId = colorId;
 			visible = visibility;

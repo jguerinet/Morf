@@ -17,6 +17,7 @@
 package com.guerinet.formgenerator;
 
 import android.graphics.Typeface;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
@@ -265,49 +266,49 @@ public class ButtonFormItem extends TextViewFormItem {
 	/**
 	 * Sets the left icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (ButtonFormItem) super.leftIcon(iconId, colorId);
+	public ButtonFormItem leftIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (ButtonFormItem) super.leftIcon(iconId, color);
 	}
 
 	/**
 	 * Sets the top icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (ButtonFormItem) super.topIcon(iconId, colorId);
+	public ButtonFormItem topIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (ButtonFormItem) super.topIcon(iconId, color);
 	}
 
 	/**
 	 * Sets the right icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (ButtonFormItem) super.rightIcon(iconId, colorId);
+	public ButtonFormItem rightIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (ButtonFormItem) super.rightIcon(iconId, color);
 	}
 
 	/**
 	 * Sets the bottom icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (ButtonFormItem) super.bottomIcon(iconId, colorId);
+	public ButtonFormItem bottomIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (ButtonFormItem) super.bottomIcon(iconId, color);
 	}
 
 	/**

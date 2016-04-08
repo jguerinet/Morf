@@ -17,6 +17,7 @@
 package com.guerinet.formgenerator;
 
 import android.graphics.Typeface;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
@@ -366,49 +367,49 @@ public class SwitchFormItem extends TextViewFormItem {
 	/**
 	 * Sets the left icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (SwitchFormItem) super.leftIcon(iconId, colorId);
+	public SwitchFormItem leftIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (SwitchFormItem) super.leftIcon(iconId, color);
 	}
 
 	/**
 	 * Sets the top icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (SwitchFormItem) super.topIcon(iconId, colorId);
+	public SwitchFormItem topIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (SwitchFormItem) super.topIcon(iconId, color);
 	}
 
 	/**
 	 * Sets the right icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (SwitchFormItem) super.rightIcon(iconId, colorId);
+	public SwitchFormItem rightIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (SwitchFormItem) super.rightIcon(iconId, color);
 	}
 
 	/**
 	 * Sets the bottom icon
 	 *
-	 * @param iconId  The icon resource Id
-	 * @param colorId The color Id
+	 * @param iconId The icon resource Id
+	 * @param color  The color
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId) {
-		return (SwitchFormItem) super.bottomIcon(iconId, colorId);
+	public SwitchFormItem bottomIcon(@DrawableRes int iconId, @ColorInt int color) {
+		return (SwitchFormItem) super.bottomIcon(iconId, color);
 	}
 
 	/**
