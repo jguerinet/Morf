@@ -43,7 +43,7 @@ public class ButtonFormItem extends TextViewFormItem {
 	 */
 	public ButtonFormItem(FormGenerator fg, View view, String text, View.OnClickListener listener){
 		super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
-		mView.setOnClickListener(listener);
+		this.view.setOnClickListener(listener);
 		//Bold buttons
 		style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
 	}
@@ -59,7 +59,7 @@ public class ButtonFormItem extends TextViewFormItem {
     public ButtonFormItem(FormGenerator fg, View view, @StringRes int text,
             View.OnClickListener listener){
         super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
-        mView.setOnClickListener(listener);
+        this.view.setOnClickListener(listener);
         //Bold buttons
         style(this.fg.mBuilder.mDefaultTextTypeface, Typeface.BOLD);
     }

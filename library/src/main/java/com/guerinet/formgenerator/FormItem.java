@@ -23,11 +23,11 @@ import android.view.View;
  * @author Julien Guerinet
  * @since 2.0.0
  */
-abstract class FormItem extends LineItem{
+abstract class FormItem extends LineItem {
 	/**
 	 * The form item {@link View}
 	 */
-	protected View mView;
+	protected final View view;
 
 	/**
 	 * Default Constructor
@@ -36,14 +36,14 @@ abstract class FormItem extends LineItem{
 	 * @param view       The {@link View}
      * @param background True if the default background should be applied, false otherwise
 	 */
-	public FormItem(FormGenerator fg, View view, boolean background){
+	public FormItem(FormGenerator fg, View view, boolean background) {
 		super(view.findViewById(R.id.fg_line), fg);
-		mView = view;
+		this.view = view;
 
-		this.fg.mContainer.addView(mView);
+		this.fg.mContainer.addView(this.view);
 
 		//Set the default background
-		if(background && this.fg.mBuilder.mDefaultBackgroundId != null){
+        if (background && this.fg.mBuilder.mDefaultBackgroundId != null) {
 			background(this.fg.mBuilder.mDefaultBackgroundId);
 		}
 	}
@@ -54,15 +54,15 @@ abstract class FormItem extends LineItem{
 	 * @param backgroundId The background Id
 	 * @return The {@link FormItem} instance
 	 */
-	public FormItem background(int backgroundId){
-		mView.setBackgroundResource(backgroundId);
+	public FormItem background(int backgroundId) {
+		view.setBackgroundResource(backgroundId);
 		return this;
 	}
 
 	/**
 	 * @return The {@link View}
 	 */
-	public View view(){
-		return mView;
+	public View view() {
+		return view;
 	}
 }

@@ -60,8 +60,8 @@ public class TextViewFormItem extends FormItem {
 	private TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background){
 		super(fg, view, background);
 		mTextView = textView;
-		mView.setClickable(false);
-		mContext = mView.getContext();
+		this.view.setClickable(false);
+		mContext = this.view.getContext();
 
 		//Icons - set them all to nothing
 		mIcons = new Icon[4];
@@ -413,7 +413,7 @@ public class TextViewFormItem extends FormItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem onClick(View.OnClickListener listener){
-		mView.setOnClickListener(listener);
+		view.setOnClickListener(listener);
 		return this;
 	}
 
