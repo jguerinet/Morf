@@ -30,7 +30,7 @@ public class SpaceItem extends Item {
 	/**
 	 * The space {@link View}
 	 */
-	private View mSpace;
+	private final View space;
 
 	/***
 	 * Default Constructor
@@ -38,11 +38,11 @@ public class SpaceItem extends Item {
 	 * @param fg    The {@link FormGenerator} instance
 	 * @param space The space {@link View}
 	 */
-	public SpaceItem(FormGenerator fg, View space){
+	public SpaceItem(FormGenerator fg, View space) {
 		super(fg);
-		mSpace = space;
+		this.space = space;
 
-		this.fg.mContainer.addView(mSpace);
+		this.fg.mContainer.addView(this.space);
 
 		size(this.fg.mBuilder.mDefaultSpaceSizeId);
         background(this.fg.mBuilder.mDefaultSpaceColorId);
@@ -54,8 +54,8 @@ public class SpaceItem extends Item {
 	 * @param sizeDimen The space size dimension Id
 	 * @return The {@link SpaceItem} instance
 	 */
-	public SpaceItem size(@DimenRes int sizeDimen){
-		mSpace.getLayoutParams().height = mSpace.getResources().getDimensionPixelSize(sizeDimen);
+	public SpaceItem size(@DimenRes int sizeDimen) {
+		space.getLayoutParams().height = space.getResources().getDimensionPixelSize(sizeDimen);
 		return this;
 	}
 
@@ -65,13 +65,13 @@ public class SpaceItem extends Item {
 	 * @param colorId The color Id
 	 * @return The {@link SpaceItem} instance
 	 */
-	public SpaceItem background(@ColorRes @DrawableRes int colorId){
-		mSpace.setBackgroundResource(colorId);
+	public SpaceItem background(@ColorRes @DrawableRes int colorId) {
+		space.setBackgroundResource(colorId);
 		return this;
 	}
 
 	@Override
-	public View view(){
-		return mSpace;
+	public View view() {
+		return space;
 	}
 }
