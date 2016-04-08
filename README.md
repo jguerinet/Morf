@@ -14,17 +14,17 @@ Generates customizable forms for Android 11+. Form items include:
 
 Customization includes:
 
-* Text color
-* Text size
-* Text typeface
+* Text (color, typeface, size)
 * Background color (can be solid colors, drawables, or a color state list)
 * Input background (For the EditTexts)
-* Icon color
+* Icons (location, visibility, color, padding)
 * Padding size
 * Line width and color
 * Space width and color
 * Whether or not lines should be shown after form items
 * Switch on and off text
+* View height and width
+* View visibility
 
 ## Instructions
 [![Release](https://jitpack.io/v/com.guerinet/form-generator.svg)](https://jitpack.io/#com.guerinet/form-generator)
@@ -44,15 +44,15 @@ anything you might want to change or you can use the default `FormGenerator` ins
 You can set the default `FormGenerator` instance by calling `FormGenerator.set()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
 
 * Text Color: Black
-* Text Size: 14sp
-* Text Typeface: null (default Android Typeface)
+* Text Size: Default Android Text size 
+* Text Typeface: Default Android Typeface
 * Background: Transparent
 * Input Background: Default Android background
-* Icon Color: Null (no drawable tinting)
-* Padding: 8dp
-* Line Width: 0.5 dp
+* Icon Color: None
+* Padding: Default Android Padding
+* Line Width: 0dp (invisible)
 * Line Color: #EEEEE
-* Space Width: 10dp
+* Space Width: 0dp (invisible)
 * Space Color: Transparent
 * Lines after items: True
 
@@ -69,8 +69,10 @@ To get the associated view, simple call `view()` at the end of your customizatio
 * Setting if the `EditText` should be single line or not (default is true)
 * Setting icons on all form items except the spaces and lines
 
+IMPORTANT: All views need to be built by calling `build()` after adding it except for spaces and lines. If you do not call `build()` they will not be added to the container. 
+
 ## Demo
-A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of buttons:
+A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of form items:
 the top one is the default settings for FormGenerator, the bottom is a customized FormGenerator (changed text color, background selector, line width, line color, icon, and icon color). Below is a screenshot:
 
 ![Demo Screenshot](assets/demo_screenshot.png)
@@ -86,7 +88,7 @@ the top one is the default settings for FormGenerator, the bottom is a customize
 See the [Change Log](CHANGELOG.md).
 
 ## Copyright
-	 Copyright 2015 Julien Guerinet
+	 Copyright 2015-2016 Julien Guerinet
 
 	 Licensed under the Apache License, Version 2.0 (the "License");
 	 you may not use this file except in compliance with the License.
