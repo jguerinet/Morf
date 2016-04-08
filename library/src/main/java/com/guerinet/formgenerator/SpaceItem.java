@@ -70,12 +70,10 @@ public class SpaceItem extends Item {
 	}
 
     /**
-     * Returns the space
-     *
-     * @return The {@link View}
+     * @return The space view
      */
-	@Override
-	public View build() {
-		return space;
-	}
+    @Override
+    public View view() {
+        return space;
+    }
 }

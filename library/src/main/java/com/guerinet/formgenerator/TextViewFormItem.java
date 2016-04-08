@@ -509,18 +509,18 @@ public class TextViewFormItem extends LineItem {
     /**
      * @return The {@link TextView}
      */
+    @Override
     public TextView view() {
         return textView;
     }
 
     /**
-     * Builds the view, adds it to the container, and returns the {@link TextView}
+     * Builds the view and adds it to the container
      *
-     * @return The {@link TextView}
+     * @return The {@link TextViewFormItem} instance
      */
     @CallSuper
-	@Override
-	public TextView build() {
+	public TextViewFormItem build() {
         // Set all of the icons
         textView.setCompoundDrawablesWithIntrinsicBounds(icons[0].drawableId,
                 icons[1].drawableId, icons[2].drawableId, icons[3].drawableId);
@@ -547,8 +547,7 @@ public class TextViewFormItem extends LineItem {
 
         // Add the view to the container
         fg.container.addView(view);
-
-		return view();
+        return this;
 	}
 
 	/**

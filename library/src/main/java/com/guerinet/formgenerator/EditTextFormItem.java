@@ -468,13 +468,12 @@ public class EditTextFormItem extends TextViewFormItem {
     }
 
     /**
-     * Builds the view, adds it to the container, and returns the {@link EditText}
+     * Builds the view and adds it to the container
      *
-     * @return The {@link EditText}
+     * @return The {@link EditTextFormItem} instance
      */
-	@Override
-	public EditText build() {
-        super.build();
-		return editText;
-	}
+    @Override
+    public EditTextFormItem build() {
+        return (EditTextFormItem) super.build();
+    }
 }

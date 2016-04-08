@@ -19,6 +19,7 @@ package com.guerinet.formgenerator;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Builder for a line. Base class for all classes
@@ -99,12 +100,9 @@ public class LineItem extends Item {
 	}
 
     /**
-     * Returns the line
-     *
-     * @return The {@link View}
+     * @return The line {@link View}
      */
-	@Override
-	public View build() {
-		return line;
-	}
+    public View view() {
+        return line;
+    }
 }

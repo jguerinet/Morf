@@ -437,13 +437,12 @@ public class ButtonFormItem extends TextViewFormItem {
     }
 
     /**
-     * Builds the view, adds it to the container, and returns the {@link Button}
+     * Builds the view and adds it to the container
      *
-     * @return The {@link Button}
+     * @return The {@link ButtonFormItem} instance
      */
-	@Override
-	public Button build() {
-        super.build();
-		return (Button) textView;
-	}
+    @Override
+    public ButtonFormItem build() {
+        return (ButtonFormItem) super.build();
+    }
 }
