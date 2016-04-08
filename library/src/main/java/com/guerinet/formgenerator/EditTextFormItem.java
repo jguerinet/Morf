@@ -36,7 +36,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	/**
 	 * The {@link EditText}
 	 */
-	private EditText mEditText;
+	private EditText editText;
 
 	/**
 	 * Default Constructor
@@ -45,12 +45,12 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @param view The {@link View}
 	 * @param text The text
 	 */
-	public EditTextFormItem(FormGenerator fg, View view, String text){
+	public EditTextFormItem(FormGenerator fg, View view, String text) {
 		super(fg, view, (EditText) view.findViewById(R.id.fg_input), text, true);
-		mEditText = (EditText) textView;
+		editText = (EditText) textView;
 
-		//Set the right background
-		if(this.fg.mBuilder.mDefaultInputBackgroundId != null){
+		// Set the right background
+		if (this.fg.mBuilder.mDefaultInputBackgroundId != null) {
 			inputBackground(this.fg.mBuilder.mDefaultInputBackgroundId);
 		}
 	}
@@ -62,26 +62,15 @@ public class EditTextFormItem extends TextViewFormItem {
      * @param view The {@link View}
      * @param text The text Id
      */
-    public EditTextFormItem(FormGenerator fg, View view, @StringRes int text){
+    public EditTextFormItem(FormGenerator fg, View view, @StringRes int text) {
         super(fg, view, (EditText) view.findViewById(R.id.fg_input), text, true);
-        mEditText = (EditText) textView;
+        editText = (EditText) textView;
 
-        //Set the right background
-        if(this.fg.mBuilder.mDefaultInputBackgroundId != null){
+        // Set the right background
+        if (this.fg.mBuilder.mDefaultInputBackgroundId != null) {
             inputBackground(this.fg.mBuilder.mDefaultInputBackgroundId);
         }
     }
-
-	/**
-	 * Sets if the {@link EditText} should be single line or not. Default is true
-	 *
-	 * @param singleLine True if the {@link EditText} should be single line, false otherwise
-	 * @return The {@link EditTextFormItem} instance
-	 */
-	public EditTextFormItem singleLine(boolean singleLine){
-		mEditText.setSingleLine(singleLine);
-		return this;
-	}
 
 	/**
 	 * Sets the input type for the {@link EditText}
@@ -89,19 +78,19 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @param type The input type
 	 * @return The {@link EditTextFormItem} instance
 	 */
-	public EditTextFormItem inputType(int type){
-		mEditText.setInputType(type);
+	public EditTextFormItem inputType(int type) {
+		editText.setInputType(type);
 		return this;
 	}
 
 	/**
-	 *  Sets the {@link EditText} background
+	 * Sets the {@link EditText} background
 	 *
 	 * @param backgroundId The background Id
 	 * @return The {@link EditTextFormItem} instance
 	 */
-	public EditTextFormItem inputBackground(int backgroundId){
-		mEditText.setBackgroundResource(backgroundId);
+	public EditTextFormItem inputBackground(int backgroundId) {
+		editText.setBackgroundResource(backgroundId);
 		return this;
 	}
 
@@ -112,8 +101,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem hint(String hint){
-		return (EditTextFormItem)super.hint(hint);
+	public EditTextFormItem hint(String hint) {
+		return (EditTextFormItem) super.hint(hint);
 	}
 
 	/**
@@ -123,8 +112,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem hint(@StringRes int stringId){
-		return (EditTextFormItem)super.hint(stringId);
+	public EditTextFormItem hint(@StringRes int stringId) {
+		return (EditTextFormItem) super.hint(stringId);
 	}
 
 	/**
@@ -135,8 +124,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem textColor(@ColorRes int colorId, boolean stateList){
-		return (EditTextFormItem)super.textColor(colorId, stateList);
+	public EditTextFormItem textColor(@ColorRes int colorId, boolean stateList) {
+		return (EditTextFormItem) super.textColor(colorId, stateList);
 	}
 
     /**
@@ -146,8 +135,8 @@ public class EditTextFormItem extends TextViewFormItem {
      * @return The {@link EditTextFormItem} instance
      */
 	@Override
-	public EditTextFormItem textSize(@DimenRes int dimenId){
-		return (EditTextFormItem)super.textSize(dimenId);
+	public EditTextFormItem textSize(@DimenRes int dimenId) {
+		return (EditTextFormItem) super.textSize(dimenId);
 	}
 
 	/**
@@ -161,8 +150,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public EditTextFormItem padding(@DimenRes int leftId, @DimenRes int topId,
-            @DimenRes int rightId, @DimenRes int bottomId){
-		return (EditTextFormItem)super.padding(leftId, topId, rightId, bottomId);
+            @DimenRes int rightId, @DimenRes int bottomId) {
+		return (EditTextFormItem) super.padding(leftId, topId, rightId, bottomId);
 	}
 
 	/**
@@ -172,8 +161,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem padding(@DimenRes int dimenId){
-		return (EditTextFormItem)super.padding(dimenId);
+	public EditTextFormItem padding(@DimenRes int dimenId) {
+		return (EditTextFormItem) super.padding(dimenId);
 	}
 
 	/**
@@ -183,8 +172,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem typeface(Typeface typeface){
-		return (EditTextFormItem)super.typeface(typeface);
+	public EditTextFormItem typeface(Typeface typeface) {
+		return (EditTextFormItem) super.typeface(typeface);
 	}
 
 	/**
@@ -195,8 +184,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem style(Typeface typeface, int style){
-		return (EditTextFormItem)super.style(typeface, style);
+	public EditTextFormItem style(Typeface typeface, int style) {
+		return (EditTextFormItem) super.style(typeface, style);
 	}
 
 	/**
@@ -207,7 +196,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem style(int style){
+	public EditTextFormItem style(int style) {
 		return (EditTextFormItem) super.style(style);
 	}
 
@@ -219,7 +208,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem leftIcon(@DrawableRes int iconId, boolean visible){
+	public EditTextFormItem leftIcon(@DrawableRes int iconId, boolean visible) {
 		return (EditTextFormItem) super.leftIcon(iconId, visible);
 	}
 
@@ -231,7 +220,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem topIcon(@DrawableRes int iconId, boolean visible){
+	public EditTextFormItem topIcon(@DrawableRes int iconId, boolean visible) {
 		return (EditTextFormItem) super.topIcon(iconId, visible);
 	}
 
@@ -243,7 +232,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem rightIcon(@DrawableRes int iconId, boolean visible){
+	public EditTextFormItem rightIcon(@DrawableRes int iconId, boolean visible) {
 		return (EditTextFormItem) super.rightIcon(iconId, visible);
 	}
 
@@ -255,7 +244,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem bottomIcon(@DrawableRes int iconId, boolean visible){
+	public EditTextFormItem bottomIcon(@DrawableRes int iconId, boolean visible) {
 		return (EditTextFormItem) super.bottomIcon(iconId, visible);
 	}
 
@@ -266,7 +255,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem leftIcon(@DrawableRes int iconId){
+	public EditTextFormItem leftIcon(@DrawableRes int iconId) {
 		return (EditTextFormItem) super.leftIcon(iconId);
 	}
 
@@ -277,7 +266,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem topIcon(@DrawableRes int iconId){
+	public EditTextFormItem topIcon(@DrawableRes int iconId) {
 		return (EditTextFormItem) super.topIcon(iconId);
 	}
 
@@ -288,7 +277,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem rightIcon(@DrawableRes int iconId){
+	public EditTextFormItem rightIcon(@DrawableRes int iconId) {
 		return (EditTextFormItem) super.rightIcon(iconId);
 	}
 
@@ -299,7 +288,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem bottomIcon(@DrawableRes int iconId){
+	public EditTextFormItem bottomIcon(@DrawableRes int iconId) {
 		return (EditTextFormItem) super.bottomIcon(iconId);
 	}
 
@@ -311,7 +300,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public EditTextFormItem leftIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (EditTextFormItem) super.leftIcon(iconId, colorId);
 	}
 
@@ -323,7 +312,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public EditTextFormItem topIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (EditTextFormItem) super.topIcon(iconId, colorId);
 	}
 
@@ -335,7 +324,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public EditTextFormItem rightIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (EditTextFormItem) super.rightIcon(iconId, colorId);
 	}
 
@@ -347,7 +336,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId){
+	public EditTextFormItem bottomIcon(@DrawableRes int iconId, @ColorRes int colorId) {
 		return (EditTextFormItem) super.bottomIcon(iconId, colorId);
 	}
 
@@ -358,7 +347,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem onClick(View.OnClickListener listener){
+	public EditTextFormItem onClick(View.OnClickListener listener) {
 		return (EditTextFormItem) super.onClick(listener);
 	}
 
@@ -401,8 +390,8 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem lineSize(@DimenRes int sizeDimen){
-		return (EditTextFormItem)super.lineSize(sizeDimen);
+	public EditTextFormItem lineSize(@DimenRes int sizeDimen) {
+		return (EditTextFormItem) super.lineSize(sizeDimen);
 	}
 
 	/**
@@ -412,19 +401,19 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem lineColor(@ColorRes @DrawableRes int colorId){
-		return (EditTextFormItem)super.lineColor(colorId);
+	public EditTextFormItem lineColor(@ColorRes @DrawableRes int colorId) {
+		return (EditTextFormItem) super.lineColor(colorId);
 	}
 
 	/**
 	 * Sets the line visibility
 	 *
 	 * @param show True if the line should be visible, false otherwise
-	 * @return The {@link LineItem} instance
+	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem showLine(boolean show){
-		return (EditTextFormItem)super.showLine(show);
+	public EditTextFormItem showLine(boolean show) {
+		return (EditTextFormItem) super.showLine(show);
 	}
 
 	/**
@@ -434,15 +423,15 @@ public class EditTextFormItem extends TextViewFormItem {
 	 * @return The {@link EditTextFormItem} instance
 	 */
 	@Override
-	public EditTextFormItem background(@ColorRes @DrawableRes int backgroundId){
-		return (EditTextFormItem)super.background(backgroundId);
+	public EditTextFormItem background(@ColorRes @DrawableRes int backgroundId) {
+		return (EditTextFormItem) super.background(backgroundId);
 	}
 	
 	/**
 	 * @return The {@link EditText}
 	 */
 	@Override
-	public EditText view(){
-		return mEditText;
+	public EditText view() {
+		return editText;
 	}
 }
