@@ -304,13 +304,13 @@ public class FormGenerator {
          */
         Typeface defaultTextTypeface = null;
         /**
-         * The default padding size for the non-space/line items, 0 if none
+         * The default padding size for the non-space/line items, app default if none
          */
         int defaultPaddingSize = -1;
         /**
-         * Default padding size between a view and its compound drawable, defaults to 0
+         * Default padding size between a view and its compound drawable, app default if none
          */
-        int defaultDrawablePaddingSize = 0;
+        int defaultDrawablePaddingSize = -1;
         /**
          * The default line size, 0 if none
          */

@@ -82,7 +82,9 @@ public class TextViewFormItem extends LineItem {
 		textSize(this.fg.builder.defaultTextSize);
 
 		// Padding
-		padding(this.fg.builder.defaultPaddingSize);
+        if (this.fg.builder.defaultPaddingSize != -1) {
+            padding(this.fg.builder.defaultPaddingSize);
+        }
 
 		// Typeface
 		typeface(this.fg.builder.defaultTextTypeface);
@@ -524,7 +526,9 @@ public class TextViewFormItem extends LineItem {
                 icons[1].drawableId, icons[2].drawableId, icons[3].drawableId);
 
         // Set the compound drawable padding
-        textView.setCompoundDrawablePadding(fg.builder.defaultDrawablePaddingSize);
+        if (fg.builder.defaultDrawablePaddingSize != -1) {
+            textView.setCompoundDrawablePadding(fg.builder.defaultDrawablePaddingSize);
+        }
 
         // Apply the tinting and alpha
         for (int i = 0; i < 4; i++) {
