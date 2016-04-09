@@ -50,9 +50,9 @@ You can set the default `FormGenerator` instance by calling `FormGenerator.set()
 * Input Background: Default Android background
 * Icon Color: None
 * Padding: Default Android Padding
-* Line Width: 0dp (invisible)
+* Line Width: 0.5dp
 * Line Color: #EEEEE
-* Space Width: 0dp (invisible)
+* Space Width: 8dp
 * Space Color: Transparent
 * Lines after items: True
 
