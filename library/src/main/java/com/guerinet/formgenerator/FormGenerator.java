@@ -293,7 +293,7 @@ public class FormGenerator {
         /**
          * The default text size, app default if none
          */
-        int defaultTextSize = -1;
+        float defaultTextSize = -1;
         /**
          * The default text color Id, black if none
          */
@@ -434,11 +434,12 @@ public class FormGenerator {
 		/**
 		 * Sets the default text size
 		 *
-		 * @param pixels Default text size, in <strong>pixels</strong>
+		 * @param size Default text size from the dimensions file
+         *             (use getResources().getDimension())
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextSize(int pixels) {
-			defaultTextSize = pixels;
+		public Builder setDefaultTextSize(float size) {
+			defaultTextSize = size;
 			return this;
 		}
 

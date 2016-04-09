@@ -164,12 +164,13 @@ public class SwitchFormItem extends TextViewFormItem {
 	/**
 	 * Sets the {@link SwitchFormItem} text size
 	 *
-	 * @param pixels The text size, in <strong>pixels</strong>
+	 * @param size The text size from the dimensions file
+     *             (use getResources().getDimension())
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem textSize(int pixels) {
-		return (SwitchFormItem) super.textSize(pixels);
+	public SwitchFormItem textSize(float size) {
+		return (SwitchFormItem) super.textSize(size);
 	}
 
 	/**

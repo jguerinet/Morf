@@ -156,13 +156,14 @@ public class TextViewFormItem extends LineItem {
 	/**
 	 * Sets the {@link TextView} text size
 	 *
-	 * @param pixels The text size, in <strong>pixels</strong>
+	 * @param size The text size from the dimensions file
+     *             (use getResources().getDimension())
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem textSize(int pixels) {
+	public TextViewFormItem textSize(float size) {
         // If it's -1, don't do anything
-        if (pixels != -1) {
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, pixels);
+        if (size != -1) {
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }
         return this;
 	}

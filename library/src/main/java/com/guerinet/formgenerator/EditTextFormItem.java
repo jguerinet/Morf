@@ -131,12 +131,13 @@ public class EditTextFormItem extends TextViewFormItem {
     /**
      * Sets the {@link Button} text size
      *
-     * @param pixels The text size, in <strong>pixels</strong>
+     * @param size The text size from the dimensions file
+     *             (use getResources().getDimension())
      * @return The {@link EditTextFormItem} instance
      */
 	@Override
-	public EditTextFormItem textSize(int pixels) {
-		return (EditTextFormItem) super.textSize(pixels);
+	public EditTextFormItem textSize(float size) {
+		return (EditTextFormItem) super.textSize(size);
 	}
 
 	/**
