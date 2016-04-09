@@ -380,13 +380,18 @@ public class TextViewFormItem extends LineItem {
 	}
 
 	/**
-	 * Sets the {@link View.OnClickListener}
+	 * Sets the {@link OnClickListener}
 	 *
-	 * @param listener The {@link View.OnClickListener}
+	 * @param listener The {@link OnClickListener} instance
 	 * @return The {@link TextViewFormItem} instance
 	 */
-	public TextViewFormItem onClick(View.OnClickListener listener) {
-		view.setOnClickListener(listener);
+	public TextViewFormItem onClick(final OnClickListener listener) {
+		view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(TextViewFormItem.this);
+            }
+        });
 		return this;
 	}
 
@@ -583,4 +588,16 @@ public class TextViewFormItem extends LineItem {
 			visible = visibility;
 		}
 	}
+
+    /**
+     * Custom {@link View.OnClickListener} implementation to have access to the {@link TextView}
+     */
+    public interface OnClickListener {
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param item The clicked {@link TextViewFormItem} instance
+         */
+        void onClick(TextViewFormItem item);
+    }
 }

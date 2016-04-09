@@ -40,11 +40,9 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @param fg       The {@link FormGenerator} instance
 	 * @param view     The {@link View}
 	 * @param text     The text
-	 * @param listener The {@link View.OnClickListener}
 	 */
-	public ButtonFormItem(FormGenerator fg, View view, String text, View.OnClickListener listener) {
+	public ButtonFormItem(FormGenerator fg, View view, String text) {
 		super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
-		this.view.setOnClickListener(listener);
 		// Bold buttons
 		style(this.fg.builder.defaultTextTypeface, Typeface.BOLD);
 	}
@@ -55,12 +53,9 @@ public class ButtonFormItem extends TextViewFormItem {
      * @param fg       The {@link FormGenerator} instance
      * @param view     The {@link View}
      * @param text     The text Id
-     * @param listener The {@link View.OnClickListener}
      */
-    public ButtonFormItem(FormGenerator fg, View view, @StringRes int text,
-            View.OnClickListener listener) {
+    public ButtonFormItem(FormGenerator fg, View view, @StringRes int text) {
         super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
-        this.view.setOnClickListener(listener);
         // Bold buttons
         style(this.fg.builder.defaultTextTypeface, Typeface.BOLD);
     }
@@ -311,13 +306,13 @@ public class ButtonFormItem extends TextViewFormItem {
 	}
 
 	/**
-	 * Sets the {@link View.OnClickListener}
+	 * Sets the {@link OnClickListener}
 	 *
-	 * @param listener The {@link View.OnClickListener}
+	 * @param listener The {@link OnClickListener}
 	 * @return The {@link ButtonFormItem} instance
 	 */
 	@Override
-	public ButtonFormItem onClick(View.OnClickListener listener) {
+	public ButtonFormItem onClick(OnClickListener listener) {
 		return (ButtonFormItem) super.onClick(listener);
 	}
 

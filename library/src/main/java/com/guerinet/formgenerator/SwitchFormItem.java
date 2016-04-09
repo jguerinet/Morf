@@ -379,13 +379,13 @@ public class SwitchFormItem extends TextViewFormItem {
 	}
 
 	/**
-	 * Sets the {@link View.OnClickListener}
+	 * Sets the {@link OnClickListener}
 	 *
-	 * @param listener The {@link View.OnClickListener}
+	 * @param listener The {@link OnClickListener}
 	 * @return The {@link SwitchFormItem} instance
 	 */
 	@Override
-	public SwitchFormItem onClick(View.OnClickListener listener) {
+	public SwitchFormItem onClick(OnClickListener listener) {
 		return (SwitchFormItem) super.onClick(listener);
 	}
 

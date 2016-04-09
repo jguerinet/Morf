@@ -21,13 +21,13 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.guerinet.formgenerator.FormGenerator;
+import com.guerinet.formgenerator.TextViewFormItem;
 
 /**
  * MainActivity. Demonstrates the default behavior of the FormGenerator
@@ -50,34 +50,36 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
 		fg.text("Form Item: Button")
-				.onClick(new View.OnClickListener() {
+				.onClick(new TextViewFormItem.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        Toast.makeText(MainActivity.this, "Form Item: Button Clicked", Toast
-                                .LENGTH_SHORT)
-                                .show();
+                    public void onClick(TextViewFormItem item) {
+                        Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
+                                Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .build();
 
 		fg.space();
 
-		fg.button("Form Item, Simple Button", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Form Item: Default Button Clicked",
-                        Toast.LENGTH_SHORT).show();
-            }
-        })
+		fg.button("Form Item, Simple Button")
+                .onClick(new TextViewFormItem.OnClickListener() {
+                    @Override
+                    public void onClick(TextViewFormItem item) {
+                        Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
                 .build();
 
-        fg.borderlessButton("Form Item, Borderless Button", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
-                        Toast.LENGTH_SHORT).show();
-            }
-        })
+        fg.borderlessButton("Form Item, Borderless Button")
+                .onClick(new TextViewFormItem.OnClickListener() {
+                    @Override
+                    public void onClick(TextViewFormItem item) {
+                        Toast.makeText(MainActivity.this, "Form Item: Borderless Button Clicked",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
                 .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
@@ -118,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
 		fg.text("Form Item: Button")
 				.leftIcon(R.drawable.ic_info, false)
 				.rightIcon(R.drawable.ic_chevron_right)
-				.onClick(new View.OnClickListener() {
+                .onClick(new TextViewFormItem.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(TextViewFormItem item) {
                         Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
                                 Toast.LENGTH_SHORT).show();
                     }
@@ -129,22 +131,24 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.space();
 
-		fg.button("Form Item, Simple Button", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
-                        Toast.LENGTH_SHORT).show();
-            }
-        })
+		fg.button("Form Item, Simple Button")
+                .onClick(new TextViewFormItem.OnClickListener() {
+                    @Override
+                    public void onClick(TextViewFormItem item) {
+                        Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
                 .build();
 
-        fg.borderlessButton("Form Item, Borderless Button", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Form Item: Borderless Button Clicked",
-                        Toast.LENGTH_SHORT).show();
-            }
-        })
+        fg.borderlessButton("Form Item, Borderless Button")
+                .onClick(new TextViewFormItem.OnClickListener() {
+                    @Override
+                    public void onClick(TextViewFormItem item) {
+                        Toast.makeText(MainActivity.this, "Form Item: Borderless Button Clicked",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
                 .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();

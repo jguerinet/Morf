@@ -193,48 +193,44 @@ public class FormGenerator {
 	 * Adds a standard button
 	 *
 	 * @param text     The text
-	 * @param listener The {@link View.OnClickListener}
 	 * @return The {@link TextViewFormItem}
 	 */
-	public ButtonFormItem button(String text, View.OnClickListener listener) {
+	public ButtonFormItem button(String text) {
 		return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false),
-				text, listener);
+                text);
 	}
 
     /**
      * Adds a standard button
      *
      * @param text     The text Id
-     * @param listener The {@link View.OnClickListener}
      * @return The {@link TextViewFormItem}
      */
-    public ButtonFormItem button(@StringRes int text, View.OnClickListener listener) {
+    public ButtonFormItem button(@StringRes int text) {
         return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false),
-                text, listener);
+                text);
     }
 
     /**
      * Adds a borderless button
      *
      * @param text     The text
-     * @param listener The {@link View.OnClickListener}
      * @return The {@link ButtonFormItem}
      */
-    public ButtonFormItem borderlessButton(String text, View.OnClickListener listener) {
-        return new ButtonFormItem(this, inflater.inflate(
-                R.layout.fg_button_borderless, container, false), text, listener);
+    public ButtonFormItem borderlessButton(String text) {
+        return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button_borderless, container,
+                false), text);
     }
 
     /**
      * Adds a borderless button
      *
      * @param text     The text Id
-     * @param listener The {@link View.OnClickListener}
      * @return The {@link ButtonFormItem}
      */
-    public ButtonFormItem borderlessButton(@StringRes int text, View.OnClickListener listener) {
-        return new ButtonFormItem(this, inflater.inflate(
-                R.layout.fg_button_borderless, container, false), text, listener);
+    public ButtonFormItem borderlessButton(@StringRes int text) {
+        return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button_borderless, container,
+                false), text);
     }
 
 	/**
