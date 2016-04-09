@@ -1,11 +1,13 @@
 # Change Log
 
-## Version 2.2.0 (2016-04-08)
+## Version 2.2.0 (2016-04-09)
 * New: Added default drawable padding to the Builder
 * New: Added `build()` to build the views to avoid having to reset the icons every time we add a new one
 * New: Added method to set form item visibility
 * New: Added method to get the parent view (a.k.a. the whole form item)
 * New: Added method to set the layout params and layout gravity of most form items (not line or space)
+* New: New custom `OnClickListener` implementation to have a reference to the form item in `onClick()`
+* Update: `ButtonFormItem` constructor no longer takes the `OnClickListener` in the constructor
 * Update: Using resolved colors for icon tinting
 * Update: Using resolved colors for text coloring
 * Update: Using pixels for space size
