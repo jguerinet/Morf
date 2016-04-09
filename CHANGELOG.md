@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.2.2 (2016-04-09)
+* New: Added method to remove the single line property of the text form items
+* Update: Removed `singleLine()` from the text form items since by default it's already true
+
 ## Version 2.2.1 (2016-04-09)
 * Update: Brought back the default line size (0.5dp) and the default space size (8dp) 
 
