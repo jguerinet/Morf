@@ -43,7 +43,9 @@ public class SpaceItem extends Item {
 
 		this.fg.container.addView(this.space);
 
-		size(this.fg.builder.defaultSpaceSize);
+        if (this.fg.builder.defaultSpaceSize != -1) {
+            size(this.fg.builder.defaultSpaceSize);
+        }
         background(this.fg.builder.defaultSpaceColorId);
 	}
 

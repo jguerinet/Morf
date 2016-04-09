@@ -283,9 +283,9 @@ public class FormGenerator {
         @DrawableRes
         int defaultSpaceColorId = android.R.color.transparent;
         /**
-         * The default space size Id, 0 if none
+         * The default space size Id, -1 if none
          */
-        int defaultSpaceSize = 0;
+        int defaultSpaceSize = -1;
         /**
          * The default text size, app default if none
          */
@@ -308,9 +308,9 @@ public class FormGenerator {
          */
         int defaultDrawablePaddingSize = -1;
         /**
-         * The default line size, 0 if none
+         * The default line size, -1 if none
          */
-        int defaultLineSize = 0;
+        int defaultLineSize = -1;
         /**
          * The default line color Id, #EEEEEE if none
          */

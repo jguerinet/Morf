@@ -19,7 +19,6 @@ package com.guerinet.formgenerator;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
-import android.widget.TextView;
 
 /**
  * Builder for a line. Base class for all classes
@@ -44,7 +43,9 @@ public class LineItem extends Item {
 
         if (this.line != null) {
 			showLine(this.fg.builder.showLine);
-			lineSize(this.fg.builder.defaultLineSize);
+            if (fg.builder.defaultLineSize != -1) {
+			    lineSize(this.fg.builder.defaultLineSize);
+            }
 			lineColor(this.fg.builder.defaultLineColorId);
 		}
 	}
@@ -56,14 +57,8 @@ public class LineItem extends Item {
 	 * @param line The line {@link View}
 	 */
 	public LineItem(FormGenerator fg, View line) {
-		super(fg);
-		this.line = line;
-
+        this(line, fg);
 		this.fg.container.addView(this.line);
-
-		showLine(true);
-		lineSize(this.fg.builder.defaultLineSize);
-		lineColor(this.fg.builder.defaultLineColorId);
 	}
 
 	/**
