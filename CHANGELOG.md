@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.2.1 (2016-04-09)
+* Update: Brought back the default line size (0.5dp) and the default space size (8dp) 
+
 ## Version 2.2.0 (2016-04-09)
 * New: Added default drawable padding to the Builder
 * New: Added `build()` to build the views to avoid having to reset the icons every time we add a new one
