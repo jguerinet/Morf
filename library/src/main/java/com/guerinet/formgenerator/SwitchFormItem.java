@@ -401,13 +401,13 @@ public class SwitchFormItem extends TextViewFormItem {
     }
 
     /**
-     * Sets the {@link TextView} to be single line
+     * Sets the {@link TextView} to be multi line
      *
      * @return The {@link SwitchFormItem} instance
      */
     @Override
-    public SwitchFormItem singleLine() {
-        return (SwitchFormItem) super.singleLine();
+    public SwitchFormItem removeSingleLine() {
+        return (SwitchFormItem) super.removeSingleLine();
     }
 
     /**

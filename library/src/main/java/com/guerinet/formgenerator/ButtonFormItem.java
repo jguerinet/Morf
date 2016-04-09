@@ -328,13 +328,13 @@ public class ButtonFormItem extends TextViewFormItem {
     }
 
     /**
-     * Sets the {@link TextView} to be single line
+     * Sets the {@link TextView} to be multi line
      *
      * @return The {@link ButtonFormItem} instance
      */
     @Override
-    public ButtonFormItem singleLine() {
-        return (ButtonFormItem) super.singleLine();
+    public ButtonFormItem removeSingleLine() {
+        return (ButtonFormItem) super.removeSingleLine();
     }
 
     /**

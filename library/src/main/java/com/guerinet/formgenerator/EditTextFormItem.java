@@ -352,13 +352,13 @@ public class EditTextFormItem extends TextViewFormItem {
 	}
 
     /**
-     * Sets the {@link TextView} to be single line
+     * Sets the {@link TextView} to be multi line
      *
      * @return The {@link EditTextFormItem} instance
      */
     @Override
-    public EditTextFormItem singleLine() {
-        return (EditTextFormItem) super.singleLine();
+    public EditTextFormItem removeSingleLine() {
+        return (EditTextFormItem) super.removeSingleLine();
     }
 
     /**

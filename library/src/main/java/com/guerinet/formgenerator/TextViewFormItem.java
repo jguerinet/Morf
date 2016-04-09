@@ -407,12 +407,12 @@ public class TextViewFormItem extends LineItem {
     }
 
     /**
-     * Sets the {@link TextView} to be single line
+     * Sets the {@link TextView} to be multi line
      *
      * @return The {@link TextViewFormItem} instance
      */
-    public TextViewFormItem singleLine() {
-        textView.setSingleLine();
+    public TextViewFormItem removeSingleLine() {
+        textView.setSingleLine(false);
         return this;
     }
 

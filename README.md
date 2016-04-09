@@ -66,7 +66,7 @@ To get the associated view, simple call `view()` at the end of your customizatio
 * Setting an `OnCheckedChangeListener` for `Switch`es
 * Setting an `OnClickListener` for all form items except the spaces and lines
 * Setting the input type on the `EditText`s (default is capitalized sentences)
-* Setting if the `EditText` should be single line or not (default is true)
+* Setting if the `EditText` should be multi line (default is single line)
 * Setting icons on all form items except the spaces and lines
 
 IMPORTANT: All views need to be built by calling `build()` after adding it except for spaces and lines. If you do not call `build()` they will not be added to the container. 
