@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.2.3 (2016-04-21)
+* Update: Fixed icon setting and tinting on pre-Lollipop
+
 ## Version 2.2.2 (2016-04-09)
 * New: Added method to remove the single line property of the text form items
 * Update: Removed `singleLine()` from the text form items since by default it's already true
