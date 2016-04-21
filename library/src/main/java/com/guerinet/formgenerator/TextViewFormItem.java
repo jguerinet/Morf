@@ -22,7 +22,9 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -527,34 +529,51 @@ public class TextViewFormItem extends LineItem {
      */
     @CallSuper
 	public TextViewFormItem build() {
-        // Set all of the icons
-        textView.setCompoundDrawablesWithIntrinsicBounds(icons[0].drawableId,
-                icons[1].drawableId, icons[2].drawableId, icons[3].drawableId);
+        Drawable[] drawables = new Drawable[4];
+        // Get all of the icons
+        drawables[0] = getDrawable(icons[0]);
+        drawables[1] = getDrawable(icons[1]);
+        drawables[2] = getDrawable(icons[2]);
+        drawables[3] = getDrawable(icons[3]);
 
         // Set the compound drawable padding
         if (fg.builder.defaultDrawablePaddingSize != -1) {
             textView.setCompoundDrawablePadding(fg.builder.defaultDrawablePaddingSize);
         }
 
-        // Apply the tinting and alpha
+        // Set the correct tinting and alpha
         for (int i = 0; i < 4; i++) {
             Icon icon = icons[i];
-            Drawable drawable = textView.getCompoundDrawables()[i];
+            Drawable drawable = drawables[i];
             if (drawable != null) {
                 // Wrap it in the design support library
-                drawable = DrawableCompat.wrap(drawable).mutate();
+                drawable = DrawableCompat.wrap(drawable.mutate());
                 if (!icon.visible) {
                     drawable.setAlpha(0);
-                } else if (icon.colorId != -1) {
-                    DrawableCompat.setTint(drawable, icon.colorId);
+                } else if (icon.color != -1) {
+                    DrawableCompat.setTint(drawable, icon.color);
                 }
             }
         }
+
+        // Set the drawables on the view
+        textView.setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],
+                drawables[3]);
 
         // Add the view to the container
         fg.container.addView(view);
         return this;
 	}
+
+    /**
+     * @param icon {@link Icon} instance
+     * @return Drawable to use, null if none
+     */
+    @Nullable
+    private Drawable getDrawable(Icon icon) {
+        return icon.drawableId == 0 ? null :
+                ContextCompat.getDrawable(view.getContext(), icon.drawableId);
+    }
 
 	/**
 	 * Keeps track of the icons to add
@@ -569,7 +588,7 @@ public class TextViewFormItem extends LineItem {
 		 * The icon color
 		 */
         @ColorInt
-		private final int colorId;
+		private final int color;
 		/**
 		 * True if the icon should be visible, false otherwise
 		 */
@@ -579,12 +598,12 @@ public class TextViewFormItem extends LineItem {
 		 * Default Constructor
 		 *
 		 * @param drawableId The drawable resource
-		 * @param colorId    The color
+		 * @param color      The color
 		 * @param visibility True if the icon should be visible, false otherwise
 		 */
-		private Icon(@DrawableRes int drawableId, @ColorInt int colorId, boolean visibility){
+		private Icon(@DrawableRes int drawableId, @ColorInt int color, boolean visibility){
 			this.drawableId = drawableId;
-			this.colorId = colorId;
+			this.color = color;
 			visible = visibility;
 		}
 	}
