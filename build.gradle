@@ -15,19 +15,24 @@
  */
 
 apply plugin: 'com.github.ben-manes.versions'
-buildscript{
-    repositories{
+
+buildscript {
+    repositories {
         jcenter()
+        mavenCentral()
     }
-    dependencies{
+
+    dependencies {
         classpath 'com.android.tools.build:gradle:2.2.2'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
     }
 }
 
-allprojects{
-    repositories{
+allprojects {
+    repositories {
         jcenter()
+        mavenCentral()
     }
 }
