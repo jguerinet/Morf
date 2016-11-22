@@ -51,7 +51,7 @@ public class FormGenerator {
     /**
      * The {@link Builder} instance to use to construct this FormGenerator
      */
-    protected Builder builder;
+    Builder builder;
 
 	/**
 	 * Binds the default {@link FormGenerator} to the given layout and returns it.
