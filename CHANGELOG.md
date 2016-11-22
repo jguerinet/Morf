@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 2.2.4 (2016-11-22)
+* New: Added method to add a custom view to a form
+
 ## Version 2.2.3 (2016-04-21)
 * Update: Fixed icon setting and tinting on pre-Lollipop
 
