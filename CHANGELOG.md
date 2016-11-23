@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.2.5 (2016-11-23)
+* New: Added method to update the icons without rebuilding the form item
+* Update: Removed method added in v2.2.3
+
 ## Version 2.2.4 (2016-11-22)
 * New: Added method to add a custom view to a form
 
