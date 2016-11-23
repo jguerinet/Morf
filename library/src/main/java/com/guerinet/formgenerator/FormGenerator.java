@@ -255,15 +255,6 @@ public class FormGenerator {
                 text);
     }
 
-    /**
-     * Adds the provided view to the container
-     *
-     * @param view View to add
-     */
-    public void addView(View view) {
-        container.addView(view);
-    }
-
 	/**
 	 * The Form Generator builder
 	 */
