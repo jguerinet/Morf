@@ -523,12 +523,11 @@ public class TextViewFormItem extends LineItem {
     }
 
     /**
-     * Builds the view and adds it to the container
+     * Updates the shown icons without re-adding the view to the container
      *
-     * @return The {@link TextViewFormItem} instance
+     * @return {@link TextViewFormItem} instance
      */
-    @CallSuper
-	public TextViewFormItem build() {
+    public TextViewFormItem updateIcons() {
         Drawable[] drawables = new Drawable[4];
         // Get all of the icons
         drawables[0] = getDrawable(icons[0]);
@@ -559,6 +558,18 @@ public class TextViewFormItem extends LineItem {
         // Set the drawables on the view
         textView.setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],
                 drawables[3]);
+
+        return this;
+    }
+
+    /**
+     * Builds the view (including the icons) and adds it to the container
+     *
+     * @return The {@link TextViewFormItem} instance
+     */
+    @CallSuper
+	public TextViewFormItem build() {
+        updateIcons();
 
         // Add the view to the container
         fg.container.addView(view);
