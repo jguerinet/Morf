@@ -78,6 +78,20 @@ public class EditTextFormItem extends TextViewFormItem {
 	}
 
     /**
+     * @return Current String in the {@link EditText}
+     */
+    public String input() {
+        return editText.getText().toString();
+    }
+
+    /**
+     * @return Current String in the {@link EditText}, trimmed
+     */
+    public String trimmedInput() {
+        return editText.getText().toString().trim();
+    }
+
+    /**
      * Sets the {@link EditText} text
      *
      * @param text Text to set
@@ -448,10 +462,10 @@ public class EditTextFormItem extends TextViewFormItem {
      * @param params The {@link LinearLayout.LayoutParams} to set
      * @return The {@link EditTextFormItem} instance
      */
+    @Override
     public EditTextFormItem layoutParams(LinearLayout.LayoutParams params) {
         return (EditTextFormItem) super.layoutParams(params);
     }
-
 
     /**
      * Sets the {@link LinearLayout.LayoutParams} for this view, as well as its layout_gravity
@@ -460,6 +474,7 @@ public class EditTextFormItem extends TextViewFormItem {
      * @param gravity The layout_gravity to set
      * @return The {@link EditTextFormItem} instance
      */
+    @Override
     public EditTextFormItem layoutParams(LinearLayout.LayoutParams params, int gravity) {
         return (EditTextFormItem) super.layoutParams(params, gravity);
     }
