@@ -45,21 +45,21 @@ public class TextViewFormItem extends LineItem {
 	/**
 	 * The {@link TextView}
 	 */
-	protected final TextView textView;
+	final TextView textView;
 	/**
 	 * The list of {@link Icon}s to add
 	 */
 	private final Icon[] icons;
 
 	/**
-	 * Private Constructor that sets up all of the properties of the form item
+	 * Default Constructor
 	 *
 	 * @param fg         The {@link FormGenerator} instance
 	 * @param view       The {@link View}
      * @param textView   The {@link TextView}
      * @param background True if the default background should be applied, false otherwise
 	 */
-	private TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background) {
+    TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background) {
 		super(view.findViewById(R.id.fg_line), fg);
         this.view = view;
 		this.textView = textView;
@@ -93,33 +93,25 @@ public class TextViewFormItem extends LineItem {
 	}
 
     /**
-     * Default Constructor
+     * Sets the {@link TextView} text
      *
-     * @param fg         The {@link FormGenerator} instance
-     * @param view       The {@link View}
-     * @param textView   The {@link TextView}
-     * @param text       The text to use on the TextView
-     * @param background True if the default background should be applied, false otherwise
+     * @param text Text to set
+     * @return {@link TextViewFormItem} instance
      */
-    public TextViewFormItem(FormGenerator fg, View view, TextView textView, String text,
-            boolean background) {
-        this(fg, view, textView, background);
-        this.textView.setText(text);
+    public TextViewFormItem text(String text) {
+        textView.setText(text);
+        return this;
     }
 
     /**
-     * Constructor which takes a String resource Id for the text
+     * Sets the {@link TextView} text
      *
-     * @param fg         The {@link FormGenerator} instance
-     * @param view       The {@link View}
-     * @param textView   The {@link TextView}
-     * @param text       The text Id to use in the TextView
-     * @param background True if the default background should be applied, false otherwise
+     * @param text String Id of the text to set
+     * @return {@link TextViewFormItem} instance
      */
-    public TextViewFormItem(FormGenerator fg, View view, TextView textView, @StringRes int text,
-            boolean background) {
-        this(fg, view, textView, background);
-        this.textView.setText(text);
+    public TextViewFormItem text(@StringRes int text) {
+        textView.setText(text);
+        return this;
     }
 
 	/**
@@ -589,7 +581,7 @@ public class TextViewFormItem extends LineItem {
 	/**
 	 * Keeps track of the icons to add
 	 */
-	class Icon {
+	private class Icon {
 		/**
 		 * The drawable resource
 		 */

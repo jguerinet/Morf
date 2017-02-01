@@ -146,114 +146,49 @@ public class FormGenerator {
 	/**
 	 * Adds an input item
 	 *
-	 * @param text The text
 	 * @return The {@link EditTextFormItem}
 	 */
-	public EditTextFormItem input(String text) {
-		return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false),
-				text);
+	public EditTextFormItem input() {
+		return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false));
 	}
-
-    /**
-     * Adds an input item
-     *
-     * @param text The text Id
-     * @return The {@link EditTextFormItem}
-     */
-    public EditTextFormItem input(@StringRes int text) {
-        return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false),
-                text);
-    }
 
 	/**
 	 * Adds a text item
 	 *
-	 * @param text The text
 	 * @return The {@link TextViewFormItem}
 	 */
-	public TextViewFormItem text(String text) {
+	public TextViewFormItem text() {
 		View view = inflater.inflate(R.layout.fg_text, container, false);
-		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
-                true);
+		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), true);
 	}
-
-    /**
-     * Adds a text item
-     *
-     * @param text The text Id
-     * @return The {@link TextViewFormItem}
-     */
-    public TextViewFormItem text(@StringRes int text) {
-        View view = inflater.inflate(R.layout.fg_text, container, false);
-        return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), text,
-                true);
-    }
 
 	/**
 	 * Adds a standard button
 	 *
-	 * @param text     The text
-	 * @return The {@link TextViewFormItem}
+	 * @return The {@link ButtonFormItem}
 	 */
-	public ButtonFormItem button(String text) {
-		return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false),
-                text);
+	public ButtonFormItem button() {
+		return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false));
 	}
 
     /**
-     * Adds a standard button
-     *
-     * @param text     The text Id
-     * @return The {@link TextViewFormItem}
-     */
-    public ButtonFormItem button(@StringRes int text) {
-        return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false),
-                text);
-    }
-
-    /**
      * Adds a borderless button
      *
-     * @param text     The text
      * @return The {@link ButtonFormItem}
      */
-    public ButtonFormItem borderlessButton(String text) {
+    public ButtonFormItem borderlessButton() {
         return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button_borderless, container,
-                false), text);
-    }
-
-    /**
-     * Adds a borderless button
-     *
-     * @param text     The text Id
-     * @return The {@link ButtonFormItem}
-     */
-    public ButtonFormItem borderlessButton(@StringRes int text) {
-        return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button_borderless, container,
-                false), text);
+                false));
     }
 
 	/**
 	 * Adds a switch item
 	 *
-	 * @param text The text
 	 * @return The {@link SwitchFormItem}
 	 */
-	public SwitchFormItem aSwitch(String text) {
-		return new SwitchFormItem(this, inflater.inflate(R.layout.fg_switch, container, false),
-				text);
+	public SwitchFormItem aSwitch() {
+		return new SwitchFormItem(this, inflater.inflate(R.layout.fg_switch, container, false));
 	}
-
-    /**
-     * Adds a switch item
-     *
-     * @param text The text Id
-     * @return The {@link SwitchFormItem}
-     */
-    public SwitchFormItem aSwitch(@StringRes int text) {
-        return new SwitchFormItem(this, inflater.inflate(R.layout.fg_switch, container, false),
-                text);
-    }
 
 	/**
 	 * The Form Generator builder

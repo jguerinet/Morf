@@ -46,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
 		FormGenerator fg = FormGenerator.bind(this, container);
 
 		//Default Form
-		fg.text("Form Item: Text (default settings)")
+		fg.text()
+                .text("Form Item: Text (default settings)")
                 .build();
 
-		fg.text("Form Item: Button")
+		fg.text()
+                .text("Form Item: Button")
 				.onClick(new TextViewFormItem.OnClickListener() {
                     @Override
                     public void onClick(TextViewFormItem item) {
@@ -62,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.space();
 
-		fg.button("Form Item, Simple Button")
+		fg.button()
+                .text("Form Item, Simple Button")
                 .onClick(new TextViewFormItem.OnClickListener() {
                     @Override
                     public void onClick(TextViewFormItem item) {
@@ -72,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        fg.borderlessButton("Form Item, Borderless Button")
+        fg.borderlessButton()
+                .text("Form Item, Borderless Button")
                 .onClick(new TextViewFormItem.OnClickListener() {
                     @Override
                     public void onClick(TextViewFormItem item) {
@@ -87,16 +91,18 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.line();
 
-		fg.input("").hint("Form Item: Input").build();
+		fg.input().hint("Form Item: Input").build();
 
-		fg.aSwitch("Form Item: Switch").onCheckChanged(new CompoundButton.OnCheckedChangeListener
-				() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-				Toast.makeText(MainActivity.this, "Form Item: Switch changed",
-						Toast.LENGTH_SHORT).show();
-			}
-		}).build();
+		fg.aSwitch()
+                .text("Form Item: Switch")
+                .onCheckChanged(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                        Toast.makeText(MainActivity.this, "Form Item: Switch changed",
+                                Toast.LENGTH_SHORT).show();
+                    }
+		        })
+                .build();
 
 		fg.space();
 		fg.space();
@@ -113,11 +119,13 @@ public class MainActivity extends AppCompatActivity {
 				.bind(this, container);
 
 		//Add the different form items
-		fg.text("Form Item: Text (custom settings)")
+		fg.text()
+                .text("Form Item: Text (custom settings)")
 				.leftIcon(R.drawable.ic_info)
                 .build();
 
-		fg.text("Form Item: Button")
+		fg.text()
+                .text("Form Item: Button")
 				.leftIcon(R.drawable.ic_info, false)
 				.rightIcon(R.drawable.ic_chevron_right)
                 .onClick(new TextViewFormItem.OnClickListener() {
@@ -131,7 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.space();
 
-		fg.button("Form Item, Simple Button")
+		fg.button()
+                .text("Form Item, Simple Button")
                 .onClick(new TextViewFormItem.OnClickListener() {
                     @Override
                     public void onClick(TextViewFormItem item) {
@@ -141,7 +150,8 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        fg.borderlessButton("Form Item, Borderless Button")
+        fg.borderlessButton()
+                .text("Form Item, Borderless Button")
                 .onClick(new TextViewFormItem.OnClickListener() {
                     @Override
                     public void onClick(TextViewFormItem item) {
@@ -156,13 +166,14 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.line();
 
-		fg.input("")
+		fg.input()
 				.hint("Form Item: Input")
 				.leftIcon(R.drawable.ic_info)
 				.inputBackground(0)
                 .build();
 
-		fg.aSwitch("Form Item: Switch")
+		fg.aSwitch()
+                .text("Form Item: Switch")
 				.onCheckChanged(new CompoundButton.OnCheckedChangeListener() {
 					@Override
 					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){

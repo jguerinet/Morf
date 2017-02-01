@@ -44,10 +44,9 @@ public class EditTextFormItem extends TextViewFormItem {
 	 *
 	 * @param fg   The {@link FormGenerator} instance
 	 * @param view The {@link View}
-	 * @param text The text
 	 */
-	public EditTextFormItem(FormGenerator fg, View view, String text) {
-		super(fg, view, (EditText) view.findViewById(R.id.fg_input), text, true);
+    EditTextFormItem(FormGenerator fg, View view) {
+		super(fg, view, (EditText) view.findViewById(R.id.fg_input), true);
 		editText = (EditText) textView;
 
 		// Set the right background
@@ -55,23 +54,6 @@ public class EditTextFormItem extends TextViewFormItem {
 			inputBackground(this.fg.builder.defaultInputBackgroundId);
 		}
 	}
-
-    /**
-     * Constructor which takes a resource Id for the text
-     *
-     * @param fg   The {@link FormGenerator} instance
-     * @param view The {@link View}
-     * @param text The text Id
-     */
-    public EditTextFormItem(FormGenerator fg, View view, @StringRes int text) {
-        super(fg, view, (EditText) view.findViewById(R.id.fg_input), text, true);
-        editText = (EditText) textView;
-
-        // Set the right background
-        if (this.fg.builder.defaultInputBackgroundId != null) {
-            inputBackground(this.fg.builder.defaultInputBackgroundId);
-        }
-    }
 
 	/**
 	 * Sets the input type for the {@link EditText}
@@ -94,6 +76,28 @@ public class EditTextFormItem extends TextViewFormItem {
 		editText.setBackgroundResource(backgroundId);
 		return this;
 	}
+
+    /**
+     * Sets the {@link EditText} text
+     *
+     * @param text Text to set
+     * @return The {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem text(String text) {
+        return (EditTextFormItem) super.text(text);
+    }
+
+    /**
+     * Sets the {@link EditText} text
+     *
+     * @param text String Id of text to set
+     * @return The {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem text(@StringRes int text) {
+        return (EditTextFormItem) super.text(text);
+    }
 
 	/**
 	 * Sets the {@link Button} hint

@@ -45,29 +45,13 @@ public class SwitchFormItem extends TextViewFormItem {
 	 *
 	 * @param fg   The {@link FormGenerator} instance
 	 * @param view The {@link View}
-	 * @param text The text
 	 */
-	public SwitchFormItem(FormGenerator fg, View view, String text) {
-		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
+    SwitchFormItem(FormGenerator fg, View view) {
+		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), true);
 		aSwitch = (SwitchCompat) textView;
         // Set the switch typeface
         aSwitch.setSwitchTypeface(this.fg.builder.defaultTextTypeface);
 	}
-
-    /**
-     * Constructor which takes a resource Id for the text
-     *
-     * @param fg   The {@link FormGenerator} instance
-     * @param view The {@link View}
-     * @param text The text Id
-     */
-    public SwitchFormItem(FormGenerator fg, View view, @StringRes int text) {
-        super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), text, true);
-        aSwitch = (SwitchCompat) textView;
-        // Set the switch typeface
-        aSwitch.setSwitchTypeface(this.fg.builder.defaultTextTypeface);
-    }
-
 
     /**
 	 * Sets the {@link SwitchCompat}'s checked state
@@ -128,8 +112,30 @@ public class SwitchFormItem extends TextViewFormItem {
         return this;
     }
 
-	/**
-	 * Sets the {@link Button} hint
+    /**
+     * Sets the {@link SwitchFormItem} text
+     *
+     * @param text Text to set
+     * @return The {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem text(String text) {
+        return (SwitchFormItem) super.text(text);
+    }
+
+    /**
+     * Sets the {@link SwitchFormItem} text
+     *
+     * @param text String Id of text to set
+     * @return The {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem text(@StringRes int text) {
+        return (SwitchFormItem) super.text(text);
+    }
+
+    /**
+	 * Sets the {@link SwitchFormItem} hint
 	 *
 	 * @param hint The hint
 	 * @return The {@link SwitchFormItem} instance
@@ -140,7 +146,7 @@ public class SwitchFormItem extends TextViewFormItem {
 	}
 
 	/**
-	 * Sets the {@link Button} hint
+	 * Sets the {@link SwitchFormItem} hint
 	 *
 	 * @param stringId The String Id
 	 * @return The {@link SwitchFormItem} instance

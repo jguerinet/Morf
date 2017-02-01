@@ -27,6 +27,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.lang.reflect.Constructor;
+
 /**
  * Builder for a {@link Button} form item
  * @author Julien Guerinet
@@ -39,25 +41,33 @@ public class ButtonFormItem extends TextViewFormItem {
 	 *
 	 * @param fg       The {@link FormGenerator} instance
 	 * @param view     The {@link View}
-	 * @param text     The text
 	 */
-	public ButtonFormItem(FormGenerator fg, View view, String text) {
-		super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
+	ButtonFormItem(FormGenerator fg, View view) {
+		super(fg, view, (Button)view.findViewById(R.id.fg_button), false);
 		// Bold buttons
 		style(this.fg.builder.defaultTextTypeface, Typeface.BOLD);
 	}
 
     /**
-     * Constructor which takes a String resource Id to set the text
+     * Sets the {@link Button} text
      *
-     * @param fg       The {@link FormGenerator} instance
-     * @param view     The {@link View}
-     * @param text     The text Id
+     * @param text Text to set
+     * @return The {@link ButtonFormItem} instance
      */
-    public ButtonFormItem(FormGenerator fg, View view, @StringRes int text) {
-        super(fg, view, (Button)view.findViewById(R.id.fg_button), text, false);
-        // Bold buttons
-        style(this.fg.builder.defaultTextTypeface, Typeface.BOLD);
+    @Override
+    public ButtonFormItem text(String text) {
+        return (ButtonFormItem) super.text(text);
+    }
+
+    /**
+     * Sets the {@link Button} text
+     *
+     * @param text String Id of text to set
+     * @return The {@link ButtonFormItem} instance
+     */
+    @Override
+    public ButtonFormItem text(@StringRes int text) {
+        return (ButtonFormItem) super.text(text);
     }
 
 	/**
