@@ -152,6 +152,15 @@ public class FormGenerator {
 		return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false));
 	}
 
+    /**
+     * Adds a text input item
+     *
+     * @return The {@link TextInputFormItem}
+     */
+    public TextInputFormItem textInput() {
+        return new TextInputFormItem(this, inflater.inflate(R.layout.fg_input, container, false));
+    }
+
 	/**
 	 * Adds a text item
 	 *
