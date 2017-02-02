@@ -20,6 +20,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -92,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
 		fg.line();
 
 		fg.input().hint("Form Item: Input").build();
+
+        fg.textInput()
+                .hint("FormItem: Text Input")
+                .build();
 
 		fg.aSwitch()
                 .text("Form Item: Switch")
@@ -170,6 +175,12 @@ public class MainActivity extends AppCompatActivity {
 				.hint("Form Item: Input")
 				.leftIcon(R.drawable.ic_info)
 				.inputBackground(0)
+                .build();
+
+        fg.textInput()
+                .hint("FormItem: Text Input")
+                .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)
+                .showTogglePasswordVisibility(true)
                 .build();
 
 		fg.aSwitch()
