@@ -1,7 +1,7 @@
 # Form Generator
 
 ## Summary
-Generates customizable forms for Android 11+. Form items include:
+Generates customizable forms for Android 16+. Form items include:
 
 * Simple text
 * Text buttons
@@ -9,6 +9,7 @@ Generates customizable forms for Android 11+. Form items include:
 * Standard Android borderless buttons
 * Switches
 * Input fields
+* Text Input fields
 * Lines
 * Spaces
 
@@ -68,6 +69,7 @@ To get the associated view, simple call `view()` at the end of your customizatio
 * Setting the input type on the `EditText`s (default is capitalized sentences)
 * Setting if the `EditText` should be multi line (default is single line)
 * Setting icons on all form items except the spaces and lines
+* Showing/hiding the password visibility toggle for the `TextInputFormItem`
 
 IMPORTANT: All views need to be built by calling `build()` after adding it except for spaces and lines. If you do not call `build()` they will not be added to the container. 
 
@@ -88,7 +90,7 @@ the top one is the default settings for FormGenerator, the bottom is a customize
 See the [Change Log](CHANGELOG.md).
 
 ## Copyright
-	 Copyright 2015-2016 Julien Guerinet
+	 Copyright 2015-2017 Julien Guerinet
 
 	 Licensed under the Apache License, Version 2.0 (the "License");
 	 you may not use this file except in compliance with the License.

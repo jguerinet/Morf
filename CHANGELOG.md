@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 3.0.0 (2017-02-01)
+* New: Added the `TextInputFormItem`, for `TextInputLayout`s
+* New: Added methods to retrieve the text within the `EditText`s
+* Breaking: All form items no longer take a text as an input. You now set the text with `text()`
+
 ## Version 2.2.5 (2016-11-23)
 * New: Added method to update the icons without rebuilding the form item
 * Update: Removed method added in v2.2.3
