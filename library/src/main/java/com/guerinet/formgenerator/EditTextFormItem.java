@@ -37,7 +37,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	/**
 	 * The {@link EditText}
 	 */
-	private EditText editText;
+	protected EditText editText;
 
 	/**
 	 * Default Constructor

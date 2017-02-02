@@ -35,15 +35,11 @@ import android.widget.TextView;
  * @author Julien Guerinet
  * @since 3.0.0
  */
-public class TextInputFormItem extends TextViewFormItem {
+public class TextInputFormItem extends EditTextFormItem {
     /**
      * {@link TextInputLayout} instance
      */
     private final TextInputLayout inputLayout;
-	/**
-	 * The {@link TextInputEditText}
-	 */
-	private final TextInputEditText editText;
 
 	/**
 	 * Default Constructor
@@ -52,51 +48,9 @@ public class TextInputFormItem extends TextViewFormItem {
 	 * @param view The {@link View}
 	 */
     TextInputFormItem(FormGenerator fg, View view) {
-		super(fg, view, (TextView) view.findViewById(R.id.fg_input), true);
-		editText = (TextInputEditText) textView;
+		super(fg, view);
         inputLayout = (TextInputLayout) view.findViewById(R.id.fg_input_layout);
-
-		// Set the right background
-		if (this.fg.builder.defaultInputBackgroundId != null) {
-			inputBackground(this.fg.builder.defaultInputBackgroundId);
-		}
 	}
-
-	/**
-	 * Sets the input type for the {@link EditText}
-	 *
-	 * @param type The input type
-	 * @return The {@link TextInputFormItem} instance
-	 */
-	public TextInputFormItem inputType(int type) {
-		editText.setInputType(type);
-		return this;
-	}
-
-	/**
-	 * Sets the {@link EditText} background
-	 *
-	 * @param backgroundId The background Id
-	 * @return The {@link TextInputFormItem} instance
-	 */
-	public TextInputFormItem inputBackground(int backgroundId) {
-		editText.setBackgroundResource(backgroundId);
-		return this;
-	}
-
-    /**
-     * @return Current String in the {@link EditText}
-     */
-    public String input() {
-        return editText.getText().toString();
-    }
-
-    /**
-     * @return Current String in the {@link EditText}, trimmed
-     */
-    public String trimmedInput() {
-        return editText.getText().toString().trim();
-    }
 
     /**
      * @param show True if the password visibility toggle should be shown, false otherwise
@@ -106,6 +60,28 @@ public class TextInputFormItem extends TextViewFormItem {
         inputLayout.setPasswordVisibilityToggleEnabled(show);
         return this;
     }
+
+	/**
+	 * Sets the input type for the {@link EditText}
+	 *
+	 * @param type The input type
+	 * @return The {@link TextInputFormItem} instance
+	 */
+    @Override
+	public TextInputFormItem inputType(int type) {
+        return (TextInputFormItem) super.inputType(type);
+	}
+
+	/**
+	 * Sets the {@link EditText} background
+	 *
+	 * @param backgroundId The background Id
+	 * @return The {@link TextInputFormItem} instance
+	 */
+    @Override
+	public TextInputFormItem inputBackground(int backgroundId) {
+        return (TextInputFormItem) super.inputBackground(backgroundId);
+	}
 
     /**
      * Sets the {@link EditText} text

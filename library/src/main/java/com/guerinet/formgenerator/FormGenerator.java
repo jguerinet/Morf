@@ -158,7 +158,8 @@ public class FormGenerator {
      * @return The {@link TextInputFormItem}
      */
     public TextInputFormItem textInput() {
-        return new TextInputFormItem(this, inflater.inflate(R.layout.fg_input, container, false));
+        return new TextInputFormItem(this, inflater.inflate(R.layout.fg_text_input, container,
+                false));
     }
 
 	/**
