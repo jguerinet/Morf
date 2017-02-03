@@ -510,11 +510,11 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
     }
 
     /**
-     * @return The {@link EditText}
+     * @return The AutoCompleteTextView
      */
     @Override
-    public EditText view() {
-        return editText;
+    public AutoCompleteTextView view() {
+        return acTextView;
     }
 
     /**
