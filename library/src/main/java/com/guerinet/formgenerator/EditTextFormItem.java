@@ -37,7 +37,7 @@ public class EditTextFormItem extends TextViewFormItem {
 	/**
 	 * The {@link EditText}
 	 */
-	protected EditText editText;
+    EditText editText;
 
 	/**
 	 * Default Constructor
@@ -80,14 +80,14 @@ public class EditTextFormItem extends TextViewFormItem {
     /**
      * @return Current String in the {@link EditText}
      */
-    public String input() {
+    public String getInput() {
         return editText.getText().toString();
     }
 
     /**
      * @return Current String in the {@link EditText}, trimmed
      */
-    public String trimmedInput() {
+    public String getTrimmedInput() {
         return editText.getText().toString().trim();
     }
 
@@ -366,7 +366,14 @@ public class EditTextFormItem extends TextViewFormItem {
 	 */
 	@Override
 	public EditTextFormItem onClick(OnClickListener listener) {
-		return (EditTextFormItem) super.onClick(listener);
+        // Make the EditText non focusable, non long clickable,
+        //  and follow its parent before continuing
+        //  If the listener is null, do the opposite
+        editText.setFocusable(listener == null);
+        editText.setLongClickable(listener == null);
+        editText.setClickable(false);
+        editText.setOnClickListener(listener == null ? null : v -> listener.onClick(this));
+		return this;
 	}
 
     /**
