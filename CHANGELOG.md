@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 3.1.0 (2017-02-02)
+* New: Added the `AutoCompleteTextViewFormItem`
+* Fixed the `onClick` method for `EditTextFormItem`s
+
 ## Version 3.0.0 (2017-02-01)
 * New: Added the `TextInputFormItem`, for `TextInputLayout`s
 * New: Added methods to retrieve the text within the `EditText`s
