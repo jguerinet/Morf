@@ -155,11 +155,21 @@ public class FormGenerator {
     /**
      * Adds a text input item
      *
-     * @return The {@link TextInputFormItem}
+     * @return Generated {@link TextInputFormItem}
      */
     public TextInputFormItem textInput() {
         return new TextInputFormItem(this, inflater.inflate(R.layout.fg_text_input, container,
                 false));
+    }
+
+    /**
+     * Adds an auto complete text input item
+     *
+     * @return Generated {@link AutoCompleteTextInputFormItem}
+     */
+    public AutoCompleteTextInputFormItem autoCompleteTextInput() {
+        return new AutoCompleteTextInputFormItem(this, inflater.inflate(R.layout.fg_text_input_ac,
+                container, false));
     }
 
 	/**
