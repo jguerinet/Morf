@@ -21,7 +21,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
@@ -127,6 +126,15 @@ public class TextInputFormItem extends EditTextFormItem {
 	public TextInputFormItem hint(@StringRes int stringId) {
         return hint(inputLayout.getContext().getString(stringId));
 	}
+
+    /**
+     * @param focusable True if the item should be focusable, false otherwise
+     * @return {@link TextInputFormItem} instance
+     */
+    @Override
+    public TextInputFormItem focusable(boolean focusable) {
+        return (TextInputFormItem) super.focusable(focusable);
+    }
 
     /**
      * @param enabled True if the item should be enabled, false otherwise

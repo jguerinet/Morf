@@ -24,7 +24,6 @@ import android.support.annotation.StringRes;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -175,6 +174,15 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
 	public AutoCompleteTextInputFormItem textColor(@ColorInt int color) {
 		return (AutoCompleteTextInputFormItem) super.textColor(color);
 	}
+
+    /**
+     * @param focusable True if the item should be focusable, false otherwise
+     * @return {@link AutoCompleteTextInputFormItem} instance
+     */
+    @Override
+    public AutoCompleteTextInputFormItem focusable(boolean focusable) {
+        return (AutoCompleteTextInputFormItem) super.focusable(focusable);
+    }
 
     /**
      * @param enabled True if the item should be enabled, false otherwise

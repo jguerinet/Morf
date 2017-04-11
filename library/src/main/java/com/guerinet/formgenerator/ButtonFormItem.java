@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.lang.reflect.Constructor;
 
 /**
  * Builder for a {@link Button} form item
@@ -91,6 +89,15 @@ public class ButtonFormItem extends TextViewFormItem {
 	public ButtonFormItem hint(@StringRes int stringId) {
 		return (ButtonFormItem) super.hint(stringId);
 	}
+
+    /**
+     * @param focusable True if the item should be focusable, false otherwise
+     * @return {@link ButtonFormItem} instance
+     */
+    @Override
+    public ButtonFormItem focusable(boolean focusable) {
+        return (ButtonFormItem) super.focusable(focusable);
+    }
 
     /**
      * @param enabled True if the item should be enabled, false otherwise

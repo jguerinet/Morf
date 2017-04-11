@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -135,6 +135,15 @@ public class TextViewFormItem extends LineItem {
 		textView.setHint(stringId);
 		return this;
 	}
+
+    /**
+     * @param focusable True if the item should be focusable, false otherwise
+     * @return {@link TextViewFormItem} instance
+     */
+	public TextViewFormItem focusable(boolean focusable) {
+        textView.setFocusable(focusable);
+        return this;
+    }
 
     /**
      * @param enabled True if the item should be enabled, false otherwise

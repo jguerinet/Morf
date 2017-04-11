@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -155,6 +155,15 @@ public class SwitchFormItem extends TextViewFormItem {
 	public SwitchFormItem hint(@StringRes int stringId) {
 		return (SwitchFormItem) super.hint(stringId);
 	}
+
+    /**
+     * @param focusable True if the item should be focusable, false otherwise
+     * @return {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem focusable(boolean focusable) {
+        return (SwitchFormItem) super.focusable(focusable);
+    }
 
     /**
      * @param enabled True if the item should be enabled, false otherwise

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.OverScroller;
 import android.widget.TextView;
 
 /**
@@ -135,6 +134,16 @@ public class EditTextFormItem extends TextViewFormItem {
 	public EditTextFormItem hint(@StringRes int stringId) {
 		return (EditTextFormItem) super.hint(stringId);
 	}
+
+    /**
+     * @param focusable True if the item should be focusable, false otherwise
+     * @return {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem focusable(boolean focusable) {
+        editText.setFocusable(focusable);
+        return this;
+    }
 
     /**
      * @param enabled True if the item should be enabled, false otherwise
