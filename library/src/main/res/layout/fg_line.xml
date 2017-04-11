@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2015-2016 Julien Guerinet
+  ~ Copyright 2015-2017 Julien Guerinet
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
   ~ limitations under the License.
   -->
 
-<View xmlns:android="http://schemas.android.com/apk/res/android"
+<View
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="0.5dp"
     android:id="@+id/fg_line"/>
