@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 3.2.0 (2017-04-11)
+* New: Fixed the constructors to use the view context as opposed to asking for a context
+* New: Added `focusable()` for most of the items to set their focusable property
+* New: Switched `background()` on the `TextInputFormItem` + subclasses to set the background resource on the input layout
+
 ## Version 3.1.1 (2017-04-11)
 * New: Added `enabled()` for most of the items to enable/disable them
 
