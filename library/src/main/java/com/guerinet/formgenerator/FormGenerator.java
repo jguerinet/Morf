@@ -58,14 +58,10 @@ public class FormGenerator {
      *  This will use either the default generator set by the user,
      *  or a generator with the default values
 	 *
-	 * @param inflater  The {@link LayoutInflater}
 	 * @param container The container that the items should be in
 	 * @return The default {@link FormGenerator}
 	 */
-	public static FormGenerator bind(LayoutInflater inflater, LinearLayout container) {
-        if (inflater == null) {
-            throw new IllegalArgumentException("LayoutInflater cannot be null");
-        }
+	public static FormGenerator bind(LinearLayout container) {
         if (container == null) {
             throw new IllegalArgumentException("LinearLayout container cannot be null");
         }
@@ -74,23 +70,7 @@ public class FormGenerator {
 			singleton = new Builder();
 		}
 
-        return new FormGenerator(singleton, inflater, container);
-	}
-
-	/**
-	 * Binds the default {@link FormGenerator} to the given layout and returns it.
-     *  This will use either the default generator set by the user,
-     *  or a generator with the default values
-	 *
-	 * @param context   The {@link LayoutInflater}
-	 * @param container The container that the items should be in
-	 * @return The default {@link FormGenerator}
-	 */
-	public static FormGenerator bind(Context context, LinearLayout container) {
-        if (context == null) {
-            throw new IllegalArgumentException("Context cannot be null");
-        }
-		return bind(LayoutInflater.from(context), container);
+        return new FormGenerator(singleton, container);
 	}
 
     /**
@@ -105,10 +85,9 @@ public class FormGenerator {
 
 	/**
 	 * Sets the default instance of the {@link FormGenerator} to use when
-	 *  {@link #get()}, {@link #bind(Context, LinearLayout)} or
-     *  {@link #bind(LayoutInflater, LinearLayout)} is called
+	 *  {@link #get()}, {@link #bind(LinearLayout)} or
 	 *
-	 * @param builder The {@link Builder} instance
+	 * @param builder {@link Builder} instance
 	 */
 	public static void set(Builder builder) {
 		singleton = builder;
@@ -117,12 +96,11 @@ public class FormGenerator {
 	/**
 	 * Default Constructor
 	 *
-	 * @param builder   The {@link Builder} instance to construct the {@link FormGenerator} from
-	 * @param inflater  The {@link LayoutInflater} instance
-	 * @param container The container to add the form items to
+	 * @param builder   {@link Builder} instance to construct the {@link FormGenerator} from
+	 * @param container Container to add the form items to
 	 */
-	private FormGenerator(Builder builder, LayoutInflater inflater, LinearLayout container) {
-		this.inflater = inflater;
+	private FormGenerator(Builder builder, LinearLayout container) {
+		this.inflater = LayoutInflater.from(container.getContext());
 		this.container = container;
         this.builder = builder;
 	}
@@ -308,23 +286,11 @@ public class FormGenerator {
 		/**
 		 * Binds a {@link Builder} to a given view
 		 *
-		 * @param inflater  The {@link LayoutInflater} instance
 		 * @param container The container for the views
 		 * @return The created {@link FormGenerator} instance
 		 */
-		public FormGenerator bind(LayoutInflater inflater, LinearLayout container) {
-			return new FormGenerator(this, inflater, container);
-		}
-
-		/**
-		 * Builds a {@link FormGenerator} based off of this {@link Builder}
-		 *
-		 * @param context   The app {@link Context}
-		 * @param container The container for the views
-		 * @return The created {@link FormGenerator} instance
-		 */
-		public FormGenerator bind(Context context, LinearLayout container) {
-			return bind(LayoutInflater.from(context), container);
+		public FormGenerator bind(LinearLayout container) {
+			return new FormGenerator(this, container);
 		}
 
 		/**
