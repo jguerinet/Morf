@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.OverScroller;
 import android.widget.TextView;
 
 /**
@@ -134,6 +135,16 @@ public class EditTextFormItem extends TextViewFormItem {
 	public EditTextFormItem hint(@StringRes int stringId) {
 		return (EditTextFormItem) super.hint(stringId);
 	}
+
+    /**
+     * @param enabled True if the item should be enabled, false otherwise
+     * @return {@link EditTextFormItem} instance
+     */
+    @Override
+    public EditTextFormItem enabled(boolean enabled) {
+        editText.setEnabled(enabled);
+        return this;
+    }
 
 	/**
 	 * Sets the {@link Button} text color

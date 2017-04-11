@@ -92,6 +92,15 @@ public class ButtonFormItem extends TextViewFormItem {
 		return (ButtonFormItem) super.hint(stringId);
 	}
 
+    /**
+     * @param enabled True if the item should be enabled, false otherwise
+     * @return {@link EditTextFormItem} instance
+     */
+    @Override
+    public ButtonFormItem enabled(boolean enabled) {
+        return (ButtonFormItem) super.enabled(enabled);
+    }
+
 	/**
 	 * Sets the {@link Button} text color
 	 *

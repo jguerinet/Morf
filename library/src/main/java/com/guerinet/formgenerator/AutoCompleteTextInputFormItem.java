@@ -177,6 +177,15 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
 	}
 
     /**
+     * @param enabled True if the item should be enabled, false otherwise
+     * @return {@link AutoCompleteTextInputFormItem} instance
+     */
+    @Override
+    public AutoCompleteTextInputFormItem enabled(boolean enabled) {
+        return (AutoCompleteTextInputFormItem) super.enabled(enabled);
+    }
+
+    /**
      * Sets the {@link Button} text size
      *
      * @param size The text size from the dimensions file

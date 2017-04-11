@@ -136,6 +136,15 @@ public class TextViewFormItem extends LineItem {
 		return this;
 	}
 
+    /**
+     * @param enabled True if the item should be enabled, false otherwise
+     * @return {@link TextViewFormItem} instance
+     */
+	public TextViewFormItem enabled(boolean enabled) {
+        textView.setEnabled(enabled);
+        return this;
+    }
+
 	/**
 	 * Sets the {@link TextView} text color
 	 *

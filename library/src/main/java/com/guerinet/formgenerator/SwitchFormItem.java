@@ -156,6 +156,15 @@ public class SwitchFormItem extends TextViewFormItem {
 		return (SwitchFormItem) super.hint(stringId);
 	}
 
+    /**
+     * @param enabled True if the item should be enabled, false otherwise
+     * @return {@link SwitchFormItem} instance
+     */
+    @Override
+    public SwitchFormItem enabled(boolean enabled) {
+        return (SwitchFormItem) super.enabled(enabled);
+    }
+
 	/**
 	 * Sets the {@link Button} text color
 	 *

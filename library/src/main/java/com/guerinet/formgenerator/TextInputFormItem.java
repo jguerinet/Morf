@@ -128,6 +128,15 @@ public class TextInputFormItem extends EditTextFormItem {
         return hint(inputLayout.getContext().getString(stringId));
 	}
 
+    /**
+     * @param enabled True if the item should be enabled, false otherwise
+     * @return {@link TextInputFormItem} instance
+     */
+    @Override
+    public TextInputFormItem enabled(boolean enabled) {
+        return (TextInputFormItem) super.enabled(enabled);
+    }
+
 	/**
 	 * Sets the {@link Button} text color
 	 *
