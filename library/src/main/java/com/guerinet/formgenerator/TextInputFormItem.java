@@ -463,7 +463,8 @@ public class TextInputFormItem extends EditTextFormItem {
 	 */
 	@Override
 	public TextInputFormItem background(@ColorRes @DrawableRes int backgroundId) {
-		return (TextInputFormItem) super.background(backgroundId);
+        inputLayout.setBackgroundResource(backgroundId);
+        return this;
 	}
 
     /**
