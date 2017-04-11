@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 3.1.1 (2017-04-11)
+* New: Added `enabled()` for most of the items to enable/disable them
+
 ## Version 3.1.0 (2017-02-02)
 * New: Added the `AutoCompleteTextViewFormItem`
 * Fixed the `onClick` method for `EditTextFormItem`s
