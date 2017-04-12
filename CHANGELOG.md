@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 3.2.1 (2017-04-12)
+* Fixed the instantiation of a `TextInputFormItem`
+
 ## Version 3.2.0 (2017-04-11)
 * New: Fixed the constructors to use the view context as opposed to asking for a context
 * New: Added `focusable()` for most of the items to set their focusable property
