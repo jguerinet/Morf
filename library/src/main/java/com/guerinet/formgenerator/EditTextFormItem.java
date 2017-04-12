@@ -42,11 +42,12 @@ public class EditTextFormItem extends TextViewFormItem {
 	/**
 	 * Default Constructor
 	 *
-	 * @param fg   The {@link FormGenerator} instance
-	 * @param view The {@link View}
+	 * @param fg         The {@link FormGenerator} instance
+	 * @param view       The {@link View}
+     * @param background True if the background should be applied, false otherwise
 	 */
-    EditTextFormItem(FormGenerator fg, View view) {
-		super(fg, view, (EditText) view.findViewById(R.id.fg_input), true);
+    EditTextFormItem(FormGenerator fg, View view, boolean background) {
+		super(fg, view, (EditText) view.findViewById(R.id.fg_input), background);
 		editText = (EditText) textView;
 
 		// Set the right background

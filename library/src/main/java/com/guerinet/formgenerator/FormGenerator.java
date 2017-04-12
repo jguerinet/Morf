@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,11 @@
 
 package com.guerinet.formgenerator;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -127,7 +125,8 @@ public class FormGenerator {
 	 * @return The {@link EditTextFormItem}
 	 */
 	public EditTextFormItem input() {
-		return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false));
+		return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false),
+                true);
 	}
 
     /**

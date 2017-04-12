@@ -47,8 +47,13 @@ public class TextInputFormItem extends EditTextFormItem {
 	 * @param view The {@link View}
 	 */
     TextInputFormItem(FormGenerator fg, View view) {
-		super(fg, view);
+		super(fg, view, false);
         inputLayout = (TextInputLayout) view.findViewById(R.id.fg_input_layout);
+
+        // Background
+        if (fg.builder.defaultBackgroundId != null) {
+            background(fg.builder.defaultBackgroundId);
+        }
 	}
 
     /**
