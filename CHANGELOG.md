@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 3.2.2 (2017-04-12)
+* Removed the setting of the default background on the `TextInputFormItem`
+
 ## Version 3.2.1 (2017-04-12)
 * Fixed the instantiation of a `TextInputFormItem`
 
