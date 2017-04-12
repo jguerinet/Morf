@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 		LinearLayout container = (LinearLayout) findViewById(R.id.container);
 
 		//Get the default instance
-		FormGenerator fg = FormGenerator.bind(this, container);
+		FormGenerator fg = FormGenerator.bind(container);
 
 		//Default Form
 		fg.text()
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 				.setDefaultTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark))
 				.setDefaultTypeface(Typeface.SERIF)
 				.setDefaultIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark))
-				.bind(this, container);
+				.bind(container);
 
 		//Add the different form items
 		fg.text()
