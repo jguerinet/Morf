@@ -206,5 +206,31 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         @ColorRes
         @DrawableRes
         var inputBackgroundId: Int? = null
+
+        /**
+         * @return New [Defaults] instance, generated from the current one
+         */
+        fun newInstance(): Defaults {
+            val defaults = Defaults()
+            defaults.spaceColorId = spaceColorId
+            defaults.spaceSizeId = spaceSizeId
+            defaults.lineSizeId = lineSizeId
+            defaults.lineBackgroundId = lineBackgroundId
+            defaults.isLineShown = isLineShown
+            defaults.textSize = textSize
+            defaults.textColor = textColor
+            defaults.textTypeface = textTypeface
+            defaults.paddingSize = paddingSize
+            defaults.drawablePaddingSize = drawablePaddingSize
+            defaults.iconColor = iconColor
+            defaults.backgroundId = backgroundId
+            defaults.inputBackgroundId = inputBackgroundId
+            return defaults
+        }
+
+        /**
+         * @return [FormGenerator] created from this [Defaults] and the given [container]
+         */
+        fun bind(container: LinearLayout): FormGenerator = FormGenerator(this, container)
     }
 }
