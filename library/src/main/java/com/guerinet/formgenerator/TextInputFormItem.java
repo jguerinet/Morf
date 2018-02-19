@@ -22,14 +22,15 @@ import android.support.annotation.StringRes;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
+import com.guerinet.fg.EditTextItem;
 
 /**
  * Builder for an text input form item
  * @author Julien Guerinet
  * @since 3.0.0
  */
-public class TextInputFormItem extends EditTextFormItem {
+public class TextInputFormItem extends EditTextItem {
     /**
      * {@link TextInputLayout} instance
      */
@@ -54,28 +55,6 @@ public class TextInputFormItem extends EditTextFormItem {
         inputLayout.setPasswordVisibilityToggleEnabled(show);
         return this;
     }
-
-	/**
-	 * Sets the input type for the {@link EditText}
-	 *
-	 * @param type The input type
-	 * @return The {@link TextInputFormItem} instance
-	 */
-    @Override
-	public TextInputFormItem inputType(int type) {
-        return (TextInputFormItem) super.inputType(type);
-	}
-
-	/**
-	 * Sets the {@link EditText} background
-	 *
-	 * @param backgroundId The background Id
-	 * @return The {@link TextInputFormItem} instance
-	 */
-    @Override
-	public TextInputFormItem inputBackground(int backgroundId) {
-        return (TextInputFormItem) super.inputBackground(backgroundId);
-	}
 
 	/**
 	 * Sets the {@link Button} hint

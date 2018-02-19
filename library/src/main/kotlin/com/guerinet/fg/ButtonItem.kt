@@ -25,6 +25,9 @@ import com.guerinet.formgenerator.R
  * Form item that represents a [Button]
  * @author Julien Guerinet
  * @since 2.0.0
+ *
+ * @param fg    [FormGenerator] instance
+ * @param view  Item [View]
  */
 class ButtonItem(fg: FormGenerator, view: View) :
         TextViewItem<ButtonItem, Button>(fg, view, view.findViewById(R.id.fg_button), false)

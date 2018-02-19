@@ -21,7 +21,6 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Filterable;
 import android.widget.ListAdapter;
 
@@ -89,28 +88,6 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
     public AutoCompleteTextInputFormItem showTogglePasswordVisibility(boolean show) {
         return (AutoCompleteTextInputFormItem) super.showTogglePasswordVisibility(show);
     }
-
-	/**
-	 * Sets the input type for the {@link EditText}
-	 *
-	 * @param type The input type
-	 * @return The {@link AutoCompleteTextInputFormItem} instance
-	 */
-    @Override
-	public AutoCompleteTextInputFormItem inputType(int type) {
-        return (AutoCompleteTextInputFormItem) super.inputType(type);
-	}
-
-	/**
-	 * Sets the {@link EditText} background
-	 *
-	 * @param backgroundId The background Id
-	 * @return The {@link AutoCompleteTextInputFormItem} instance
-	 */
-    @Override
-	public AutoCompleteTextInputFormItem inputBackground(int backgroundId) {
-        return (AutoCompleteTextInputFormItem) super.inputBackground(backgroundId);
-	}
 
 	/**
 	 * Sets the {@link Button} hint

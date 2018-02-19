@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.guerinet.fg.ButtonItem;
+import com.guerinet.fg.EditTextItem;
 import com.guerinet.fg.LineItem;
 import com.guerinet.fg.SpaceItem;
 import com.guerinet.fg.TextViewItem;
@@ -127,10 +128,10 @@ public class FormGenerator {
 	/**
 	 * Adds an input item
 	 *
-	 * @return The {@link EditTextFormItem}
-	 */
-	public EditTextFormItem input() {
-		return new EditTextFormItem(this, inflater.inflate(R.layout.fg_input, container, false),
+     * @return The {@link EditTextItem}
+     */
+    public EditTextItem input() {
+        return new EditTextItem(this, inflater.inflate(R.layout.fg_input, container, false),
                 true);
 	}
 
@@ -257,7 +258,7 @@ public class FormGenerator {
          */
         @ColorRes
         @DrawableRes
-        Integer defaultInputBackgroundId = null;
+        public Integer defaultInputBackgroundId = null;
 
 		/**
 		 * Default Constructor

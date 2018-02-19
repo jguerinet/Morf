@@ -33,13 +33,18 @@ import com.guerinet.formgenerator.R
  * Builder for a [TextView] form item (buttons, texts, switches, inputs)
  * @author Julien Guerinet
  * @since 2.0.0
+ *
+ * @param fg                    [FormGenerator] instance
+ * @param view                  Form item [View]
+ * @param childView             [View] of the main child for this item
+ * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
 @Suppress("UNCHECKED_CAST")
 open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
         fg: FormGenerator,
         view: View,
         protected val childView: V,
-        background: Boolean) : LineItem<T>(fg, view, view.findViewById(R.id.fg_line)
+        isDefaultBackground: Boolean) : LineItem<T>(fg, view, view.findViewById(R.id.fg_line)
 ) {
 
     /**
@@ -52,7 +57,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
         view.isClickable = false
 
         // Background
-        if (background && fg.builder.defaultBackgroundId != null) {
+        if (isDefaultBackground && fg.builder.defaultBackgroundId != null) {
             backgroundId(fg.builder.defaultBackgroundId)
         }
 
@@ -106,7 +111,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
     /**
      * Sets whether the returned item [isFocusable] or not
      */
-    open fun isFocusable(isFocusable: Boolean): T {
+    fun isFocusable(isFocusable: Boolean): T {
         childView.isFocusable = isFocusable
         return this as T
     }
@@ -114,7 +119,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
     /**
      * Sets whether the returned item [isEnabled] or not
      */
-    open fun isEnabled(isEnabled: Boolean): T {
+    fun isEnabled(isEnabled: Boolean): T {
         childView.isEnabled = isEnabled
         return this as T
     }
