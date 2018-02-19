@@ -24,7 +24,6 @@ import android.support.annotation.DrawableRes;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
-import com.guerinet.fg.AutoCompleteTextInputItem;
 import com.guerinet.fg.SwitchItem;
 
 /**
@@ -103,16 +102,6 @@ public class FormGenerator {
 	public static void set(Builder builder) {
 		singleton = builder;
 	}
-
-    /**
-     * Adds an auto complete text input item
-     *
-     * @return Generated {@link AutoCompleteTextInputItem}
-     */
-    public AutoCompleteTextInputItem autoCompleteTextInput() {
-        return new AutoCompleteTextInputItem(this, inflater.inflate(R.layout.fg_text_input_ac,
-                container, false));
-    }
 
 	/**
 	 * Adds a switch item

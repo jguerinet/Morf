@@ -86,6 +86,12 @@ class FormGenerator private constructor(internal val defaults: Defaults,
                     false))
 
     /**
+     * @return [SwitchItem] added to the form
+     */
+    fun aSwitch(): SwitchItem =
+            SwitchItem(this, inflater.inflate(R.layout.fg_switch, container, false))
+
+    /**
      * Contains all of the customizable defaults for a [FormGenerator]
      */
     class Defaults {
