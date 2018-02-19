@@ -108,6 +108,13 @@ class FormGenerator private constructor(internal val defaults: Defaults,
          *  with default values
          */
         fun bind(container: LinearLayout): FormGenerator = FormGenerator(defaults, container)
+
+        inline fun createAndSetDefaults(block: Defaults.() -> Unit) {
+            defaults = createDefaults(block)
+        }
+
+        inline fun createDefaults(block: Defaults.() -> Unit): Defaults =
+                Defaults().apply(block)
     }
 
     /**
