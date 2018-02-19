@@ -29,13 +29,13 @@ import com.guerinet.fg.FormGenerator
  *
  * @param fg    [FormGenerator] instance
  * @param view  Item [View]
- * @param line  Line [View]
+ * @param line  Line [View], null if none (in the case of a button for example)
  */
 @Suppress("UNCHECKED_CAST")
 open class BaseLineItem<out T : BaseLineItem<T>>(
         fg: FormGenerator,
         view: View,
-        private val line: View
+        private val line: View?
 ) : Item<T>(fg, view) {
 
     init {
@@ -59,7 +59,7 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
      * @return [BaseLineItem] instance with its new [size] set
      */
     fun lineSize(size: Int): T {
-        line.layoutParams.height = size
+        line?.layoutParams?.height = size
         return this as T
     }
 
@@ -67,7 +67,7 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
      * @return [BaseLineItem] instance with its new background with the given [resId] set
      */
     fun lineBackground(@DrawableRes @ColorRes resId: Int): T {
-        line.setBackgroundResource(resId)
+        line?.setBackgroundResource(resId)
         return this as T
     }
 
@@ -76,7 +76,7 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
      * @return Item with its new line [color] set
      */
     fun lineColor(@ColorInt color: Int): T {
-        line.setBackgroundColor(color)
+        line?.setBackgroundColor(color)
         return this as T
     }
 
@@ -84,7 +84,7 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
      * @return Item with the line [show]n or hidden
      */
     fun showLine(show: Boolean): T {
-        line.visibility = if (show) View.VISIBLE else View.GONE
+        line?.visibility = if (show) View.VISIBLE else View.GONE
         return this as T
     }
 }
