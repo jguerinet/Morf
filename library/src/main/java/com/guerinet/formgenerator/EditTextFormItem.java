@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2017 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,13 +48,13 @@ public class EditTextFormItem extends TextViewFormItem {
      * @param background True if the background should be applied, false otherwise
 	 */
     EditTextFormItem(FormGenerator fg, View view, boolean background) {
-		super(fg, view, (EditText) view.findViewById(R.id.fg_input), background);
-		editText = (EditText) textView;
+        super(fg, view, view.findViewById(R.id.fg_input), background);
+        editText = (EditText) textView;
 
 		// Set the right background
-		if (this.fg.builder.defaultInputBackgroundId != null) {
-			inputBackground(this.fg.builder.defaultInputBackgroundId);
-		}
+        if(fg.builder.defaultInputBackgroundId != null) {
+            inputBackground(fg.builder.defaultInputBackgroundId);
+        }
 	}
 
 	/**

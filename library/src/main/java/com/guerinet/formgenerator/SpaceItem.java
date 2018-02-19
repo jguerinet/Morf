@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@ package com.guerinet.formgenerator;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
+
+import com.guerinet.fg.Item;
 
 /**
  * Builder for a space.
@@ -41,13 +43,13 @@ public class SpaceItem extends Item {
 		super(fg);
 		this.space = space;
 
-		this.fg.container.addView(this.space);
+        fg.container.addView(this.space);
 
-        if (this.fg.builder.defaultSpaceSize != -1) {
-            size(this.fg.builder.defaultSpaceSize);
+        if(fg.builder.defaultSpaceSize != -1) {
+            size(fg.builder.defaultSpaceSize);
         }
-        background(this.fg.builder.defaultSpaceColorId);
-	}
+        background(fg.builder.defaultSpaceColorId);
+    }
 
 	/**
 	 * Sets the space size

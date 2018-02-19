@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,32 +14,22 @@
  * limitations under the License.
  */
 
-package com.guerinet.formgenerator;
+package com.guerinet.fg
 
-import android.view.View;
+import android.view.View
+import com.guerinet.formgenerator.FormGenerator
 
 /**
- * The base class for all items that could be present on a form
+ * Base class for all items that could be present on a form
  * @author Julien Guerinet
  * @since 2.0.0
+ *
+ * @param fg [FormGenerator] that created this item
  */
-abstract class Item {
-	/**
-	 * The {@link FormGenerator} instance
-	 */
-	protected FormGenerator fg;
-
-	/**
-	 * Default Constructor
-	 *
-	 * @param fg The {@link FormGenerator} instance
-	 */
-	protected Item(FormGenerator fg) {
-		this.fg = fg;
-	}
+abstract class Item(protected val fg: FormGenerator) {
 
     /**
-     * @return The {@link View}
+     * @return [View] this item represents
      */
-    public abstract View view();
+    abstract fun view(): View
 }

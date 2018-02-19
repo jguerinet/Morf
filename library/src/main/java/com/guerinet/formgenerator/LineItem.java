@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@ package com.guerinet.formgenerator;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.view.View;
+
+import com.guerinet.fg.Item;
 
 /**
  * Builder for a line. Base class for all classes
@@ -42,12 +44,12 @@ public class LineItem extends Item {
 		this.line = line;
 
         if (this.line != null) {
-			showLine(this.fg.builder.showLine);
+            showLine(fg.builder.showLine);
             if (fg.builder.defaultLineSize != -1) {
-			    lineSize(this.fg.builder.defaultLineSize);
+                lineSize(fg.builder.defaultLineSize);
             }
-			lineColor(this.fg.builder.defaultLineColorId);
-		}
+            lineColor(fg.builder.defaultLineColorId);
+        }
 	}
 
 	/**
@@ -58,8 +60,8 @@ public class LineItem extends Item {
 	 */
 	public LineItem(FormGenerator fg, View line) {
         this(line, fg);
-		this.fg.container.addView(this.line);
-	}
+        getFg().container.addView(this.line);
+    }
 
 	/**
 	 * Sets the line size

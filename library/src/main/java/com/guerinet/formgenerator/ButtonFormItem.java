@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2017 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,10 +41,10 @@ public class ButtonFormItem extends TextViewFormItem {
 	 * @param view     The {@link View}
 	 */
 	ButtonFormItem(FormGenerator fg, View view) {
-		super(fg, view, (Button)view.findViewById(R.id.fg_button), false);
-		// Bold buttons
-		style(this.fg.builder.defaultTextTypeface, Typeface.BOLD);
-	}
+        super(fg, view, view.findViewById(R.id.fg_button), false);
+        // Bold buttons
+        style(fg.builder.defaultTextTypeface, Typeface.BOLD);
+    }
 
     /**
      * Sets the {@link Button} text

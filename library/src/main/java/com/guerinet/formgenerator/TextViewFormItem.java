@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2017 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,24 +73,24 @@ public class TextViewFormItem extends LineItem {
 		icons[3] = new Icon(0, 0, false);
 
         // Background
-        if (background && this.fg.builder.defaultBackgroundId != null) {
-            background(this.fg.builder.defaultBackgroundId);
+        if(background && fg.builder.defaultBackgroundId != null) {
+            background(fg.builder.defaultBackgroundId);
         }
 
 		// Text Color
-        textColor(this.fg.builder.defaultTextColor);
+        textColor(fg.builder.defaultTextColor);
 
 		// Text Size
-		textSize(this.fg.builder.defaultTextSize);
+        textSize(fg.builder.defaultTextSize);
 
 		// Padding
-        if (this.fg.builder.defaultPaddingSize != -1) {
-            padding(this.fg.builder.defaultPaddingSize);
+        if(fg.builder.defaultPaddingSize != -1) {
+            padding(fg.builder.defaultPaddingSize);
         }
 
 		// Typeface
-		typeface(this.fg.builder.defaultTextTypeface);
-	}
+        typeface(fg.builder.defaultTextTypeface);
+    }
 
     /**
      * Sets the {@link TextView} text
@@ -235,8 +235,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem style(int style) {
-		textView.setTypeface(fg.builder.defaultTextTypeface, style);
-		return this;
+        textView.setTypeface(getFg().builder.defaultTextTypeface, style);
+        return this;
 	}
 
 	/**
@@ -271,8 +271,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId, boolean visible) {
-		icon(0, iconId, fg.builder.defaultIconColor, visible);
-		return this;
+        icon(0, iconId, getFg().builder.defaultIconColor, visible);
+        return this;
 	}
 
 	/**
@@ -283,8 +283,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId, boolean visible) {
-		icon(1, iconId, fg.builder.defaultIconColor, visible);
-		return this;
+        icon(1, iconId, getFg().builder.defaultIconColor, visible);
+        return this;
 	}
 
 	/**
@@ -295,8 +295,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId, boolean visible) {
-		icon(2, iconId, fg.builder.defaultIconColor, visible);
-		return this;
+        icon(2, iconId, getFg().builder.defaultIconColor, visible);
+        return this;
 	}
 
 	/**
@@ -307,8 +307,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId, boolean visible) {
-		icon(3, iconId, fg.builder.defaultIconColor, visible);
-		return this;
+        icon(3, iconId, getFg().builder.defaultIconColor, visible);
+        return this;
 	}
 
 	/**
@@ -318,8 +318,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId) {
-		icon(0, iconId, fg.builder.defaultIconColor, true);
-		return this;
+        icon(0, iconId, getFg().builder.defaultIconColor, true);
+        return this;
 	}
 
 	/**
@@ -329,8 +329,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem leftIcon(Drawable drawableIcon) {
-		icon(0, drawableIcon, fg.builder.defaultIconColor, true);
-		return this;
+        icon(0, drawableIcon, getFg().builder.defaultIconColor, true);
+        return this;
 	}
 
 	/**
@@ -340,8 +340,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem topIcon(@DrawableRes int iconId) {
-		icon(1, iconId, fg.builder.defaultIconColor, true);
-		return this;
+        icon(1, iconId, getFg().builder.defaultIconColor, true);
+        return this;
 	}
 
 	/**
@@ -351,8 +351,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem rightIcon(@DrawableRes int iconId) {
-		icon(2, iconId, fg.builder.defaultIconColor, true);
-		return this;
+        icon(2, iconId, getFg().builder.defaultIconColor, true);
+        return this;
 	}
 
 	/**
@@ -362,8 +362,8 @@ public class TextViewFormItem extends LineItem {
 	 * @return The {@link TextViewFormItem} instance
 	 */
 	public TextViewFormItem bottomIcon(@DrawableRes int iconId) {
-		icon(3, iconId, fg.builder.defaultIconColor, true);
-		return this;
+        icon(3, iconId, getFg().builder.defaultIconColor, true);
+        return this;
 	}
 
 	/**
@@ -569,8 +569,8 @@ public class TextViewFormItem extends LineItem {
         drawables[3] = getDrawable(icons[3]);
 
         // Set the compound drawable padding
-        if (fg.builder.defaultDrawablePaddingSize != -1) {
-            textView.setCompoundDrawablePadding(fg.builder.defaultDrawablePaddingSize);
+        if(getFg().builder.defaultDrawablePaddingSize != -1) {
+            textView.setCompoundDrawablePadding(getFg().builder.defaultDrawablePaddingSize);
         }
 
         // Set the correct tinting and alpha
@@ -605,7 +605,7 @@ public class TextViewFormItem extends LineItem {
         updateIcons();
 
         // Add the view to the container
-        fg.container.addView(view);
+        getFg().container.addView(view);
         return this;
 	}
 
@@ -627,6 +627,18 @@ public class TextViewFormItem extends LineItem {
 
     }
 
+    /**
+     * Custom {@link View.OnClickListener} implementation to have access to the {@link TextView}
+     */
+    public interface OnClickListener {
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param item The clicked {@link TextViewFormItem} instance
+         */
+        void onClick(TextViewFormItem item);
+    }
+
 	/**
 	 * Keeps track of the icons to add
 	 */
@@ -636,12 +648,6 @@ public class TextViewFormItem extends LineItem {
 		 */
         @DrawableRes
 		private final int drawableId;
-
-		/**
-		 * The drawable icon
-		 */
-		private Drawable drawableIcon;
-
 		/**
 		 * The icon color
 		 */
@@ -651,6 +657,10 @@ public class TextViewFormItem extends LineItem {
 		 * True if the icon should be visible, false otherwise
 		 */
 		private final boolean visible;
+        /**
+         * The drawable icon
+         */
+        private Drawable drawableIcon;
 
 		/**
 		 * Default Constructor
@@ -679,16 +689,4 @@ public class TextViewFormItem extends LineItem {
 			visible = visibility;
 		}
 	}
-
-    /**
-     * Custom {@link View.OnClickListener} implementation to have access to the {@link TextView}
-     */
-    public interface OnClickListener {
-        /**
-         * Called when a view has been clicked.
-         *
-         * @param item The clicked {@link TextViewFormItem} instance
-         */
-        void onClick(TextViewFormItem item);
-    }
 }

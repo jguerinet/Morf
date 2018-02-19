@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2017 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,11 +47,11 @@ public class SwitchFormItem extends TextViewFormItem {
 	 * @param view The {@link View}
 	 */
     SwitchFormItem(FormGenerator fg, View view) {
-		super(fg, view, (SwitchCompat)view.findViewById(R.id.fg_switch), true);
-		aSwitch = (SwitchCompat) textView;
+        super(fg, view, view.findViewById(R.id.fg_switch), true);
+        aSwitch = (SwitchCompat) textView;
         // Set the switch typeface
-        aSwitch.setSwitchTypeface(this.fg.builder.defaultTextTypeface);
-	}
+        aSwitch.setSwitchTypeface(fg.builder.defaultTextTypeface);
+    }
 
     /**
 	 * Sets the {@link SwitchCompat}'s checked state
