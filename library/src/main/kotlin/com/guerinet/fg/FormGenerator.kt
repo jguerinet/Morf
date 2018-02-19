@@ -91,6 +91,26 @@ class FormGenerator private constructor(internal val defaults: Defaults,
     fun aSwitch(): SwitchItem =
             SwitchItem(this, inflater.inflate(R.layout.fg_switch, container, false))
 
+    companion object {
+
+        /**
+         * User defaults to use everywhere, null if none set
+         */
+        private var _defaults: Defaults? = null
+        var defaults: Defaults
+            get() = _defaults ?: Defaults()
+            set(value) {
+                _defaults = value
+            }
+
+        /**
+         * Binds the [Defaults] singleton to the given layout and returns the corresponding
+         *  [FormGenerator]. This will use either the [Defaults] set by the user, or the [Defaults]
+         *  with default values
+         */
+        fun bind(container: LinearLayout): FormGenerator = FormGenerator(defaults, container)
+    }
+
     /**
      * Contains all of the customizable defaults for a [FormGenerator]
      */
