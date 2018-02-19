@@ -55,6 +55,12 @@ class FormGenerator private constructor(internal val defaults: Defaults,
     }
 
     /**
+     * @return [ButtonItem] added to the form
+     */
+    fun button(): ButtonItem =
+            ButtonItem(this, inflater.inflate(R.layout.fg_button, container, false))
+
+    /**
      * Contains all of the customizable defaults for a [FormGenerator]
      */
     class Defaults {
