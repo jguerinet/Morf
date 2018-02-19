@@ -49,7 +49,7 @@ class SwitchItem(fg: FormGenerator, view: View) :
     /**
      * Sets the [textOn] and [textOff] texts if not null (both default to null) on the returned item
      */
-    fun switchText(textOn: String? = null, textOff: String? = null) {
+    fun switchText(textOn: String? = null, textOff: String? = null): SwitchItem {
         childView.showText = true
         if (textOn != null) {
             childView.textOn = textOn
@@ -57,6 +57,7 @@ class SwitchItem(fg: FormGenerator, view: View) :
         if (textOff != null) {
             childView.textOff = textOff
         }
+        return this
     }
 
     override fun typeface(typeface: Typeface?): SwitchItem {
