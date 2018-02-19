@@ -16,6 +16,7 @@
 
 package com.guerinet.fg
 
+import android.support.annotation.CallSuper
 import android.view.View
 import com.guerinet.formgenerator.FormGenerator
 
@@ -26,10 +27,22 @@ import com.guerinet.formgenerator.FormGenerator
  *
  * @param fg    [FormGenerator] that created this item
  */
-abstract class Item(protected val fg: FormGenerator) {
+@Suppress("UNCHECKED_CAST")
+open class Item<T : Item<T>>(protected val fg: FormGenerator, protected val view: View) {
 
     /**
+     * Builds the item by adding it to the container. Subclasses may perform other operations
+     * @return [Item] instance
+     */
+    @CallSuper
+    open fun build(): T {
+        fg.container.addView(view)
+        return this as T
+    }
+
+    /**
+     * TODO This might be useless
      * @return [View] this item represents
      */
-    abstract fun view(): View
+    open fun view(): View = view
 }

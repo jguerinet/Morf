@@ -28,13 +28,11 @@ import com.guerinet.formgenerator.FormGenerator
  * @since 2.0.0
  *
  * @param fg    [FormGenerator] instance
- * @param space Space [View]
+ * @param view  Space [View]
  */
-class SpaceItem(fg: FormGenerator, private val space: View) : Item(fg) {
+class SpaceItem(fg: FormGenerator, view: View) : Item<SpaceItem>(fg, view) {
 
     init {
-        fg.container.addView(space)
-
         if (fg.builder.defaultSpaceSize != -1) {
             // If there is a custom default space height, set it
             height(fg.builder.defaultSpaceSize)
@@ -46,7 +44,7 @@ class SpaceItem(fg: FormGenerator, private val space: View) : Item(fg) {
      * @return [SpaceItem] instance with the new [height] set, in pixels
      */
     fun height(height: Int): SpaceItem {
-        space.layoutParams.height = height
+        view.layoutParams.height = height
         return this
     }
 
@@ -54,7 +52,7 @@ class SpaceItem(fg: FormGenerator, private val space: View) : Item(fg) {
      * @return [SpaceItem] instance with the background with the given [resId] set
      */
     fun background(@ColorRes @DrawableRes resId: Int): SpaceItem {
-        space.setBackgroundResource(resId)
+        view.setBackgroundResource(resId)
         return this
     }
 
@@ -62,9 +60,7 @@ class SpaceItem(fg: FormGenerator, private val space: View) : Item(fg) {
      * @return [SpaceItem] instance with the background of the given [color]
      */
     fun backgroundColor(@ColorInt color: Int): SpaceItem {
-        space.setBackgroundColor(color)
+        view.setBackgroundColor(color)
         return this
     }
-
-    override fun view(): View = space
 }

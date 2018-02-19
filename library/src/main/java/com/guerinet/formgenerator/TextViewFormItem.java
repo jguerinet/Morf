@@ -20,7 +20,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.CallSuper;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -32,12 +31,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.guerinet.fg.LineItem;
+
 /**
  * Builder for a {@link TextView} form item (buttons, texts, switches, and inputs)
  * @author Julien Guerinet
  * @since 2.0.0
  */
-public class TextViewFormItem extends LineItem {
+public class TextViewFormItem extends LineItem<TextViewFormItem> {
     /**
      * The form item {@link View}
      */
@@ -60,7 +61,7 @@ public class TextViewFormItem extends LineItem {
      * @param background True if the default background should be applied, false otherwise
 	 */
     TextViewFormItem(FormGenerator fg, View view, TextView textView, boolean background) {
-		super(view.findViewById(R.id.fg_line), fg);
+        super(fg, view, view.findViewById(R.id.fg_line));
         this.view = view;
 		this.textView = textView;
 		this.view.setClickable(false);
@@ -474,39 +475,6 @@ public class TextViewFormItem extends LineItem {
     }
 
     /**
-	 * Sets the line size
-	 *
-	 * @param pixels The line size dimension Id
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	@Override
-	public TextViewFormItem lineSize(int pixels) {
-		return (TextViewFormItem) super.lineSize(pixels);
-	}
-
-	/**
-	 * Sets the line color
-	 *
-	 * @param colorId The color Id
-	 * @return The {@link TextViewFormItem} instance
-	 */
-	@Override
-	public TextViewFormItem lineColor(@ColorRes @DrawableRes int colorId) {
-		return (TextViewFormItem)super.lineColor(colorId);
-	}
-
-	/**
-	 * Sets the line visibility
-	 *
-	 * @param show True if the line should be visible, false otherwise
-	 * @return The {@link LineItem} instance
-	 */
-	@Override
-	public TextViewFormItem showLine(boolean show) {
-		return (TextViewFormItem)super.showLine(show);
-	}
-
-    /**
      * Sets the background
      *
      * @param backgroundId The background Id
@@ -605,9 +573,8 @@ public class TextViewFormItem extends LineItem {
         updateIcons();
 
         // Add the view to the container
-        getFg().container.addView(view);
-        return this;
-	}
+        return super.build();
+    }
 
     /**
      * @param icon {@link Icon} instance

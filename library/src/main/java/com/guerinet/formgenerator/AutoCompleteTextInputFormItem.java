@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2017 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
 	 */
     AutoCompleteTextInputFormItem(FormGenerator fg, View view) {
 		super(fg, view);
-        inputLayout = (TextInputLayout) view.findViewById(R.id.fg_input_layout);
+        inputLayout = view.findViewById(R.id.fg_input_layout);
         acTextView = (AutoCompleteTextView) editText;
 	}
 
@@ -458,39 +458,6 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
     public AutoCompleteTextInputFormItem gravity(int gravity) {
         return (AutoCompleteTextInputFormItem) super.gravity(gravity);
     }
-
-	/**
-	 * Sets the line size
-	 *
-	 * @param pixels The line size, in <strong>pixels</strong>
-	 * @return The {@link AutoCompleteTextInputFormItem} instance
-	 */
-	@Override
-	public AutoCompleteTextInputFormItem lineSize(int pixels) {
-		return (AutoCompleteTextInputFormItem) super.lineSize(pixels);
-	}
-
-	/**
-	 * Sets the line color
-	 *
-	 * @param colorId The color Id
-	 * @return The {@link AutoCompleteTextInputFormItem} instance
-	 */
-	@Override
-	public AutoCompleteTextInputFormItem lineColor(@ColorRes @DrawableRes int colorId) {
-		return (AutoCompleteTextInputFormItem) super.lineColor(colorId);
-	}
-
-	/**
-	 * Sets the line visibility
-	 *
-	 * @param show True if the line should be visible, false otherwise
-	 * @return The {@link AutoCompleteTextInputFormItem} instance
-	 */
-	@Override
-	public AutoCompleteTextInputFormItem showLine(boolean show) {
-		return (AutoCompleteTextInputFormItem) super.showLine(show);
-	}
 
 	/**
 	 * Sets the background

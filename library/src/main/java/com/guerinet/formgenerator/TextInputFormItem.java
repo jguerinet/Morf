@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2017 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,8 +49,8 @@ public class TextInputFormItem extends EditTextFormItem {
 	 */
     TextInputFormItem(FormGenerator fg, View view) {
 		super(fg, view, false);
-        inputLayout = (TextInputLayout) view.findViewById(R.id.fg_input_layout);
-	}
+        inputLayout = view.findViewById(R.id.fg_input_layout);
+    }
 
     /**
      * @param show True if the password visibility toggle should be shown, false otherwise
@@ -433,39 +433,6 @@ public class TextInputFormItem extends EditTextFormItem {
     public TextInputFormItem gravity(int gravity) {
         return (TextInputFormItem) super.gravity(gravity);
     }
-
-	/**
-	 * Sets the line size
-	 *
-	 * @param pixels The line size, in <strong>pixels</strong>
-	 * @return The {@link TextInputFormItem} instance
-	 */
-	@Override
-	public TextInputFormItem lineSize(int pixels) {
-		return (TextInputFormItem) super.lineSize(pixels);
-	}
-
-	/**
-	 * Sets the line color
-	 *
-	 * @param colorId The color Id
-	 * @return The {@link TextInputFormItem} instance
-	 */
-	@Override
-	public TextInputFormItem lineColor(@ColorRes @DrawableRes int colorId) {
-		return (TextInputFormItem) super.lineColor(colorId);
-	}
-
-	/**
-	 * Sets the line visibility
-	 *
-	 * @param show True if the line should be visible, false otherwise
-	 * @return The {@link TextInputFormItem} instance
-	 */
-	@Override
-	public TextInputFormItem showLine(boolean show) {
-		return (TextInputFormItem) super.showLine(show);
-	}
 
 	/**
 	 * Sets the background

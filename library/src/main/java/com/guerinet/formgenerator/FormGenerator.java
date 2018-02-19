@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.guerinet.fg.LineItem;
 import com.guerinet.fg.SpaceItem;
 
 /**
@@ -117,8 +118,9 @@ public class FormGenerator {
 	 * @return The {@link LineItem}
 	 */
 	public LineItem line() {
-		return new LineItem(this, inflater.inflate(R.layout.fg_line, container, false));
-	}
+        View view = inflater.inflate(R.layout.fg_line, container);
+        return new LineItem(this, view, view);
+    }
 
 	/**
 	 * Adds an input item
@@ -203,6 +205,20 @@ public class FormGenerator {
          */
         public int defaultSpaceSize = -1;
         /**
+         * The default line size, -1 if none
+         */
+        public int defaultLineSize = -1;
+        /**
+         * The default line color Id, #EEEEEE if none
+         */
+        @ColorRes
+        @DrawableRes
+        public int defaultLineColorId = R.color.line;
+        /**
+         * True if we should show a line after a form item, false otherwise (defaults to true)
+         */
+        public boolean showLine = true;
+        /**
          * The default icon color Id, -1 if none
          */
         @ColorInt
@@ -240,20 +256,6 @@ public class FormGenerator {
          * Default padding size between a view and its compound drawable, app default if none
          */
         int defaultDrawablePaddingSize = -1;
-        /**
-         * The default line size, -1 if none
-         */
-        int defaultLineSize = -1;
-        /**
-         * The default line color Id, #EEEEEE if none
-         */
-        @ColorRes
-        @DrawableRes
-        int defaultLineColorId = R.color.line;
-        /**
-         * True if we should show a line after a form item, false otherwise (defaults to true)
-         */
-        boolean showLine = true;
 
 		/**
 		 * Default Constructor

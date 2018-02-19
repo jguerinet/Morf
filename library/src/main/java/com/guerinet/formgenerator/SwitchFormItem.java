@@ -457,39 +457,6 @@ public class SwitchFormItem extends TextViewFormItem {
     }
 
 	/**
-	 * Sets the line size
-	 *
-	 * @param pixels The line size, in <strong>pixels</strong>
-	 * @return The {@link SwitchFormItem} instance
-	 */
-	@Override
-	public SwitchFormItem lineSize(int pixels) {
-		return (SwitchFormItem) super.lineSize(pixels);
-	}
-
-	/**
-	 * Sets the line color
-	 *
-	 * @param colorId The color Id
-	 * @return The {@link SwitchFormItem} instance
-	 */
-	@Override
-	public SwitchFormItem lineColor(@ColorRes @DrawableRes int colorId) {
-		return (SwitchFormItem) super.lineColor(colorId);
-	}
-
-	/**
-	 * Sets the line visibility
-	 *
-	 * @param show True if the line should be visible, false otherwise
-	 * @return The {@link LineItem} instance
-	 */
-	@Override
-	public SwitchFormItem showLine(boolean show) {
-		return (SwitchFormItem) super.showLine(show);
-	}
-
-	/**
 	 * Sets the background
 	 *
 	 * @param backgroundId The background Id
