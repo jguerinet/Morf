@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.guerinet.fg.ButtonItem;
 import com.guerinet.fg.LineItem;
 import com.guerinet.fg.SpaceItem;
 import com.guerinet.fg.TextViewItem;
@@ -166,19 +167,19 @@ public class FormGenerator {
 	/**
 	 * Adds a standard button
 	 *
-	 * @return The {@link ButtonFormItem}
-	 */
-	public ButtonFormItem button() {
-		return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button, container, false));
-	}
+     * @return The {@link ButtonItem}
+     */
+    public ButtonItem button() {
+        return new ButtonItem(this, inflater.inflate(R.layout.fg_button, container, false));
+    }
 
     /**
      * Adds a borderless button
      *
-     * @return The {@link ButtonFormItem}
+     * @return The {@link ButtonItem}
      */
-    public ButtonFormItem borderlessButton() {
-        return new ButtonFormItem(this, inflater.inflate(R.layout.fg_button_borderless, container,
+    public ButtonItem borderlessButton() {
+        return new ButtonItem(this, inflater.inflate(R.layout.fg_button_borderless, container,
                 false));
     }
 

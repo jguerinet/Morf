@@ -14,30 +14,17 @@
  * limitations under the License.
  */
 
-package com.guerinet.formgenerator;
+package com.guerinet.fg
 
-import android.graphics.Typeface;
-import android.view.View;
-import android.widget.Button;
-
-import com.guerinet.fg.TextViewItem;
+import android.view.View
+import android.widget.Button
+import com.guerinet.formgenerator.FormGenerator
+import com.guerinet.formgenerator.R
 
 /**
- * Builder for a {@link Button} form item
+ * Form item that represents a [Button]
  * @author Julien Guerinet
  * @since 2.0.0
  */
-public class ButtonFormItem extends TextViewItem<ButtonFormItem, Button> {
-
-	/**
-	 * Default Constructor
-	 *
-	 * @param fg       The {@link FormGenerator} instance
-	 * @param view     The {@link View}
-	 */
-	ButtonFormItem(FormGenerator fg, View view) {
-        super(fg, view, view.findViewById(R.id.fg_button), false);
-        // Bold buttons
-        style(Typeface.BOLD, fg.builder.defaultTextTypeface);
-    }
-}
+class ButtonItem(fg: FormGenerator, view: View) :
+        TextViewItem<ButtonItem, Button>(fg, view, view.findViewById(R.id.fg_button), false)
