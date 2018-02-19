@@ -31,11 +31,11 @@ import com.guerinet.formgenerator.R
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
 @Suppress("UNCHECKED_CAST")
-open class EditTextItem<T : EditTextItem<T>>(
+open class EditTextItem<T : EditTextItem<T, V>, V : EditText>(
         fg: FormGenerator,
         view: View,
         isDefaultBackground: Boolean) :
-        TextViewItem<T, EditText>(fg, view, view.findViewById(R.id.fg_input), isDefaultBackground) {
+        TextViewItem<T, V>(fg, view, view.findViewById(R.id.fg_input), isDefaultBackground) {
 
     /**
      * Current String in the [EditText]

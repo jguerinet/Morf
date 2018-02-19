@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.guerinet.fg.AutoCompleteTextInputItem;
 import com.guerinet.fg.ButtonItem;
 import com.guerinet.fg.EditTextItem;
 import com.guerinet.fg.LineItem;
@@ -148,10 +149,10 @@ public class FormGenerator {
     /**
      * Adds an auto complete text input item
      *
-     * @return Generated {@link AutoCompleteTextInputFormItem}
+     * @return Generated {@link AutoCompleteTextInputItem}
      */
-    public AutoCompleteTextInputFormItem autoCompleteTextInput() {
-        return new AutoCompleteTextInputFormItem(this, inflater.inflate(R.layout.fg_text_input_ac,
+    public AutoCompleteTextInputItem autoCompleteTextInput() {
+        return new AutoCompleteTextInputItem(this, inflater.inflate(R.layout.fg_text_input_ac,
                 container, false));
     }
 
