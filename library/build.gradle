@@ -16,7 +16,6 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'me.tatarka.retrolambda'
 
 archivesBaseName="form-generator"
 version =  "3.2.2"
