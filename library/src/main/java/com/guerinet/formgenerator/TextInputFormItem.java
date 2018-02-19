@@ -17,6 +17,7 @@
 package com.guerinet.formgenerator;
 
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -285,6 +286,17 @@ public class TextInputFormItem extends EditTextFormItem {
 	@Override
 	public TextInputFormItem leftIcon(@DrawableRes int iconId) {
 		return (TextInputFormItem) super.leftIcon(iconId);
+	}
+
+	/**
+	 * Sets the left icon with drawable
+	 *
+	 * @param drawableIcon  The icon drawable
+	 * @return The {@link TextInputFormItem} instance
+	 */
+	@Override
+	public TextInputFormItem leftIcon(Drawable drawableIcon) {
+		return (TextInputFormItem) super.leftIcon(drawableIcon);
 	}
 
 	/**

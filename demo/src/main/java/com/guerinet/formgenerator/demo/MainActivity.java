@@ -195,5 +195,11 @@ public class MainActivity extends AppCompatActivity {
                 .switchText("On", "Off")
 				.leftIcon(R.drawable.ic_info, false)
                 .build();
+
+		fg.textInput()
+				.hint("FormItem: Text Input with drawable icon")
+				.background(android.R.color.white)
+				.leftIcon(getResources().getDrawable(R.drawable.ic_info))
+				.build();
 	}
 }

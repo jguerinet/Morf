@@ -252,6 +252,18 @@ public class TextViewFormItem extends LineItem {
 	}
 
 	/**
+	 * Sets up the icon with drawable
+	 *
+	 * @param position The icon position
+	 * @param drawableIcon   The icon drawable
+	 * @param color    The color
+	 * @param visible  True if the icon should be visible, false otherwise
+	 */
+	private void icon(int position, Drawable drawableIcon, @ColorInt int color, boolean visible) {
+		icons[position] = new Icon(drawableIcon, color, visible);
+	}
+
+	/**
 	 * Sets the left icon
 	 *
 	 * @param iconId  The icon resource Id
@@ -307,6 +319,17 @@ public class TextViewFormItem extends LineItem {
 	 */
 	public TextViewFormItem leftIcon(@DrawableRes int iconId) {
 		icon(0, iconId, fg.builder.defaultIconColor, true);
+		return this;
+	}
+
+	/**
+	 * Sets the left icon with drawable
+	 *
+	 * @param drawableIcon  The icon drawable
+	 * @return The {@link TextViewFormItem} instance
+	 */
+	public TextViewFormItem leftIcon(Drawable drawableIcon) {
+		icon(0, drawableIcon, fg.builder.defaultIconColor, true);
 		return this;
 	}
 
@@ -592,8 +615,16 @@ public class TextViewFormItem extends LineItem {
      */
     @Nullable
     private Drawable getDrawable(Icon icon) {
-        return icon.drawableId == 0 ? null :
-                ContextCompat.getDrawable(view.getContext(), icon.drawableId);
+    	Drawable returnedDrawable = null;
+
+    	if (icon.drawableId != 0) {
+    		returnedDrawable = ContextCompat.getDrawable(view.getContext(), icon.drawableId);
+		} else if (icon.drawableIcon != null) {
+			returnedDrawable = icon.drawableIcon;
+		}
+
+		return returnedDrawable;
+
     }
 
 	/**
@@ -605,6 +636,12 @@ public class TextViewFormItem extends LineItem {
 		 */
         @DrawableRes
 		private final int drawableId;
+
+		/**
+		 * The drawable icon
+		 */
+		private Drawable drawableIcon;
+
 		/**
 		 * The icon color
 		 */
@@ -624,6 +661,20 @@ public class TextViewFormItem extends LineItem {
 		 */
 		private Icon(@DrawableRes int drawableId, @ColorInt int color, boolean visibility){
 			this.drawableId = drawableId;
+			this.color = color;
+			visible = visibility;
+		}
+
+		/**
+		 * Alternate Constructor
+		 *
+		 * @param drawableIcon The drawable url image
+		 * @param color      The color
+		 * @param visibility True if the icon should be visible, false otherwise
+		 */
+		private Icon(Drawable drawableIcon, @ColorInt int color, boolean visibility){
+			this.drawableId = 0;
+			this.drawableIcon = drawableIcon;
 			this.color = color;
 			visible = visibility;
 		}
