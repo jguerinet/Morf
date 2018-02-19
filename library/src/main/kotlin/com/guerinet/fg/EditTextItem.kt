@@ -30,9 +30,12 @@ import com.guerinet.formgenerator.R
  * @param view                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-open class EditTextItem(fg: FormGenerator, view: View, isDefaultBackground: Boolean) :
-        TextViewItem<EditTextItem, EditText>(fg, view, view.findViewById(R.id.fg_input),
-                isDefaultBackground) {
+@Suppress("UNCHECKED_CAST")
+open class EditTextItem<T : EditTextItem<T>>(
+        fg: FormGenerator,
+        view: View,
+        isDefaultBackground: Boolean) :
+        TextViewItem<T, EditText>(fg, view, view.findViewById(R.id.fg_input), isDefaultBackground) {
 
     /**
      * Current String in the [EditText]
@@ -58,20 +61,20 @@ open class EditTextItem(fg: FormGenerator, view: View, isDefaultBackground: Bool
     /**
      * @return Item with the input type set to the given [type]
      */
-    fun inputType(type: Int): EditTextItem {
+    fun inputType(type: Int): T {
         childView.inputType = type
-        return this
+        return this as T
     }
 
     /**
      * @return Item with the input background set to the [backgroundId]
      */
-    fun inputBackgroundId(backgroundId: Int): EditTextItem {
+    fun inputBackgroundId(backgroundId: Int): T {
         childView.setBackgroundResource(backgroundId)
-        return this
+        return this as T
     }
 
-    override fun onClick(listener: OnClickListener<EditTextItem>?): EditTextItem {
+    override fun onClick(listener: OnClickListener<T>?): T {
         // Make the EditText non focusable, non long clickable, and follow its parent before
         //  continuing. If the listener is null, do the opposite
         childView.isFocusable = listener == null
@@ -80,7 +83,7 @@ open class EditTextItem(fg: FormGenerator, view: View, isDefaultBackground: Bool
         if (listener == null) {
             childView.setOnClickListener(null)
         } else {
-            childView.setOnClickListener({ _ -> listener.onClick(this) })
+            childView.setOnClickListener({ _ -> listener.onClick(this as T) })
         }
         return super.onClick(listener)
     }

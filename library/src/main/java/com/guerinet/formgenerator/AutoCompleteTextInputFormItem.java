@@ -16,24 +16,20 @@
 
 package com.guerinet.formgenerator;
 
-import android.support.annotation.StringRes;
-import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.Filterable;
 import android.widget.ListAdapter;
+
+import com.guerinet.fg.TextInputItem;
 
 /**
  * Builder for an text input form item that has an autcomplete option
  * @author Julien Guerinet
  * @since 3.0.0
  */
-public class AutoCompleteTextInputFormItem extends TextInputFormItem {
-    /**
-     * {@link TextInputLayout} instance
-     */
-    private final TextInputLayout inputLayout;
+public class AutoCompleteTextInputFormItem extends TextInputItem {
+
     /**
      * The AutoCompleteTextView instance
      */
@@ -47,7 +43,6 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
 	 */
     AutoCompleteTextInputFormItem(FormGenerator fg, View view) {
 		super(fg, view);
-        inputLayout = view.findViewById(R.id.fg_input_layout);
         acTextView = (AutoCompleteTextView) getChildView();
     }
 
@@ -79,36 +74,4 @@ public class AutoCompleteTextInputFormItem extends TextInputFormItem {
         }
         return this;
     }
-
-    /**
-     * @param show True if the password visibility toggle should be shown, false otherwise
-     * @return {@link AutoCompleteTextInputFormItem} instance
-     */
-    @Override
-    public AutoCompleteTextInputFormItem showTogglePasswordVisibility(boolean show) {
-        return (AutoCompleteTextInputFormItem) super.showTogglePasswordVisibility(show);
-    }
-
-	/**
-	 * Sets the {@link Button} hint
-	 *
-	 * @param hint The hint
-	 * @return The {@link AutoCompleteTextInputFormItem} instance
-	 */
-	@Override
-	public AutoCompleteTextInputFormItem hint(String hint) {
-        inputLayout.setHint(hint);
-        return this;
-	}
-
-	/**
-	 * Sets the {@link Button} hint
-	 *
-	 * @param stringId The String Id
-	 * @return The {@link AutoCompleteTextInputFormItem} instance
-	 */
-	@Override
-	public AutoCompleteTextInputFormItem hint(@StringRes int stringId) {
-        return hint(inputLayout.getContext().getString(stringId));
-	}
 }

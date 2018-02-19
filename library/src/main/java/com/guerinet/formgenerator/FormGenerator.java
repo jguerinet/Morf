@@ -29,6 +29,7 @@ import com.guerinet.fg.ButtonItem;
 import com.guerinet.fg.EditTextItem;
 import com.guerinet.fg.LineItem;
 import com.guerinet.fg.SpaceItem;
+import com.guerinet.fg.TextInputItem;
 import com.guerinet.fg.TextViewItem;
 
 /**
@@ -138,11 +139,10 @@ public class FormGenerator {
     /**
      * Adds a text input item
      *
-     * @return Generated {@link TextInputFormItem}
+     * @return Generated {@link TextInputItem}
      */
-    public TextInputFormItem textInput() {
-        return new TextInputFormItem(this, inflater.inflate(R.layout.fg_text_input, container,
-                false));
+    public TextInputItem textInput() {
+        return new TextInputItem(this, inflater.inflate(R.layout.fg_text_input, container, false));
     }
 
     /**
