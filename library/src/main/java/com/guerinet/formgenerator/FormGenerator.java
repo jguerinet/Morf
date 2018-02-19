@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2017 Julien Guerinet
+ * Copyright 2015-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ import android.support.annotation.DrawableRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import com.guerinet.fg.SpaceItem;
 
 /**
  * Creates various form items and adds them to a given container
@@ -39,17 +40,29 @@ public class FormGenerator {
 
 	/* SETTINGS */
 	/**
-	 * The {@link LayoutInflater}
-	 */
-	private LayoutInflater inflater;
-	/**
 	 * The {@link LinearLayout} used as the form container
 	 */
-	LinearLayout container;
+    public LinearLayout container;
     /**
      * The {@link Builder} instance to use to construct this FormGenerator
      */
-    Builder builder;
+    public Builder builder;
+    /**
+     * The {@link LayoutInflater}
+     */
+    private LayoutInflater inflater;
+
+    /**
+     * Default Constructor
+     *
+     * @param builder   {@link Builder} instance to construct the {@link FormGenerator} from
+     * @param container Container to add the form items to
+     */
+    private FormGenerator(Builder builder, LinearLayout container) {
+        this.inflater = LayoutInflater.from(container.getContext());
+        this.container = container;
+        this.builder = builder;
+    }
 
 	/**
 	 * Binds the default {@link FormGenerator} to the given layout and returns it.
@@ -89,18 +102,6 @@ public class FormGenerator {
 	 */
 	public static void set(Builder builder) {
 		singleton = builder;
-	}
-
-	/**
-	 * Default Constructor
-	 *
-	 * @param builder   {@link Builder} instance to construct the {@link FormGenerator} from
-	 * @param container Container to add the form items to
-	 */
-	private FormGenerator(Builder builder, LinearLayout container) {
-		this.inflater = LayoutInflater.from(container.getContext());
-		this.container = container;
-        this.builder = builder;
 	}
 
 	/**
@@ -156,8 +157,8 @@ public class FormGenerator {
 	 */
 	public TextViewFormItem text() {
 		View view = inflater.inflate(R.layout.fg_text, container, false);
-		return new TextViewFormItem(this, view, (TextView)view.findViewById(R.id.fg_text), true);
-	}
+        return new TextViewFormItem(this, view, view.findViewById(R.id.fg_text), true);
+    }
 
 	/**
 	 * Adds a standard button
@@ -192,6 +193,16 @@ public class FormGenerator {
 	 */
 	public static class Builder {
         /**
+         * The default color for the space, transparent if none
+         */
+        @ColorRes
+        @DrawableRes
+        public int defaultSpaceColorId = android.R.color.transparent;
+        /**
+         * The default space size Id, -1 if none
+         */
+        public int defaultSpaceSize = -1;
+        /**
          * The default icon color Id, -1 if none
          */
         @ColorInt
@@ -208,16 +219,6 @@ public class FormGenerator {
         @ColorRes
         @DrawableRes
         Integer defaultInputBackgroundId = null;
-        /**
-         * The default color for the space, transparent if none
-         */
-        @ColorRes
-        @DrawableRes
-        int defaultSpaceColorId = android.R.color.transparent;
-        /**
-         * The default space size Id, -1 if none
-         */
-        int defaultSpaceSize = -1;
         /**
          * The default text size, app default if none
          */

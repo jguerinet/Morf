@@ -24,7 +24,7 @@ import com.guerinet.formgenerator.FormGenerator
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg [FormGenerator] that created this item
+ * @param fg    [FormGenerator] that created this item
  */
 abstract class Item(protected val fg: FormGenerator) {
 
