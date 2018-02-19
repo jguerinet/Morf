@@ -18,74 +18,16 @@ package com.guerinet.fg
 
 import android.view.View
 import android.widget.EditText
-import com.guerinet.fg.base.BaseTextViewItem
-import com.guerinet.formgenerator.R
+import com.guerinet.fg.base.BaseEditTextItem
 
 /**
  * Form item that represents an [EditText]
  * @author Julien Guerinet
- * @since 2.0.0
+ * @since 4.0.0
  *
  * @param fg                    [FormGenerator] instance
  * @param view                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-@Suppress("UNCHECKED_CAST")
-open class EditTextItem<T : EditTextItem<T, V>, V : EditText>(
-        fg: FormGenerator,
-        view: View,
-        isDefaultBackground: Boolean) :
-        BaseTextViewItem<T, V>(fg, view, view.findViewById(R.id.fg_input), isDefaultBackground) {
-
-    /**
-     * Current String in the [EditText]
-     */
-    var input: String = ""
-        get() = childView.text.toString()
-        private set
-
-    /**
-     * Current String in the [EditText], trimmed
-     */
-    var trimmedInput: String = ""
-        get() = input.trim()
-        private set
-
-    init {
-        // Set the right background
-        val inputBackgroundId = fg.defaults.inputBackgroundId
-        if (inputBackgroundId != null) {
-            inputBackgroundId(inputBackgroundId)
-        }
-    }
-
-    /**
-     * @return Item with the input type set to the given [type]
-     */
-    fun inputType(type: Int): T {
-        childView.inputType = type
-        return this as T
-    }
-
-    /**
-     * @return Item with the input background set to the [backgroundId]
-     */
-    fun inputBackgroundId(backgroundId: Int): T {
-        childView.setBackgroundResource(backgroundId)
-        return this as T
-    }
-
-    override fun onClick(listener: OnClickListener<T>?): T {
-        // Make the EditText non focusable, non long clickable, and follow its parent before
-        //  continuing. If the listener is null, do the opposite
-        childView.isFocusable = listener == null
-        childView.isLongClickable = listener == null
-        childView.isClickable = false
-        if (listener == null) {
-            childView.setOnClickListener(null)
-        } else {
-            childView.setOnClickListener({ _ -> listener.onClick(this as T) })
-        }
-        return super.onClick(listener)
-    }
-}
+class EditTextItem(fg: FormGenerator, view: View, isDefaultBackground: Boolean) :
+        BaseEditTextItem<EditTextItem, EditText>(fg, view, isDefaultBackground)

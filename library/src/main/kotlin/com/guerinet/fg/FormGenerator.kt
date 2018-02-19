@@ -67,6 +67,12 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             ButtonItem(this, inflater.inflate(R.layout.fg_button_borderless, container, false))
 
     /**
+     * @return [EditTextItem] added to the form
+     */
+    fun input(): EditTextItem =
+            EditTextItem(this, inflater.inflate(R.layout.fg_input, container, false), true)
+
+    /**
      * Contains all of the customizable defaults for a [FormGenerator]
      */
     class Defaults {

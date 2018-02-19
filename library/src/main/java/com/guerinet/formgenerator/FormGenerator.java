@@ -25,10 +25,9 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
 import com.guerinet.fg.AutoCompleteTextInputItem;
-import com.guerinet.fg.ButtonItem;
-import com.guerinet.fg.EditTextItem;
 import com.guerinet.fg.SwitchItem;
 import com.guerinet.fg.TextInputItem;
+import com.guerinet.fg.base.BaseEditTextItem;
 
 /**
  * Creates various form items and adds them to a given container
@@ -110,10 +109,10 @@ public class FormGenerator {
 	/**
 	 * Adds an input item
 	 *
-     * @return The {@link EditTextItem}
+     * @return The {@link BaseEditTextItem}
      */
-    public EditTextItem input() {
-        return new EditTextItem(this, inflater.inflate(R.layout.fg_input, container, false),
+    public BaseEditTextItem input() {
+        return new BaseEditTextItem(this, inflater.inflate(R.layout.fg_input, container, false),
                 true);
 	}
 
@@ -134,16 +133,6 @@ public class FormGenerator {
     public AutoCompleteTextInputItem autoCompleteTextInput() {
         return new AutoCompleteTextInputItem(this, inflater.inflate(R.layout.fg_text_input_ac,
                 container, false));
-    }
-
-    /**
-     * Adds a borderless button
-     *
-     * @return The {@link ButtonItem}
-     */
-    public ButtonItem borderlessButton() {
-        return new ButtonItem(this, inflater.inflate(R.layout.fg_button_borderless, container,
-                false));
     }
 
 	/**

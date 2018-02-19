@@ -19,6 +19,7 @@ package com.guerinet.fg
 import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.widget.EditText
+import com.guerinet.fg.base.BaseEditTextItem
 import com.guerinet.formgenerator.R
 
 /**
@@ -28,7 +29,7 @@ import com.guerinet.formgenerator.R
  */
 @Suppress("UNCHECKED_CAST")
 open class TextInputItem<T : TextInputItem<T, V>, V : EditText>(fg: FormGenerator, view: View) :
-        EditTextItem<T, V>(fg, view, false) {
+        BaseEditTextItem<T, V>(fg, view, false) {
 
     private val inputLayout: TextInputLayout = view.findViewById(R.id.fg_input_layout)
 
