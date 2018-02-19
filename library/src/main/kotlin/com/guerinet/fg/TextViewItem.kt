@@ -26,7 +26,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.guerinet.formgenerator.FormGenerator
+import com.guerinet.fg.base.BaseLineItem
 import com.guerinet.formgenerator.R
 
 /**
@@ -44,7 +44,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
         fg: FormGenerator,
         view: View,
         protected val childView: V,
-        isDefaultBackground: Boolean) : LineItem<T>(fg, view, view.findViewById(R.id.fg_line)
+        isDefaultBackground: Boolean) : BaseLineItem<T>(fg, view, view.findViewById(R.id.fg_line)
 ) {
 
     /**
@@ -57,23 +57,27 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
         view.isClickable = false
 
         // Background
-        if (isDefaultBackground && fg.builder.defaultBackgroundId != null) {
-            backgroundId(fg.builder.defaultBackgroundId)
+        val backgroundId = fg.defaults.backgroundId
+        if (isDefaultBackground && backgroundId != null) {
+            @Suppress("LeakingThis")
+            backgroundId(backgroundId)
         }
 
         // Text Color
-        textColor(fg.builder.defaultTextColor)
+        textColor(fg.defaults.textColor)
 
         // Text Size
-        textSizeId(fg.builder.defaultTextSize)
+        textSizeId(fg.defaults.textSize)
 
         // Padding
-        if (fg.builder.defaultPaddingSize != -1) {
-            padding(fg.builder.defaultPaddingSize)
+        val paddingSize = fg.defaults.paddingSize
+        if (paddingSize != null) {
+            padding(paddingSize)
         }
 
         // Typeface
-        typeface(fg.builder.defaultTextTypeface)
+        @Suppress("LeakingThis")
+        typeface(fg.defaults.textTypeface)
     }
 
     /**
@@ -163,7 +167,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
     /**
      * @return Item with the text in the given [typeface]
      */
-    open fun typeface(typeface: Typeface): T {
+    open fun typeface(typeface: Typeface?): T {
         childView.typeface = typeface
         return this as T
     }
@@ -172,7 +176,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
      * @return Item with the applied text [style] and [typeface]
      *  (which defaults to the default one if none specified)
      */
-    fun style(style: Int, typeface: Typeface = fg.builder.defaultTextTypeface): T {
+    fun style(style: Int, typeface: Typeface? = fg.defaults.textTypeface): T {
         childView.setTypeface(typeface, style)
         return this as T
     }
@@ -182,7 +186,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
      *  [color] (defaults to the default icon color), and whether it [isVisible] (defaults to true)
      */
     fun icon(@Position position: Int, @DrawableRes drawableId: Int?,
-             @ColorInt color: Int? = fg.builder.defaultIconColor,
+             @ColorInt color: Int? = fg.defaults.iconColor,
              isVisible: Boolean = true) {
         icons[position] = Icon(drawableId, color = color, isVisible = isVisible)
     }
@@ -192,7 +196,7 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
      *  [color] (defaults to the default icon color), and whether it [isVisible] (defaults to true)
      */
     fun icon(@Position position: Int, drawable: Drawable?,
-             @ColorInt color: Int? = fg.builder.defaultIconColor,
+             @ColorInt color: Int? = fg.defaults.iconColor,
              isVisible: Boolean = true) {
         icons[position] = Icon(drawable = drawable, color = color, isVisible = isVisible)
     }
@@ -267,8 +271,9 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
                 getDrawable(icons[3]))
 
         // Set the compound drawable padding
-        if (fg.builder.defaultDrawablePaddingSize != -1) {
-            childView.compoundDrawablePadding = fg.builder.defaultDrawablePaddingSize
+        val drawablePaddingSize = fg.defaults.drawablePaddingSize
+        if (drawablePaddingSize != null) {
+            childView.compoundDrawablePadding = drawablePaddingSize
         }
 
         // Set the correct tinting and alpha for each drawable
@@ -293,16 +298,6 @@ open class TextViewItem<T : TextViewItem<T, TextView>, out V : TextView>(
 
         return this as T
     }
-
-    /**
-     * @return parent [View]
-     */
-    fun parent(): View = view
-
-    /**
-     * @return [TextView] instance
-     */
-    override fun view(): V = childView
 
     override fun build(): T {
         updateIcons()

@@ -19,7 +19,6 @@ package com.guerinet.fg
 import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.widget.EditText
-import com.guerinet.formgenerator.FormGenerator
 import com.guerinet.formgenerator.R
 
 /**

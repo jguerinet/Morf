@@ -20,7 +20,6 @@ import android.view.View
 import android.widget.AutoCompleteTextView
 import android.widget.Filterable
 import android.widget.ListAdapter
-import com.guerinet.formgenerator.FormGenerator
 
 /**
  * Form item for a [TextInputItem] that has an autocomplete option

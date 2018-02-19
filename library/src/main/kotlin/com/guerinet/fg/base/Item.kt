@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.fg.base
 
 import android.support.annotation.CallSuper
 import android.view.View
-import com.guerinet.formgenerator.FormGenerator
+import com.guerinet.fg.FormGenerator
 
 /**
  * Base class for all items that could be present on a form
@@ -28,7 +28,7 @@ import com.guerinet.formgenerator.FormGenerator
  * @param fg    [FormGenerator] that created this item
  */
 @Suppress("UNCHECKED_CAST")
-open class Item<T : Item<T>>(protected val fg: FormGenerator, protected val view: View) {
+open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View) {
 
     /**
      * Builds the item by adding it to the container. Subclasses may perform other operations
@@ -39,10 +39,4 @@ open class Item<T : Item<T>>(protected val fg: FormGenerator, protected val view
         fg.container.addView(view)
         return this as T
     }
-
-    /**
-     * TODO This might be useless
-     * @return [View] this item represents
-     */
-    open fun view(): View = view
 }

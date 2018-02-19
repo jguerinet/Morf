@@ -20,7 +20,6 @@ import android.graphics.Typeface
 import android.support.v7.widget.SwitchCompat
 import android.view.View
 import android.widget.CompoundButton
-import com.guerinet.formgenerator.FormGenerator
 import com.guerinet.formgenerator.R
 
 /**
@@ -60,7 +59,7 @@ class SwitchItem(fg: FormGenerator, view: View) :
         }
     }
 
-    override fun typeface(typeface: Typeface): SwitchItem {
+    override fun typeface(typeface: Typeface?): SwitchItem {
         // Set the typeface on the switch as well
         childView.setSwitchTypeface(typeface)
         return super.typeface(typeface)

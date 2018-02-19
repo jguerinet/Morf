@@ -28,8 +28,6 @@ import android.widget.LinearLayout;
 import com.guerinet.fg.AutoCompleteTextInputItem;
 import com.guerinet.fg.ButtonItem;
 import com.guerinet.fg.EditTextItem;
-import com.guerinet.fg.LineItem;
-import com.guerinet.fg.SpaceItem;
 import com.guerinet.fg.SwitchItem;
 import com.guerinet.fg.TextInputItem;
 import com.guerinet.fg.TextViewItem;
@@ -110,23 +108,6 @@ public class FormGenerator {
 	public static void set(Builder builder) {
 		singleton = builder;
 	}
-
-	/**
-	 * Adds a space
-	 */
-	public SpaceItem space() {
-		return new SpaceItem(this, inflater.inflate(R.layout.fg_space, container, false));
-	}
-
-	/**
-	 * Adds a line
-	 *
-	 * @return The {@link LineItem}
-	 */
-	public LineItem line() {
-        View view = inflater.inflate(R.layout.fg_line, container);
-        return new LineItem(this, view, view);
-    }
 
 	/**
 	 * Adds an input item

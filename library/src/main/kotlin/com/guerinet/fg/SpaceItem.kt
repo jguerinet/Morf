@@ -20,7 +20,7 @@ import android.support.annotation.ColorInt
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.view.View
-import com.guerinet.formgenerator.FormGenerator
+import com.guerinet.fg.base.Item
 
 /**
  * Space in the form
@@ -33,11 +33,14 @@ import com.guerinet.formgenerator.FormGenerator
 class SpaceItem(fg: FormGenerator, view: View) : Item<SpaceItem>(fg, view) {
 
     init {
-        if (fg.builder.defaultSpaceSize != -1) {
-            // If there is a custom default space height, set it
-            height(fg.builder.defaultSpaceSize)
+        // Size
+        val spaceSizeId = fg.defaults.spaceSizeId
+        if (spaceSizeId != null) {
+            height(spaceSizeId)
         }
-        background(fg.builder.defaultSpaceColorId)
+
+        // Background
+        background(fg.defaults.spaceColorId)
     }
 
     /**

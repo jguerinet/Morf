@@ -18,7 +18,6 @@ package com.guerinet.fg
 
 import android.view.View
 import android.widget.EditText
-import com.guerinet.formgenerator.FormGenerator
 import com.guerinet.formgenerator.R
 
 /**
@@ -53,8 +52,9 @@ open class EditTextItem<T : EditTextItem<T, V>, V : EditText>(
 
     init {
         // Set the right background
-        if (fg.builder.defaultInputBackgroundId != null) {
-            inputBackgroundId(fg.builder.defaultInputBackgroundId)
+        val inputBackgroundId = fg.defaults.inputBackgroundId
+        if (inputBackgroundId != null) {
+            inputBackgroundId(inputBackgroundId)
         }
     }
 
