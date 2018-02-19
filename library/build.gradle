@@ -42,10 +42,9 @@ android {
     }
 }
 
-def version_support = "25.3.1"
 dependencies {
-    implementation 'com.android.support:appcompat-v7:25.1.0'
-    compile "com.android.support:design:${version_support}"
+    implementation "com.android.support:appcompat-v7:${android_support_version}"
+    implementation "com.android.support:design:${android_support_version}"
 }
 
 task androidJavadocs(type: Javadoc) {
