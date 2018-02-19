@@ -16,26 +16,29 @@
 
 apply plugin: 'com.android.application'
 
-android{
-    compileSdkVersion 25
+android {
+    compileSdkVersion Integer.valueOf(fg_target_sdk)
 
-    defaultConfig{
-        applicationId "com.guerinet.formgenerator.demo"
-        minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0.0"
+    defaultConfig {
+        minSdkVersion fg_min_sdk
+        targetSdkVersion fg_target_sdk
+
     }
-    buildTypes{
-        release{
+
+    buildTypes {
+        release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
-dependencies{
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+dependencies {
     compile project(':library')
+    implementation 'com.android.support:appcompat-v7:25.1.0'
 }

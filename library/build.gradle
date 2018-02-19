@@ -21,13 +21,12 @@ archivesBaseName="form-generator"
 version =  "3.2.2"
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion Integer.valueOf(fg_target_sdk)
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 19
-        versionName version
+        minSdkVersion fg_min_sdk
+        targetSdkVersion fg_target_sdk
+
     }
 
     buildTypes {
@@ -45,8 +44,7 @@ android {
 
 def version_support = "25.3.1"
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:${version_support}"
+    implementation 'com.android.support:appcompat-v7:25.1.0'
     compile "com.android.support:design:${version_support}"
 }
 
