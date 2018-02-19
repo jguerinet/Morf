@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 
 import com.guerinet.fg.LineItem;
 import com.guerinet.fg.SpaceItem;
+import com.guerinet.fg.TextViewItem;
 
 /**
  * Creates various form items and adds them to a given container
@@ -155,11 +156,11 @@ public class FormGenerator {
 	/**
 	 * Adds a text item
 	 *
-	 * @return The {@link TextViewFormItem}
-	 */
-	public TextViewFormItem text() {
-		View view = inflater.inflate(R.layout.fg_text, container, false);
-        return new TextViewFormItem(this, view, view.findViewById(R.id.fg_text), true);
+     * @return The {@link TextViewItem}
+     */
+    public TextViewItem text() {
+        View view = inflater.inflate(R.layout.fg_text, container, false);
+        return new TextViewItem(this, view, view.findViewById(R.id.fg_text), true);
     }
 
 	/**
@@ -222,40 +223,40 @@ public class FormGenerator {
          * The default icon color Id, -1 if none
          */
         @ColorInt
-        int defaultIconColor = -1;
+        public int defaultIconColor = -1;
         /**
          * The default background Id, null if none
          */
         @ColorRes
         @DrawableRes
-        Integer defaultBackgroundId = null;
+        public Integer defaultBackgroundId = null;
+        /**
+         * The default text size, app default if none
+         */
+        public int defaultTextSize = -1;
+        /**
+         * The default text color Id, black if none
+         */
+        @ColorInt
+        public int defaultTextColor = Color.BLACK;
+        /**
+         * The default typeface to use, null if none
+         */
+        public Typeface defaultTextTypeface = null;
+        /**
+         * The default padding size for the non-space/line items, app default if none
+         */
+        public int defaultPaddingSize = -1;
+        /**
+         * Default padding size between a view and its compound drawable, app default if none
+         */
+        public int defaultDrawablePaddingSize = -1;
         /**
          * The default background Id for the input item, null if none
          */
         @ColorRes
         @DrawableRes
         Integer defaultInputBackgroundId = null;
-        /**
-         * The default text size, app default if none
-         */
-        float defaultTextSize = -1;
-        /**
-         * The default text color Id, black if none
-         */
-        @ColorInt
-        int defaultTextColor = Color.BLACK;
-        /**
-         * The default typeface to use, null if none
-         */
-        Typeface defaultTextTypeface = null;
-        /**
-         * The default padding size for the non-space/line items, app default if none
-         */
-        int defaultPaddingSize = -1;
-        /**
-         * Default padding size between a view and its compound drawable, app default if none
-         */
-        int defaultDrawablePaddingSize = -1;
 
 		/**
 		 * Default Constructor
@@ -357,8 +358,8 @@ public class FormGenerator {
          *             (use getResources().getDimension())
 		 * @return The {@link Builder} instance
 		 */
-		public Builder setDefaultTextSize(float size) {
-			defaultTextSize = size;
+        public Builder setDefaultTextSize(int size) {
+            defaultTextSize = size;
 			return this;
 		}
 
