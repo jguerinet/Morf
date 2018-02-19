@@ -30,7 +30,7 @@ import com.guerinet.fg.ButtonItem;
 import com.guerinet.fg.EditTextItem;
 import com.guerinet.fg.SwitchItem;
 import com.guerinet.fg.TextInputItem;
-import com.guerinet.fg.TextViewItem;
+import com.guerinet.fg.base.BaseTextViewItem;
 
 /**
  * Creates various form items and adds them to a given container
@@ -141,11 +141,11 @@ public class FormGenerator {
 	/**
 	 * Adds a text item
 	 *
-     * @return The {@link TextViewItem}
+     * @return The {@link BaseTextViewItem}
      */
-    public TextViewItem text() {
+    public BaseTextViewItem text() {
         View view = inflater.inflate(R.layout.fg_text, container, false);
-        return new TextViewItem(this, view, view.findViewById(R.id.fg_text), true);
+        return new BaseTextViewItem(this, view, view.findViewById(R.id.fg_text), true);
     }
 
 	/**

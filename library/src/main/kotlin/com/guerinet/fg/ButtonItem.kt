@@ -18,6 +18,7 @@ package com.guerinet.fg
 
 import android.view.View
 import android.widget.Button
+import com.guerinet.fg.base.BaseTextViewItem
 import com.guerinet.formgenerator.R
 
 /**
@@ -29,4 +30,4 @@ import com.guerinet.formgenerator.R
  * @param view  Item [View]
  */
 class ButtonItem(fg: FormGenerator, view: View) :
-        TextViewItem<ButtonItem, Button>(fg, view, view.findViewById(R.id.fg_button), false)
+        BaseTextViewItem<ButtonItem, Button>(fg, view, view.findViewById(R.id.fg_button), false)

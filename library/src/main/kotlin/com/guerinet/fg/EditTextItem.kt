@@ -18,6 +18,7 @@ package com.guerinet.fg
 
 import android.view.View
 import android.widget.EditText
+import com.guerinet.fg.base.BaseTextViewItem
 import com.guerinet.formgenerator.R
 
 /**
@@ -34,7 +35,7 @@ open class EditTextItem<T : EditTextItem<T, V>, V : EditText>(
         fg: FormGenerator,
         view: View,
         isDefaultBackground: Boolean) :
-        TextViewItem<T, V>(fg, view, view.findViewById(R.id.fg_input), isDefaultBackground) {
+        BaseTextViewItem<T, V>(fg, view, view.findViewById(R.id.fg_input), isDefaultBackground) {
 
     /**
      * Current String in the [EditText]

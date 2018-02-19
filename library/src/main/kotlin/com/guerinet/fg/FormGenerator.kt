@@ -46,8 +46,13 @@ class FormGenerator private constructor(internal val defaults: Defaults,
      */
     fun line(): LineItem = LineItem(this, inflater.inflate(R.layout.fg_line, container))
 
-    fun text(): TextViewItem = TextViewItem(this, )
-
+    /**
+     * @return [TextViewItem] added to the form
+     */
+    fun text(): TextViewItem {
+        val view = inflater.inflate(R.layout.fg_text, container, false)
+        return TextViewItem(this, view, view.findViewById(R.id.fg_text), true)
+    }
 
     /**
      * Contains all of the customizable defaults for a [FormGenerator]
