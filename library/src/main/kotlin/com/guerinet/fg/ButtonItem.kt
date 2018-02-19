@@ -19,7 +19,6 @@ package com.guerinet.fg
 import android.view.View
 import android.widget.Button
 import com.guerinet.fg.base.BaseTextViewItem
-import com.guerinet.formgenerator.R
 
 /**
  * Form item that represents a [Button]

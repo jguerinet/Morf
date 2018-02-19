@@ -24,7 +24,6 @@ import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import com.guerinet.formgenerator.R
 
 /**
  * Creates the various form items and adds them to a given container

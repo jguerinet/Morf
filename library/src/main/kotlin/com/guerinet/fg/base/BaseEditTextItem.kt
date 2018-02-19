@@ -19,7 +19,7 @@ package com.guerinet.fg.base
 import android.view.View
 import android.widget.EditText
 import com.guerinet.fg.FormGenerator
-import com.guerinet.formgenerator.R
+import com.guerinet.fg.R
 
 /**
  * Form item that represents an [EditText]

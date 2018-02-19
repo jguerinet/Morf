@@ -27,7 +27,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.guerinet.fg.FormGenerator
-import com.guerinet.formgenerator.R
+import com.guerinet.fg.R
 
 /**
  * Builder for a [TextView] form item (buttons, texts, switches, inputs)

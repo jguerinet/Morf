@@ -21,7 +21,6 @@ import android.support.v7.widget.SwitchCompat
 import android.view.View
 import android.widget.CompoundButton
 import com.guerinet.fg.base.BaseTextViewItem
-import com.guerinet.formgenerator.R
 
 /**
  * Form item with a [SwitchCompat]
