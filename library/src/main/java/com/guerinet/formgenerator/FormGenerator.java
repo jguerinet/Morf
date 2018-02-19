@@ -30,6 +30,7 @@ import com.guerinet.fg.ButtonItem;
 import com.guerinet.fg.EditTextItem;
 import com.guerinet.fg.LineItem;
 import com.guerinet.fg.SpaceItem;
+import com.guerinet.fg.SwitchItem;
 import com.guerinet.fg.TextInputItem;
 import com.guerinet.fg.TextViewItem;
 
@@ -188,11 +189,11 @@ public class FormGenerator {
 	/**
 	 * Adds a switch item
 	 *
-	 * @return The {@link SwitchFormItem}
-	 */
-	public SwitchFormItem aSwitch() {
-		return new SwitchFormItem(this, inflater.inflate(R.layout.fg_switch, container, false));
-	}
+     * @return The {@link SwitchItem}
+     */
+    public SwitchItem aSwitch() {
+        return new SwitchItem(this, inflater.inflate(R.layout.fg_switch, container, false));
+    }
 
 	/**
 	 * The Form Generator builder
