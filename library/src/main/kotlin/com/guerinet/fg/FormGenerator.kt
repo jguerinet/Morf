@@ -61,6 +61,12 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             ButtonItem(this, inflater.inflate(R.layout.fg_button, container, false))
 
     /**
+     * @return Borderless [ButtonItem] added to the form
+     */
+    fun borderlessButton(): ButtonItem =
+            ButtonItem(this, inflater.inflate(R.layout.fg_button_borderless, container, false))
+
+    /**
      * Contains all of the customizable defaults for a [FormGenerator]
      */
     class Defaults {

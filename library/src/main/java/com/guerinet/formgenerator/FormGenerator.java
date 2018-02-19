@@ -22,7 +22,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import com.guerinet.fg.AutoCompleteTextInputItem;
@@ -30,7 +29,6 @@ import com.guerinet.fg.ButtonItem;
 import com.guerinet.fg.EditTextItem;
 import com.guerinet.fg.SwitchItem;
 import com.guerinet.fg.TextInputItem;
-import com.guerinet.fg.base.BaseTextViewItem;
 
 /**
  * Creates various form items and adds them to a given container
@@ -136,25 +134,6 @@ public class FormGenerator {
     public AutoCompleteTextInputItem autoCompleteTextInput() {
         return new AutoCompleteTextInputItem(this, inflater.inflate(R.layout.fg_text_input_ac,
                 container, false));
-    }
-
-	/**
-	 * Adds a text item
-	 *
-     * @return The {@link BaseTextViewItem}
-     */
-    public BaseTextViewItem text() {
-        View view = inflater.inflate(R.layout.fg_text, container, false);
-        return new BaseTextViewItem(this, view, view.findViewById(R.id.fg_text), true);
-    }
-
-	/**
-	 * Adds a standard button
-	 *
-     * @return The {@link ButtonItem}
-     */
-    public ButtonItem button() {
-        return new ButtonItem(this, inflater.inflate(R.layout.fg_button, container, false));
     }
 
     /**
