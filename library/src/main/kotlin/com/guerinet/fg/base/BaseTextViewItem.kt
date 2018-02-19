@@ -18,7 +18,10 @@ package com.guerinet.fg.base
 
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.support.annotation.*
+import android.support.annotation.ColorInt
+import android.support.annotation.DimenRes
+import android.support.annotation.DrawableRes
+import android.support.annotation.StringRes
 import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.text.TextUtils
@@ -185,20 +188,22 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      * Sets up an icon at the given [position] with the given [drawableId],
      *  [color] (defaults to the default icon color), and whether it [isVisible] (defaults to true)
      */
-    fun icon(@Position position: Int, @DrawableRes drawableId: Int?,
-             @ColorInt color: Int? = fg.defaults.iconColor,
-             isVisible: Boolean = true) {
-        icons[position] = Icon(drawableId, color = color, isVisible = isVisible)
+    @JvmOverloads
+    fun icon(@Position.Section position: Long, @DrawableRes drawableId: Int?,
+             isVisible: Boolean = true, @ColorInt color: Int? = fg.defaults.iconColor): T {
+        icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
+        return this as T
     }
 
     /**
      * Sets up an icon at the given [position] with the given [drawable],
      *  [color] (defaults to the default icon color), and whether it [isVisible] (defaults to true)
      */
-    fun icon(@Position position: Int, drawable: Drawable?,
-             @ColorInt color: Int? = fg.defaults.iconColor,
-             isVisible: Boolean = true) {
-        icons[position] = Icon(drawable = drawable, color = color, isVisible = isVisible)
+    @JvmOverloads
+    fun icon(@Position.Section position: Long, drawable: Drawable?, isVisible: Boolean = true,
+             @ColorInt color: Int? = fg.defaults.iconColor): T {
+        icons[position.toInt()] = Icon(drawable = drawable, color = color, isVisible = isVisible)
+        return this as T
     }
 
 
@@ -313,20 +318,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
         } else {
             icon.drawable
         }
-    }
-
-    companion object {
-        /**
-         * Defines the different positions of an icon
-         */
-        @IntDef(START, TOP, END, BOTTOM)
-        @Retention(AnnotationRetention.SOURCE)
-        annotation class Position
-
-        const val START = 0L
-        const val TOP = 1L
-        const val END = 2L
-        const val BOTTOM = 3L
     }
 
     /**
