@@ -79,6 +79,13 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             TextInputItem(this, inflater.inflate(R.layout.fg_text_input, container, false))
 
     /**
+     * @return [AutoCompleteTextInputItem] added to the form
+     */
+    fun autoCompleteTextInput(): AutoCompleteTextInputItem =
+            AutoCompleteTextInputItem(this, inflater.inflate(R.layout.fg_text_input_ac, container,
+                    false))
+
+    /**
      * Contains all of the customizable defaults for a [FormGenerator]
      */
     class Defaults {
