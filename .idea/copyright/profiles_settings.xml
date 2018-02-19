@@ -1,5 +1,5 @@
 <component name="CopyrightManager">
-  <settings default="Default">
+  <settings>
     <LanguageOptions name="HTML">
       <option name="fileTypeOverride" value="1" />
       <option name="prefixLines" value="false" />
