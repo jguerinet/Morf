@@ -19,39 +19,15 @@ package com.guerinet.fg
 import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.widget.EditText
-import com.guerinet.fg.base.BaseEditTextItem
-import com.guerinet.formgenerator.R
+import com.guerinet.fg.base.BaseTextInputItem
 
 /**
  * Form item for a [TextInputLayout]
  * @author Julien Guerinet
- * @since 3.0.0
+ * @since 4.0.0
+ *
+ * @param fg    [FormGenerator] instance
+ * @param view  Item [View]
  */
-@Suppress("UNCHECKED_CAST")
-open class TextInputItem<T : TextInputItem<T, V>, V : EditText>(fg: FormGenerator, view: View) :
-        BaseEditTextItem<T, V>(fg, view, false) {
-
-    private val inputLayout: TextInputLayout = view.findViewById(R.id.fg_input_layout)
-
-    /**
-     * @return Item with the password visibility toggle shown or not depending on [isEnabled]
-     */
-    fun isPasswordVisibilityToggleEnabled(isEnabled: Boolean): T {
-        inputLayout.isPasswordVisibilityToggleEnabled = isEnabled
-        return this as T
-    }
-
-    override fun hint(hint: String?): T {
-        inputLayout.hint = hint
-        return this as T
-    }
-
-    override fun hint(stringId: Int): T {
-        return hint(inputLayout.resources.getString(stringId))
-    }
-
-    override fun backgroundId(backgroundId: Int): T {
-        inputLayout.setBackgroundResource(backgroundId)
-        return this as T
-    }
-}
+class TextInputItem(fg: FormGenerator, view: View) :
+        BaseTextInputItem<TextInputItem, EditText>(fg, view)

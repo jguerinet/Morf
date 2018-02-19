@@ -26,8 +26,7 @@ import android.widget.LinearLayout;
 
 import com.guerinet.fg.AutoCompleteTextInputItem;
 import com.guerinet.fg.SwitchItem;
-import com.guerinet.fg.TextInputItem;
-import com.guerinet.fg.base.BaseEditTextItem;
+import com.guerinet.fg.base.BaseTextInputItem;
 
 /**
  * Creates various form items and adds them to a given container
@@ -106,23 +105,13 @@ public class FormGenerator {
 		singleton = builder;
 	}
 
-	/**
-	 * Adds an input item
-	 *
-     * @return The {@link BaseEditTextItem}
-     */
-    public BaseEditTextItem input() {
-        return new BaseEditTextItem(this, inflater.inflate(R.layout.fg_input, container, false),
-                true);
-	}
-
     /**
      * Adds a text input item
      *
-     * @return Generated {@link TextInputItem}
+     * @return Generated {@link BaseTextInputItem}
      */
-    public TextInputItem textInput() {
-        return new TextInputItem(this, inflater.inflate(R.layout.fg_text_input, container, false));
+    public BaseTextInputItem textInput() {
+        return new BaseTextInputItem(this, inflater.inflate(R.layout.fg_text_input, container, false));
     }
 
     /**

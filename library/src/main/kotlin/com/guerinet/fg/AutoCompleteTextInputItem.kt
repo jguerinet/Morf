@@ -20,14 +20,15 @@ import android.view.View
 import android.widget.AutoCompleteTextView
 import android.widget.Filterable
 import android.widget.ListAdapter
+import com.guerinet.fg.base.BaseTextInputItem
 
 /**
- * Form item for a [TextInputItem] that has an autocomplete option
+ * Form item for a [BaseTextInputItem] that has an autocomplete option
  * @author Julien Guerinet
  * @since 3.0.0
  */
 class AutoCompleteTextInputItem(fg: FormGenerator, view: View) :
-        TextInputItem<AutoCompleteTextInputItem, AutoCompleteTextView>(fg, view) {
+        BaseTextInputItem<AutoCompleteTextInputItem, AutoCompleteTextView>(fg, view) {
 
     /**
      * Sets the [adapter] for the [AutoCompleteTextView] on the returned item
