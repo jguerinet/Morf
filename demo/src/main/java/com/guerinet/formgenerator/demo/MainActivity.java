@@ -23,11 +23,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.guerinet.formgenerator.TextViewFormItem;
+import com.guerinet.fg.FormGenerator;
+import com.guerinet.fg.base.Position;
 
 /**
  * MainActivity. Demonstrates the default behavior of the FormGenerator
@@ -35,55 +35,40 @@ import com.guerinet.formgenerator.TextViewFormItem;
  * @since 1.0.0
  */
 public class MainActivity extends AppCompatActivity {
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
         LinearLayout container = findViewById(R.id.container);
 
-		//Get the default instance
-		FormGenerator fg = FormGenerator.bind(container);
+        // Get the default instance
+        FormGenerator fg = FormGenerator.Companion.bind(container);
 
-		//Default Form
-		fg.text()
+        // Default Form
+        fg.text()
                 .text("Form Item: Text (default settings)")
                 .build();
 
 		fg.text()
                 .text("Form Item: Button")
-				.onClick(new TextViewFormItem.OnClickListener() {
-                    @Override
-                    public void onClick(TextViewFormItem item) {
-                        Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
-                                Toast.LENGTH_SHORT).show();
-
-                    }
-                })
+                .onClick(item -> Toast.makeText(this, "Form Item: Button Clicked",
+                        Toast.LENGTH_SHORT).show())
                 .build();
 
 		fg.space();
 
 		fg.button()
                 .text("Form Item, Simple Button")
-                .onClick(new TextViewFormItem.OnClickListener() {
-                    @Override
-                    public void onClick(TextViewFormItem item) {
-                        Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                })
+                .onClick(item -> Toast.makeText(this, "Form Item: Simple Button Clicked",
+                        Toast.LENGTH_SHORT).show())
                 .build();
 
         fg.borderlessButton()
                 .text("Form Item, Borderless Button")
-                .onClick(new TextViewFormItem.OnClickListener() {
-                    @Override
-                    public void onClick(TextViewFormItem item) {
-                        Toast.makeText(MainActivity.this, "Form Item: Borderless Button Clicked",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                })
+                .onClick(item -> Toast.makeText(this, "Form Item: Borderless Button Clicked",
+                        Toast.LENGTH_SHORT).show())
                 .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
@@ -99,13 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.aSwitch()
                 .text("Form Item: Switch")
-                .onCheckChanged(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-                        Toast.makeText(MainActivity.this, "Form Item: Switch changed",
-                                Toast.LENGTH_SHORT).show();
-                    }
-		        })
+                .onCheckChanged((buttonView, isChecked) -> Toast.makeText(this,
+                        "Form Item: Switch changed", Toast.LENGTH_SHORT).show())
                 .build();
 
 		fg.space();
@@ -113,56 +93,41 @@ public class MainActivity extends AppCompatActivity {
 		fg.space();
 		fg.space();
 
-		//Custom Form
-		fg = new FormGenerator.Builder()
-				.setDefaultBackground(android.R.drawable.list_selector_background)
-				.setDefaultLineColorId(android.R.color.black)
-				.setDefaultTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark))
-				.setDefaultTypeface(Typeface.SERIF)
-				.setDefaultIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark))
-				.bind(container);
+        // Custom Form
+        FormGenerator.Defaults defaults = new FormGenerator.Defaults();
+        defaults.setBackgroundId(android.R.drawable.list_selector_background);
+        defaults.setLineBackgroundId(android.R.color.black);
+        defaults.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
+        defaults.setTextTypeface(Typeface.SERIF);
+        defaults.setIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark));
 
-		//Add the different form items
-		fg.text()
+
+        // Add the different form items
+        fg.text()
                 .text("Form Item: Text (custom settings)")
-				.leftIcon(R.drawable.ic_info)
+                .icon(Position.START, R.drawable.ic_info)
                 .build();
 
 		fg.text()
                 .text("Form Item: Button")
-				.leftIcon(R.drawable.ic_info, false)
-				.rightIcon(R.drawable.ic_chevron_right)
-                .onClick(new TextViewFormItem.OnClickListener() {
-                    @Override
-                    public void onClick(TextViewFormItem item) {
-                        Toast.makeText(MainActivity.this, "Form Item: Button Clicked",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                })
+                .icon(Position.START, R.drawable.ic_info, false)
+                .icon(Position.END, R.drawable.ic_chevron_right)
+                .onClick(item -> Toast.makeText(this, "Form Item: Button Clicked",
+                        Toast.LENGTH_SHORT).show())
                 .build();
 
 		fg.space();
 
 		fg.button()
                 .text("Form Item, Simple Button")
-                .onClick(new TextViewFormItem.OnClickListener() {
-                    @Override
-                    public void onClick(TextViewFormItem item) {
-                        Toast.makeText(MainActivity.this, "Form Item: Simple Button Clicked",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                })
+                .onClick(item -> Toast.makeText(this, "Form Item: Simple Button Clicked",
+                        Toast.LENGTH_SHORT).show())
                 .build();
 
         fg.borderlessButton()
                 .text("Form Item, Borderless Button")
-                .onClick(new TextViewFormItem.OnClickListener() {
-                    @Override
-                    public void onClick(TextViewFormItem item) {
-                        Toast.makeText(MainActivity.this, "Form Item: Borderless Button Clicked",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                })
+                .onClick(item -> Toast.makeText(this, "Form Item: Borderless Button Clicked",
+                        Toast.LENGTH_SHORT).show())
                 .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
@@ -172,33 +137,28 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.input()
 				.hint("Form Item: Input")
-				.leftIcon(R.drawable.ic_info)
-				.inputBackground(0)
+                .icon(Position.START, R.drawable.ic_info)
+                .inputBackgroundId(0)
                 .build();
 
         fg.textInput()
                 .hint("FormItem: Text Input")
                 .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                .showTogglePasswordVisibility(true)
+                .isPasswordVisibilityToggleEnabled(true)
                 .build();
 
 		fg.aSwitch()
                 .text("Form Item: Switch")
-				.onCheckChanged(new CompoundButton.OnCheckedChangeListener() {
-					@Override
-					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-						Toast.makeText(MainActivity.this, "Form Item: Switch changed",
-								Toast.LENGTH_SHORT).show();
-					}
-				})
+                .onCheckChanged((buttonView, isChecked) -> Toast.makeText(this,
+                        "Form Item: Switch changed", Toast.LENGTH_SHORT).show())
                 .switchText("On", "Off")
-				.leftIcon(R.drawable.ic_info, false)
+                .icon(Position.START, R.drawable.ic_info, false)
                 .build();
 
 		fg.textInput()
 				.hint("FormItem: Text Input with drawable icon")
-				.background(android.R.color.white)
-				.leftIcon(getResources().getDrawable(R.drawable.ic_info))
-				.build();
+                .backgroundId(android.R.color.white)
+                .icon(Position.START, getResources().getDrawable(R.drawable.ic_info))
+                .build();
 	}
 }
