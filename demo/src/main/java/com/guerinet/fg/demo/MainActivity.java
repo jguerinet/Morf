@@ -55,22 +55,30 @@ public class MainActivity extends AppCompatActivity {
 
 		fg.text()
                 .text("Form Item: Button")
-                .onClick(item -> Toast.makeText(this, "Form Item: Button Clicked",
-                        Toast.LENGTH_SHORT).show())
+                .onClick(item -> {
+                    Toast.makeText(this, "Form Item: Button Clicked", Toast.LENGTH_SHORT).show();
+                    return Unit.INSTANCE;
+                })
                 .build();
 
         fg.space().build();
 
 		fg.button()
                 .text("Form Item, Simple Button")
-                .onClick(item -> Toast.makeText(this, "Form Item: Simple Button Clicked",
-                        Toast.LENGTH_SHORT).show())
+                .onClick(item -> {
+                    Toast.makeText(this, "Form Item: Simple Button Clicked", Toast.LENGTH_SHORT)
+                            .show();
+                    return Unit.INSTANCE;
+                })
                 .build();
 
         fg.borderlessButton()
                 .text("Form Item, Borderless Button")
-                .onClick(item -> Toast.makeText(this, "Form Item: Borderless Button Clicked",
-                        Toast.LENGTH_SHORT).show())
+                .onClick(item -> {
+                    Toast.makeText(this, "Form Item: Borderless Button Clicked", Toast.LENGTH_SHORT)
+                            .show();
+                    return Unit.INSTANCE;
+                })
                 .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
@@ -120,22 +128,30 @@ public class MainActivity extends AppCompatActivity {
                 .text("Form Item: Button")
                 .icon(Position.START, R.drawable.ic_info, false)
                 .icon(Position.END, R.drawable.ic_chevron_right)
-                .onClick(item -> Toast.makeText(this, "Form Item: Button Clicked",
-                        Toast.LENGTH_SHORT).show())
+                .onClick(item -> {
+                    Toast.makeText(this, "Form Item: Button Clicked", Toast.LENGTH_SHORT).show();
+                    return Unit.INSTANCE;
+                })
                 .build();
 
         fg.space().build();
 
 		fg.button()
                 .text("Form Item, Simple Button")
-                .onClick(item -> Toast.makeText(this, "Form Item: Simple Button Clicked",
-                        Toast.LENGTH_SHORT).show())
+                .onClick(item -> {
+                    Toast.makeText(this, "Form Item: Simple Button Clicked", Toast.LENGTH_SHORT)
+                            .show();
+                    return Unit.INSTANCE;
+                })
                 .build();
 
         fg.borderlessButton()
                 .text("Form Item, Borderless Button")
-                .onClick(item -> Toast.makeText(this, "Form Item: Borderless Button Clicked",
-                        Toast.LENGTH_SHORT).show())
+                .onClick(item -> {
+                    Toast.makeText(this, "Form Item: Borderless Button Clicked", Toast.LENGTH_SHORT)
+                            .show();
+                    return Unit.INSTANCE;
+                })
                 .layoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
