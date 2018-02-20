@@ -54,10 +54,20 @@ class FormGenerator private constructor(internal val defaults: Defaults,
     }
 
     /**
+     * Creates a [TextViewItem], applies the block, and returns it
+     */
+    inline fun text(block: TextViewItem.() -> Unit): TextViewItem = text().apply(block)
+
+    /**
      * @return [ButtonItem] added to the form
      */
     fun button(): ButtonItem =
             ButtonItem(this, inflater.inflate(R.layout.fg_button, container, false))
+
+    /**
+     * Creates a [ButtonItem], applies the block, and returns it
+     */
+    inline fun button(block: ButtonItem.() -> Unit): ButtonItem = button().apply(block)
 
     /**
      * @return Borderless [ButtonItem] added to the form
@@ -66,16 +76,31 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             ButtonItem(this, inflater.inflate(R.layout.fg_button_borderless, container, false))
 
     /**
+     * Creates a borderless [ButtonItem], applies the block, and returns it
+     */
+    inline fun borderlessButton(block: ButtonItem.() -> Unit): ButtonItem = button().apply(block)
+
+    /**
      * @return [EditTextItem] added to the form
      */
     fun input(): EditTextItem =
             EditTextItem(this, inflater.inflate(R.layout.fg_input, container, false), true)
 
     /**
+     * Creates an [EditTextItem], applies the block, and returns it
+     */
+    inline fun input(block: EditTextItem.() -> Unit): EditTextItem = input().apply(block)
+
+    /**
      * @return [TextInputItem] added to the form
      */
     fun textInput(): TextInputItem =
             TextInputItem(this, inflater.inflate(R.layout.fg_text_input, container, false))
+
+    /**
+     * Creates a [TextInputItem], applies the block, and returns it
+     */
+    inline fun textInput(block: TextInputItem.() -> Unit): TextInputItem = textInput().apply(block)
 
     /**
      * @return [AutoCompleteTextInputItem] added to the form
@@ -85,10 +110,21 @@ class FormGenerator private constructor(internal val defaults: Defaults,
                     false))
 
     /**
+     * Creates a [AutoCompleteTextInputItem], applies the block, and returns it
+     */
+    inline fun autoCompleteTextInput(block: AutoCompleteTextInputItem.() -> Unit):
+            AutoCompleteTextInputItem = autoCompleteTextInput().apply(block)
+
+    /**
      * @return [SwitchItem] added to the form
      */
     fun aSwitch(): SwitchItem =
             SwitchItem(this, inflater.inflate(R.layout.fg_switch, container, false))
+
+    /**
+     * Creates a [SwitchItem], applies the block, and returns it
+     */
+    inline fun aSwitch(block: SwitchItem.() -> Unit): SwitchItem = aSwitch().apply(block)
 
     companion object {
 
