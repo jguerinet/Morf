@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show())
                 .build();
 
-		fg.space();
+        fg.space().build();
 
 		fg.button()
                 .text("Form Item, Simple Button")
@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
 
-		fg.space();
-		fg.line();
+        fg.space().build();
+        fg.line().build();
 
 		fg.input().hint("Form Item: Input").build();
 
@@ -88,10 +88,10 @@ public class MainActivity extends AppCompatActivity {
                         "Form Item: Switch changed", Toast.LENGTH_SHORT).show())
                 .build();
 
-		fg.space();
-		fg.space();
-		fg.space();
-		fg.space();
+        fg.space().build();
+        fg.space().build();
+        fg.space().build();
+        fg.space().build();
 
         // Custom Form
         FormGenerator.Defaults defaults = new FormGenerator.Defaults();
@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         defaults.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
         defaults.setTextTypeface(Typeface.SERIF);
         defaults.setIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark));
-
 
         // Add the different form items
         fg.text()
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show())
                 .build();
 
-		fg.space();
+        fg.space().build();
 
 		fg.button()
                 .text("Form Item, Simple Button")
@@ -132,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
 
-		fg.space();
-		fg.line();
+        fg.space().build();
+        fg.line().build();
 
 		fg.input()
 				.hint("Form Item: Input")
