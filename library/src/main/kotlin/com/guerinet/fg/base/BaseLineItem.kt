@@ -47,7 +47,12 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
         }
 
         // Background
-        lineBackground(fg.defaults.lineBackgroundId)
+        val lineColor = fg.defaults.lineColor
+        if (lineColor != null) {
+            lineColor(lineColor)
+        } else {
+            lineBackground(fg.defaults.lineBackgroundId)
+        }
 
         if (view != line) {
             // Set the line visibility if this is not an independent item

@@ -129,7 +129,14 @@ class FormGenerator private constructor(internal val defaults: Defaults,
          */
         @ColorRes
         @DrawableRes
-        var spaceColorId: Int = android.R.color.transparent
+        var spaceBackgroundId: Int = android.R.color.transparent
+
+        /**
+         * Resolved color for a space, defaults to null (in order to use spaceBackgroundId)
+         *  Note: this takes precedence over spaceBackgroundId
+         */
+        @ColorInt
+        var spaceColor: Int? = null
 
         /**
          * Height (in pixels) of a space, defaults to null
@@ -149,6 +156,13 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         @ColorRes
         @DrawableRes
         var lineBackgroundId: Int = R.color.line
+
+        /**
+         * Resolved color for a line, defaults to null (in order to use lineBackgroundId)
+         *  Note: this takes precedence over lineBackgroundId
+         */
+        @ColorInt
+        var lineColor: Int? = null
 
         /**
          * True if we should show a line after a form item, false otherwise (defaults to true)
@@ -214,7 +228,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
          */
         fun newInstance(): Defaults {
             val defaults = Defaults()
-            defaults.spaceColorId = spaceColorId
+            defaults.spaceBackgroundId = spaceBackgroundId
             defaults.spaceHeight = spaceHeight
             defaults.lineHeight = lineHeight
             defaults.lineBackgroundId = lineBackgroundId

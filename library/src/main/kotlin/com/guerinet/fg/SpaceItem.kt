@@ -40,7 +40,12 @@ class SpaceItem(fg: FormGenerator, view: View) : Item<SpaceItem>(fg, view) {
         }
 
         // Background
-        background(fg.defaults.spaceColorId)
+        val spaceColor = fg.defaults.spaceColor
+        if (spaceColor != null) {
+            backgroundColor(spaceColor)
+        } else {
+            background(fg.defaults.spaceBackgroundId)
+        }
     }
 
     /**
