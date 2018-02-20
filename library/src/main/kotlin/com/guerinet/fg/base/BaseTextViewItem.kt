@@ -218,6 +218,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      * @return Item with the applied text [style] and [typeface]
      *  (which defaults to the default one if none specified)
      */
+    @JvmOverloads
     fun style(style: Int, typeface: Typeface? = fg.settings.textTypeface): T {
         childView.setTypeface(typeface, style)
         return this as T
