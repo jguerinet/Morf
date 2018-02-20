@@ -17,6 +17,7 @@
 package com.guerinet.fg.base
 
 import android.support.annotation.*
+import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
 import com.guerinet.fg.FormGenerator
@@ -64,8 +65,8 @@ open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View
      * @return Item with the [view] height set to the given [dps]
      */
     protected fun dpHeight(view: View?, dps: Float): T {
-        val scale = fg.container.resources.displayMetrics.density
-        return pixelHeight(view, (dps * scale + 0.5f).toInt())
+        return pixelHeight(view, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dps,
+                fg.container.resources.displayMetrics).toInt())
     }
 
     /**
