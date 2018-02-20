@@ -40,12 +40,12 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 	    compile 'com.guerinet:form-generator:X.X.X'
 	}
 
-To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Builder`, customizing
-anything you might want to change or you can use the default `FormGenerator` instance by calling one of the `FormGenerator.bind()` methods.
-You can set the default `FormGenerator` instance by calling `FormGenerator.set()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
+To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Defaults`, customizing
+anything you might want to change or you can use the default `FormGenerator` instance by calling `FormGenerator.bind()`.
+You can set the defaults by calling `FormGenerator.createAndSetDefaults()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
 
 * Text Color: Black
-* Text Size: Default Android Text size 
+* Text Size: Default Android Text size
 * Text Typeface: Default Android Typeface
 * Background: Transparent
 * Input Background: Default Android background
@@ -57,8 +57,8 @@ You can set the default `FormGenerator` instance by calling `FormGenerator.set()
 * Space Color: Transparent
 * Lines after items: True
 
-Once you set your default FormGenerator, you can always customize it by calling `FormGenerator.get()` and changing the desired fields. You can also construct a new builder instance from your default one by calling
-`FormGenerator.get().newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance.
+Once you set your default FormGenerator, you can always customize it by calling `FormGenerator.defaults` and changing the desired fields. You can also construct a new instance from your default one by calling
+`FormGenerator.defaults.newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance.
 Each item can be further customized if you need to have some properties that are different from the default properties. When adding each item, there are a number of methods you can call to further customize the item itself.
 To get the associated view, simple call `view()` at the end of your customization. All of the above properties can be customized per form item, as well as:
 
@@ -68,10 +68,11 @@ To get the associated view, simple call `view()` at the end of your customizatio
 * Setting an `OnClickListener` for all form items except the spaces and lines
 * Setting the input type on the `EditText`s (default is capitalized sentences)
 * Setting if the `EditText` should be multi line (default is single line)
+* Adding a `TextWatcher` to `EditText`s
 * Setting icons on all form items except the spaces and lines
 * Showing/hiding the password visibility toggle for the `TextInputFormItem`
 
-IMPORTANT: All views need to be built by calling `build()` after adding it except for spaces and lines. If you do not call `build()` they will not be added to the container. 
+IMPORTANT: All views need to be built by calling `build()`. If you do not call `build()` they will not be added to the container.
 
 ## Demo
 A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of form items:
@@ -90,7 +91,7 @@ the top one is the default settings for FormGenerator, the bottom is a customize
 See the [Change Log](CHANGELOG.md).
 
 ## Copyright
-	 Copyright 2015-2017 Julien Guerinet
+	 Copyright 2015-2018 Julien Guerinet
 
 	 Licensed under the Apache License, Version 2.0 (the "License");
 	 you may not use this file except in compliance with the License.
