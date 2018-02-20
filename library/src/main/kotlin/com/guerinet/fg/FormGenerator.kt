@@ -281,15 +281,25 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         fun newInstance(): Defaults {
             val defaults = Defaults()
             defaults.spaceBackgroundId = spaceBackgroundId
+            defaults.spaceColor = spaceColor
+            defaults.spaceDpHeight = spaceDpHeight
             defaults.spacePixelHeight = spacePixelHeight
+            defaults.spaceHeightId = spaceHeightId
+            defaults.lineDpHeight = lineDpHeight
             defaults.linePixelHeight = linePixelHeight
+            defaults.lineHeightId = lineHeightId
+            defaults.lineColor = lineColor
             defaults.lineBackgroundId = lineBackgroundId
             defaults.isLineShown = isLineShown
             defaults.textSizeId = textSizeId
             defaults.textColor = textColor
             defaults.textTypeface = textTypeface
             defaults.pixelPadding = pixelPadding
+            defaults.dpPadding = dpPadding
+            defaults.paddingId = paddingId
             defaults.drawablePixelPadding = drawablePixelPadding
+            defaults.drawableDpPadding = drawableDpPadding
+            defaults.drawablePaddingSizeId = drawablePaddingSizeId
             defaults.iconColor = iconColor
             defaults.backgroundId = backgroundId
             defaults.inputBackgroundId = inputBackgroundId
