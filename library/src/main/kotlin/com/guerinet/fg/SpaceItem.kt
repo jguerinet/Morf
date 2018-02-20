@@ -34,24 +34,24 @@ class SpaceItem(fg: FormGenerator) : Item<SpaceItem>(fg, View(fg.container.conte
         view.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
 
         // Height
-        val spaceHeightId = fg.defaults.spaceHeightId
+        val spaceHeightId = fg.settings.spaceHeightId
         if (spaceHeightId != null) {
             heightId(spaceHeightId)
         } else {
-            val spacePixelHeight = fg.defaults.spacePixelHeight
+            val spacePixelHeight = fg.settings.spacePixelHeight
             if (spacePixelHeight != null) {
                 pixelHeight(spacePixelHeight)
             } else {
-                dpHeight(fg.defaults.spaceDpHeight)
+                dpHeight(fg.settings.spaceDpHeight)
             }
         }
 
         // Background
-        val spaceColor = fg.defaults.spaceColor
+        val spaceColor = fg.settings.spaceColor
         if (spaceColor != null) {
             backgroundColor(spaceColor)
         } else {
-            backgroundId(fg.defaults.spaceBackgroundId)
+            backgroundId(fg.settings.spaceBackgroundId)
         }
     }
 }

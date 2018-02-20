@@ -46,29 +46,29 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
         line?.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
 
         // Height
-        val lineHeightId = fg.defaults.lineHeightId
+        val lineHeightId = fg.settings.lineHeightId
         if (lineHeightId != null) {
             lineHeightId(lineHeightId)
         } else {
-            val linePixelHeight = fg.defaults.linePixelHeight
+            val linePixelHeight = fg.settings.linePixelHeight
             if (linePixelHeight != null) {
                 linePixelHeight(linePixelHeight)
             } else {
-                lineDpHeight(fg.defaults.lineDpHeight)
+                lineDpHeight(fg.settings.lineDpHeight)
             }
         }
 
         // Background
-        val lineBackgroundId = fg.defaults.lineBackgroundId
+        val lineBackgroundId = fg.settings.lineBackgroundId
         if (lineBackgroundId != null) {
             lineBackground(lineBackgroundId)
         } else {
-            lineColor(fg.defaults.lineColor)
+            lineColor(fg.settings.lineColor)
         }
 
         if (view != line) {
             // Set the line visibility if this is not an independent item
-            showLine(fg.defaults.isLineShown)
+            showLine(fg.settings.isLineShown)
         }
     }
 

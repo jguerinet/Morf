@@ -30,7 +30,7 @@ import android.widget.LinearLayout
  * @author Julien Guerinet
  * @since 1.0.0
  */
-class FormGenerator private constructor(internal val defaults: Defaults,
+class FormGenerator private constructor(internal val settings: Settings,
                                         internal val container: LinearLayout) {
 
     private val inflater: LayoutInflater = LayoutInflater.from(container.context)
@@ -129,34 +129,34 @@ class FormGenerator private constructor(internal val defaults: Defaults,
     companion object {
 
         /**
-         * User defaults to use everywhere, null if none set
+         * User settings to use everywhere, null if none set
          */
-        private var _defaults: Defaults? = null
-        var defaults: Defaults
-            get() = _defaults ?: Defaults()
+        private var _settings: Settings? = null
+        var settings: Settings
+            get() = _settings ?: Settings()
             set(value) {
-                _defaults = value
+                _settings = value
             }
 
         /**
-         * Binds the [Defaults] singleton to the given layout and returns the corresponding
-         *  [FormGenerator]. This will use either the [Defaults] set by the user, or the [Defaults]
+         * Binds the [Settings] singleton to the given layout and returns the corresponding
+         *  [FormGenerator]. This will use either the [Settings] set by the user, or the [Settings]
          *  with default values
          */
-        fun bind(container: LinearLayout): FormGenerator = FormGenerator(defaults, container)
+        fun bind(container: LinearLayout): FormGenerator = FormGenerator(settings, container)
 
-        inline fun createAndSetDefaults(block: Defaults.() -> Unit) {
-            defaults = createDefaults(block)
+        inline fun createAndSetSettings(block: Settings.() -> Unit) {
+            settings = createSettings(block)
         }
 
-        inline fun createDefaults(block: Defaults.() -> Unit): Defaults =
-                Defaults().apply(block)
+        inline fun createSettings(block: Settings.() -> Unit): Settings =
+                Settings().apply(block)
     }
 
     /**
-     * Contains all of the customizable defaults for a [FormGenerator]
+     * Contains all of the customizable settings for a [FormGenerator]
      */
-    class Defaults {
+    class Settings {
 
         /* Space */
 
@@ -312,38 +312,38 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         var inputBackgroundId: Int? = null
 
         /**
-         * @return New [Defaults] instance, generated from the current one
+         * @return New [Settings] instance, generated from the current one
          */
-        fun newInstance(): Defaults {
-            val defaults = Defaults()
-            defaults.spaceBackgroundId = spaceBackgroundId
-            defaults.spaceColor = spaceColor
-            defaults.spaceDpHeight = spaceDpHeight
-            defaults.spacePixelHeight = spacePixelHeight
-            defaults.spaceHeightId = spaceHeightId
-            defaults.lineDpHeight = lineDpHeight
-            defaults.linePixelHeight = linePixelHeight
-            defaults.lineHeightId = lineHeightId
-            defaults.lineColor = lineColor
-            defaults.lineBackgroundId = lineBackgroundId
-            defaults.isLineShown = isLineShown
-            defaults.textSizeId = textSizeId
-            defaults.textColor = textColor
-            defaults.textTypeface = textTypeface
-            defaults.pixelPadding = pixelPadding
-            defaults.dpPadding = dpPadding
-            defaults.paddingId = paddingId
-            defaults.drawablePixelPadding = drawablePixelPadding
-            defaults.drawableDpPadding = drawableDpPadding
-            defaults.drawablePaddingSizeId = drawablePaddingSizeId
-            defaults.iconColor = iconColor
-            defaults.backgroundId = backgroundId
-            defaults.inputBackgroundId = inputBackgroundId
-            return defaults
+        fun newInstance(): Settings {
+            val settings = Settings()
+            settings.spaceBackgroundId = spaceBackgroundId
+            settings.spaceColor = spaceColor
+            settings.spaceDpHeight = spaceDpHeight
+            settings.spacePixelHeight = spacePixelHeight
+            settings.spaceHeightId = spaceHeightId
+            settings.lineDpHeight = lineDpHeight
+            settings.linePixelHeight = linePixelHeight
+            settings.lineHeightId = lineHeightId
+            settings.lineColor = lineColor
+            settings.lineBackgroundId = lineBackgroundId
+            settings.isLineShown = isLineShown
+            settings.textSizeId = textSizeId
+            settings.textColor = textColor
+            settings.textTypeface = textTypeface
+            settings.pixelPadding = pixelPadding
+            settings.dpPadding = dpPadding
+            settings.paddingId = paddingId
+            settings.drawablePixelPadding = drawablePixelPadding
+            settings.drawableDpPadding = drawableDpPadding
+            settings.drawablePaddingSizeId = drawablePaddingSizeId
+            settings.iconColor = iconColor
+            settings.backgroundId = backgroundId
+            settings.inputBackgroundId = inputBackgroundId
+            return settings
         }
 
         /**
-         * @return [FormGenerator] created from this [Defaults] and the given [container]
+         * @return [FormGenerator] created from this [Settings] and the given [container]
          */
         fun bind(container: LinearLayout): FormGenerator = FormGenerator(this, container)
     }

@@ -55,7 +55,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
 
     init {
         // Set the right background
-        val inputBackgroundId = fg.defaults.inputBackgroundId
+        val inputBackgroundId = fg.settings.inputBackgroundId
         if (inputBackgroundId != null) {
             inputBackgroundId(inputBackgroundId)
         }

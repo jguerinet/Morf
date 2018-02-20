@@ -42,7 +42,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
 To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Defaults`, customizing
 anything you might want to change or you can use the default `FormGenerator` instance by calling `FormGenerator.bind()`.
-You can set the defaults by calling `FormGenerator.createAndSetDefaults()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
+You can set the settings by calling `FormGenerator.createAndSetSettings()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
 
 * Text Color: Black
 * Text Size: Default Android Text size
@@ -57,8 +57,8 @@ You can set the defaults by calling `FormGenerator.createAndSetDefaults()` if yo
 * Space Color: Transparent
 * Lines after items: True
 
-Once you set your default FormGenerator, you can always customize it by calling `FormGenerator.defaults` and changing the desired fields. You can also construct a new instance from your default one by calling
-`FormGenerator.defaults.newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance.
+Once you set your default FormGenerator, you can always customize it by calling `FormGenerator.settings` and changing the desired fields. You can also construct a new instance from your default one by calling
+`FormGenerator.settings.newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance.
 Each item can be further customized if you need to have some properties that are different from the default properties. When adding each item, there are a number of methods you can call to further customize the item itself.
 To get the associated view, simple call `view()` at the end of your customization. All of the above properties can be customized per form item, as well as:
 

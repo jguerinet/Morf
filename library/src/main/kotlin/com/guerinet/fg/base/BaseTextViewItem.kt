@@ -59,22 +59,22 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
         view.isClickable = false
 
         // Background
-        val backgroundId = fg.defaults.backgroundId
+        val backgroundId = fg.settings.backgroundId
         if (isDefaultBackground && backgroundId != null) {
             @Suppress("LeakingThis")
             backgroundId(backgroundId)
         }
 
         // Text Color
-        textColor(fg.defaults.textColor)
+        textColor(fg.settings.textColor)
 
         // Text Size
-        textSizeId(fg.defaults.textSizeId)
+        textSizeId(fg.settings.textSizeId)
 
         // Padding
-        val paddingId = fg.defaults.paddingId
-        val dpPadding = fg.defaults.dpPadding
-        val pixelPadding = fg.defaults.pixelPadding
+        val paddingId = fg.settings.paddingId
+        val dpPadding = fg.settings.dpPadding
+        val pixelPadding = fg.settings.pixelPadding
         when {
             paddingId != null -> paddingId(paddingId)
             dpPadding != null -> dpPadding(dpPadding)
@@ -83,7 +83,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
 
         // Typeface
         @Suppress("LeakingThis")
-        typeface(fg.defaults.textTypeface)
+        typeface(fg.settings.textTypeface)
     }
 
     /**
@@ -218,7 +218,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      * @return Item with the applied text [style] and [typeface]
      *  (which defaults to the default one if none specified)
      */
-    fun style(style: Int, typeface: Typeface? = fg.defaults.textTypeface): T {
+    fun style(style: Int, typeface: Typeface? = fg.settings.textTypeface): T {
         childView.setTypeface(typeface, style)
         return this as T
     }
@@ -229,7 +229,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, @DrawableRes drawableId: Int?,
-             isVisible: Boolean = true, @ColorInt color: Int? = fg.defaults.iconColor): T {
+             isVisible: Boolean = true, @ColorInt color: Int? = fg.settings.iconColor): T {
         icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
         return this as T
     }
@@ -240,7 +240,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, drawable: Drawable?, isVisible: Boolean = true,
-             @ColorInt color: Int? = fg.defaults.iconColor): T {
+             @ColorInt color: Int? = fg.settings.iconColor): T {
         icons[position.toInt()] = Icon(drawable = drawable, color = color, isVisible = isVisible)
         return this as T
     }
@@ -295,9 +295,9 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
                 getDrawable(icons[3]))
 
         // Set the compound drawable padding
-        val drawablePixelPadding = fg.defaults.drawablePixelPadding
-        val drawableDpPadding = fg.defaults.drawableDpPadding
-        val drawablePaddingSizeId = fg.defaults.drawablePaddingSizeId
+        val drawablePixelPadding = fg.settings.drawablePixelPadding
+        val drawableDpPadding = fg.settings.drawableDpPadding
+        val drawablePaddingSizeId = fg.settings.drawablePaddingSizeId
         when {
             drawablePixelPadding != null -> childView.compoundDrawablePadding = drawablePixelPadding
             drawableDpPadding != null -> childView.compoundDrawablePadding =

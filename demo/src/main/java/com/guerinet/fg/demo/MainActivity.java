@@ -102,13 +102,13 @@ public class MainActivity extends AppCompatActivity {
         fg.space().build();
 
         // Custom Form
-        FormGenerator.Defaults defaults = new FormGenerator.Defaults();
-        defaults.setBackgroundId(android.R.drawable.list_selector_background);
-        defaults.setLineBackgroundId(android.R.color.black);
-        defaults.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
-        defaults.setTextTypeface(Typeface.SERIF);
-        defaults.setIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark));
-        fg = defaults.bind(container);
+        FormGenerator.Settings settings = new FormGenerator.Settings();
+        settings.setBackgroundId(android.R.drawable.list_selector_background);
+        settings.setLineBackgroundId(android.R.color.black);
+        settings.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
+        settings.setTextTypeface(Typeface.SERIF);
+        settings.setIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark));
+        fg = settings.bind(container);
 
         // Add the different form items
         fg.text()

@@ -30,7 +30,7 @@ import com.guerinet.fg.FormGenerator
  * @param fg    [FormGenerator] that created this item
  */
 @Suppress("UNCHECKED_CAST")
-open class Item<T : Item<T>>(protected val fg: FormGenerator, val view: View) {
+open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View) {
 
     /**
      * @return Item instance with its new height in [pixels] set
