@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.formgenerator.demo;
+package com.guerinet.fg.demo;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -30,7 +30,7 @@ import com.guerinet.fg.FormGenerator;
 import com.guerinet.fg.base.Position;
 
 /**
- * MainActivity. Demonstrates the default behavior of the FormGenerator
+ * Demonstrates the default behavior of the FormGenerator
  * @author Julien Guerinet
  * @since 1.0.0
  */
