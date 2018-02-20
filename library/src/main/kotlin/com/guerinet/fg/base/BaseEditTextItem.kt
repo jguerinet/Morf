@@ -16,6 +16,8 @@
 
 package com.guerinet.fg.base
 
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import com.guerinet.fg.FormGenerator
@@ -73,6 +75,30 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
     fun inputBackgroundId(backgroundId: Int): T {
         childView.setBackgroundResource(backgroundId)
         return this as T
+    }
+
+    /**
+     * @return Item with a [watcher] on the [EditText]
+     */
+    fun watch(watcher: TextWatcher): T {
+        childView.addTextChangedListener(watcher)
+        return this as T
+    }
+
+    /**
+     * @return Item with a [TextWatcher] that calls the [watcher] when the [EditText] changes
+     */
+    fun watch(watcher: ((String) -> Unit)): T {
+        return watch(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable?) {
+                watcher(s.toString())
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
     }
 
     override fun onClick(listener: OnClickListener<T>?): T {

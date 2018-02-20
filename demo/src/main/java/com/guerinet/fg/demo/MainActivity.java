@@ -29,6 +29,8 @@ import android.widget.Toast;
 import com.guerinet.fg.FormGenerator;
 import com.guerinet.fg.base.Position;
 
+import kotlin.Unit;
+
 /**
  * Demonstrates the default behavior of the FormGenerator
  * @author Julien Guerinet
@@ -76,7 +78,13 @@ public class MainActivity extends AppCompatActivity {
         fg.space().build();
         fg.line().build();
 
-		fg.input().hint("Form Item: Input").build();
+        fg.input()
+                .hint("Form Item: Input")
+                .watch(s -> {
+                    Toast.makeText(this, "Text:" + s, Toast.LENGTH_SHORT).show();
+                    return Unit.INSTANCE;
+                })
+                .build();
 
         fg.textInput()
                 .hint("FormItem: Text Input")
