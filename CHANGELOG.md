@@ -5,8 +5,9 @@
 * Library structure has been entirely reworked to remove code duplication
 * Package name has changed to `com.guerinet.fg`
 * All items have been renamed to remove the word 'Form' from them
-* `FormGenerator.Builder` has been renamed to `FormGenerator.Defaults`
-* `Defaults` can be prepared using a DSL in Kotlin
+* `FormGenerator.Builder` has been renamed to `FormGenerator.Settings`
+* `Settings` can be prepared using a DSL in Kotlin
+* Form items can be prepared using a DSL in Kotlin
 * Created programmatic instantiaions of the `SpaceItem` and `LineItem`
 * Icons now use relative positioning, and require a `Position` variable (as opposed to having one method per position)
 * Icons `Drawable`s can now be set directly (as opposed to using a resource Id)
