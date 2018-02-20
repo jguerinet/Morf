@@ -72,23 +72,21 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
      * @return [BaseLineItem] instance with its new height in [pixels] set
      */
     fun linePixelHeight(pixels: Int): T {
-        line?.layoutParams?.height = pixels
-        return this as T
+        return pixelHeight(line, pixels)
     }
 
     /**
      * @return Item with its new height in [dps] set
      */
     fun lineDpHeight(dps: Float): T {
-        val scale = fg.container.resources.displayMetrics.density
-        return linePixelHeight((dps * scale + 0.5f).toInt())
+        return dpHeight(line, dps)
     }
 
     /**
      * @return Item with its new height from the [dimenId] set
      */
     fun lineHeightId(@DimenRes dimenId: Int): T {
-        return linePixelHeight(fg.container.resources.getDimensionPixelOffset(dimenId))
+        return heightId(line, dimenId)
     }
 
     /**

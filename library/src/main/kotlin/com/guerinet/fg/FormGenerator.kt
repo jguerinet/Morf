@@ -139,9 +139,22 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         var spaceColor: Int? = null
 
         /**
-         * Height (in pixels) of a space, defaults to null
+         * Height (in dp) of a space, defaults to 8
          */
-        var spaceHeight: Int? = null
+        var spaceDpHeight: Float = 8f
+
+        /**
+         * Height (in pixels) of a space, defaults to null
+         *  Note: this takes precedence over spaceDpHeight if set
+         */
+        var spacePixelHeight: Int? = null
+
+        /**
+         * Height from a dimension Id of a space, defaults to null
+         *  Note: this takes precedence over spaceDpHeight and spacePixelHeight if set
+         */
+        @DimenRes
+        var spaceHeightId: Int? = null
 
         /* Line */
 
@@ -152,7 +165,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
 
         /**
          * Height (in pixels) of a line, defaults to null
-         *  Note: this takes precendence over lineDpHeight if set
+         *  Note: this takes precedence over lineDpHeight if set
          */
         var linePixelHeight: Int? = null
 
@@ -242,7 +255,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         fun newInstance(): Defaults {
             val defaults = Defaults()
             defaults.spaceBackgroundId = spaceBackgroundId
-            defaults.spaceHeight = spaceHeight
+            defaults.spacePixelHeight = spacePixelHeight
             defaults.linePixelHeight = linePixelHeight
             defaults.lineBackgroundId = lineBackgroundId
             defaults.isLineShown = isLineShown

@@ -18,8 +18,11 @@ package com.guerinet.fg
 
 import android.support.annotation.ColorInt
 import android.support.annotation.ColorRes
+import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.view.View
+import com.guerinet.fg.R.color.line
+import com.guerinet.fg.base.BaseLineItem
 import com.guerinet.fg.base.Item
 
 /**
@@ -33,10 +36,17 @@ import com.guerinet.fg.base.Item
 class SpaceItem(fg: FormGenerator, view: View) : Item<SpaceItem>(fg, view) {
 
     init {
-        // Size
-        val spaceHeight = fg.defaults.spaceHeight
-        if (spaceHeight != null) {
-            height(spaceHeight)
+        // Height
+        val spaceHeightId = fg.defaults.spaceHeightId
+        if (spaceHeightId != null) {
+            heightId(spaceHeightId)
+        } else {
+            val spacePixelHeight = fg.defaults.spacePixelHeight
+            if (spacePixelHeight != null) {
+                pixelHeight(spacePixelHeight)
+            } else {
+                dpHeight(fg.defaults.spaceDpHeight)
+            }
         }
 
         // Background
@@ -44,31 +54,7 @@ class SpaceItem(fg: FormGenerator, view: View) : Item<SpaceItem>(fg, view) {
         if (spaceColor != null) {
             backgroundColor(spaceColor)
         } else {
-            background(fg.defaults.spaceBackgroundId)
+            backgroundId(fg.defaults.spaceBackgroundId)
         }
-    }
-
-    /**
-     * @return [SpaceItem] instance with the new [height] set, in pixels
-     */
-    fun height(height: Int): SpaceItem {
-        view.layoutParams.height = height
-        return this
-    }
-
-    /**
-     * @return [SpaceItem] instance with the background with the given [resId] set
-     */
-    fun background(@ColorRes @DrawableRes resId: Int): SpaceItem {
-        view.setBackgroundResource(resId)
-        return this
-    }
-
-    /**
-     * @return [SpaceItem] instance with the background of the given [color]
-     */
-    fun backgroundColor(@ColorInt color: Int): SpaceItem {
-        view.setBackgroundColor(color)
-        return this
     }
 }

@@ -248,14 +248,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
     }
 
     /**
-     * @return Item with the given background with [backgroundId] set
-     */
-    open fun backgroundId(backgroundId: Int): T {
-        view.setBackgroundResource(backgroundId)
-        return this as T
-    }
-
-    /**
      * @return Item with the given layout [params] and [gravity] (null if none, defaults to null)
      *  set
      */
