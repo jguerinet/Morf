@@ -1,5 +1,22 @@
 # Change Log
 
+## Version 4.0.0 (2018-02-20)
+* Library is now in Kotlin!
+* Library structure has been entirely reworked to remove code duplication
+* Package name has changed to `com.guerinet.fg`
+* All items have been renamed to remove the word 'Form' from them
+* `FormGenerator.Builder` has been renamed to `FormGenerator.Defaults`
+* `Defaults` can be prepared using a DSL in Kotlin
+* Created programmatic instantiaions of the `SpaceItem` and `LineItem`
+* Icons now use relative positioning, and require a `Position` variable (as opposed to having one method per position)
+* Icons `Drawable`s can now be set directly (as opposed to using a resource Id)
+* `LineItem`s and `SpaceItem`s now need to call `build()` as well
+* Added a `TextWatcher` to all `InputItem`s and descendants
+* Added options to set line heights, space heights, view padding, and drawable padding in pixels, DP, or using a dimension resource Id
+* Added options to set some colors using Ids or resolved colors
+* Text size is now set using an Id for all `TextViewItem`s and descendants
+* Support libraries have been updated to use the latest versions
+
 ## Version 3.2.2 (2017-04-12)
 * Removed the setting of the default background on the `TextInputFormItem`
 
@@ -38,7 +55,7 @@
 * Update: Removed `singleLine()` from the text form items since by default it's already true
 
 ## Version 2.2.1 (2016-04-09)
-* Update: Brought back the default line size (0.5dp) and the default space size (8dp) 
+* Update: Brought back the default line size (0.5dp) and the default space size (8dp)
 
 ## Version 2.2.0 (2016-04-09)
 * New: Added default drawable padding to the Builder
@@ -56,30 +73,30 @@
 * Update: Using pixels for line size
 
 ## Version 2.1.5 (2016-03-10)
-* Fix: Now using the Application Context to tint a drawable to avoid memory leaks 
+* Fix: Now using the Application Context to tint a drawable to avoid memory leaks
 * Update: Removed `setSingleLine()` from EditTextFormItem since it was a duplicate
 
 ## Version 2.1.4 (2016-02-29)
-* Fix: Fixed bug where app would crash when the default color Id was not set 
+* Fix: Fixed bug where app would crash when the default color Id was not set
 
 ## Version 2.1.3 (2015-12-01)
-* Added the borderless button 
+* Added the borderless button
 
 ## Version 2.1.2 (2015-11-13)
 * Fixed bug where the icon drawable was no longer being mutated when set
 
 ## Version 2.1.1 (2015-11-13)
-* Added the possibility to initialize TextViewFormItems or its descendants with a string resource Id 
+* Added the possibility to initialize TextViewFormItems or its descendants with a string resource Id
 
 ## Version 2.1.0 (2015-11-13)
 * Added gravity to the form items
-* Now using Drawable tinting instead of a color filter to color the icons 
+* Now using Drawable tinting instead of a color filter to color the icons
 * Added the single line option to the form items with a text field
 * Added the single line option to the EditTextFormItem
 * Added the ellipsize option to the form items with a text field
-* Completely reworked the `get()`, `set()`, and `bind()` methods to make it more clear (see README for more info) 
+* Completely reworked the `get()`, `set()`, and `bind()` methods to make it more clear (see README for more info)
 * Added the on and off text on the SwitchFormItem
-* Added method to initialize a new Builder instance from an old one, allowing you to base a Builder instance from your default one 
+* Added method to initialize a new Builder instance from an old one, allowing you to base a Builder instance from your default one
 * ButtonFormItem no longer inherits the default background
 
 ## Version 2.0.2 (2015-10-19)
