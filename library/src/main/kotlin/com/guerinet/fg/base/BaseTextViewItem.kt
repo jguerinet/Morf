@@ -74,7 +74,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
         // Padding
         val paddingSize = fg.defaults.paddingSize
         if (paddingSize != null) {
-            padding(paddingSize)
+            pixelPadding(paddingSize)
         }
 
         // Typeface
@@ -154,7 +154,8 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      * Sets the [start], [top], [end], and [bottom] paddings (in pixels) on the returned item.
      *  If one of these is null, the padding remains what it is currently for that side
      */
-    fun padding(start: Int? = null, top: Int? = null, end: Int? = null, bottom: Int? = null): T {
+    fun pixelPadding(start: Int? = null, top: Int? = null, end: Int? = null, bottom: Int? = null)
+            : T {
         // Use the current paddings if one of them is null
         childView.setPaddingRelative(start ?: childView.paddingStart, top ?: childView.paddingTop,
                 end ?: childView.paddingEnd, bottom ?: childView.paddingBottom)
@@ -167,7 +168,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      */
     fun dpPadding(startDp: Float? = null, topDp: Float? = null, endDp: Float? = null,
                   bottomDp: Float? = null): T {
-        return padding(if (startDp != null) dpToPixels(startDp) else null,
+        return pixelPadding(if (startDp != null) dpToPixels(startDp) else null,
                 if (topDp != null) dpToPixels(topDp) else null,
                 if (endDp != null) dpToPixels(endDp) else null,
                 if (bottomDp != null) dpToPixels(bottomDp) else null)
@@ -180,7 +181,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      */
     fun paddingId(@DimenRes startId: Int? = null, @DimenRes topId: Int? = null,
                   @DimenRes endId: Int? = null, @DimenRes bottomId: Int? = null): T {
-        return padding(if (startId != null) dimenToPixels(startId) else null,
+        return pixelPadding(if (startId != null) dimenToPixels(startId) else null,
                 if (topId != null) dimenToPixels(topId) else null,
                 if (endId != null) dimenToPixels(endId) else null,
                 if (bottomId != null) dimenToPixels(bottomId) else null)
@@ -189,7 +190,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
     /**
      * @return Item with the given [padding] (in pixels) on all 4 sides
      */
-    fun padding(padding: Int): T = padding(padding, padding, padding, padding)
+    fun pixelPadding(padding: Int): T = pixelPadding(padding, padding, padding, padding)
 
     /**
      * @return Item with padding, in [dps], on all 4 sides
