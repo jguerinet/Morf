@@ -73,8 +73,14 @@ open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View
      * @return Item with the [view] height set to the given [dimenId]
      */
     protected fun heightId(view: View?, @DimenRes dimenId: Int): T {
-        return pixelHeight(view, fg.container.resources.getDimensionPixelOffset(dimenId))
+        return pixelHeight(view, dimenToPixels(dimenId))
     }
+
+    /**
+     * @return Pixel equivalent of the dimen [dimenId]
+     */
+    protected fun dimenToPixels(@DimenRes dimenId: Int): Int =
+            fg.container.resources.getDimensionPixelOffset(dimenId)
 
     /**
      * @return Item with the given background with [backgroundId] set

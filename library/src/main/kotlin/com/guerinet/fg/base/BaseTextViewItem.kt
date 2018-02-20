@@ -69,7 +69,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
         textColor(fg.defaults.textColor)
 
         // Text Size
-        textSizeId(fg.defaults.textSize)
+        textSizeId(fg.defaults.textSizeId)
 
         // Padding
         val paddingSize = fg.defaults.paddingSize
@@ -162,9 +162,29 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
     }
 
     /**
+     * Sets the paddings on the returned item using the [startId], [topId], [endId], and [bottomId]
+     *  dimension resource Ids. If one of these is null, the padding remains what it is currently
+     *  for that size
+     */
+    fun paddingId(@DimenRes startId: Int? = null, @DimenRes topId: Int? = null,
+                  @DimenRes endId: Int? = null, @DimenRes bottomId: Int? = null): T {
+        return padding(if (startId != null) dimenToPixels(startId) else null,
+                if (topId != null) dimenToPixels(topId) else null,
+                if (endId != null) dimenToPixels(endId) else null,
+                if (bottomId != null) dimenToPixels(bottomId) else null)
+    }
+
+    /**
      * @return Item with the given [padding] (in pixels) on all 4 sides
      */
     fun padding(padding: Int): T = padding(padding, padding, padding, padding)
+
+    /**
+     * @return Item with padding from the given [dimenId] on all 4 sides
+     */
+    fun paddingId(dimenId: Int): T {
+        return paddingId(dimenId, dimenId, dimenId, dimenId)
+    }
 
     /**
      * @return Item with the text in the given [typeface]

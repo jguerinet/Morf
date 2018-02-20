@@ -201,7 +201,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
          * Id of the size of the text, defaults to null (which is the app's default)
          */
         @DimenRes
-        var textSize: Int? = null
+        var textSizeId: Int? = null
 
         /**
          * Color of the text, defaults to black
@@ -221,11 +221,15 @@ class FormGenerator private constructor(internal val defaults: Defaults,
          */
         var paddingSize: Int? = null
 
+        var paddingSizeId: Int? = null
+
         /**
          * Padding size between a view and its compound drawable, defaults to null
          *  (which is the app's default)
          */
         var drawablePaddingSize: Int? = null
+
+        var drawablePaddingSizeId: Int? = null
 
         /* Resources */
 
@@ -259,7 +263,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             defaults.linePixelHeight = linePixelHeight
             defaults.lineBackgroundId = lineBackgroundId
             defaults.isLineShown = isLineShown
-            defaults.textSize = textSize
+            defaults.textSizeId = textSizeId
             defaults.textColor = textColor
             defaults.textTypeface = textTypeface
             defaults.paddingSize = paddingSize
