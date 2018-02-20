@@ -17,16 +17,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-archivesBaseName="form-generator"
-version =  "3.2.2"
-
 android {
     compileSdkVersion Integer.valueOf(fg_target_sdk)
 
     defaultConfig {
         minSdkVersion fg_min_sdk
         targetSdkVersion fg_target_sdk
-
+        versionName fg_version
     }
 
     buildTypes {
