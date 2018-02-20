@@ -132,20 +132,16 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         var spaceColorId: Int = android.R.color.transparent
 
         /**
-         * TODO
-         * Id of the size dimension for a space, defaults to null
+         * Height (in pixels) of a space, defaults to null
          */
-        @DimenRes
-        var spaceSizeId: Int? = null
+        var spaceHeight: Int? = null
 
         /* Line */
 
         /**
-         * TODO
-         * Id of the size dimension for a line, defaults to null
+         * Height (in pixels) of a line, defaults to null
          */
-        @DimenRes
-        var lineSizeId: Int? = null
+        var lineHeight: Int? = null
 
         /**
          * Id of the background resource for a line, defaults to #EEEEEE
@@ -219,8 +215,8 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         fun newInstance(): Defaults {
             val defaults = Defaults()
             defaults.spaceColorId = spaceColorId
-            defaults.spaceSizeId = spaceSizeId
-            defaults.lineSizeId = lineSizeId
+            defaults.spaceHeight = spaceHeight
+            defaults.lineHeight = lineHeight
             defaults.lineBackgroundId = lineBackgroundId
             defaults.isLineShown = isLineShown
             defaults.textSize = textSize

@@ -40,10 +40,10 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
 
     init {
         // Size
-        val lineSizeId = fg.defaults.lineSizeId
-        if (lineSizeId != null) {
+        val lineHeight = fg.defaults.lineHeight
+        if (lineHeight != null) {
             // Set the default line size if there is one
-            lineSize(lineSizeId)
+            lineSize(lineHeight)
         }
 
         // Background

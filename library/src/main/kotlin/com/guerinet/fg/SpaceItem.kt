@@ -34,9 +34,9 @@ class SpaceItem(fg: FormGenerator, view: View) : Item<SpaceItem>(fg, view) {
 
     init {
         // Size
-        val spaceSizeId = fg.defaults.spaceSizeId
-        if (spaceSizeId != null) {
-            height(spaceSizeId)
+        val spaceHeight = fg.defaults.spaceHeight
+        if (spaceHeight != null) {
+            height(spaceHeight)
         }
 
         // Background
