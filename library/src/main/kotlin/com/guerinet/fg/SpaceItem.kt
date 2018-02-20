@@ -16,13 +16,7 @@
 
 package com.guerinet.fg
 
-import android.support.annotation.ColorInt
-import android.support.annotation.ColorRes
-import android.support.annotation.DimenRes
-import android.support.annotation.DrawableRes
 import android.view.View
-import com.guerinet.fg.R.color.line
-import com.guerinet.fg.base.BaseLineItem
 import com.guerinet.fg.base.Item
 
 /**

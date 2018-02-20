@@ -19,7 +19,6 @@ package com.guerinet.fg.base
 import android.support.annotation.*
 import android.view.View
 import com.guerinet.fg.FormGenerator
-import com.guerinet.fg.SpaceItem
 
 /**
  * Base class for all items that could be present on a form
