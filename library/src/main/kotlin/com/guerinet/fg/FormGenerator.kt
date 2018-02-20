@@ -38,7 +38,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
     /**
      * @return [SpaceItem] added to the form
      */
-    fun space(): SpaceItem = SpaceItem(this, inflater.inflate(R.layout.fg_space, container, false))
+    fun space(): SpaceItem = SpaceItem(this)
 
     /**
      * @return [LineItem] added to the form

@@ -18,6 +18,7 @@ package com.guerinet.fg.base
 
 import android.support.annotation.*
 import android.view.View
+import android.widget.LinearLayout
 import com.guerinet.fg.FormGenerator
 
 /**
@@ -87,6 +88,18 @@ open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View
      */
     fun backgroundColor(@ColorInt color: Int): T {
         view.setBackgroundColor(color)
+        return this as T
+    }
+
+    /**
+     * @return Item with the given layout [params] and [gravity] (null if none, defaults to null)
+     *  set
+     */
+    fun layoutParams(params: LinearLayout.LayoutParams, gravity: Int? = null): T {
+        if (gravity != null) {
+            params.gravity = gravity
+        }
+        view.layoutParams = params
         return this as T
     }
 

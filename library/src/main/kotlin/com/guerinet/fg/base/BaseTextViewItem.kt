@@ -27,7 +27,6 @@ import android.support.v4.graphics.drawable.DrawableCompat
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.guerinet.fg.FormGenerator
 import com.guerinet.fg.R
@@ -244,18 +243,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
      */
     fun visibility(visibility: Int): T {
         childView.visibility = visibility
-        return this as T
-    }
-
-    /**
-     * @return Item with the given layout [params] and [gravity] (null if none, defaults to null)
-     *  set
-     */
-    fun layoutParams(params: LinearLayout.LayoutParams, gravity: Int? = null): T {
-        if (gravity != null) {
-            params.gravity = gravity
-        }
-        view.layoutParams = params
         return this as T
     }
 
