@@ -42,7 +42,7 @@ open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(
     /**
      * @return Item with the password visibility toggle shown or not depending on [isEnabled]
      */
-    fun passwordVisibilityToggle(isEnabled: Boolean): T {
+    fun showPasswordVisibilityToggle(isEnabled: Boolean): T {
         inputLayout.isPasswordVisibilityToggleEnabled = isEnabled
         return this as T
     }

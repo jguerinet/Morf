@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         fg.textInput()
                 .hint("FormItem: Text Input")
                 .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                .passwordVisibilityToggle(true)
+                .showPasswordVisibilityToggle(true)
                 .build();
 
 		fg.aSwitch()
