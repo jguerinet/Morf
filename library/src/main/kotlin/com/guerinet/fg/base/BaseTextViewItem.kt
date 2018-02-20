@@ -247,10 +247,14 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
 
 
     /**
-     * @return Item with the given [OnClickListener] set for click events
+     * @return Item with the given function set for click events
      */
-    open fun onClick(listener: OnClickListener<T>?): T {
-        view.setOnClickListener { _ -> listener?.onClick(this as T) }
+    open fun onClick(onClick: ((T) -> Unit)?): T {
+        if (onClick == null) {
+            view.setOnClickListener(null)
+        } else {
+            view.setOnClickListener { _ -> onClick(this as T) }
+        }
         return this as T
     }
 
@@ -343,17 +347,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
         } else {
             icon.drawable
         }
-    }
-
-    /**
-     * Custom listener implmentation to listen for item clicks which returns the clicked form item
-     */
-    interface OnClickListener<in T> {
-
-        /**
-         * Called when the [item] has been clicked
-         */
-        fun onClick(item: T)
     }
 
     /**

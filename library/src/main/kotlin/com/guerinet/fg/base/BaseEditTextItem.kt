@@ -101,17 +101,17 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
         })
     }
 
-    override fun onClick(listener: OnClickListener<T>?): T {
+    override fun onClick(onClick: ((T) -> Unit)?): T {
         // Make the EditText non focusable, non long clickable, and follow its parent before
         //  continuing. If the listener is null, do the opposite
-        childView.isFocusable = listener == null
-        childView.isLongClickable = listener == null
+        childView.isFocusable = onClick == null
+        childView.isLongClickable = onClick == null
         childView.isClickable = false
-        if (listener == null) {
+        if (onClick == null) {
             childView.setOnClickListener(null)
         } else {
-            childView.setOnClickListener({ _ -> listener.onClick(this as T) })
+            childView.setOnClickListener({ _ -> onClick(this as T) })
         }
-        return super.onClick(listener)
+        return this as T
     }
 }
