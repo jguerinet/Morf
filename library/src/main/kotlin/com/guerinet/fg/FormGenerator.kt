@@ -343,6 +343,11 @@ class FormGenerator private constructor(internal val settings: Settings,
         }
 
         /**
+         * @return New [Settings] instance, generated from the current one and the block
+         */
+        inline fun newInstance(block: Settings.() -> Unit): Settings = newInstance().apply(block)
+
+        /**
          * @return [FormGenerator] created from this [Settings] and the given [container]
          */
         fun bind(container: LinearLayout): FormGenerator = FormGenerator(this, container)
