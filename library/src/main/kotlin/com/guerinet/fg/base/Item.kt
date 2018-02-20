@@ -65,8 +65,7 @@ open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View
      * @return Item with the [view] height set to the given [dps]
      */
     protected fun dpHeight(view: View?, dps: Float): T {
-        return pixelHeight(view, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dps,
-                fg.container.resources.displayMetrics).toInt())
+        return pixelHeight(view, dpToPixels(dps))
     }
 
     /**
@@ -75,6 +74,10 @@ open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View
     protected fun heightId(view: View?, @DimenRes dimenId: Int): T {
         return pixelHeight(view, dimenToPixels(dimenId))
     }
+
+    protected fun dpToPixels(dps: Float): Int =
+            TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dps,
+                    fg.container.resources.displayMetrics).toInt()
 
     /**
      * @return Pixel equivalent of the dimen [dimenId]

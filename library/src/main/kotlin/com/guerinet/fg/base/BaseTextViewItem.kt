@@ -162,9 +162,21 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
     }
 
     /**
+     * Sets the paddings on the returned item using the [startDp], [topDp], [endDp], and [bottomDp].
+     *  If one of these is null, the padding remains what it is currently for that side
+     */
+    fun dpPadding(startDp: Float? = null, topDp: Float? = null, endDp: Float? = null,
+                  bottomDp: Float? = null): T {
+        return padding(if (startDp != null) dpToPixels(startDp) else null,
+                if (topDp != null) dpToPixels(topDp) else null,
+                if (endDp != null) dpToPixels(endDp) else null,
+                if (bottomDp != null) dpToPixels(bottomDp) else null)
+    }
+
+    /**
      * Sets the paddings on the returned item using the [startId], [topId], [endId], and [bottomId]
      *  dimension resource Ids. If one of these is null, the padding remains what it is currently
-     *  for that size
+     *  for that side
      */
     fun paddingId(@DimenRes startId: Int? = null, @DimenRes topId: Int? = null,
                   @DimenRes endId: Int? = null, @DimenRes bottomId: Int? = null): T {
@@ -180,11 +192,14 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
     fun padding(padding: Int): T = padding(padding, padding, padding, padding)
 
     /**
+     * @return Item with padding, in [dps], on all 4 sides
+     */
+    fun dpPadding(dps: Float): T = dpPadding(dps, dps, dps, dps)
+
+    /**
      * @return Item with padding from the given [dimenId] on all 4 sides
      */
-    fun paddingId(dimenId: Int): T {
-        return paddingId(dimenId, dimenId, dimenId, dimenId)
-    }
+    fun paddingId(dimenId: Int): T = paddingId(dimenId, dimenId, dimenId, dimenId)
 
     /**
      * @return Item with the text in the given [typeface]
