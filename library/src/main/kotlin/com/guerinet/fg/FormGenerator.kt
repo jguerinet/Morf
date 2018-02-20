@@ -217,29 +217,40 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         /* Padding */
 
         /**
-         * Padding size for non-space/line items in pixels,
+         * Padding size in pixels for non-space/line items,
          *  defaults to null (which is the app's default)
          */
         var pixelPadding: Int? = null
 
         /**
-         * Padding size for non-space/line items in DP, defaults to null.
+         * Padding size in DP for non-space/line items, defaults to null.
          *  Note: This takes precedence over pixelPadding
          */
         var dpPadding: Float? = null
 
         /**
          * Dimension Id for a padding size for non-space/line items, defaults to null
-         *  Note: This takes precendence over pixelPadding and dpPadding
+         *  Note: This takes precedence over pixelPadding and dpPadding
          */
         var paddingId: Int? = null
 
         /**
-         * Padding size between a view and its compound drawable, defaults to null
+         * Padding size in pixels between a view and its compound drawable, defaults to null
          *  (which is the app's default)
          */
-        var drawablePaddingSize: Int? = null
+        var drawablePixelPadding: Int? = null
 
+        /**
+         * Padding size in DP between a view and its compound drawable, defaults to null.
+         *  Note: This takes precedence over drawablePixelPadding
+         */
+        var drawableDpPadding: Float? = null
+
+        /**
+         * Dimension Id for a padding size between a view and its compound drawable, defaults to
+         *  null
+         *  Note: This takes precedence over drawablePaddingSizeId
+         */
         var drawablePaddingSizeId: Int? = null
 
         /* Resources */
@@ -278,7 +289,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             defaults.textColor = textColor
             defaults.textTypeface = textTypeface
             defaults.pixelPadding = pixelPadding
-            defaults.drawablePaddingSize = drawablePaddingSize
+            defaults.drawablePixelPadding = drawablePixelPadding
             defaults.iconColor = iconColor
             defaults.backgroundId = backgroundId
             defaults.inputBackgroundId = inputBackgroundId

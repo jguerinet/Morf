@@ -295,9 +295,15 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
                 getDrawable(icons[3]))
 
         // Set the compound drawable padding
-        val drawablePaddingSize = fg.defaults.drawablePaddingSize
-        if (drawablePaddingSize != null) {
-            childView.compoundDrawablePadding = drawablePaddingSize
+        val drawablePixelPadding = fg.defaults.drawablePixelPadding
+        val drawableDpPadding = fg.defaults.drawableDpPadding
+        val drawablePaddingSizeId = fg.defaults.drawablePaddingSizeId
+        when {
+            drawablePixelPadding != null -> childView.compoundDrawablePadding = drawablePixelPadding
+            drawableDpPadding != null -> childView.compoundDrawablePadding =
+                    dpToPixels(drawableDpPadding)
+            drawablePaddingSizeId != null -> childView.compoundDrawablePadding =
+                    dimenToPixels(drawablePaddingSizeId)
         }
 
         // Set the correct tinting and alpha for each drawable
