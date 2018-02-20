@@ -23,7 +23,6 @@ android {
     defaultConfig {
         minSdkVersion fg_min_sdk
         targetSdkVersion fg_target_sdk
-
     }
 
     buildTypes {
