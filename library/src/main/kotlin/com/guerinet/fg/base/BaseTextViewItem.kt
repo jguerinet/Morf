@@ -72,9 +72,13 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
         textSizeId(fg.defaults.textSizeId)
 
         // Padding
-        val paddingSize = fg.defaults.paddingSize
-        if (paddingSize != null) {
-            pixelPadding(paddingSize)
+        val paddingId = fg.defaults.paddingId
+        val dpPadding = fg.defaults.dpPadding
+        val pixelPadding = fg.defaults.pixelPadding
+        when {
+            paddingId != null -> paddingId(paddingId)
+            dpPadding != null -> dpPadding(dpPadding)
+            pixelPadding != null -> pixelPadding(pixelPadding)
         }
 
         // Typeface

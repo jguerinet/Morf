@@ -217,11 +217,22 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         /* Padding */
 
         /**
-         * Padding size for non-space/line items, defaults to null (which is the app's default)
+         * Padding size for non-space/line items in pixels,
+         *  defaults to null (which is the app's default)
          */
-        var paddingSize: Int? = null
+        var pixelPadding: Int? = null
 
-        var paddingSizeId: Int? = null
+        /**
+         * Padding size for non-space/line items in DP, defaults to null.
+         *  Note: This takes precedence over pixelPadding
+         */
+        var dpPadding: Float? = null
+
+        /**
+         * Dimension Id for a padding size for non-space/line items, defaults to null
+         *  Note: This takes precendence over pixelPadding and dpPadding
+         */
+        var paddingId: Int? = null
 
         /**
          * Padding size between a view and its compound drawable, defaults to null
@@ -266,7 +277,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             defaults.textSizeId = textSizeId
             defaults.textColor = textColor
             defaults.textTypeface = textTypeface
-            defaults.paddingSize = paddingSize
+            defaults.pixelPadding = pixelPadding
             defaults.drawablePaddingSize = drawablePaddingSize
             defaults.iconColor = iconColor
             defaults.backgroundId = backgroundId
