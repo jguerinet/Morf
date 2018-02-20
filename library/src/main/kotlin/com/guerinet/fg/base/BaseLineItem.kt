@@ -59,11 +59,11 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
         }
 
         // Background
-        val lineColor = fg.defaults.lineColor
-        if (lineColor != null) {
-            lineColor(lineColor)
+        val lineBackgroundId = fg.defaults.lineBackgroundId
+        if (lineBackgroundId != null) {
+            lineBackground(lineBackgroundId)
         } else {
-            lineBackground(fg.defaults.lineBackgroundId)
+            lineColor(fg.defaults.lineColor)
         }
 
         if (view != line) {

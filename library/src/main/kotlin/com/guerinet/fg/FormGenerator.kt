@@ -177,18 +177,18 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         var lineHeightId: Int? = null
 
         /**
-         * Id of the background resource for a line, defaults to #EEEEEE
+         * Resolved color for a line, defaults to #EEEEEE
+         */
+        @ColorInt
+        var lineColor: Int = Color.parseColor("#EEEEEE")
+
+        /**
+         * Id of the background resource for a line, defaults to null
+         *  Note: this takes precedence over lineColor if set
          */
         @ColorRes
         @DrawableRes
-        var lineBackgroundId: Int = R.color.line
-
-        /**
-         * Resolved color for a line, defaults to null (in order to use lineBackgroundId)
-         *  Note: this takes precedence over lineBackgroundId if set
-         */
-        @ColorInt
-        var lineColor: Int? = null
+        var lineBackgroundId: Int? = null
 
         /**
          * True if we should show a line after a form item, false otherwise (defaults to true)
