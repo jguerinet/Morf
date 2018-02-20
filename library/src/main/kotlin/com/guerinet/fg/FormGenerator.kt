@@ -285,9 +285,9 @@ class FormGenerator private constructor(internal val settings: Settings,
         /**
          * Dimension Id for a padding size between a view and its compound drawable, defaults to
          *  null
-         *  Note: This takes precedence over drawablePaddingSizeId
+         *  Note: This takes precedence over drawablePaddingId
          */
-        var drawablePaddingSizeId: Int? = null
+        var drawablePaddingId: Int? = null
 
         /* Resources */
 
@@ -335,7 +335,7 @@ class FormGenerator private constructor(internal val settings: Settings,
             settings.paddingId = paddingId
             settings.drawablePixelPadding = drawablePixelPadding
             settings.drawableDpPadding = drawableDpPadding
-            settings.drawablePaddingSizeId = drawablePaddingSizeId
+            settings.drawablePaddingId = drawablePaddingId
             settings.iconColor = iconColor
             settings.backgroundId = backgroundId
             settings.inputBackgroundId = inputBackgroundId

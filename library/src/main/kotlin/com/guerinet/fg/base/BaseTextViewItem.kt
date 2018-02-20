@@ -302,7 +302,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
         // Set the compound drawable padding
         val drawablePixelPadding = fg.settings.drawablePixelPadding
         val drawableDpPadding = fg.settings.drawableDpPadding
-        val drawablePaddingSizeId = fg.settings.drawablePaddingSizeId
+        val drawablePaddingSizeId = fg.settings.drawablePaddingId
         when {
             drawablePixelPadding != null -> childView.compoundDrawablePadding = drawablePixelPadding
             drawableDpPadding != null -> childView.compoundDrawablePadding =
