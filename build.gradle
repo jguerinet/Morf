@@ -15,7 +15,7 @@
  */
 
 // Versions shared across modules
-ext.android_support_version = '26.1.0'
+ext.android_support_version = '27.0.2'
 
 buildscript {
     ext.kotlin_version = '1.2.21'
