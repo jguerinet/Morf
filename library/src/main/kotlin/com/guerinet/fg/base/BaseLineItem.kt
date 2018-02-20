@@ -21,6 +21,7 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.view.View
+import android.widget.LinearLayout
 import com.guerinet.fg.FormGenerator
 
 
@@ -37,10 +38,13 @@ import com.guerinet.fg.FormGenerator
 open class BaseLineItem<out T : BaseLineItem<T>>(
         fg: FormGenerator,
         view: View,
-        private val line: View?
+        private val line: View? = view
 ) : Item<T>(fg, view) {
 
     init {
+        // Width
+        line?.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
+
         // Height
         val lineHeightId = fg.defaults.lineHeightId
         if (lineHeightId != null) {

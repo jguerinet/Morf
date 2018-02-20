@@ -43,7 +43,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
     /**
      * @return [LineItem] added to the form
      */
-    fun line(): LineItem = LineItem(this, inflater.inflate(R.layout.fg_line, container, false))
+    fun line(): LineItem = LineItem(this)
 
     /**
      * @return [TextViewItem] added to the form
