@@ -45,7 +45,7 @@ import com.guerinet.fg.R
 open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>(
         fg: FormGenerator,
         view: View,
-        protected val childView: V,
+        val childView: V,
         isDefaultBackground: Boolean) : BaseLineItem<T>(fg, view, view.findViewById(R.id.fg_line)
 ) {
 
