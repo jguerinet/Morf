@@ -33,7 +33,7 @@ class SwitchItem(fg: FormGenerator, view: View) :
     /**
      * @return Item with the switch on if [isChecked]
      */
-    fun isChecked(isChecked: Boolean): SwitchItem {
+    fun checked(isChecked: Boolean): SwitchItem {
         childView.isChecked = isChecked
         return this
     }

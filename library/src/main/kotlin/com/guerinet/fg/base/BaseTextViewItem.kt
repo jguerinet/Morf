@@ -121,7 +121,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
     /**
      * Sets whether the returned item [isFocusable] or not
      */
-    fun isFocusable(isFocusable: Boolean): T {
+    fun focusable(isFocusable: Boolean): T {
         childView.isFocusable = isFocusable
         return this as T
     }
@@ -129,7 +129,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
     /**
      * Sets whether the returned item [isEnabled] or not
      */
-    fun isEnabled(isEnabled: Boolean): T {
+    fun enabled(isEnabled: Boolean): T {
         childView.isEnabled = isEnabled
         return this as T
     }
