@@ -53,7 +53,7 @@ open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(
     }
 
     override fun hint(stringId: Int): T {
-        return hint(inputLayout.resources.getString(stringId))
+        return hint(fg.container.resources.getString(stringId))
     }
 
     override fun backgroundId(backgroundId: Int): T {

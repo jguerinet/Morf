@@ -18,9 +18,11 @@ package com.guerinet.fg.base
 
 import android.support.annotation.ColorInt
 import android.support.annotation.ColorRes
+import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.view.View
 import com.guerinet.fg.FormGenerator
+
 
 /**
  * Base class for all items that have a line
@@ -39,11 +41,17 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
 ) : Item<T>(fg, view) {
 
     init {
-        // Size
-        val lineHeight = fg.defaults.lineHeight
-        if (lineHeight != null) {
-            // Set the default line size if there is one
-            lineSize(lineHeight)
+        // Height
+        val lineHeightId = fg.defaults.lineHeightId
+        if (lineHeightId != null) {
+            lineHeightId(lineHeightId)
+        } else {
+            val linePixelHeight = fg.defaults.linePixelHeight
+            if (linePixelHeight != null) {
+                linePixelHeight(linePixelHeight)
+            } else {
+                lineDpHeight(fg.defaults.lineDpHeight)
+            }
         }
 
         // Background
@@ -61,11 +69,26 @@ open class BaseLineItem<out T : BaseLineItem<T>>(
     }
 
     /**
-     * @return [BaseLineItem] instance with its new [size] set
+     * @return [BaseLineItem] instance with its new height in [pixels] set
      */
-    fun lineSize(size: Int): T {
-        line?.layoutParams?.height = size
+    fun linePixelHeight(pixels: Int): T {
+        line?.layoutParams?.height = pixels
         return this as T
+    }
+
+    /**
+     * @return Item with its new height in [dps] set
+     */
+    fun lineDpHeight(dps: Float): T {
+        val scale = fg.container.resources.displayMetrics.density
+        return linePixelHeight((dps * scale + 0.5f).toInt())
+    }
+
+    /**
+     * @return Item with its new height from the [dimenId] set
+     */
+    fun lineHeightId(@DimenRes dimenId: Int): T {
+        return linePixelHeight(fg.container.resources.getDimensionPixelOffset(dimenId))
     }
 
     /**

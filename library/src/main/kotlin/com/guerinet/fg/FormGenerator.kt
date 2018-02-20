@@ -133,7 +133,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
 
         /**
          * Resolved color for a space, defaults to null (in order to use spaceBackgroundId)
-         *  Note: this takes precedence over spaceBackgroundId
+         *  Note: this takes precedence over spaceBackgroundId if set
          */
         @ColorInt
         var spaceColor: Int? = null
@@ -146,9 +146,22 @@ class FormGenerator private constructor(internal val defaults: Defaults,
         /* Line */
 
         /**
-         * Height (in pixels) of a line, defaults to null
+         * Height (in dp) of a line, defaults to 0.5
          */
-        var lineHeight: Int? = null
+        var lineDpHeight: Float = 0.5f
+
+        /**
+         * Height (in pixels) of a line, defaults to null
+         *  Note: this takes precendence over lineDpHeight if set
+         */
+        var linePixelHeight: Int? = null
+
+        /**
+         * Height from a dimension Id of a line, defaults to null
+         *  Note: this takes precedence over lineDpHeight and linePixelHeight if set
+         */
+        @DimenRes
+        var lineHeightId: Int? = null
 
         /**
          * Id of the background resource for a line, defaults to #EEEEEE
@@ -159,7 +172,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
 
         /**
          * Resolved color for a line, defaults to null (in order to use lineBackgroundId)
-         *  Note: this takes precedence over lineBackgroundId
+         *  Note: this takes precedence over lineBackgroundId if set
          */
         @ColorInt
         var lineColor: Int? = null
@@ -230,7 +243,7 @@ class FormGenerator private constructor(internal val defaults: Defaults,
             val defaults = Defaults()
             defaults.spaceBackgroundId = spaceBackgroundId
             defaults.spaceHeight = spaceHeight
-            defaults.lineHeight = lineHeight
+            defaults.linePixelHeight = linePixelHeight
             defaults.lineBackgroundId = lineBackgroundId
             defaults.isLineShown = isLineShown
             defaults.textSize = textSize
