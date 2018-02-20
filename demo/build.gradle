@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    compile project(':library')
+    implementation project(':library')
     implementation "com.android.support:appcompat-v7:$android_support_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
