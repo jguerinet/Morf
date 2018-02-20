@@ -76,7 +76,7 @@ artifacts {
 
 def siteUrl = 'https://github.com/jguerinet/form-generator'
 def gitUrl = 'https://github.com/jguerinet/form-generator.git'
-group = "com.guerinet.formgenerator"
+group = "com.guerinet.fg"
 
 install {
     repositories.mavenInstaller {
