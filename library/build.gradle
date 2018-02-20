@@ -15,7 +15,6 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'kotlin-android'
 
 archivesBaseName="form-generator"
@@ -53,59 +52,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
-task androidJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-}
-
-task androidJavadocsJar(type: Jar) {
-    classifier = 'javadoc'
-    baseName = archivesBaseName
-    from androidJavadocs.destinationDir
-}
-
-task androidSourcesJar(type: Jar) {
-    classifier = 'sources'
-    baseName = archivesBaseName
-    from android.sourceSets.main.java.srcDirs
-}
-
-artifacts {
-    archives androidSourcesJar
-    archives androidJavadocsJar
-}
-
-def siteUrl = 'https://github.com/jguerinet/form-generator'
-def gitUrl = 'https://github.com/jguerinet/form-generator.git'
-group = "com.guerinet.fg"
-
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-                name 'Generates fully customizable forms for an Android app'
-                url siteUrl
-
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'jguerinet'
-                        name 'Julien Guerinet'
-                        email 'julien@guerinet.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
+apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Scripts/master/kotlin-artifacts.gradle"
