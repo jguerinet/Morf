@@ -8,7 +8,7 @@
 * `FormGenerator.Builder` has been renamed to `FormGenerator.Settings`
 * `Settings` can be prepared using a DSL in Kotlin
 * Form items can be prepared using a DSL in Kotlin
-* Created programmatic instantiaions of the `SpaceItem` and `LineItem`
+* Created programmatic instantiations of the `SpaceItem` and `LineItem`
 * Icons now use relative positioning, and require a `Position` variable (as opposed to having one method per position)
 * Icons `Drawable`s can now be set directly (as opposed to using a resource Id)
 * `LineItem`s and `SpaceItem`s now need to call `build()` as well

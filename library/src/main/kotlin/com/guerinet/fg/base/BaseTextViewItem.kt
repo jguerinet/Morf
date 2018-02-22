@@ -316,12 +316,14 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
             val icon = icons[i]
             var drawable = drawables[i]
             if (drawable != null) {
+                // Mutate the drawable first
+                drawable = drawable.mutate()
                 if (!icon.isVisible) {
                     // Make it invisible if necessary
                     drawable.alpha = 0
                 } else if (icon.color != null) {
                     // Wrap it in the design support library and set the tint if we have a color
-                    drawable = DrawableCompat.wrap(drawable.mutate())
+                    drawable = DrawableCompat.wrap(drawable)
                     DrawableCompat.setTint(drawable, icon.color)
                 }
             }
