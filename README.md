@@ -1,7 +1,7 @@
 # Form Generator
 
 ## Summary
-Generates customizable forms for Android 16+. Form items include:
+Generates customizable forms for Android 17+. Form items include:
 
 * Simple text
 * Text buttons
