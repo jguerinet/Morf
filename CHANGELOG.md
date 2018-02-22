@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 4.0.1 (2018-02-22)
+* Fixed bug where drawable wasn't being mutated before setting the alpha on it, causing it to disappear in some cases
+* Bumped min version to 17
+
 ## Version 4.0.0 (2018-02-20)
 * Library is now in Kotlin!
 * Library structure has been entirely reworked to remove code duplication
