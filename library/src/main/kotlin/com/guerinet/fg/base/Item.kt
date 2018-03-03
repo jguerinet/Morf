@@ -23,9 +23,9 @@ import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.util.TypedValue
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.guerinet.fg.FormGenerator
+import com.guerinet.fg.util.Layout
 
 /**
  * Base class for all items that could be present on a form
@@ -119,8 +119,8 @@ open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View
      *  (defaults to WRAP_CONTENT), and [gravity] (null if none, defaults to null
      */
     @JvmOverloads
-    fun layout(width: Int = ViewGroup.LayoutParams.MATCH_PARENT,
-               height: Int = ViewGroup.LayoutParams.WRAP_CONTENT, gravity: Int? = null): T {
+    fun layout(width: Int = Layout.MATCH_PARENT, height: Int = Layout.WRAP_CONTENT,
+               gravity: Int? = null): T {
         return layoutParams(LinearLayout.LayoutParams(width, height), gravity)
     }
 
