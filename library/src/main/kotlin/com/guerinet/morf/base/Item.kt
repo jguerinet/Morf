@@ -24,7 +24,7 @@ import android.support.annotation.DrawableRes
 import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
-import com.guerinet.morf.FormGenerator
+import com.guerinet.morf.Morf
 import com.guerinet.morf.util.Layout
 
 /**
@@ -32,10 +32,10 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg    [FormGenerator] that created this item
+ * @param fg    [Morf] that created this item
  */
 @Suppress("UNCHECKED_CAST")
-open class Item<out T : Item<T, V>, out V : View>(protected val fg: FormGenerator, val view: V) {
+open class Item<out T : Item<T, V>, out V : View>(protected val fg: Morf, val view: V) {
 
     init {
         id(View.generateViewId())

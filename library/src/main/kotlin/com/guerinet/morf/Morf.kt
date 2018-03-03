@@ -30,8 +30,8 @@ import android.widget.LinearLayout
  * @author Julien Guerinet
  * @since 1.0.0
  */
-class FormGenerator private constructor(internal val settings: Settings,
-                                        internal val container: LinearLayout) {
+class Morf private constructor(internal val settings: Settings,
+                               internal val container: LinearLayout) {
 
     internal val context = container.context
 
@@ -133,10 +133,10 @@ class FormGenerator private constructor(internal val settings: Settings,
 
         /**
          * Binds the [Settings] singleton to the given layout and returns the corresponding
-         *  [FormGenerator]. This will use either the [Settings] set by the user, or the [Settings]
+         *  [Morf]. This will use either the [Settings] set by the user, or the [Settings]
          *  with default values
          */
-        fun bind(container: LinearLayout): FormGenerator = FormGenerator(settings, container)
+        fun bind(container: LinearLayout): Morf = Morf(settings, container)
 
         inline fun createAndSetSettings(block: Settings.() -> Unit) {
             settings = createSettings(block)
@@ -147,7 +147,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     }
 
     /**
-     * Contains all of the customizable settings for a [FormGenerator]
+     * Contains all of the customizable settings for a [Morf]
      */
     class Settings {
 
@@ -341,9 +341,9 @@ class FormGenerator private constructor(internal val settings: Settings,
         inline fun newInstance(block: Settings.() -> Unit): Settings = newInstance().apply(block)
 
         /**
-         * @return [FormGenerator] created from this [Settings] and the given [container]
+         * @return [Morf] created from this [Settings] and the given [container]
          */
-        fun bind(container: LinearLayout): FormGenerator = FormGenerator(this, container)
+        fun bind(container: LinearLayout): Morf = Morf(this, container)
     }
 }
 

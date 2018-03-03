@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.guerinet.morf.FormGenerator;
+import com.guerinet.morf.Morf;
 import com.guerinet.morf.util.Position;
 
 import kotlin.Unit;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout container = findViewById(R.id.container);
 
         // Get the default instance
-        FormGenerator fg = FormGenerator.Companion.bind(container);
+        Morf fg = Morf.Companion.bind(container);
 
         // Default Form
         fg.text()
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         fg.space().build();
 
         // Custom Form
-        FormGenerator.Settings settings = new FormGenerator.Settings();
+        Morf.Settings settings = new Morf.Settings();
         settings.setBackgroundId(android.R.drawable.list_selector_background);
         settings.setLineBackgroundId(android.R.color.black);
         settings.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));

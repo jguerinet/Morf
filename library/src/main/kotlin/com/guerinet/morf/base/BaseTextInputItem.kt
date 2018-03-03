@@ -20,7 +20,7 @@ import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
-import com.guerinet.morf.FormGenerator
+import com.guerinet.morf.Morf
 import com.guerinet.morf.util.Layout
 
 /**
@@ -28,11 +28,11 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 3.0.0
  *
- * @param fg    [FormGenerator] instance
+ * @param fg    [Morf] instance
  * @param view  Item [View]
  */
 @Suppress("UNCHECKED_CAST")
-open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: FormGenerator, view: V)
+open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: Morf, view: V)
     : BaseEditTextItem<T, V>(fg, view, false) {
 
     private val inputLayout = TextInputLayout(fg.context)

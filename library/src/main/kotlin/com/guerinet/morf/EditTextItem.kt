@@ -25,9 +25,9 @@ import com.guerinet.morf.base.BaseEditTextItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param fg                    [FormGenerator] instance
+ * @param fg                    [Morf] instance
  * @param editText                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-class EditTextItem(fg: FormGenerator) :
+class EditTextItem(fg: Morf) :
         BaseEditTextItem<EditTextItem, EditText>(fg, EditText(fg.context))

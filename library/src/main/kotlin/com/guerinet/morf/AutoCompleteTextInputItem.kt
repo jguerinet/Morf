@@ -26,7 +26,7 @@ import com.guerinet.morf.base.BaseTextInputItem
  * @author Julien Guerinet
  * @since 3.0.0
  */
-class AutoCompleteTextInputItem(fg: FormGenerator) : BaseTextInputItem<AutoCompleteTextInputItem,
+class AutoCompleteTextInputItem(fg: Morf) : BaseTextInputItem<AutoCompleteTextInputItem,
         AutoCompleteTextView>(fg, AutoCompleteTextView(fg.context)) {
 
     /**

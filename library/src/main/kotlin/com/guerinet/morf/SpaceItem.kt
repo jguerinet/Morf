@@ -25,9 +25,9 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg [FormGenerator] instance
+ * @param fg [Morf] instance
  */
-class SpaceItem(fg: FormGenerator) : Item<SpaceItem, View>(fg, View(fg.context)) {
+class SpaceItem(fg: Morf) : Item<SpaceItem, View>(fg, View(fg.context)) {
 
     init {
         // Set the width

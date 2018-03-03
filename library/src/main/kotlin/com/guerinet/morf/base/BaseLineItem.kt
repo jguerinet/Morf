@@ -22,7 +22,7 @@ import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.view.View
 import android.widget.LinearLayout
-import com.guerinet.morf.FormGenerator
+import com.guerinet.morf.Morf
 
 
 /**
@@ -30,13 +30,13 @@ import com.guerinet.morf.FormGenerator
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg    [FormGenerator] instance
+ * @param fg    [Morf] instance
  * @param view  Item [View]
  * @param line  Line [View], null if none (in the case of a button for example)
  */
 @Suppress("UNCHECKED_CAST")
 open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
-        fg: FormGenerator,
+        fg: Morf,
         view: V,
         protected val line: View? = view
 ) : Item<T, V>(fg, view) {

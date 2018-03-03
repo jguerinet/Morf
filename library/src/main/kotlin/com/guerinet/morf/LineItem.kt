@@ -24,9 +24,9 @@ import com.guerinet.morf.base.BaseLineItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param fg [FormGenerator] instance
+ * @param fg [Morf] instance
  */
-class LineItem(fg: FormGenerator) : BaseLineItem<LineItem, View>(fg, View(fg.context)) {
+class LineItem(fg: Morf) : BaseLineItem<LineItem, View>(fg, View(fg.context)) {
 
     init {
         build()

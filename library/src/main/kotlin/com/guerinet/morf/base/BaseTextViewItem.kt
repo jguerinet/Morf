@@ -29,7 +29,7 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
-import com.guerinet.morf.FormGenerator
+import com.guerinet.morf.Morf
 import com.guerinet.morf.util.Layout
 import com.guerinet.morf.util.Position
 
@@ -38,13 +38,13 @@ import com.guerinet.morf.util.Position
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg                    [FormGenerator] instance
+ * @param fg                    [Morf] instance
  * @param view                  Form item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
 @Suppress("UNCHECKED_CAST")
 open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
-        fg: FormGenerator,
+        fg: Morf,
         view: V,
         isDefaultBackground: Boolean = true,
         lineView: View? = View(fg.context)) : BaseLineItem<T, V>(fg, view, lineView
