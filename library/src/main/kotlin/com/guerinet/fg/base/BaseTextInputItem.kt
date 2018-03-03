@@ -66,4 +66,12 @@ open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: Form
         inputLayout.setBackgroundResource(backgroundId)
         return this as T
     }
+
+    override fun build(): T {
+        // Add the input layout to the container, not the view
+        if (inputLayout.parent == null) {
+            fg.container.addView(inputLayout)
+        }
+        return super.build()
+    }
 }
