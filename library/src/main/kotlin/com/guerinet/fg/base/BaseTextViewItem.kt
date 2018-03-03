@@ -291,6 +291,8 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     fun visibility(visibility: Int): T {
         view.visibility = visibility
+        // Set the same visibility on the line if there is one
+        line?.visibility = visibility
         return this as T
     }
 

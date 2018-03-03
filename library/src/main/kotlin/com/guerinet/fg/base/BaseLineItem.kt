@@ -38,7 +38,7 @@ import com.guerinet.fg.FormGenerator
 open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
         fg: FormGenerator,
         view: V,
-        private val line: View? = view
+        protected val line: View? = view
 ) : Item<T, V>(fg, view) {
 
     init {
