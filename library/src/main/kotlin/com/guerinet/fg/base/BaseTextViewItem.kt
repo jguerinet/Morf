@@ -30,6 +30,7 @@ import android.view.View
 import android.widget.TextView
 import com.guerinet.fg.FormGenerator
 import com.guerinet.fg.R
+import com.guerinet.fg.util.Layout
 import com.guerinet.fg.util.Position
 
 /**
@@ -58,6 +59,9 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>
 
     init {
         view.isClickable = false
+
+        // Layout
+        layout(Layout.MATCH_PARENT, Layout.WRAP_CONTENT)
 
         // Background
         val backgroundId = fg.settings.backgroundId
