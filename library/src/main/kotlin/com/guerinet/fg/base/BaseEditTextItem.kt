@@ -48,7 +48,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
      * Current String in the [EditText]
      */
     var input: String = ""
-        get() = childView.text.toString()
+        get() = view.text.toString()
         private set
 
     /**
@@ -84,7 +84,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
      * Sets the the given input [type]
      */
     fun inputType(type: Int): T {
-        childView.inputType = type
+        view.inputType = type
         return this as T
     }
 
@@ -92,7 +92,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
      * @return Item with the input background set to the [backgroundId]
      */
     fun inputBackgroundId(backgroundId: Int): T {
-        childView.setBackgroundResource(backgroundId)
+        view.setBackgroundResource(backgroundId)
         return this as T
     }
 
@@ -100,7 +100,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
      * @return Item with a [watcher] on the [EditText]
      */
     fun watch(watcher: TextWatcher): T {
-        childView.addTextChangedListener(watcher)
+        view.addTextChangedListener(watcher)
         return this as T
     }
 
@@ -123,13 +123,13 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
     override fun onClick(onClick: ((T) -> Unit)?): T {
         // Make the EditText non focusable, non long clickable, and follow its parent before
         //  continuing. If the listener is null, do the opposite
-        childView.isFocusable = onClick == null
-        childView.isLongClickable = onClick == null
-        childView.isClickable = false
+        view.isFocusable = onClick == null
+        view.isLongClickable = onClick == null
+        view.isClickable = false
         if (onClick == null) {
-            childView.setOnClickListener(null)
+            view.setOnClickListener(null)
         } else {
-            childView.setOnClickListener({ _ -> onClick(this as T) })
+            view.setOnClickListener({ _ -> onClick(this as T) })
         }
         return this as T
     }

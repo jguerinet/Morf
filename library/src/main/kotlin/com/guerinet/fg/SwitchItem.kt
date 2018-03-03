@@ -37,7 +37,7 @@ class SwitchItem(fg: FormGenerator) :
      * @return Item with the switch on if [isChecked]
      */
     fun checked(isChecked: Boolean): SwitchItem {
-        childView.isChecked = isChecked
+        view.isChecked = isChecked
         return this
     }
 
@@ -45,7 +45,7 @@ class SwitchItem(fg: FormGenerator) :
      * @return Item with the [listener] set on the switch
      */
     fun onCheckChanged(listener: CompoundButton.OnCheckedChangeListener?): SwitchItem {
-        childView.setOnCheckedChangeListener(listener)
+        view.setOnCheckedChangeListener(listener)
         return this
     }
 
@@ -53,19 +53,19 @@ class SwitchItem(fg: FormGenerator) :
      * Sets the [textOn] and [textOff] texts if not null (both default to null) on the returned item
      */
     fun switchText(textOn: String? = null, textOff: String? = null): SwitchItem {
-        childView.showText = true
+        view.showText = true
         if (textOn != null) {
-            childView.textOn = textOn
+            view.textOn = textOn
         }
         if (textOff != null) {
-            childView.textOff = textOff
+            view.textOff = textOff
         }
         return this
     }
 
     override fun typeface(typeface: Typeface?): SwitchItem {
         // Set the typeface on the switch as well
-        childView.setSwitchTypeface(typeface)
+        view.setSwitchTypeface(typeface)
         return super.typeface(typeface)
     }
 }

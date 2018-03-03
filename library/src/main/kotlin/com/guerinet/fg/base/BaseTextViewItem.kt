@@ -49,10 +49,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         isDefaultBackground: Boolean = true,
         lineView: View? = View(fg.container.context)) : BaseLineItem<T, V>(fg, view, lineView
 ) {
-
-    // TODO Get rid of this
-    val childView = view
-
     /**
      * List of empty [Icon]s to keep track of the compound drawables to set
      *  Order: start, top, end, bottom
@@ -97,7 +93,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the [text] set
      */
     fun text(text: String?): T {
-        childView.text = text
+        view.text = text
         return this as T
     }
 
@@ -105,7 +101,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the text with [stringId] set
      */
     fun text(@StringRes stringId: Int): T {
-        childView.setText(stringId)
+        view.setText(stringId)
         return this as T
     }
 
@@ -113,7 +109,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the [hint] set
      */
     open fun hint(hint: String?): T {
-        childView.hint = hint
+        view.hint = hint
         return this as T
     }
 
@@ -121,7 +117,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the hint with [stringId] set
      */
     open fun hint(@StringRes stringId: Int): T {
-        childView.setHint(stringId)
+        view.setHint(stringId)
         return this as T
     }
 
@@ -129,7 +125,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * Sets whether the returned item [isFocusable] or not
      */
     fun focusable(isFocusable: Boolean): T {
-        childView.isFocusable = isFocusable
+        view.isFocusable = isFocusable
         return this as T
     }
 
@@ -137,7 +133,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * Sets whether the returned item [isEnabled] or not
      */
     fun enabled(isEnabled: Boolean): T {
-        childView.isEnabled = isEnabled
+        view.isEnabled = isEnabled
         return this as T
     }
 
@@ -145,7 +141,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the text set to the given [color]
      */
     fun textColor(@ColorInt color: Int): T {
-        childView.setTextColor(color)
+        view.setTextColor(color)
         return this as T
     }
 
@@ -155,7 +151,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
     fun textSizeId(@DimenRes sizeId: Int?): T {
         // If it's null, don't do anything
         if (sizeId != null) {
-            childView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            view.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     fg.container.resources.getDimension(sizeId))
         }
         return this as T
@@ -168,8 +164,8 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
     fun pixelPadding(start: Int? = null, top: Int? = null, end: Int? = null, bottom: Int? = null)
             : T {
         // Use the current paddings if one of them is null
-        childView.setPaddingRelative(start ?: childView.paddingStart, top ?: childView.paddingTop,
-                end ?: childView.paddingEnd, bottom ?: childView.paddingBottom)
+        view.setPaddingRelative(start ?: view.paddingStart, top ?: view.paddingTop,
+                end ?: view.paddingEnd, bottom ?: view.paddingBottom)
         return this as T
     }
 
@@ -217,7 +213,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the text in the given [typeface]
      */
     open fun typeface(typeface: Typeface?): T {
-        childView.typeface = typeface
+        view.typeface = typeface
         return this as T
     }
 
@@ -227,7 +223,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun style(style: Int, typeface: Typeface? = fg.settings.textTypeface): T {
-        childView.setTypeface(typeface, style)
+        view.setTypeface(typeface, style)
         return this as T
     }
 
@@ -270,7 +266,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the given [gravity] set
      */
     fun gravity(gravity: Int): T {
-        childView.gravity = gravity
+        view.gravity = gravity
         return this as T
     }
 
@@ -278,7 +274,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the single line option removed
      */
     fun removeSingleLine(): T {
-        childView.setSingleLine(false)
+        view.setSingleLine(false)
         return this as T
     }
 
@@ -286,7 +282,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the given ellipsize [type] set
      */
     fun ellipsize(type: TextUtils.TruncateAt): T {
-        childView.ellipsize = type
+        view.ellipsize = type
         return this as T
     }
 
@@ -294,7 +290,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @return Item with the given [visibility] set
      */
     fun visibility(visibility: Int): T {
-        childView.visibility = visibility
+        view.visibility = visibility
         return this as T
     }
 
@@ -311,11 +307,12 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         val drawableDpPadding = fg.settings.drawableDpPadding
         val drawablePaddingSizeId = fg.settings.drawablePaddingId
         when {
-            drawablePixelPadding != null -> childView.compoundDrawablePadding = drawablePixelPadding
-            drawableDpPadding != null -> childView.compoundDrawablePadding =
-                    dpToPixels(drawableDpPadding)
-            drawablePaddingSizeId != null -> childView.compoundDrawablePadding =
-                    dimenToPixels(drawablePaddingSizeId)
+            drawablePixelPadding != null ->
+                view.compoundDrawablePadding = drawablePixelPadding
+            drawableDpPadding != null ->
+                view.compoundDrawablePadding = dpToPixels(drawableDpPadding)
+            drawablePaddingSizeId != null ->
+                view.compoundDrawablePadding = dimenToPixels(drawablePaddingSizeId)
         }
 
         // Set the correct tinting and alpha for each drawable
@@ -337,7 +334,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         }
 
         // Set the drawables on the view
-        childView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1],
+        view.setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1],
                 drawables[2], drawables[3])
 
         return this as T

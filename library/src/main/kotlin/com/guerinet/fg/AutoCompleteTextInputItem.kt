@@ -33,7 +33,7 @@ class AutoCompleteTextInputItem(fg: FormGenerator) : BaseTextInputItem<AutoCompl
      * Sets the [adapter] for the [AutoCompleteTextView] on the returned item
      */
     fun <T> adapter(adapter: T): AutoCompleteTextInputItem where T : ListAdapter, T : Filterable {
-        childView.setAdapter(adapter)
+        view.setAdapter(adapter)
         return this
     }
 
@@ -44,13 +44,13 @@ class AutoCompleteTextInputItem(fg: FormGenerator) : BaseTextInputItem<AutoCompl
     fun threshold(threshold: Int): AutoCompleteTextInputItem {
         // If the threshold is 0, set an OnTouchListener to open the list when clicked
         if (threshold == 0) {
-            childView.threshold = 1
-            childView.setOnTouchListener({ _, _ ->
-                childView.showDropDown()
+            view.threshold = 1
+            view.setOnTouchListener({ _, _ ->
+                view.showDropDown()
                 false
             })
         } else {
-            childView.threshold = threshold
+            view.threshold = threshold
         }
         return this
     }
