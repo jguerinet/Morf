@@ -81,8 +81,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * @return [EditTextItem] added to the form
      */
-    fun input(): EditTextItem =
-            EditTextItem(this, inflater.inflate(R.layout.fg_input, container, false), true)
+    fun input(): EditTextItem = EditTextItem(this)
 
     /**
      * Creates an [EditTextItem], applies the block, and returns it

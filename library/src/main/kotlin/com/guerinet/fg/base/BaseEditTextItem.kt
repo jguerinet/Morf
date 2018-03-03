@@ -17,6 +17,7 @@
 package com.guerinet.fg.base
 
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
@@ -37,6 +38,11 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
         view: V,
         isDefaultBackground: Boolean = true) : BaseTextViewItem<T, V>(fg, view, isDefaultBackground
 ) {
+
+    init {
+        view.maxLines = 1
+        textInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES)
+    }
 
     /**
      * Current String in the [EditText]
@@ -61,7 +67,21 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
     }
 
     /**
-     * @return Item with the input type set to the given [type]
+     * Sets the input type to text class with the given [type]
+     */
+    fun textInputType(type: Int): T {
+        return inputType(InputType.TYPE_CLASS_TEXT or type)
+    }
+
+    /**
+     * Sets the input type to number class with the given [type]
+     */
+    fun numberInputType(type: Int): T {
+        return inputType(InputType.TYPE_CLASS_NUMBER or type)
+    }
+
+    /**
+     * Sets the the given input [type]
      */
     fun inputType(type: Int): T {
         childView.inputType = type
