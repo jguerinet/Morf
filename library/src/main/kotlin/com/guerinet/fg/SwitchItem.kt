@@ -26,8 +26,12 @@ import com.guerinet.fg.base.BaseTextViewItem
  * @author Julien Guerinet
  * @since 2.0.0
  */
-class SwitchItem(fg: FormGenerator, aSwitch: SwitchCompat) :
-        BaseTextViewItem<SwitchItem, SwitchCompat>(fg, aSwitch) {
+class SwitchItem(fg: FormGenerator) :
+        BaseTextViewItem<SwitchItem, SwitchCompat>(fg, SwitchCompat(fg.container.context)) {
+
+    init {
+        view.showText = false
+    }
 
     /**
      * @return Item with the switch on if [isChecked]

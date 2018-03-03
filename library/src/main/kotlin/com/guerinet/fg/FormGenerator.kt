@@ -116,8 +116,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * @return [SwitchItem] added to the form
      */
-    fun aSwitch(): SwitchItem =
-            SwitchItem(this, inflater.inflate(R.layout.fg_switch, container, false))
+    fun aSwitch(): SwitchItem = SwitchItem(this)
 
     /**
      * Creates a [SwitchItem], applies the block, and returns it
