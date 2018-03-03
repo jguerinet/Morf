@@ -122,32 +122,31 @@ class Morf private constructor(internal val shape: Shape,
     companion object {
 
         /**
-         * User settings to use everywhere, null if none set
+         * Default shape to use everywhere, null if none set
          */
-        private var _shape: Shape? = null
+        private var innerShape: Shape? = null
         var shape: Shape
-            get() = _shape ?: Shape()
+            get() = innerShape ?: Shape()
             set(value) {
-                _shape = value
+                innerShape = value
             }
 
         /**
-         * Binds the [Shape] singleton to the given layout and returns the corresponding
-         *  [Morf]. This will use either the [Shape] set by the user, or the [Shape]
-         *  with default values
+         * Binds the default [Shape] to the given layout and returns the corresponding [Morf].
+         *  This will use either the [Shape] set by the user, or a [Shape] with default values.
          */
         fun bind(container: LinearLayout): Morf = Morf(shape, container)
 
-        inline fun createAndSetSettings(block: Shape.() -> Unit) {
-            shape = createSettings(block)
+        inline fun createAndSetShape(block: Shape.() -> Unit) {
+            shape = createShape(block)
         }
 
-        inline fun createSettings(block: Shape.() -> Unit): Shape =
+        inline fun createShape(block: Shape.() -> Unit): Shape =
                 Shape().apply(block)
     }
 
     /**
-     * Contains all of the customizable settings for a [Morf]
+     * Contains all of the customizable settings for a [Morf] instance
      */
     class Shape {
 
@@ -307,7 +306,7 @@ class Morf private constructor(internal val shape: Shape,
         /**
          * @return New [Shape] instance, generated from the current one
          */
-        fun newInstance(): Shape {
+        fun newShape(): Shape {
             val settings = Shape()
             settings.spaceBackgroundId = spaceBackgroundId
             settings.spaceColor = spaceColor
@@ -338,10 +337,10 @@ class Morf private constructor(internal val shape: Shape,
         /**
          * @return New [Shape] instance, generated from the current one and the block
          */
-        inline fun newInstance(block: Shape.() -> Unit): Shape = newInstance().apply(block)
+        inline fun newShape(block: Shape.() -> Unit): Shape = newShape().apply(block)
 
         /**
-         * @return [Morf] created from this [Shape] and the given [container]
+         * @return [Morf] created from binding this [Shape] to the given [container]
          */
         fun bind(container: LinearLayout): Morf = Morf(this, container)
     }
