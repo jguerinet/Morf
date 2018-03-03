@@ -19,12 +19,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-    compileSdkVersion Integer.valueOf(fg_target_sdk)
+    compileSdkVersion Integer.valueOf(morf_target_sdk)
 
     defaultConfig {
-        minSdkVersion fg_min_sdk
-        targetSdkVersion fg_target_sdk
-        versionName fg_version
+        minSdkVersion morf_min_sdk
+        targetSdkVersion morf_target_sdk
+        versionName morf_version
     }
 
     buildTypes {
