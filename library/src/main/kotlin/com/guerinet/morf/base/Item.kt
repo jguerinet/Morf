@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.base
+package com.guerinet.morf.base
 
 import android.support.annotation.CallSuper
 import android.support.annotation.ColorInt
@@ -24,8 +24,8 @@ import android.support.annotation.DrawableRes
 import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
-import com.guerinet.fg.FormGenerator
-import com.guerinet.fg.util.Layout
+import com.guerinet.morf.FormGenerator
+import com.guerinet.morf.util.Layout
 
 /**
  * Base class for all items that could be present on a form

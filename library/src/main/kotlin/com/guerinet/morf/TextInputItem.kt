@@ -14,21 +14,20 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf
 
+import android.support.design.widget.TextInputEditText
+import android.support.design.widget.TextInputLayout
 import android.view.View
-import com.guerinet.fg.base.BaseLineItem
+import com.guerinet.morf.base.BaseTextInputItem
 
 /**
- * Line within the form. Base class for all other items except for space
+ * Form item for a [TextInputLayout]
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param fg [FormGenerator] instance
+ * @param fg    [FormGenerator] instance
+ * @param view  Item [View]
  */
-class LineItem(fg: FormGenerator) : BaseLineItem<LineItem, View>(fg, View(fg.context)) {
-
-    init {
-        build()
-    }
-}
+class TextInputItem(fg: FormGenerator) : BaseTextInputItem<TextInputItem, TextInputEditText>(fg,
+        TextInputEditText(fg.context))

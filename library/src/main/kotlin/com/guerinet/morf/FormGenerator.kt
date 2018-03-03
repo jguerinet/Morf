@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf
 
 import android.graphics.Color
 import android.graphics.Typeface

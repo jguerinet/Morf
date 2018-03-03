@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf
 
 import android.view.View
-import com.guerinet.fg.base.Item
-import com.guerinet.fg.util.Layout
+import com.guerinet.morf.base.Item
+import com.guerinet.morf.util.Layout
 
 /**
  * Space in the form

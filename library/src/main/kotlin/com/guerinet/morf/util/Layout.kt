@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf.util
 
-import android.view.View
-import android.widget.Button
-import com.guerinet.fg.base.BaseTextViewItem
+import android.view.ViewGroup
 
 /**
- * Form item that represents a [Button]
+ * Convenience layout variables for setting the height and width
  * @author Julien Guerinet
- * @since 2.0.0
- *
- * @param fg    [FormGenerator] instance
- * @param button  Item [View]
+ * @since 5.0.0
  */
-class ButtonItem(fg: FormGenerator, button: Button) :
-        BaseTextViewItem<ButtonItem, Button>(fg, button, false, null)
+object Layout {
+
+    const val MATCH_PARENT = ViewGroup.LayoutParams.MATCH_PARENT
+
+    const val WRAP_CONTENT = ViewGroup.LayoutParams.WRAP_CONTENT
+}

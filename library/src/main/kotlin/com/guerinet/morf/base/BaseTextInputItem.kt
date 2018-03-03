@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.base
+package com.guerinet.morf.base
 
 import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
-import com.guerinet.fg.FormGenerator
-import com.guerinet.fg.util.Layout
+import com.guerinet.morf.FormGenerator
+import com.guerinet.morf.util.Layout
 
 /**
  * Based form item for a [TextInputLayout]

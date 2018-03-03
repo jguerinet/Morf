@@ -14,21 +14,20 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf
 
 import android.view.View
-import android.widget.TextView
-import com.guerinet.fg.base.BaseTextViewItem
+import android.widget.EditText
+import com.guerinet.morf.base.BaseEditTextItem
 
 /**
- * A form item with a [TextView]
+ * Form item that represents an [EditText]
  * @author Julien Guerinet
  * @since 4.0.0
  *
  * @param fg                    [FormGenerator] instance
- * @param view                  Form item [View]
- * @param textView             [View] of the main child for this item
+ * @param editText                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-class TextViewItem(fg: FormGenerator) :
-        BaseTextViewItem<TextViewItem, TextView>(fg, TextView(fg.context))
+class EditTextItem(fg: FormGenerator) :
+        BaseEditTextItem<EditTextItem, EditText>(fg, EditText(fg.context))

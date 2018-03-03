@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.demo;
+package com.guerinet.morf
 
-import android.app.Application;
-import android.test.ApplicationTestCase;
+import android.view.View
+import android.widget.TextView
+import com.guerinet.morf.base.BaseTextViewItem
 
 /**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
+ * A form item with a [TextView]
+ * @author Julien Guerinet
+ * @since 4.0.0
+ *
+ * @param fg                    [FormGenerator] instance
+ * @param view                  Form item [View]
+ * @param textView             [View] of the main child for this item
+ * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-	public ApplicationTest(){
-		super(Application.class);
-	}
-}
+class TextViewItem(fg: FormGenerator) :
+        BaseTextViewItem<TextViewItem, TextView>(fg, TextView(fg.context))

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.base
+package com.guerinet.morf.base
 
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
@@ -29,9 +29,9 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
-import com.guerinet.fg.FormGenerator
-import com.guerinet.fg.util.Layout
-import com.guerinet.fg.util.Position
+import com.guerinet.morf.FormGenerator
+import com.guerinet.morf.util.Layout
+import com.guerinet.morf.util.Position
 
 /**
  * Builder for a [TextView] form item (buttons, texts, switches, inputs)

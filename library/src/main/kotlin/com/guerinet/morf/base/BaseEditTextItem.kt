@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.base
+package com.guerinet.morf.base
 
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
-import com.guerinet.fg.FormGenerator
+import com.guerinet.morf.FormGenerator
 
 /**
  * Form item that represents an [EditText]

@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf
 
 import android.widget.AutoCompleteTextView
 import android.widget.Filterable
 import android.widget.ListAdapter
-import com.guerinet.fg.base.BaseTextInputItem
+import com.guerinet.morf.base.BaseTextInputItem
 
 /**
  * Form item for a [BaseTextInputItem] that has an autocomplete option

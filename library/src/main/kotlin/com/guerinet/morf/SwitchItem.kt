@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf
 
 import android.graphics.Typeface
 import android.support.v7.widget.SwitchCompat
 import android.widget.CompoundButton
-import com.guerinet.fg.base.BaseTextViewItem
+import com.guerinet.morf.base.BaseTextViewItem
 
 /**
  * Form item with a [SwitchCompat]

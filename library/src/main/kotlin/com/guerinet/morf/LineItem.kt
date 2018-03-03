@@ -14,26 +14,21 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.util
+package com.guerinet.morf
 
-import android.support.annotation.IntDef
+import android.view.View
+import com.guerinet.morf.base.BaseLineItem
 
 /**
- * Icon positions
+ * Line within the form. Base class for all other items except for space
  * @author Julien Guerinet
  * @since 4.0.0
+ *
+ * @param fg [FormGenerator] instance
  */
-object Position {
+class LineItem(fg: FormGenerator) : BaseLineItem<LineItem, View>(fg, View(fg.context)) {
 
-    /**
-     * Defines the different positions of an icon
-     */
-    @IntDef(START, TOP, END, BOTTOM)
-    @Retention(AnnotationRetention.SOURCE)
-    annotation class Section
-
-    const val START = 0L
-    const val TOP = 1L
-    const val END = 2L
-    const val BOTTOM = 3L
+    init {
+        build()
+    }
 }

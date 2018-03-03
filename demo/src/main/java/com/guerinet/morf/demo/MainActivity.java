@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.demo;
+package com.guerinet.morf.demo;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -26,8 +26,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.guerinet.fg.FormGenerator;
-import com.guerinet.fg.util.Position;
+import com.guerinet.morf.FormGenerator;
+import com.guerinet.morf.util.Position;
 
 import kotlin.Unit;
 

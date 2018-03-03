@@ -14,20 +14,26 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf.util
 
-import android.support.design.widget.TextInputEditText
-import android.support.design.widget.TextInputLayout
-import android.view.View
-import com.guerinet.fg.base.BaseTextInputItem
+import android.support.annotation.IntDef
 
 /**
- * Form item for a [TextInputLayout]
+ * Icon positions
  * @author Julien Guerinet
  * @since 4.0.0
- *
- * @param fg    [FormGenerator] instance
- * @param view  Item [View]
  */
-class TextInputItem(fg: FormGenerator) : BaseTextInputItem<TextInputItem, TextInputEditText>(fg,
-        TextInputEditText(fg.context))
+object Position {
+
+    /**
+     * Defines the different positions of an icon
+     */
+    @IntDef(START, TOP, END, BOTTOM)
+    @Retention(AnnotationRetention.SOURCE)
+    annotation class Section
+
+    const val START = 0L
+    const val TOP = 1L
+    const val END = 2L
+    const val BOTTOM = 3L
+}

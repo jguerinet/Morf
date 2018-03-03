@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg
+package com.guerinet.morf.demo;
 
-import android.view.View
-import android.widget.EditText
-import com.guerinet.fg.base.BaseEditTextItem
+import android.app.Application;
+import android.test.ApplicationTestCase;
 
 /**
- * Form item that represents an [EditText]
- * @author Julien Guerinet
- * @since 4.0.0
- *
- * @param fg                    [FormGenerator] instance
- * @param editText                  Item [View]
- * @param isDefaultBackground   True if we should use the default background, false otherwise
+ * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-class EditTextItem(fg: FormGenerator) :
-        BaseEditTextItem<EditTextItem, EditText>(fg, EditText(fg.context))
+public class ApplicationTest extends ApplicationTestCase<Application> {
+	public ApplicationTest(){
+		super(Application.class);
+	}
+}
