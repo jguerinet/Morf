@@ -21,7 +21,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import com.guerinet.fg.FormGenerator
-import com.guerinet.fg.R
 
 /**
  * Form item that represents an [EditText]
@@ -35,9 +34,9 @@ import com.guerinet.fg.R
 @Suppress("UNCHECKED_CAST")
 open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
         fg: FormGenerator,
-        view: View,
-        isDefaultBackground: Boolean) :
-        BaseTextViewItem<T, V>(fg, view, view.findViewById(R.id.fg_input), isDefaultBackground) {
+        view: V,
+        isDefaultBackground: Boolean = true) : BaseTextViewItem<T, V>(fg, view, isDefaultBackground
+) {
 
     /**
      * Current String in the [EditText]

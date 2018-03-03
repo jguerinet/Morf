@@ -29,7 +29,6 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import com.guerinet.fg.FormGenerator
-import com.guerinet.fg.R
 import com.guerinet.fg.util.Layout
 import com.guerinet.fg.util.Position
 
@@ -40,16 +39,18 @@ import com.guerinet.fg.util.Position
  *
  * @param fg                    [FormGenerator] instance
  * @param view                  Form item [View]
- * @param childView             [View] of the main child for this item
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
 @Suppress("UNCHECKED_CAST")
-open class BaseTextViewItem<T : BaseTextViewItem<T, TextView>, out V : TextView>(
+open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         fg: FormGenerator,
-        view: View,
-        val childView: V,
-        isDefaultBackground: Boolean) : BaseLineItem<T>(fg, view, view.findViewById(R.id.fg_line)
+        view: V,
+        isDefaultBackground: Boolean = true,
+        lineView: View? = View(fg.container.context)) : BaseLineItem<T, V>(fg, view, lineView
 ) {
+
+    // TODO Get rid of this
+    val childView = view
 
     /**
      * List of empty [Icon]s to keep track of the compound drawables to set

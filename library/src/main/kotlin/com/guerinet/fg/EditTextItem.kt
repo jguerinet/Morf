@@ -26,8 +26,8 @@ import com.guerinet.fg.base.BaseEditTextItem
  * @since 4.0.0
  *
  * @param fg                    [FormGenerator] instance
- * @param view                  Item [View]
+ * @param editText                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-class EditTextItem(fg: FormGenerator, view: View, isDefaultBackground: Boolean) :
-        BaseEditTextItem<EditTextItem, EditText>(fg, view, isDefaultBackground)
+class EditTextItem(fg: FormGenerator, editText: EditText) :
+        BaseEditTextItem<EditTextItem, EditText>(fg, editText)

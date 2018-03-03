@@ -31,11 +31,8 @@ import com.guerinet.fg.R
  * @param view  Item [View]
  */
 @Suppress("UNCHECKED_CAST")
-open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(
-        fg: FormGenerator,
-        view: View)
-    : BaseEditTextItem<T, V>(fg, view, false
-) {
+open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: FormGenerator, view: V)
+    : BaseEditTextItem<T, V>(fg, view, false) {
 
     private val inputLayout: TextInputLayout = view.findViewById(R.id.fg_input_layout)
 

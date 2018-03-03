@@ -17,8 +17,8 @@
 package com.guerinet.fg
 
 import android.view.View
-import android.widget.LinearLayout
 import com.guerinet.fg.base.Item
+import com.guerinet.fg.util.Layout
 
 /**
  * Space in the form
@@ -27,11 +27,11 @@ import com.guerinet.fg.base.Item
  *
  * @param fg [FormGenerator] instance
  */
-class SpaceItem(fg: FormGenerator) : Item<SpaceItem>(fg, View(fg.container.context)) {
+class SpaceItem(fg: FormGenerator) : Item<SpaceItem, View>(fg, View(fg.container.context)) {
 
     init {
         // Set the width
-        view.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
+        layout(Layout.MATCH_PARENT)
 
         // Height
         val spaceHeightId = fg.settings.spaceHeightId

@@ -35,7 +35,7 @@ import com.guerinet.fg.util.Layout
  * @param fg    [FormGenerator] that created this item
  */
 @Suppress("UNCHECKED_CAST")
-open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View) {
+open class Item<out T : Item<T, V>, out V : View>(protected val fg: FormGenerator, val view: V) {
 
     /**
      * @return Item instance with the given [id] set

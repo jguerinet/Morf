@@ -27,8 +27,8 @@ import com.guerinet.fg.base.BaseTextViewItem
  *
  * @param fg                    [FormGenerator] instance
  * @param view                  Form item [View]
- * @param childView             [View] of the main child for this item
+ * @param textView             [View] of the main child for this item
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-class TextViewItem(fg: FormGenerator, view: View, childView: TextView, isDefaultBackground: Boolean)
-    : BaseTextViewItem<TextViewItem, TextView>(fg, view, childView, isDefaultBackground)
+class TextViewItem(fg: FormGenerator, textView: TextView) :
+        BaseTextViewItem<TextViewItem, TextView>(fg, textView)

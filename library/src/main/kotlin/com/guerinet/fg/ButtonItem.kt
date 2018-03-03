@@ -26,7 +26,7 @@ import com.guerinet.fg.base.BaseTextViewItem
  * @since 2.0.0
  *
  * @param fg    [FormGenerator] instance
- * @param view  Item [View]
+ * @param button  Item [View]
  */
-class ButtonItem(fg: FormGenerator, view: Button) :
-        BaseTextViewItem<ButtonItem, Button>(fg, view, view, false)
+class ButtonItem(fg: FormGenerator, button: Button) :
+        BaseTextViewItem<ButtonItem, Button>(fg, button, false, null)

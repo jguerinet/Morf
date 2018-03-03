@@ -18,7 +18,6 @@ package com.guerinet.fg
 
 import android.graphics.Typeface
 import android.support.v7.widget.SwitchCompat
-import android.view.View
 import android.widget.CompoundButton
 import com.guerinet.fg.base.BaseTextViewItem
 
@@ -27,8 +26,8 @@ import com.guerinet.fg.base.BaseTextViewItem
  * @author Julien Guerinet
  * @since 2.0.0
  */
-class SwitchItem(fg: FormGenerator, view: View) :
-        BaseTextViewItem<SwitchItem, SwitchCompat>(fg, view, view.findViewById(R.id.fg_switch), true) {
+class SwitchItem(fg: FormGenerator, aSwitch: SwitchCompat) :
+        BaseTextViewItem<SwitchItem, SwitchCompat>(fg, aSwitch) {
 
     /**
      * @return Item with the switch on if [isChecked]

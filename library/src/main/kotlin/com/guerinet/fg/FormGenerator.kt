@@ -22,9 +22,11 @@ import android.support.annotation.ColorInt
 import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.TextView
 
 /**
  * Creates the various form items and adds them to a given container
@@ -50,6 +52,11 @@ class FormGenerator private constructor(internal val settings: Settings,
      * @return [TextViewItem] added to the form
      */
     fun text(): TextViewItem {
+        val textView = TextView(container.context)
+        textView.gravity = Gravity.CENTER_VERTICAL
+
+
+
         val view = inflater.inflate(R.layout.fg_text, container, false)
         return TextViewItem(this, view, view.findViewById(R.id.fg_text), true)
     }

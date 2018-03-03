@@ -35,11 +35,11 @@ import com.guerinet.fg.FormGenerator
  * @param line  Line [View], null if none (in the case of a button for example)
  */
 @Suppress("UNCHECKED_CAST")
-open class BaseLineItem<out T : BaseLineItem<T>>(
+open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
         fg: FormGenerator,
-        view: View,
+        view: V,
         private val line: View? = view
-) : Item<T>(fg, view) {
+) : Item<T, V>(fg, view) {
 
     init {
         // Width
