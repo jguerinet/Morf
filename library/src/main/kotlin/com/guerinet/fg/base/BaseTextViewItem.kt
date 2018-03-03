@@ -30,6 +30,7 @@ import android.view.View
 import android.widget.TextView
 import com.guerinet.fg.FormGenerator
 import com.guerinet.fg.R
+import com.guerinet.fg.util.Position
 
 /**
  * Builder for a [TextView] form item (buttons, texts, switches, inputs)

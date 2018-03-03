@@ -27,7 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.guerinet.fg.FormGenerator;
-import com.guerinet.fg.base.Position;
+import com.guerinet.fg.util.Position;
 
 import kotlin.Unit;
 

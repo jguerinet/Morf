@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.fg.base
+package com.guerinet.fg.util
 
 import android.support.annotation.IntDef
 
