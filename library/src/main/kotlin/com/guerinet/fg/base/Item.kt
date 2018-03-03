@@ -23,6 +23,7 @@ import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.guerinet.fg.FormGenerator
 
@@ -111,6 +112,16 @@ open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View
     fun backgroundColor(@ColorInt color: Int): T {
         view.setBackgroundColor(color)
         return this as T
+    }
+
+    /**
+     * @return Item with the set [width] (defaults to MATCH_PARENT), [height]
+     *  (defaults to WRAP_CONTENT), and [gravity] (null if none, defaults to null
+     */
+    @JvmOverloads
+    fun layout(width: Int = ViewGroup.LayoutParams.MATCH_PARENT,
+               height: Int = ViewGroup.LayoutParams.WRAP_CONTENT, gravity: Int? = null): T {
+        return layoutParams(LinearLayout.LayoutParams(width, height), gravity)
     }
 
     /**
