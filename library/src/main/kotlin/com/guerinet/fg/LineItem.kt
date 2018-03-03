@@ -26,4 +26,9 @@ import com.guerinet.fg.base.BaseLineItem
  *
  * @param fg [FormGenerator] instance
  */
-class LineItem(fg: FormGenerator) : BaseLineItem<LineItem, View>(fg, View(fg.container.context))
+class LineItem(fg: FormGenerator) : BaseLineItem<LineItem, View>(fg, View(fg.container.context)) {
+
+    init {
+        build()
+    }
+}

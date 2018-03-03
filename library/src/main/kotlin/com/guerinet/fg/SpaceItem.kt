@@ -53,5 +53,7 @@ class SpaceItem(fg: FormGenerator) : Item<SpaceItem, View>(fg, View(fg.container
         } else {
             backgroundId(fg.settings.spaceBackgroundId)
         }
+
+        build()
     }
 }
