@@ -25,8 +25,8 @@ import com.guerinet.morf.base.BaseTextViewItem
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg    [Morf] instance
+ * @param morf    [Morf] instance
  * @param button  Item [View]
  */
-class ButtonItem(fg: Morf, button: Button) :
-        BaseTextViewItem<ButtonItem, Button>(fg, button, false, null)
+class ButtonItem(morf: Morf, button: Button) :
+        BaseTextViewItem<ButtonItem, Button>(morf, button, false, null)

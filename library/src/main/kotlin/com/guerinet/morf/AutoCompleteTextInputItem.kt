@@ -26,8 +26,8 @@ import com.guerinet.morf.base.BaseTextInputItem
  * @author Julien Guerinet
  * @since 3.0.0
  */
-class AutoCompleteTextInputItem(fg: Morf) : BaseTextInputItem<AutoCompleteTextInputItem,
-        AutoCompleteTextView>(fg, AutoCompleteTextView(fg.context)) {
+class AutoCompleteTextInputItem(morf: Morf) : BaseTextInputItem<AutoCompleteTextInputItem,
+        AutoCompleteTextView>(morf, AutoCompleteTextView(morf.context)) {
 
     /**
      * Sets the [adapter] for the [AutoCompleteTextView] on the returned item

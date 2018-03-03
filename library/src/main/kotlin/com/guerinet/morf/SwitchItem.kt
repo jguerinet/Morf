@@ -26,8 +26,8 @@ import com.guerinet.morf.base.BaseTextViewItem
  * @author Julien Guerinet
  * @since 2.0.0
  */
-class SwitchItem(fg: Morf) :
-        BaseTextViewItem<SwitchItem, SwitchCompat>(fg, SwitchCompat(fg.context)) {
+class SwitchItem(morf: Morf) :
+        BaseTextViewItem<SwitchItem, SwitchCompat>(morf, SwitchCompat(morf.context)) {
 
     init {
         view.showText = false

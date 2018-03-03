@@ -28,15 +28,15 @@ import com.guerinet.morf.Morf
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg                    [Morf] instance
+ * @param morf                    [Morf] instance
  * @param view                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
 @Suppress("UNCHECKED_CAST")
 open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
-        fg: Morf,
+        morf: Morf,
         view: V,
-        isDefaultBackground: Boolean = true) : BaseTextViewItem<T, V>(fg, view, isDefaultBackground
+        isDefaultBackground: Boolean = true) : BaseTextViewItem<T, V>(morf, view, isDefaultBackground
 ) {
 
     init {
@@ -60,7 +60,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
 
     init {
         // Set the right background
-        val inputBackgroundId = fg.settings.inputBackgroundId
+        val inputBackgroundId = morf.settings.inputBackgroundId
         if (inputBackgroundId != null) {
             inputBackgroundId(inputBackgroundId)
         }

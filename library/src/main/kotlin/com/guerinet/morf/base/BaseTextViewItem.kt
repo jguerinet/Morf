@@ -38,16 +38,16 @@ import com.guerinet.morf.util.Position
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg                    [Morf] instance
+ * @param morf                    [Morf] instance
  * @param view                  Form item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
 @Suppress("UNCHECKED_CAST")
 open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
-        fg: Morf,
+        morf: Morf,
         view: V,
         isDefaultBackground: Boolean = true,
-        lineView: View? = View(fg.context)) : BaseLineItem<T, V>(fg, view, lineView
+        lineView: View? = View(morf.context)) : BaseLineItem<T, V>(morf, view, lineView
 ) {
     /**
      * List of empty [Icon]s to keep track of the compound drawables to set
@@ -62,22 +62,22 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         layout(Layout.MATCH_PARENT, Layout.WRAP_CONTENT, Gravity.CENTER_VERTICAL)
 
         // Background
-        val backgroundId = fg.settings.backgroundId
+        val backgroundId = morf.settings.backgroundId
         if (isDefaultBackground && backgroundId != null) {
             @Suppress("LeakingThis")
             backgroundId(backgroundId)
         }
 
         // Text Color
-        textColor(fg.settings.textColor)
+        textColor(morf.settings.textColor)
 
         // Text Size
-        textSizeId(fg.settings.textSizeId)
+        textSizeId(morf.settings.textSizeId)
 
         // Padding
-        val paddingId = fg.settings.paddingId
-        val dpPadding = fg.settings.dpPadding
-        val pixelPadding = fg.settings.pixelPadding
+        val paddingId = morf.settings.paddingId
+        val dpPadding = morf.settings.dpPadding
+        val pixelPadding = morf.settings.pixelPadding
         when {
             paddingId != null -> paddingId(paddingId)
             dpPadding != null -> dpPadding(dpPadding)
@@ -86,7 +86,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
 
         // Typeface
         @Suppress("LeakingThis")
-        typeface(fg.settings.textTypeface)
+        typeface(morf.settings.textTypeface)
     }
 
     /**
@@ -152,7 +152,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         // If it's null, don't do anything
         if (sizeId != null) {
             view.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                    fg.container.resources.getDimension(sizeId))
+                    morf.container.resources.getDimension(sizeId))
         }
         return this as T
     }
@@ -222,7 +222,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  (which defaults to the default one if none specified)
      */
     @JvmOverloads
-    fun style(style: Int, typeface: Typeface? = fg.settings.textTypeface): T {
+    fun style(style: Int, typeface: Typeface? = morf.settings.textTypeface): T {
         view.setTypeface(typeface, style)
         return this as T
     }
@@ -233,7 +233,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, @DrawableRes drawableId: Int?,
-             isVisible: Boolean = true, @ColorInt color: Int? = fg.settings.iconColor): T {
+             isVisible: Boolean = true, @ColorInt color: Int? = morf.settings.iconColor): T {
         icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
         return this as T
     }
@@ -244,7 +244,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, drawable: Drawable?, isVisible: Boolean = true,
-             @ColorInt color: Int? = fg.settings.iconColor): T {
+             @ColorInt color: Int? = morf.settings.iconColor): T {
         icons[position.toInt()] = Icon(drawable = drawable, color = color, isVisible = isVisible)
         return this as T
     }
@@ -305,9 +305,9 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
                 getDrawable(icons[3]))
 
         // Set the compound drawable padding
-        val drawablePixelPadding = fg.settings.drawablePixelPadding
-        val drawableDpPadding = fg.settings.drawableDpPadding
-        val drawablePaddingSizeId = fg.settings.drawablePaddingId
+        val drawablePixelPadding = morf.settings.drawablePixelPadding
+        val drawableDpPadding = morf.settings.drawableDpPadding
+        val drawablePaddingSizeId = morf.settings.drawablePaddingId
         when {
             drawablePixelPadding != null ->
                 view.compoundDrawablePadding = drawablePixelPadding

@@ -30,45 +30,45 @@ import com.guerinet.morf.Morf
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg    [Morf] instance
+ * @param morf    [Morf] instance
  * @param view  Item [View]
  * @param line  Line [View], null if none (in the case of a button for example)
  */
 @Suppress("UNCHECKED_CAST")
 open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
-        fg: Morf,
+        morf: Morf,
         view: V,
         protected val line: View? = view
-) : Item<T, V>(fg, view) {
+) : Item<T, V>(morf, view) {
 
     init {
         // Width
         line?.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
 
         // Height
-        val lineHeightId = fg.settings.lineHeightId
+        val lineHeightId = morf.settings.lineHeightId
         if (lineHeightId != null) {
             lineHeightId(lineHeightId)
         } else {
-            val linePixelHeight = fg.settings.linePixelHeight
+            val linePixelHeight = morf.settings.linePixelHeight
             if (linePixelHeight != null) {
                 linePixelHeight(linePixelHeight)
             } else {
-                lineDpHeight(fg.settings.lineDpHeight)
+                lineDpHeight(morf.settings.lineDpHeight)
             }
         }
 
         // Background
-        val lineBackgroundId = fg.settings.lineBackgroundId
+        val lineBackgroundId = morf.settings.lineBackgroundId
         if (lineBackgroundId != null) {
             lineBackground(lineBackgroundId)
         } else {
-            lineColor(fg.settings.lineColor)
+            lineColor(morf.settings.lineColor)
         }
 
         if (view != line) {
             // Set the line visibility if this is not an independent item
-            showLine(fg.settings.isLineShown)
+            showLine(morf.settings.isLineShown)
         }
     }
 
@@ -123,7 +123,7 @@ open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
 
         // We need to add the line as well
         if (line != null && line.parent == null) {
-            fg.container.addView(line)
+            morf.container.addView(line)
         }
 
         return item

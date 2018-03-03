@@ -25,33 +25,33 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg [Morf] instance
+ * @param morf [Morf] instance
  */
-class SpaceItem(fg: Morf) : Item<SpaceItem, View>(fg, View(fg.context)) {
+class SpaceItem(morf: Morf) : Item<SpaceItem, View>(morf, View(morf.context)) {
 
     init {
         // Set the width
         layout(Layout.MATCH_PARENT)
 
         // Height
-        val spaceHeightId = fg.settings.spaceHeightId
+        val spaceHeightId = morf.settings.spaceHeightId
         if (spaceHeightId != null) {
             heightId(spaceHeightId)
         } else {
-            val spacePixelHeight = fg.settings.spacePixelHeight
+            val spacePixelHeight = morf.settings.spacePixelHeight
             if (spacePixelHeight != null) {
                 pixelHeight(spacePixelHeight)
             } else {
-                dpHeight(fg.settings.spaceDpHeight)
+                dpHeight(morf.settings.spaceDpHeight)
             }
         }
 
         // Background
-        val spaceColor = fg.settings.spaceColor
+        val spaceColor = morf.settings.spaceColor
         if (spaceColor != null) {
             backgroundColor(spaceColor)
         } else {
-            backgroundId(fg.settings.spaceBackgroundId)
+            backgroundId(morf.settings.spaceBackgroundId)
         }
 
         build()

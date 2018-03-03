@@ -32,10 +32,10 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param fg    [Morf] that created this item
+ * @param morf    [Morf] that created this item
  */
 @Suppress("UNCHECKED_CAST")
-open class Item<out T : Item<T, V>, out V : View>(protected val fg: Morf, val view: V) {
+open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val view: V) {
 
     init {
         id(View.generateViewId())
@@ -94,13 +94,13 @@ open class Item<out T : Item<T, V>, out V : View>(protected val fg: Morf, val vi
 
     protected fun dpToPixels(dps: Float): Int =
             TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dps,
-                    fg.container.resources.displayMetrics).toInt()
+                    morf.container.resources.displayMetrics).toInt()
 
     /**
      * @return Pixel equivalent of the dimen [dimenId]
      */
     protected fun dimenToPixels(@DimenRes dimenId: Int): Int =
-            fg.container.resources.getDimensionPixelOffset(dimenId)
+            morf.container.resources.getDimensionPixelOffset(dimenId)
 
     /**
      * @return Item with the given background with [backgroundId] set
@@ -147,7 +147,7 @@ open class Item<out T : Item<T, V>, out V : View>(protected val fg: Morf, val vi
     @CallSuper
     open fun build(): T {
         if (view.parent == null) {
-            fg.container.addView(view)
+            morf.container.addView(view)
         }
         return this as T
     }

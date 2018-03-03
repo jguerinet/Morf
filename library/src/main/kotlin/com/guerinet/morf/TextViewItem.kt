@@ -25,10 +25,10 @@ import com.guerinet.morf.base.BaseTextViewItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param fg                    [Morf] instance
+ * @param morf                    [Morf] instance
  * @param view                  Form item [View]
  * @param textView             [View] of the main child for this item
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-class TextViewItem(fg: Morf) :
-        BaseTextViewItem<TextViewItem, TextView>(fg, TextView(fg.context))
+class TextViewItem(morf: Morf) :
+        BaseTextViewItem<TextViewItem, TextView>(morf, TextView(morf.context))

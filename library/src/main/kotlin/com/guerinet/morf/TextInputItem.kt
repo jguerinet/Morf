@@ -26,8 +26,8 @@ import com.guerinet.morf.base.BaseTextInputItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param fg    [Morf] instance
+ * @param morf    [Morf] instance
  * @param view  Item [View]
  */
-class TextInputItem(fg: Morf) : BaseTextInputItem<TextInputItem, TextInputEditText>(fg,
-        TextInputEditText(fg.context))
+class TextInputItem(morf: Morf) : BaseTextInputItem<TextInputItem, TextInputEditText>(morf,
+        TextInputEditText(morf.context))

@@ -28,14 +28,14 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 3.0.0
  *
- * @param fg    [Morf] instance
+ * @param morf    [Morf] instance
  * @param view  Item [View]
  */
 @Suppress("UNCHECKED_CAST")
-open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: Morf, view: V)
-    : BaseEditTextItem<T, V>(fg, view, false) {
+open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(morf: Morf, view: V)
+    : BaseEditTextItem<T, V>(morf, view, false) {
 
-    private val inputLayout = TextInputLayout(fg.context)
+    private val inputLayout = TextInputLayout(morf.context)
 
     init {
         inputLayout.layoutParams = LinearLayout.LayoutParams(Layout.MATCH_PARENT,
@@ -59,7 +59,7 @@ open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: Morf
     }
 
     override fun hint(stringId: Int): T {
-        return hint(fg.container.resources.getString(stringId))
+        return hint(morf.container.resources.getString(stringId))
     }
 
     override fun backgroundId(backgroundId: Int): T {
@@ -70,7 +70,7 @@ open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: Morf
     override fun build(): T {
         // Add the input layout to the container, not the view
         if (inputLayout.parent == null) {
-            fg.container.addView(inputLayout)
+            morf.container.addView(inputLayout)
         }
         return super.build()
     }
