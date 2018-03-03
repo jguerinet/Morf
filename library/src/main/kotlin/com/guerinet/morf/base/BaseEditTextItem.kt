@@ -60,7 +60,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
 
     init {
         // Set the right background
-        val inputBackgroundId = morf.settings.inputBackgroundId
+        val inputBackgroundId = morf.shape.inputBackgroundId
         if (inputBackgroundId != null) {
             inputBackgroundId(inputBackgroundId)
         }

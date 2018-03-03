@@ -46,29 +46,29 @@ open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
         line?.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
 
         // Height
-        val lineHeightId = morf.settings.lineHeightId
+        val lineHeightId = morf.shape.lineHeightId
         if (lineHeightId != null) {
             lineHeightId(lineHeightId)
         } else {
-            val linePixelHeight = morf.settings.linePixelHeight
+            val linePixelHeight = morf.shape.linePixelHeight
             if (linePixelHeight != null) {
                 linePixelHeight(linePixelHeight)
             } else {
-                lineDpHeight(morf.settings.lineDpHeight)
+                lineDpHeight(morf.shape.lineDpHeight)
             }
         }
 
         // Background
-        val lineBackgroundId = morf.settings.lineBackgroundId
+        val lineBackgroundId = morf.shape.lineBackgroundId
         if (lineBackgroundId != null) {
             lineBackground(lineBackgroundId)
         } else {
-            lineColor(morf.settings.lineColor)
+            lineColor(morf.shape.lineColor)
         }
 
         if (view != line) {
             // Set the line visibility if this is not an independent item
-            showLine(morf.settings.isLineShown)
+            showLine(morf.shape.isLineShown)
         }
     }
 

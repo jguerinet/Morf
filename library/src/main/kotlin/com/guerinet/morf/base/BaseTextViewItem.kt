@@ -62,22 +62,22 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         layout(Layout.MATCH_PARENT, Layout.WRAP_CONTENT, Gravity.CENTER_VERTICAL)
 
         // Background
-        val backgroundId = morf.settings.backgroundId
+        val backgroundId = morf.shape.backgroundId
         if (isDefaultBackground && backgroundId != null) {
             @Suppress("LeakingThis")
             backgroundId(backgroundId)
         }
 
         // Text Color
-        textColor(morf.settings.textColor)
+        textColor(morf.shape.textColor)
 
         // Text Size
-        textSizeId(morf.settings.textSizeId)
+        textSizeId(morf.shape.textSizeId)
 
         // Padding
-        val paddingId = morf.settings.paddingId
-        val dpPadding = morf.settings.dpPadding
-        val pixelPadding = morf.settings.pixelPadding
+        val paddingId = morf.shape.paddingId
+        val dpPadding = morf.shape.dpPadding
+        val pixelPadding = morf.shape.pixelPadding
         when {
             paddingId != null -> paddingId(paddingId)
             dpPadding != null -> dpPadding(dpPadding)
@@ -86,7 +86,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
 
         // Typeface
         @Suppress("LeakingThis")
-        typeface(morf.settings.textTypeface)
+        typeface(morf.shape.textTypeface)
     }
 
     /**
@@ -222,7 +222,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  (which defaults to the default one if none specified)
      */
     @JvmOverloads
-    fun style(style: Int, typeface: Typeface? = morf.settings.textTypeface): T {
+    fun style(style: Int, typeface: Typeface? = morf.shape.textTypeface): T {
         view.setTypeface(typeface, style)
         return this as T
     }
@@ -233,7 +233,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, @DrawableRes drawableId: Int?,
-             isVisible: Boolean = true, @ColorInt color: Int? = morf.settings.iconColor): T {
+             isVisible: Boolean = true, @ColorInt color: Int? = morf.shape.iconColor): T {
         icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
         return this as T
     }
@@ -244,7 +244,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, drawable: Drawable?, isVisible: Boolean = true,
-             @ColorInt color: Int? = morf.settings.iconColor): T {
+             @ColorInt color: Int? = morf.shape.iconColor): T {
         icons[position.toInt()] = Icon(drawable = drawable, color = color, isVisible = isVisible)
         return this as T
     }
@@ -305,9 +305,9 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
                 getDrawable(icons[3]))
 
         // Set the compound drawable padding
-        val drawablePixelPadding = morf.settings.drawablePixelPadding
-        val drawableDpPadding = morf.settings.drawableDpPadding
-        val drawablePaddingSizeId = morf.settings.drawablePaddingId
+        val drawablePixelPadding = morf.shape.drawablePixelPadding
+        val drawableDpPadding = morf.shape.drawableDpPadding
+        val drawablePaddingSizeId = morf.shape.drawablePaddingId
         when {
             drawablePixelPadding != null ->
                 view.compoundDrawablePadding = drawablePixelPadding

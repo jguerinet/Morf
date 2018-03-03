@@ -30,7 +30,7 @@ import android.widget.LinearLayout
  * @author Julien Guerinet
  * @since 1.0.0
  */
-class Morf private constructor(internal val settings: Settings,
+class Morf private constructor(internal val shape: Shape,
                                internal val container: LinearLayout) {
 
     internal val context = container.context
@@ -124,32 +124,32 @@ class Morf private constructor(internal val settings: Settings,
         /**
          * User settings to use everywhere, null if none set
          */
-        private var _settings: Settings? = null
-        var settings: Settings
-            get() = _settings ?: Settings()
+        private var _shape: Shape? = null
+        var shape: Shape
+            get() = _shape ?: Shape()
             set(value) {
-                _settings = value
+                _shape = value
             }
 
         /**
-         * Binds the [Settings] singleton to the given layout and returns the corresponding
-         *  [Morf]. This will use either the [Settings] set by the user, or the [Settings]
+         * Binds the [Shape] singleton to the given layout and returns the corresponding
+         *  [Morf]. This will use either the [Shape] set by the user, or the [Shape]
          *  with default values
          */
-        fun bind(container: LinearLayout): Morf = Morf(settings, container)
+        fun bind(container: LinearLayout): Morf = Morf(shape, container)
 
-        inline fun createAndSetSettings(block: Settings.() -> Unit) {
-            settings = createSettings(block)
+        inline fun createAndSetSettings(block: Shape.() -> Unit) {
+            shape = createSettings(block)
         }
 
-        inline fun createSettings(block: Settings.() -> Unit): Settings =
-                Settings().apply(block)
+        inline fun createSettings(block: Shape.() -> Unit): Shape =
+                Shape().apply(block)
     }
 
     /**
      * Contains all of the customizable settings for a [Morf]
      */
-    class Settings {
+    class Shape {
 
         /* Space */
 
@@ -305,10 +305,10 @@ class Morf private constructor(internal val settings: Settings,
         var inputBackgroundId: Int? = null
 
         /**
-         * @return New [Settings] instance, generated from the current one
+         * @return New [Shape] instance, generated from the current one
          */
-        fun newInstance(): Settings {
-            val settings = Settings()
+        fun newInstance(): Shape {
+            val settings = Shape()
             settings.spaceBackgroundId = spaceBackgroundId
             settings.spaceColor = spaceColor
             settings.spaceDpHeight = spaceDpHeight
@@ -336,12 +336,12 @@ class Morf private constructor(internal val settings: Settings,
         }
 
         /**
-         * @return New [Settings] instance, generated from the current one and the block
+         * @return New [Shape] instance, generated from the current one and the block
          */
-        inline fun newInstance(block: Settings.() -> Unit): Settings = newInstance().apply(block)
+        inline fun newInstance(block: Shape.() -> Unit): Shape = newInstance().apply(block)
 
         /**
-         * @return [Morf] created from this [Settings] and the given [container]
+         * @return [Morf] created from this [Shape] and the given [container]
          */
         fun bind(container: LinearLayout): Morf = Morf(this, container)
     }

@@ -34,24 +34,24 @@ class SpaceItem(morf: Morf) : Item<SpaceItem, View>(morf, View(morf.context)) {
         layout(Layout.MATCH_PARENT)
 
         // Height
-        val spaceHeightId = morf.settings.spaceHeightId
+        val spaceHeightId = morf.shape.spaceHeightId
         if (spaceHeightId != null) {
             heightId(spaceHeightId)
         } else {
-            val spacePixelHeight = morf.settings.spacePixelHeight
+            val spacePixelHeight = morf.shape.spacePixelHeight
             if (spacePixelHeight != null) {
                 pixelHeight(spacePixelHeight)
             } else {
-                dpHeight(morf.settings.spaceDpHeight)
+                dpHeight(morf.shape.spaceDpHeight)
             }
         }
 
         // Background
-        val spaceColor = morf.settings.spaceColor
+        val spaceColor = morf.shape.spaceColor
         if (spaceColor != null) {
             backgroundColor(spaceColor)
         } else {
-            backgroundId(morf.settings.spaceBackgroundId)
+            backgroundId(morf.shape.spaceBackgroundId)
         }
 
         build()

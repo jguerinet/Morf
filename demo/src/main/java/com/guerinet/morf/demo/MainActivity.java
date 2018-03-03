@@ -110,13 +110,13 @@ public class MainActivity extends AppCompatActivity {
         fg.space().build();
 
         // Custom Form
-        Morf.Settings settings = new Morf.Settings();
-        settings.setBackgroundId(android.R.drawable.list_selector_background);
-        settings.setLineBackgroundId(android.R.color.black);
-        settings.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
-        settings.setTextTypeface(Typeface.SERIF);
-        settings.setIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark));
-        fg = settings.bind(container);
+        Morf.Shape shape = new Morf.Shape();
+        shape.setBackgroundId(android.R.drawable.list_selector_background);
+        shape.setLineBackgroundId(android.R.color.black);
+        shape.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
+        shape.setTextTypeface(Typeface.SERIF);
+        shape.setIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark));
+        fg = shape.bind(container);
 
         // Add the different form items
         fg.text()
