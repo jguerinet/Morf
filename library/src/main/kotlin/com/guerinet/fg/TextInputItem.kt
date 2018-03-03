@@ -16,9 +16,9 @@
 
 package com.guerinet.fg
 
+import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.view.View
-import android.widget.EditText
 import com.guerinet.fg.base.BaseTextInputItem
 
 /**
@@ -29,5 +29,5 @@ import com.guerinet.fg.base.BaseTextInputItem
  * @param fg    [FormGenerator] instance
  * @param view  Item [View]
  */
-class TextInputItem(fg: FormGenerator, view: View) :
-        BaseTextInputItem<TextInputItem, EditText>(fg, view)
+class TextInputItem(fg: FormGenerator) : BaseTextInputItem<TextInputItem, TextInputEditText>(fg,
+        TextInputEditText(fg.container.context))

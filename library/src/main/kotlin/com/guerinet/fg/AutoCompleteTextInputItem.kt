@@ -16,7 +16,6 @@
 
 package com.guerinet.fg
 
-import android.view.View
 import android.widget.AutoCompleteTextView
 import android.widget.Filterable
 import android.widget.ListAdapter
@@ -27,8 +26,8 @@ import com.guerinet.fg.base.BaseTextInputItem
  * @author Julien Guerinet
  * @since 3.0.0
  */
-class AutoCompleteTextInputItem(fg: FormGenerator, view: View) :
-        BaseTextInputItem<AutoCompleteTextInputItem, AutoCompleteTextView>(fg, view) {
+class AutoCompleteTextInputItem(fg: FormGenerator) : BaseTextInputItem<AutoCompleteTextInputItem,
+        AutoCompleteTextView>(fg, AutoCompleteTextView(fg.container.context)) {
 
     /**
      * Sets the [adapter] for the [AutoCompleteTextView] on the returned item

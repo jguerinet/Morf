@@ -19,8 +19,9 @@ package com.guerinet.fg.base
 import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.widget.EditText
+import android.widget.LinearLayout
 import com.guerinet.fg.FormGenerator
-import com.guerinet.fg.R
+import com.guerinet.fg.util.Layout
 
 /**
  * Based form item for a [TextInputLayout]
@@ -34,7 +35,15 @@ import com.guerinet.fg.R
 open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: FormGenerator, view: V)
     : BaseEditTextItem<T, V>(fg, view, false) {
 
-    private val inputLayout: TextInputLayout = view.findViewById(R.id.fg_input_layout)
+    private val inputLayout = TextInputLayout(fg.container.context)
+
+    init {
+        inputLayout.layoutParams = LinearLayout.LayoutParams(Layout.MATCH_PARENT,
+                Layout.WRAP_CONTENT)
+
+        // Add the view to the input layout
+        inputLayout.addView(view)
+    }
 
     /**
      * @return Item with the password visibility toggle shown or not depending on [isEnabled]

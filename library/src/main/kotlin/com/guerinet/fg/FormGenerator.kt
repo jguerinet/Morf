@@ -91,8 +91,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * @return [TextInputItem] added to the form
      */
-    fun textInput(): TextInputItem =
-            TextInputItem(this, inflater.inflate(R.layout.fg_text_input, container, false))
+    fun textInput(): TextInputItem = TextInputItem(this)
 
     /**
      * Creates a [TextInputItem], applies the block, and returns it
@@ -103,9 +102,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * @return [AutoCompleteTextInputItem] added to the form
      */
-    fun autoCompleteTextInput(): AutoCompleteTextInputItem =
-            AutoCompleteTextInputItem(this, inflater.inflate(R.layout.fg_text_input_ac, container,
-                    false))
+    fun autoCompleteTextInput(): AutoCompleteTextInputItem = AutoCompleteTextInputItem(this)
 
     /**
      * Creates a [AutoCompleteTextInputItem], applies the block, and returns it
