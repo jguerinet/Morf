@@ -142,7 +142,9 @@ open class Item<out T : Item<T, V>, out V : View>(protected val fg: FormGenerato
      */
     @CallSuper
     open fun build(): T {
-        fg.container.addView(view)
+        if (view.parent == null) {
+            fg.container.addView(view)
+        }
         return this as T
     }
 
