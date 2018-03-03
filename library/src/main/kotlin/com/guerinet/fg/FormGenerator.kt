@@ -57,7 +57,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * Creates a [TextViewItem], applies the block, and returns it
      */
-    inline fun text(block: TextViewItem.() -> Unit): TextViewItem = text().apply(block)
+    inline fun text(block: TextViewItem.() -> Unit): TextViewItem = text().apply(block).build()
 
     /**
      * @return [ButtonItem] added to the form
@@ -67,7 +67,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * Creates a [ButtonItem], applies the block, and returns it
      */
-    inline fun button(block: ButtonItem.() -> Unit): ButtonItem = button().apply(block)
+    inline fun button(block: ButtonItem.() -> Unit): ButtonItem = button().apply(block).build()
 
     /**
      * @return Borderless [ButtonItem] added to the form
@@ -78,7 +78,8 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * Creates a borderless [ButtonItem], applies the block, and returns it
      */
-    inline fun borderlessButton(block: ButtonItem.() -> Unit): ButtonItem = button().apply(block)
+    inline fun borderlessButton(block: ButtonItem.() -> Unit): ButtonItem =
+            button().apply(block).build()
 
     /**
      * @return [EditTextItem] added to the form
@@ -89,7 +90,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * Creates an [EditTextItem], applies the block, and returns it
      */
-    inline fun input(block: EditTextItem.() -> Unit): EditTextItem = input().apply(block)
+    inline fun input(block: EditTextItem.() -> Unit): EditTextItem = input().apply(block).build()
 
     /**
      * @return [TextInputItem] added to the form
@@ -100,7 +101,8 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * Creates a [TextInputItem], applies the block, and returns it
      */
-    inline fun textInput(block: TextInputItem.() -> Unit): TextInputItem = textInput().apply(block)
+    inline fun textInput(block: TextInputItem.() -> Unit): TextInputItem =
+            textInput().apply(block).build()
 
     /**
      * @return [AutoCompleteTextInputItem] added to the form
@@ -113,7 +115,7 @@ class FormGenerator private constructor(internal val settings: Settings,
      * Creates a [AutoCompleteTextInputItem], applies the block, and returns it
      */
     inline fun autoCompleteTextInput(block: AutoCompleteTextInputItem.() -> Unit):
-            AutoCompleteTextInputItem = autoCompleteTextInput().apply(block)
+            AutoCompleteTextInputItem = autoCompleteTextInput().apply(block).build()
 
     /**
      * @return [SwitchItem] added to the form
@@ -124,7 +126,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * Creates a [SwitchItem], applies the block, and returns it
      */
-    inline fun aSwitch(block: SwitchItem.() -> Unit): SwitchItem = aSwitch().apply(block)
+    inline fun aSwitch(block: SwitchItem.() -> Unit): SwitchItem = aSwitch().apply(block).build()
 
     companion object {
 
