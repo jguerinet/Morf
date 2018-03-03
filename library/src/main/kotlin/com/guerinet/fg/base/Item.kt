@@ -16,7 +16,11 @@
 
 package com.guerinet.fg.base
 
-import android.support.annotation.*
+import android.support.annotation.CallSuper
+import android.support.annotation.ColorInt
+import android.support.annotation.ColorRes
+import android.support.annotation.DimenRes
+import android.support.annotation.DrawableRes
 import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
@@ -31,6 +35,14 @@ import com.guerinet.fg.FormGenerator
  */
 @Suppress("UNCHECKED_CAST")
 open class Item<out T : Item<T>>(protected val fg: FormGenerator, val view: View) {
+
+    /**
+     * @return Item instance with the given [id] set
+     */
+    fun id(id: Int): T {
+        view.id = id
+        return this as T
+    }
 
     /**
      * @return Item instance with its new height in [pixels] set
