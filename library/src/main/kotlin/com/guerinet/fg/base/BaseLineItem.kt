@@ -117,4 +117,15 @@ open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
         line?.visibility = if (show) View.VISIBLE else View.GONE
         return this as T
     }
+
+    override fun build(): T {
+        val item = super.build()
+
+        // We need to add the line as well
+        if (line != null && line.parent == null) {
+            fg.container.addView(line)
+        }
+
+        return item
+    }
 }
