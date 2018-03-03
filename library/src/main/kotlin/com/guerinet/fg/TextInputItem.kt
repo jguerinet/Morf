@@ -30,4 +30,4 @@ import com.guerinet.fg.base.BaseTextInputItem
  * @param view  Item [View]
  */
 class TextInputItem(fg: FormGenerator) : BaseTextInputItem<TextInputItem, TextInputEditText>(fg,
-        TextInputEditText(fg.container.context))
+        TextInputEditText(fg.context))

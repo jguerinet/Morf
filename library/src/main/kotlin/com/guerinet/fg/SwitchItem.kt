@@ -27,7 +27,7 @@ import com.guerinet.fg.base.BaseTextViewItem
  * @since 2.0.0
  */
 class SwitchItem(fg: FormGenerator) :
-        BaseTextViewItem<SwitchItem, SwitchCompat>(fg, SwitchCompat(fg.container.context)) {
+        BaseTextViewItem<SwitchItem, SwitchCompat>(fg, SwitchCompat(fg.context)) {
 
     init {
         view.showText = false

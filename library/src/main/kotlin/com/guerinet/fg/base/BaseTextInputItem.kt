@@ -35,7 +35,7 @@ import com.guerinet.fg.util.Layout
 open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(fg: FormGenerator, view: V)
     : BaseEditTextItem<T, V>(fg, view, false) {
 
-    private val inputLayout = TextInputLayout(fg.container.context)
+    private val inputLayout = TextInputLayout(fg.context)
 
     init {
         inputLayout.layoutParams = LinearLayout.LayoutParams(Layout.MATCH_PARENT,

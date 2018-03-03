@@ -31,4 +31,4 @@ import com.guerinet.fg.base.BaseTextViewItem
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
 class TextViewItem(fg: FormGenerator) :
-        BaseTextViewItem<TextViewItem, TextView>(fg, TextView(fg.container.context))
+        BaseTextViewItem<TextViewItem, TextView>(fg, TextView(fg.context))

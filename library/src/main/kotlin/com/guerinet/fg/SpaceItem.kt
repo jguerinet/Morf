@@ -27,7 +27,7 @@ import com.guerinet.fg.util.Layout
  *
  * @param fg [FormGenerator] instance
  */
-class SpaceItem(fg: FormGenerator) : Item<SpaceItem, View>(fg, View(fg.container.context)) {
+class SpaceItem(fg: FormGenerator) : Item<SpaceItem, View>(fg, View(fg.context)) {
 
     init {
         // Set the width

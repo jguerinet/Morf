@@ -27,7 +27,7 @@ import com.guerinet.fg.base.BaseTextInputItem
  * @since 3.0.0
  */
 class AutoCompleteTextInputItem(fg: FormGenerator) : BaseTextInputItem<AutoCompleteTextInputItem,
-        AutoCompleteTextView>(fg, AutoCompleteTextView(fg.container.context)) {
+        AutoCompleteTextView>(fg, AutoCompleteTextView(fg.context)) {
 
     /**
      * Sets the [adapter] for the [AutoCompleteTextView] on the returned item

@@ -47,7 +47,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         fg: FormGenerator,
         view: V,
         isDefaultBackground: Boolean = true,
-        lineView: View? = View(fg.container.context)) : BaseLineItem<T, V>(fg, view, lineView
+        lineView: View? = View(fg.context)) : BaseLineItem<T, V>(fg, view, lineView
 ) {
     /**
      * List of empty [Icon]s to keep track of the compound drawables to set
