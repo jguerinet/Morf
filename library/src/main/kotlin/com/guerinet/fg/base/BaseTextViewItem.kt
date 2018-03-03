@@ -26,6 +26,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.text.TextUtils
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import com.guerinet.fg.FormGenerator
@@ -62,7 +63,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         view.isClickable = false
 
         // Layout
-        layout(Layout.MATCH_PARENT, Layout.WRAP_CONTENT)
+        layout(Layout.MATCH_PARENT, Layout.WRAP_CONTENT, Gravity.CENTER_VERTICAL)
 
         // Background
         val backgroundId = fg.settings.backgroundId
