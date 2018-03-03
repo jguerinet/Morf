@@ -25,7 +25,6 @@ import android.support.annotation.DrawableRes
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 
 /**
  * Creates the various form items and adds them to a given container
@@ -50,7 +49,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * @return [TextViewItem] added to the form
      */
-    fun text(): TextViewItem = TextViewItem(this, TextView(container.context))
+    fun text(): TextViewItem = TextViewItem(this)
 
     /**
      * Creates a [TextViewItem], applies the block, and returns it
