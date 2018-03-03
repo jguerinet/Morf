@@ -23,6 +23,7 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
 import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.LinearLayout
 
 /**
@@ -61,8 +62,7 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * @return [ButtonItem] added to the form
      */
-    fun button(): ButtonItem =
-            ButtonItem(this, inflater.inflate(R.layout.fg_button, container, false))
+    fun button(): ButtonItem = ButtonItem(this, Button(container.context))
 
     /**
      * Creates a [ButtonItem], applies the block, and returns it
@@ -72,8 +72,8 @@ class FormGenerator private constructor(internal val settings: Settings,
     /**
      * @return Borderless [ButtonItem] added to the form
      */
-    fun borderlessButton(): ButtonItem =
-            ButtonItem(this, inflater.inflate(R.layout.fg_button_borderless, container, false))
+    fun borderlessButton(): ButtonItem = ButtonItem(this, Button(container.context, null,
+            R.attr.borderlessButtonStyle))
 
     /**
      * Creates a borderless [ButtonItem], applies the block, and returns it
@@ -353,3 +353,4 @@ class FormGenerator private constructor(internal val settings: Settings,
         fun bind(container: LinearLayout): FormGenerator = FormGenerator(this, container)
     }
 }
+
