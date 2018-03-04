@@ -56,8 +56,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
     private val icons: Array<Icon> = arrayOf(Icon(), Icon(), Icon(), Icon())
 
     init {
-        view.isClickable = false
-
         // Layout
         layout(Layout.MATCH_PARENT, Layout.WRAP_CONTENT, Gravity.CENTER_VERTICAL)
 
