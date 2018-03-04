@@ -37,10 +37,6 @@ import com.guerinet.morf.util.Layout
 @Suppress("UNCHECKED_CAST")
 open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val view: V) {
 
-    init {
-        id(View.generateViewId())
-    }
-
     /**
      * @return Item instance with the given [id] set
      */
