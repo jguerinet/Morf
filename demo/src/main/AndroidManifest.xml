@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<manifest package="com.guerinet.fg.demo"
+<manifest package="com.guerinet.morf.demo"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
