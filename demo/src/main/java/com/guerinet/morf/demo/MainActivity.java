@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout container = findViewById(R.id.container);
 
         // Get the default instance
-        Morf fg = Morf.Companion.bind(container);
+        Morf morf = Morf.Companion.bind(container);
 
         // Default Form
-        fg.text()
+        morf.text()
                 .text("Form Item: Text (default settings)")
                 .build();
 
-		fg.text()
+        morf.text()
                 .text("Form Item: Button")
                 .onClick(item -> {
                     Toast.makeText(this, "Form Item: Button Clicked", Toast.LENGTH_SHORT).show();
@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        fg.space().build();
+        morf.space().build();
 
-		fg.button()
+        morf.button()
                 .text("Form Item, Simple Button")
                 .onClick(item -> {
                     Toast.makeText(this, "Form Item: Simple Button Clicked", Toast.LENGTH_SHORT)
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        fg.borderlessButton()
+        morf.borderlessButton()
                 .text("Form Item, Borderless Button")
                 .onClick(item -> {
                     Toast.makeText(this, "Form Item: Borderless Button Clicked", Toast.LENGTH_SHORT)
@@ -83,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
 
-        fg.space().build();
-        fg.line().build();
+        morf.space().build();
+        morf.line().build();
 
-        fg.input()
+        morf.input()
                 .hint("Form Item: Input")
                 .watch(s -> {
                     Toast.makeText(this, "Text:" + s, Toast.LENGTH_SHORT).show();
@@ -94,20 +94,20 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        fg.textInput()
+        morf.textInput()
                 .hint("FormItem: Text Input")
                 .build();
 
-		fg.aSwitch()
+        morf.aSwitch()
                 .text("Form Item: Switch")
                 .onCheckChanged((buttonView, isChecked) -> Toast.makeText(this,
                         "Form Item: Switch changed", Toast.LENGTH_SHORT).show())
                 .build();
 
-        fg.space().build();
-        fg.space().build();
-        fg.space().build();
-        fg.space().build();
+        morf.space().build();
+        morf.space().build();
+        morf.space().build();
+        morf.space().build();
 
         // Custom Form
         Morf.Shape shape = new Morf.Shape();
@@ -116,15 +116,15 @@ public class MainActivity extends AppCompatActivity {
         shape.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
         shape.setTextTypeface(Typeface.SERIF);
         shape.setIconColor(ContextCompat.getColor(this, android.R.color.holo_blue_dark));
-        fg = shape.bind(container);
+        morf = shape.bind(container);
 
         // Add the different form items
-        fg.text()
+        morf.text()
                 .text("Form Item: Text (custom settings)")
                 .icon(Position.START, R.drawable.ic_info)
                 .build();
 
-		fg.text()
+        morf.text()
                 .text("Form Item: Button")
                 .icon(Position.START, R.drawable.ic_info, false)
                 .icon(Position.END, R.drawable.ic_chevron_right)
@@ -134,9 +134,9 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        fg.space().build();
+        morf.space().build();
 
-		fg.button()
+        morf.button()
                 .text("Form Item, Simple Button")
                 .onClick(item -> {
                     Toast.makeText(this, "Form Item: Simple Button Clicked", Toast.LENGTH_SHORT)
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        fg.borderlessButton()
+        morf.borderlessButton()
                 .text("Form Item, Borderless Button")
                 .onClick(item -> {
                     Toast.makeText(this, "Form Item: Borderless Button Clicked", Toast.LENGTH_SHORT)
@@ -156,22 +156,22 @@ public class MainActivity extends AppCompatActivity {
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
                 .build();
 
-        fg.space().build();
-        fg.line().build();
+        morf.space().build();
+        morf.line().build();
 
-		fg.input()
-				.hint("Form Item: Input")
+        morf.input()
+                .hint("Form Item: Input")
                 .icon(Position.START, R.drawable.ic_info)
                 .inputBackgroundId(0)
                 .build();
 
-        fg.textInput()
+        morf.textInput()
                 .hint("FormItem: Text Input")
                 .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)
                 .showPasswordVisibilityToggle(true)
                 .build();
 
-		fg.aSwitch()
+        morf.aSwitch()
                 .text("Form Item: Switch")
                 .onCheckChanged((buttonView, isChecked) -> Toast.makeText(this,
                         "Form Item: Switch changed", Toast.LENGTH_SHORT).show())
@@ -179,8 +179,8 @@ public class MainActivity extends AppCompatActivity {
                 .icon(Position.START, R.drawable.ic_info, false)
                 .build();
 
-		fg.textInput()
-				.hint("FormItem: Text Input with drawable icon")
+        morf.textInput()
+                .hint("FormItem: Text Input with drawable icon")
                 .backgroundId(android.R.color.white)
                 .icon(Position.START, getResources().getDrawable(R.drawable.ic_info))
                 .build();
