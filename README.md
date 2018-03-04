@@ -1,4 +1,4 @@
-# Form Generator
+# Morf
 
 ## Summary
 Generates customizable forms for Android 17+. Form items include:
@@ -9,7 +9,8 @@ Generates customizable forms for Android 17+. Form items include:
 * Standard Android borderless buttons
 * Switches
 * Input fields
-* Text Input fields
+* Text input fields
+* Autocomplete text input fields
 * Lines
 * Spaces
 
@@ -28,7 +29,7 @@ Customization includes:
 * View visibility
 
 ## Instructions
-[![Release](https://jitpack.io/v/com.guerinet/form-generator.svg)](https://jitpack.io/#com.guerinet/form-generator)
+[![Release](https://jitpack.io/v/com.guerinet/morf.svg)](https://jitpack.io/#com.guerinet/morf)
 
 To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above or on the  [Releases](https://github.com/jguerinet/form-generator/releases) page:
 
@@ -37,12 +38,12 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
     }
 
 	dependencies {
-	    compile 'com.guerinet:form-generator:X.X.X'
+	    implementation 'com.guerinet:morf:X.X.X'
 	}
 
-To use this in your project, you can either build an instance of the `FormGenerator` with its custom `Defaults`, customizing
-anything you might want to change or you can use the default `FormGenerator` instance by calling `FormGenerator.bind()`.
-You can set the settings by calling `FormGenerator.createAndSetSettings()` if you want to use a customized `FormGenerator` throughout your app. The default values are:
+To use this in your project, you can either build an instance of `Morf` with its custom `Shape`, customizing
+anything you might want to change or you can use the default `Morf` instance by calling `Morf.bind()`.
+You can set the default shape by calling `Morf.createAndSetShape()` if you want to use a customized `Morf` throughout your app. The default values are:
 
 * Text Color: Black
 * Text Size: Default Android Text size
@@ -57,10 +58,10 @@ You can set the settings by calling `FormGenerator.createAndSetSettings()` if yo
 * Space Color: Transparent
 * Lines after items: True
 
-Once you set your default FormGenerator, you can always customize it by calling `FormGenerator.settings` and changing the desired fields. You can also construct a new instance from your default one by calling
-`FormGenerator.settings.newInstance()` so that you can start off with your default values, but any changes you make will not change the default instance.
+Once you set your default `Shape`, you can always customize it by calling `Morf.shape` and changing the desired fields. You can also construct a new instance from your default one by calling
+`Morf.shape.newShape()` so that you can start off with your default values, but any changes you make will not change the default instance.
 Each item can be further customized if you need to have some properties that are different from the default properties. When adding each item, there are a number of methods you can call to further customize the item itself.
-To get the associated view, simple call `view()` at the end of your customization. All of the above properties can be customized per form item, as well as:
+To get the associated view, simple access `view` property of the item. All of the above properties can be customized per form item, as well as:
 
 * Check state for `Switch`es
 * On and off text for `Switch`es (not recommended as the text is poorly rendered on Lollipop-style `Switch`es
@@ -72,11 +73,11 @@ To get the associated view, simple call `view()` at the end of your customizatio
 * Setting icons on all form items except the spaces and lines
 * Showing/hiding the password visibility toggle for the `TextInputFormItem`
 
-IMPORTANT: All views need to be built by calling `build()`. If you do not call `build()` they will not be added to the container.
+IMPORTANT: All views need to be built by calling `build()` (apart from spaces and lines). If you do not call `build()` they will not be added to the container. You can safely call `build()` multiple times.
 
 ## Demo
 A demo is included within this repo (in the demo folder). The demo shows 2 forms with all of the types of form items:
-the top one is the default settings for FormGenerator, the bottom is a customized FormGenerator (changed text color, background selector, line width, line color, icon, and icon color). Below is a screenshot:
+the top one is a `Morf` with the default `Shape`, the bottom is a `Morf` with a customized `Shape` (changed text color, background selector, line width, line color, icon, and icon color). Below is a screenshot:
 
 ![Demo Screenshot](assets/demo_screenshot.png)
 
