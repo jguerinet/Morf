@@ -1,5 +1,19 @@
 # Change Log
 
+## Version 5.0.0 (2018-03-03)
+* Library has a new name!
+* Package name has been changed to `com.guerinet.morf`
+* The `FormGenerator` class has been renamed to `Morf`, and its `Settings` has been renamed to `Shape`
+* Added method to set an Id on a view
+* Drastically simplified the view structure: objects are no longer contained within their own `LinearLayout`s
+* Removed all XML inflation, views are programmatically loaded instead
+* Added method to set height and width directly without needing to pass `LayoutParams`
+* Added methods on the items of type `EditText` to set text/number input types directly
+* Added the `Layout` utility class, with aliases for `WRAP_CONTENT` and `MATCH_PARENT` to set these properties more concisely
+* Fixed bug where inline functions would not automatically build the view at the end
+* Removed need to call `build()` on space and line items
+* Calling `build()` multiple times on the same object will no longer crash the app
+
 ## Version 4.0.1 (2018-02-22)
 * Fixed bug where drawable wasn't being mutated before setting the alpha on it, causing it to disappear in some cases
 * Bumped min version to 17

@@ -31,7 +31,7 @@ Customization includes:
 ## Instructions
 [![Release](https://jitpack.io/v/com.guerinet/morf.svg)](https://jitpack.io/#com.guerinet/morf)
 
-To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above or on the  [Releases](https://github.com/jguerinet/form-generator/releases) page:
+To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above or on the  [Releases](https://github.com/jguerinet/morf/releases) page:
 
     repositories {
         maven { url "https://jitpack.io" }
