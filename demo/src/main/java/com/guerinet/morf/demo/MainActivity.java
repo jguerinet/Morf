@@ -32,7 +32,7 @@ import com.guerinet.morf.util.Position;
 import kotlin.Unit;
 
 /**
- * Demonstrates the default behavior of the FormGenerator
+ * Demonstrates the default behavior of Morf
  * @author Julien Guerinet
  * @since 1.0.0
  */
