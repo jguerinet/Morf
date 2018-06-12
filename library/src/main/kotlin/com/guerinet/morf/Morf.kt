@@ -18,6 +18,10 @@ package com.guerinet.morf
 
 import android.graphics.Color
 import android.graphics.Typeface
+import android.support.annotation.ColorInt
+import android.support.annotation.ColorRes
+import android.support.annotation.DimenRes
+import android.support.annotation.DrawableRes
 import android.widget.Button
 import android.widget.LinearLayout
 

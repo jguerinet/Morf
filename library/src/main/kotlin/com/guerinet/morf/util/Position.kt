@@ -16,7 +16,7 @@
 
 package com.guerinet.morf.util
 
-import android.support.annotation.IntDef
+import android.support.annotation.LongDef
 
 /**
  * Icon positions
@@ -28,7 +28,7 @@ object Position {
     /**
      * Defines the different positions of an icon
      */
-    @IntDef(START, TOP, END, BOTTOM)
+    @LongDef(START, TOP, END, BOTTOM)
     @Retention(AnnotationRetention.SOURCE)
     annotation class Section
 
