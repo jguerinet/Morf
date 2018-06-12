@@ -19,8 +19,8 @@ apply plugin: 'com.github.ben-manes.versions'
 buildscript {
 
     // Versions shared across modules
-    ext.android_support_version = '27.0.2'
-    ext.kotlin_version = '1.2.30'
+    ext.android_support_version = '27.1.1'
+    ext.kotlin_version = '1.2.41'
 
     repositories {
         google()
