@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 5.0.1 (2018-06-12)
+* Fixed the inline call of `borderlessButton` (it was creating a button instead of a borderless button)
+* Updated dependencies
+
 ## Version 5.0.0 (2018-03-03)
 * Library has a new name!
 * Package name has been changed to `com.guerinet.morf`
