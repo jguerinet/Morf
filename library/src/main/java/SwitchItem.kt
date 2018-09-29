@@ -33,13 +33,22 @@ class SwitchItem(morf: Morf) :
         view.showText = false
     }
 
+    var isChecked: Boolean
+        get() = error("Setter only")
+        set(value) {
+            view.isChecked = value
+        }
+
     /**
      * @return Item with the switch on if [isChecked]
      */
-    fun checked(isChecked: Boolean): SwitchItem {
-        view.isChecked = isChecked
-        return this
-    }
+    fun checked(isChecked: Boolean): SwitchItem = setAndReturn { this.isChecked = isChecked }
+
+    /**
+     * Sets this [listener] on this [SwitchItem]
+     */
+    fun onCheckChanged(listener: (item: SwitchItem, isChecked: Boolean) -> Unit) =
+            view.setOnCheckedChangeListener { _, isChecked -> listener(this, isChecked) }
 
     /**
      * @return Item with the [listener] set on the switch
