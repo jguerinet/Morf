@@ -84,7 +84,7 @@ open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(morf: Mo
     override fun build(): T {
         // Add the input layout to the container, not the view
         if (inputLayout.parent == null) {
-            morf.container.addView(inputLayout)
+            morf.addView(inputLayout)
         }
         return super.build()
     }

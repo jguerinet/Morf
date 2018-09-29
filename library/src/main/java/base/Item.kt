@@ -157,7 +157,7 @@ open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val 
     @CallSuper
     open fun build(): T = setAndReturn {
         if (view.parent == null) {
-            morf.container.addView(view)
+            morf.addView(view)
         }
     }
 

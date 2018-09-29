@@ -143,7 +143,7 @@ open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
 
         // We need to add the line as well
         if (line != null && line.parent == null) {
-            morf.container.addView(line)
+            morf.addView(line)
         }
 
         return item

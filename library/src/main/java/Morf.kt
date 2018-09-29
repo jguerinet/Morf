@@ -18,6 +18,7 @@ package com.guerinet.morf
 
 import android.graphics.Color
 import android.graphics.Typeface
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
@@ -31,7 +32,7 @@ import androidx.annotation.DrawableRes
  * @since 1.0.0
  */
 class Morf internal constructor(internal val shape: Shape,
-        internal val container: LinearLayout) {
+        private val container: LinearLayout) {
 
     internal val context = container.context
 
@@ -118,6 +119,11 @@ class Morf internal constructor(internal val shape: Shape,
      * Creates a [SwitchItem], applies the block, and returns it
      */
     inline fun aSwitch(block: SwitchItem.() -> Unit): SwitchItem = aSwitch().apply(block).build()
+
+    /**
+     * Adds the [view] to the [container]
+     */
+    internal fun addView(view: View) = container.addView(view)
 
     companion object {
 
