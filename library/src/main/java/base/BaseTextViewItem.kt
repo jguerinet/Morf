@@ -42,7 +42,6 @@ import com.guerinet.morf.util.Position
  * @param view                  Form item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-@Suppress("UNCHECKED_CAST")
 open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         morf: Morf,
         view: V,
@@ -263,10 +262,8 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  (which defaults to the default one if none specified)
      */
     @JvmOverloads
-    fun style(style: Int, typeface: Typeface? = morf.shape.textTypeface): T {
-        view.setTypeface(typeface, style)
-        return this as T
-    }
+    fun style(style: Int, typeface: Typeface? = morf.shape.textTypeface): T =
+            setAndReturn { view.setTypeface(typeface, style) }
 
     /**
      * Sets up an icon at the given [position] with the given [drawableId],
@@ -292,6 +289,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
     /**
      * Returns the [BaseTextViewItem] with the given function set for click events
      */
+    @Suppress("UNCHECKED_CAST")
     open fun onClick(onClick: ((T) -> Unit)?): T = setAndReturn {
         if (onClick == null) {
             view.setOnClickListener(null)
@@ -343,7 +341,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
     /**
      * Updates the shown icons on the returned item, without re-adding the view to the container
      */
-    fun updateIcons(): T {
+    fun updateIcons(): T = setAndReturn {
         // Get all of the drawables
         val drawables = arrayOf(getDrawable(icons[0]), getDrawable(icons[1]), getDrawable(icons[2]),
                 getDrawable(icons[3]))
@@ -382,8 +380,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         // Set the drawables on the view
         view.setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1],
                 drawables[2], drawables[3])
-
-        return this as T
     }
 
     override fun build(): T {
