@@ -32,12 +32,11 @@ import com.guerinet.morf.Morf
  * @param view                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */
-@Suppress("UNCHECKED_CAST")
 open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
         morf: Morf,
         view: V,
-        isDefaultBackground: Boolean = true) : BaseTextViewItem<T, V>(morf, view, isDefaultBackground
-) {
+        isDefaultBackground: Boolean = true
+) : BaseTextViewItem<T, V>(morf, view, isDefaultBackground) {
 
     init {
         view.maxLines = 1
@@ -66,43 +65,53 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
         }
     }
 
+    var textInputType: Int
+        get() = error("Setter only")
+        set(value) {
+            inputType(InputType.TYPE_CLASS_TEXT or value)
+        }
+
     /**
      * Sets the input type to text class with the given [type]
      */
-    fun textInputType(type: Int): T {
-        return inputType(InputType.TYPE_CLASS_TEXT or type)
-    }
+    fun textInputType(type: Int): T = inputType(InputType.TYPE_CLASS_TEXT or type)
+
+    var numberInputType: Int
+        get() = error("Setter only")
+        set(value) {
+            inputType(InputType.TYPE_CLASS_NUMBER or value)
+        }
 
     /**
      * Sets the input type to number class with the given [type]
      */
-    fun numberInputType(type: Int): T {
-        return inputType(InputType.TYPE_CLASS_NUMBER or type)
-    }
+    fun numberInputType(type: Int): T = inputType(InputType.TYPE_CLASS_NUMBER or type)
+
+    var inputType: Int
+        get() = error("Setter only")
+        set(value) {
+            view.inputType = value
+        }
 
     /**
      * Sets the the given input [type]
      */
-    fun inputType(type: Int): T {
-        view.inputType = type
-        return this as T
-    }
+    fun inputType(type: Int): T = setAndReturn { this.inputType = type }
+
+    var inputBackgroundId: Int
+        get() = error("Setter only")
+        set(value) = view.setBackgroundResource(value)
 
     /**
      * @return Item with the input background set to the [backgroundId]
      */
-    fun inputBackgroundId(backgroundId: Int): T {
-        view.setBackgroundResource(backgroundId)
-        return this as T
-    }
+    fun inputBackgroundId(backgroundId: Int): T =
+            setAndReturn { this.inputBackgroundId = backgroundId }
 
     /**
      * @return Item with a [watcher] on the [EditText]
      */
-    fun watch(watcher: TextWatcher): T {
-        view.addTextChangedListener(watcher)
-        return this as T
-    }
+    fun watch(watcher: TextWatcher): T = setAndReturn { view.addTextChangedListener(watcher) }
 
     /**
      * @return Item with a [TextWatcher] that calls the [watcher] when the [EditText] changes
@@ -110,9 +119,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
     fun watch(watcher: ((String) -> Unit)): T {
         return watch(object : TextWatcher {
 
-            override fun afterTextChanged(s: Editable?) {
-                watcher(s.toString())
-            }
+            override fun afterTextChanged(s: Editable?) = watcher(s.toString())
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -120,7 +127,8 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
         })
     }
 
-    override fun onClick(onClick: ((T) -> Unit)?): T {
+    @Suppress("UNCHECKED_CAST")
+    override fun onClick(onClick: ((T) -> Unit)?): T = setAndReturn {
         // Make the EditText non focusable, non long clickable, and follow its parent before
         //  continuing. If the listener is null, do the opposite
         view.isFocusable = onClick == null
@@ -129,8 +137,7 @@ open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
         if (onClick == null) {
             view.setOnClickListener(null)
         } else {
-            view.setOnClickListener({ _ -> onClick(this as T) })
+            view.setOnClickListener { _ -> onClick(this as T) }
         }
-        return this as T
     }
 }
