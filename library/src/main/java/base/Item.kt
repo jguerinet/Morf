@@ -106,7 +106,7 @@ open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val 
      * @return Pixel equivalent of the dimen [dimenId]
      */
     protected fun dimenToPixels(@DimenRes dimenId: Int): Int =
-            morf.container.resources.getDimensionPixelOffset(dimenId)
+            view.resources.getDimensionPixelOffset(dimenId)
 
     open var backgroundId: Int
         get() = error("Setter only")
