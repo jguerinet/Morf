@@ -28,7 +28,7 @@ import com.guerinet.morf.Morf
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param morf                    [Morf] instance
+ * @param morf                  [Morf] instance
  * @param view                  Item [View]
  * @param isDefaultBackground   True if we should use the default background, false otherwise
  */

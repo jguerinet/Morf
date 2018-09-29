@@ -25,7 +25,7 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param morf [Morf] instance
+ * @param morf  [Morf] instance
  */
 class SpaceItem(morf: Morf) : Item<SpaceItem, View>(morf, View(morf.context)) {
 

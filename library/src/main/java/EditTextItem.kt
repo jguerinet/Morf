@@ -16,7 +16,6 @@
 
 package com.guerinet.morf
 
-import android.view.View
 import android.widget.EditText
 import com.guerinet.morf.base.BaseEditTextItem
 
@@ -25,9 +24,7 @@ import com.guerinet.morf.base.BaseEditTextItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param morf                    [Morf] instance
- * @param editText                  Item [View]
- * @param isDefaultBackground   True if we should use the default background, false otherwise
+ * @param morf  [Morf] instance
  */
 class EditTextItem(morf: Morf) :
         BaseEditTextItem<EditTextItem, EditText>(morf, EditText(morf.context))

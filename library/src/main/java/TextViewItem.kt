@@ -16,7 +16,6 @@
 
 package com.guerinet.morf
 
-import android.view.View
 import android.widget.TextView
 import com.guerinet.morf.base.BaseTextViewItem
 
@@ -25,10 +24,7 @@ import com.guerinet.morf.base.BaseTextViewItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param morf                    [Morf] instance
- * @param view                  Form item [View]
- * @param textView             [View] of the main child for this item
- * @param isDefaultBackground   True if we should use the default background, false otherwise
+ * @param morf  [Morf] instance
  */
 class TextViewItem(morf: Morf) :
         BaseTextViewItem<TextViewItem, TextView>(morf, TextView(morf.context))

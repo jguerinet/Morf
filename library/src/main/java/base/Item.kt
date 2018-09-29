@@ -32,7 +32,7 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param morf    [Morf] that created this item
+ * @param morf  [Morf] that created this item
  */
 @Suppress("UNCHECKED_CAST")
 open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val view: V) {

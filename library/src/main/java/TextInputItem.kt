@@ -16,7 +16,6 @@
 
 package com.guerinet.morf
 
-import android.view.View
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.guerinet.morf.base.BaseTextInputItem
@@ -26,8 +25,7 @@ import com.guerinet.morf.base.BaseTextInputItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param morf    [Morf] instance
- * @param view  Item [View]
+ * @param morf  [Morf] instance
  */
 class TextInputItem(morf: Morf) : BaseTextInputItem<TextInputItem, TextInputEditText>(morf,
         TextInputEditText(morf.context))

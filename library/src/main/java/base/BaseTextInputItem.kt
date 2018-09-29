@@ -28,7 +28,7 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 3.0.0
  *
- * @param morf    [Morf] instance
+ * @param morf  [Morf] instance
  * @param view  Item [View]
  */
 @Suppress("UNCHECKED_CAST")
