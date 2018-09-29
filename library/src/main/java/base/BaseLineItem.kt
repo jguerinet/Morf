@@ -33,7 +33,6 @@ import com.guerinet.morf.Morf
  * @param view  Item [View]
  * @param line  Line [View], null if none (in the case of a button for example)
  */
-@Suppress("UNCHECKED_CAST")
 open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
         morf: Morf,
         view: V,
@@ -71,50 +70,73 @@ open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
         }
     }
 
+    var linePixelHeight: Int
+        get() = error("Setter only")
+        set(value) {
+            pixelHeight(line, value)
+        }
+
     /**
      * @return [BaseLineItem] instance with its new height in [pixels] set
      */
-    fun linePixelHeight(pixels: Int): T {
-        return pixelHeight(line, pixels)
-    }
+    fun linePixelHeight(pixels: Int): T = setAndReturn { this.linePixelHeight = pixels }
+
+    var lineDpHeight: Float
+        get() = error("Setter only")
+        set(value) {
+            dpHeight(line, value)
+        }
 
     /**
      * @return Item with its new height in [dps] set
      */
-    fun lineDpHeight(dps: Float): T {
-        return dpHeight(line, dps)
-    }
+    fun lineDpHeight(dps: Float): T = setAndReturn { this.lineDpHeight = dps }
+
+    var lineHeightId: Int
+        get() = error("Setter only")
+        set(@DimenRes value) {
+            heightId(line, value)
+        }
 
     /**
      * @return Item with its new height from the [dimenId] set
      */
-    fun lineHeightId(@DimenRes dimenId: Int): T {
-        return heightId(line, dimenId)
-    }
+    fun lineHeightId(@DimenRes dimenId: Int): T = setAndReturn { this.lineHeightId = dimenId }
+
+    var lineBackground: Int
+        get() = error("Setter only")
+        set(@DrawableRes @ColorRes value) {
+            line?.setBackgroundResource(value)
+        }
 
     /**
      * @return [BaseLineItem] instance with its new background with the given [resId] set
      */
-    fun lineBackground(@DrawableRes @ColorRes resId: Int): T {
-        line?.setBackgroundResource(resId)
-        return this as T
+    fun lineBackground(@DrawableRes @ColorRes resId: Int): T = setAndReturn {
+        this.lineBackground = resId
     }
+
+    var lineColor: Int
+        get() = error("Setter only")
+        set(@ColorInt value) {
+            line?.setBackgroundColor(value)
+        }
 
     /**
      * @return Item with its new line [color] set
      */
-    fun lineColor(@ColorInt color: Int): T {
-        line?.setBackgroundColor(color)
-        return this as T
-    }
+    fun lineColor(@ColorInt color: Int): T = setAndReturn { this.lineColor = color }
+
+    var isLineShown: Boolean
+        get() = error("Setter only")
+        set(value) {
+            line?.visibility = if (value) View.VISIBLE else View.GONE
+        }
 
     /**
      * @return Item with the line [show]n or hidden
      */
-    fun showLine(show: Boolean): T {
-        line?.visibility = if (show) View.VISIBLE else View.GONE
-        return this as T
-    }
+    fun showLine(show: Boolean): T = setAndReturn { this.isLineShown = show }
 
     override fun build(): T {
         val item = super.build()
