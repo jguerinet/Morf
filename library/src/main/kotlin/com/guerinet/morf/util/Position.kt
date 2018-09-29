@@ -16,7 +16,7 @@
 
 package com.guerinet.morf.util
 
-import android.support.annotation.LongDef
+import androidx.annotation.LongDef
 
 /**
  * Icon positions

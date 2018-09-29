@@ -16,14 +16,14 @@
 
 package com.guerinet.morf.base
 
-import android.support.annotation.CallSuper
-import android.support.annotation.ColorInt
-import android.support.annotation.ColorRes
-import android.support.annotation.DimenRes
-import android.support.annotation.DrawableRes
 import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
+import androidx.annotation.CallSuper
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
+import androidx.annotation.DrawableRes
 import com.guerinet.morf.Morf
 import com.guerinet.morf.util.Layout
 

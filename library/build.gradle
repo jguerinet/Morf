@@ -15,8 +15,8 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion Integer.valueOf(morf_target_sdk)
@@ -45,8 +45,8 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$android_support_version"
-    implementation "com.android.support:design:$android_support_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 

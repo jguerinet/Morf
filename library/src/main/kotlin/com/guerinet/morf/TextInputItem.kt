@@ -16,9 +16,9 @@
 
 package com.guerinet.morf
 
-import android.support.design.widget.TextInputEditText
-import android.support.design.widget.TextInputLayout
 import android.view.View
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.guerinet.morf.base.BaseTextInputItem
 
 /**

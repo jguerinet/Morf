@@ -40,6 +40,6 @@ android {
 
 dependencies {
     implementation project(':library')
-    implementation "com.android.support:appcompat-v7:$android_support_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

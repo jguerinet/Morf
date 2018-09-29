@@ -18,8 +18,6 @@ package com.guerinet.morf.demo;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -29,6 +27,8 @@ import android.widget.Toast;
 import com.guerinet.morf.Morf;
 import com.guerinet.morf.util.Position;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import kotlin.Unit;
 
 /**

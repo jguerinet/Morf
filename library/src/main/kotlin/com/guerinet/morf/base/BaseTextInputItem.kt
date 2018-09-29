@@ -16,10 +16,10 @@
 
 package com.guerinet.morf.base
 
-import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
+import com.google.android.material.textfield.TextInputLayout
 import com.guerinet.morf.Morf
 import com.guerinet.morf.util.Layout
 

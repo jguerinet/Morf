@@ -17,8 +17,8 @@
 package com.guerinet.morf
 
 import android.graphics.Typeface
-import android.support.v7.widget.SwitchCompat
 import android.widget.CompoundButton
+import androidx.appcompat.widget.SwitchCompat
 import com.guerinet.morf.base.BaseTextViewItem
 
 /**

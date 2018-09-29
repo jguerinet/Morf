@@ -18,17 +18,17 @@ package com.guerinet.morf.base
 
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.support.annotation.ColorInt
-import android.support.annotation.DimenRes
-import android.support.annotation.DrawableRes
-import android.support.annotation.StringRes
-import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.drawable.DrawableCompat
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.ColorInt
+import androidx.annotation.DimenRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import com.guerinet.morf.Morf
 import com.guerinet.morf.util.Layout
 import com.guerinet.morf.util.Position
