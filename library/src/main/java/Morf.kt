@@ -30,7 +30,7 @@ import androidx.annotation.DrawableRes
  * @author Julien Guerinet
  * @since 1.0.0
  */
-class Morf private constructor(internal val shape: Shape,
+class Morf internal constructor(internal val shape: Shape,
         internal val container: LinearLayout) {
 
     internal val context = container.context
