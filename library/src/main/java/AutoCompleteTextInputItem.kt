@@ -42,15 +42,17 @@ class AutoCompleteTextInputItem(morf: Morf) : BaseTextInputItem<AutoCompleteText
      *  displayed, on the returned item
      */
     fun threshold(threshold: Int): AutoCompleteTextInputItem {
-        // If the threshold is 0, set an OnTouchListener to open the list when clicked
-        if (threshold == 0) {
-            view.threshold = 1
-            view.setOnTouchListener({ _, _ ->
-                view.showDropDown()
-                false
-            })
-        } else {
-            view.threshold = threshold
+        with(view) {
+            // If the threshold is 0, set an OnTouchListener to open the list when clicked
+            if (threshold == 0) {
+                this.threshold = 1
+                setOnTouchListener { _, _ ->
+                    view.showDropDown()
+                    false
+                }
+            } else {
+                this.threshold = threshold
+            }
         }
         return this
     }
