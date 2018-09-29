@@ -21,7 +21,6 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.CompoundButton
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -49,21 +48,21 @@ class MainActivity : AppCompatActivity() {
         container.morf {
             // Default Form
             text {
-                text("Form Item: Text (default settings)")
+                text = "Form Item: Text (default settings)"
             }
 
             text {
-                text("Form Item: Button")
+                text = "Form Item: Button"
                 onClick {
                     Toast.makeText(this@MainActivity, "Form Item: Button Clicked",
                             Toast.LENGTH_SHORT).show()
                 }
             }
 
-            space()
+            space {}
 
             button {
-                text("Form Item, Simple Button")
+                text = "Form Item, Simple Button"
                 onClick {
                     Toast.makeText(this@MainActivity, "Form Item: Simple Button Clicked",
                             Toast.LENGTH_SHORT).show()
@@ -71,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             borderlessButton {
-                text("Form Item, Borderless Button")
+                text = "Form Item, Borderless Button"
                 onClick {
                     Toast.makeText(this@MainActivity, "Form Item: Borderless Button Clicked",
                             Toast.LENGTH_SHORT).show()
@@ -80,32 +79,32 @@ class MainActivity : AppCompatActivity() {
                         Gravity.CENTER)
             }
 
-            space()
-            line()
+            space {}
+            line {}
 
             input {
-                hint("Form Item: Input")
+                hint = "Form Item: Input"
                 watch {
                     Toast.makeText(this@MainActivity, "Text: $it", Toast.LENGTH_SHORT).show()
                 }
             }
 
             textInput {
-                hint("FormItem: Text Input")
+                hint = "FormItem: Text Input"
             }
 
             aSwitch {
-                text("Form Item: Switch")
-                onCheckChanged(CompoundButton.OnCheckedChangeListener { _, _ ->
+                text = "Form Item: Switch"
+                onCheckChanged { _, _ ->
                     Toast.makeText(this@MainActivity, "Form Item: Switch changed",
                             Toast.LENGTH_SHORT).show()
-                })
+                }
             }
 
-            space()
-            space()
-            space()
-            space()
+            space {}
+            space {}
+            space {}
+            space {}
 
         }
 
@@ -121,12 +120,12 @@ class MainActivity : AppCompatActivity() {
         container.morf(shape) {
             // Add the different form items
             text {
-                text("Form Item: Text (custom settings)")
+                text = "Form Item: Text (custom settings)"
                 icon(Position.START, R.drawable.ic_info)
             }
 
             text {
-                text("Form Item: Button")
+                text = "Form Item: Button"
                 icon(Position.START, R.drawable.ic_info, false)
                 icon(Position.END, R.drawable.ic_chevron_right)
                 onClick {
@@ -135,10 +134,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            space()
+            space {}
 
             button {
-                text("Form Item, Simple Button")
+                text = "Form Item, Simple Button"
                 onClick {
                     Toast.makeText(this@MainActivity, "Form Item: Simple Button Clicked",
                             Toast.LENGTH_SHORT).show()
@@ -146,44 +145,43 @@ class MainActivity : AppCompatActivity() {
             }
 
             borderlessButton {
-                text("Form Item, Borderless Button")
+                text = "Form Item, Borderless Button"
                 onClick {
                     Toast.makeText(this@MainActivity, "Form Item: Borderless Button Clicked",
-                            Toast.LENGTH_SHORT)
-                            .show()
+                            Toast.LENGTH_SHORT).show()
                 }
                 layoutParams(LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT), Gravity.CENTER)
             }
 
-            space()
-            line()
+            space {}
+            line {}
 
             input {
-                hint("Form Item: Input")
+                hint = "Form Item: Input"
                 icon(Position.START, R.drawable.ic_info)
-                inputBackgroundId(0)
+                inputBackgroundId = 0
             }
 
             textInput {
-                hint("FormItem: Text Input")
-                inputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                showPasswordVisibilityToggle(true)
+                hint = "FormItem: Text Input"
+                textInputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                isPasswordVisibilityToggleEnabled = true
             }
 
             aSwitch {
-                text("Form Item: Switch")
-                onCheckChanged(CompoundButton.OnCheckedChangeListener { _, _ ->
+                text = "Form Item: Switch"
+                onCheckChanged { _, _ ->
                     Toast.makeText(this@MainActivity, "Form Item: Switch changed",
                             Toast.LENGTH_SHORT).show()
-                })
+                }
                 switchText("On", "Off")
                 icon(Position.START, R.drawable.ic_info, false)
             }
 
             textInput {
-                hint("FormItem: Text Input with drawable icon")
-                backgroundId(android.R.color.white)
+                hint = "FormItem: Text Input with drawable icon"
+                backgroundId = android.R.color.white
                 icon(Position.START, resources.getDrawable(R.drawable.ic_info))
             }
         }
