@@ -34,63 +34,73 @@ import com.guerinet.morf.util.Layout
  *
  * @param morf  [Morf] that created this item
  */
-@Suppress("UNCHECKED_CAST")
 open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val view: V) {
 
-    /**
-     * @return Item instance with the given [id] set
-     */
-    fun id(id: Int): T {
-        view.id = id
-        return this as T
-    }
+    var id: Int
+        get() = error("Setter only")
+        set(value) {
+            view.id = value
+        }
 
     /**
-     * @return Item instance with its new height in [pixels] set
+     * Returns the [Item] instance with the given [id] set
      */
-    fun pixelHeight(pixels: Int): T {
-        return pixelHeight(view, pixels)
-    }
+    fun id(id: Int): T = setAndReturn { this.id = id }
+
+    var pixelHeight: Int
+        get() = error("Setter only")
+        set(value) {
+            pixelHeight(view, value)
+        }
 
     /**
-     * @return Item with its new height in [dps] set
+     * Returns the [Item] instance with its new height in [pixels] set
      */
-    fun dpHeight(dps: Float): T {
-        return dpHeight(view, dps)
-    }
+    fun pixelHeight(pixels: Int): T = setAndReturn { this.pixelHeight = pixels }
+
+    var dpHeight: Float
+        get() = error("Setter only")
+        set(value) {
+            dpHeight(view, value)
+        }
+
+    /**
+     * Returns the [Item] with its new height in [dps] set
+     */
+    fun dpHeight(dps: Float): T = setAndReturn { this.dpHeight = dps }
+
+    var heightId: Int
+        get() = error("Setter only")
+        set(@DimenRes value) {
+            heightId(view, value)
+        }
 
     /**
      * @return Item with its new height from the [dimenId] set
      */
-    fun heightId(@DimenRes dimenId: Int): T {
-        return heightId(view, dimenId)
-    }
+    fun heightId(@DimenRes dimenId: Int): T = setAndReturn { this.heightId = dimenId }
 
     /**
      * @return Item with the [view] height set to the given [pixels]
      */
-    protected fun pixelHeight(view: View?, pixels: Int): T {
+    protected fun pixelHeight(view: View?, pixels: Int): T = setAndReturn {
         view?.layoutParams?.height = pixels
-        return this as T
     }
 
     /**
      * @return Item with the [view] height set to the given [dps]
      */
-    protected fun dpHeight(view: View?, dps: Float): T {
-        return pixelHeight(view, dpToPixels(dps))
-    }
+    protected fun dpHeight(view: View?, dps: Float): T = pixelHeight(view, dpToPixels(dps))
 
     /**
      * @return Item with the [view] height set to the given [dimenId]
      */
-    protected fun heightId(view: View?, @DimenRes dimenId: Int): T {
-        return pixelHeight(view, dimenToPixels(dimenId))
-    }
+    protected fun heightId(view: View?, @DimenRes dimenId: Int): T =
+            pixelHeight(view, dimenToPixels(dimenId))
 
     protected fun dpToPixels(dps: Float): Int =
             TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dps,
-                    morf.container.resources.displayMetrics).toInt()
+                    view.resources.displayMetrics).toInt()
 
     /**
      * @return Pixel equivalent of the dimen [dimenId]
@@ -98,59 +108,71 @@ open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val 
     protected fun dimenToPixels(@DimenRes dimenId: Int): Int =
             morf.container.resources.getDimensionPixelOffset(dimenId)
 
+    var backgroundId: Int
+        get() = error("Setter only")
+        set(@ColorRes @DrawableRes value) = view.setBackgroundResource(value)
+
     /**
      * @return Item with the given background with [backgroundId] set
      */
-    open fun backgroundId(@ColorRes @DrawableRes backgroundId: Int): T {
-        view.setBackgroundResource(backgroundId)
-        return this as T
+    open fun backgroundId(@ColorRes @DrawableRes backgroundId: Int): T = setAndReturn {
+        this.backgroundId = backgroundId
     }
+
+    var backgroundColor: Int
+        get() = error("Setter only")
+        set(@ColorInt value) = view.setBackgroundColor(value)
 
     /**
      * @return Item with the background of the given [color]
      */
-    fun backgroundColor(@ColorInt color: Int): T {
-        view.setBackgroundColor(color)
-        return this as T
-    }
+    fun backgroundColor(@ColorInt color: Int): T = setAndReturn { this.backgroundColor = color }
 
     /**
      * @return Item with the set [width] (defaults to MATCH_PARENT), [height]
      *  (defaults to WRAP_CONTENT), and [gravity] (null if none, defaults to null
      */
     @JvmOverloads
-    fun layout(width: Int = Layout.MATCH_PARENT, height: Int = Layout.WRAP_CONTENT,
-            gravity: Int? = null): T {
-        return layoutParams(LinearLayout.LayoutParams(width, height), gravity)
-    }
+    fun layout(
+            width: Int = Layout.MATCH_PARENT,
+            height: Int = Layout.WRAP_CONTENT,
+            gravity: Int? = null
+    ): T = layoutParams(LinearLayout.LayoutParams(width, height), gravity)
 
     /**
      * @return Item with the given layout [params] and [gravity] (null if none, defaults to null)
      *  set
      */
-    fun layoutParams(params: LinearLayout.LayoutParams, gravity: Int? = null): T {
+    fun layoutParams(params: LinearLayout.LayoutParams, gravity: Int? = null): T = setAndReturn {
         if (gravity != null) {
             params.gravity = gravity
         }
         view.layoutParams = params
-        return this as T
     }
 
     /**
-     * Builds the item by adding it to the container. Subclasses may perform other operations
-     * @return [Item] instance
+     * Builds and returns the [Item] by adding it to the container. Subclasses may perform other
+     *  operations
      */
     @CallSuper
-    open fun build(): T {
+    open fun build(): T = setAndReturn {
         if (view.parent == null) {
             morf.container.addView(view)
         }
-        return this as T
     }
 
     /**
-     * Builds the item by applying the given block to it, and calling build(). Returns the
-     *  built item
+     * Builds and returns the item by applying the given block to it, and calling build().
      */
+    @Suppress("UNCHECKED_CAST")
     inline fun build(block: T.() -> Unit): T = (this as T).apply(block).build()
+
+    /**
+     * Invokes the setter and returns this item, casted.
+     */
+    @Suppress("UNCHECKED_CAST")
+    protected fun setAndReturn(setter: () -> Unit): T {
+        setter()
+        return this as T
+    }
 }

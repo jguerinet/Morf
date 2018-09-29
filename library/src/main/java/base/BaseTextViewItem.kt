@@ -403,14 +403,6 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
     }
 
     /**
-     * Invokes the setter and returns this item, casted.
-     */
-    private fun setAndReturn(setter: () -> Unit): T {
-        setter()
-        return this as T
-    }
-
-    /**
      * Keeps track of the icons to add
      *
      * @param drawableId    Id of the resource to load, null if none (defaults to null)
