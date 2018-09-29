@@ -33,15 +33,16 @@ import kotlin.Unit;
 
 /**
  * Demonstrates the default behavior of Morf
+ *
  * @author Julien Guerinet
  * @since 1.0.0
  */
 public class MainActivity extends AppCompatActivity {
 
-	@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         LinearLayout container = findViewById(R.id.container);
 
@@ -184,5 +185,5 @@ public class MainActivity extends AppCompatActivity {
                 .backgroundId(android.R.color.white)
                 .icon(Position.START, getResources().getDrawable(R.drawable.ic_info))
                 .build();
-	}
+    }
 }

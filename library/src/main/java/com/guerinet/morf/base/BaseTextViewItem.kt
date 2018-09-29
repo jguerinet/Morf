@@ -49,6 +49,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         isDefaultBackground: Boolean = true,
         lineView: View? = View(morf.context)) : BaseLineItem<T, V>(morf, view, lineView
 ) {
+
     /**
      * List of empty [Icon]s to keep track of the compound drawables to set
      *  Order: start, top, end, bottom
@@ -172,7 +173,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  If one of these is null, the padding remains what it is currently for that side
      */
     fun dpPadding(startDp: Float? = null, topDp: Float? = null, endDp: Float? = null,
-                  bottomDp: Float? = null): T {
+            bottomDp: Float? = null): T {
         return pixelPadding(if (startDp != null) dpToPixels(startDp) else null,
                 if (topDp != null) dpToPixels(topDp) else null,
                 if (endDp != null) dpToPixels(endDp) else null,
@@ -185,7 +186,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  for that side
      */
     fun paddingId(@DimenRes startId: Int? = null, @DimenRes topId: Int? = null,
-                  @DimenRes endId: Int? = null, @DimenRes bottomId: Int? = null): T {
+            @DimenRes endId: Int? = null, @DimenRes bottomId: Int? = null): T {
         return pixelPadding(if (startId != null) dimenToPixels(startId) else null,
                 if (topId != null) dimenToPixels(topId) else null,
                 if (endId != null) dimenToPixels(endId) else null,
@@ -231,7 +232,7 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, @DrawableRes drawableId: Int?,
-             isVisible: Boolean = true, @ColorInt color: Int? = morf.shape.iconColor): T {
+            isVisible: Boolean = true, @ColorInt color: Int? = morf.shape.iconColor): T {
         icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
         return this as T
     }
@@ -242,11 +243,10 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, drawable: Drawable?, isVisible: Boolean = true,
-             @ColorInt color: Int? = morf.shape.iconColor): T {
+            @ColorInt color: Int? = morf.shape.iconColor): T {
         icons[position.toInt()] = Icon(drawable = drawable, color = color, isVisible = isVisible)
         return this as T
     }
-
 
     /**
      * @return Item with the given function set for click events
@@ -365,5 +365,5 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      * @param isVisible     True if the icon should be visible, false otherwise (defaults to false)
      */
     private class Icon(@DrawableRes val drawableId: Int? = null, val drawable: Drawable? = null,
-                       @ColorInt val color: Int? = null, val isVisible: Boolean = false)
+            @ColorInt val color: Int? = null, val isVisible: Boolean = false)
 }

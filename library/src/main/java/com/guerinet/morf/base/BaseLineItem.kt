@@ -100,7 +100,6 @@ open class BaseLineItem<out T : BaseLineItem<T, V>, out V : View>(
         return this as T
     }
 
-
     /**
      * @return Item with its new line [color] set
      */
