@@ -88,133 +88,175 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         typeface(morf.shape.textTypeface)
     }
 
-    /**
-     * @return Item with the [text] set
-     */
-    fun text(text: String?): T {
-        view.text = text
-        return this as T
-    }
+    var text: String?
+        get() = error("Setter only")
+        set(value) {
+            view.text = value
+        }
 
     /**
-     * @return Item with the text with [stringId] set
+     * Returns this [BaseTextViewItem] with the [text] set
      */
-    fun text(@StringRes stringId: Int): T {
-        view.setText(stringId)
-        return this as T
-    }
+    fun text(text: String?): T = setAndReturn { this.text = text }
+
+    var textId: Int
+        get() = error("Setter only")
+        set(value) = view.setText(value)
 
     /**
-     * @return Item with the [hint] set
+     * Returns this [BaseTextViewItem] with the text with [stringId] set
      */
-    open fun hint(hint: String?): T {
-        view.hint = hint
-        return this as T
-    }
+    fun text(@StringRes stringId: Int): T = setAndReturn { this.textId = stringId }
+
+    open var hint: String?
+        get() = error("Setter only")
+        set(value) {
+            view.hint = value
+        }
 
     /**
-     * @return Item with the hint with [stringId] set
+     * Returns this [BaseTextViewItem] with the [hint] set
      */
-    open fun hint(@StringRes stringId: Int): T {
-        view.setHint(stringId)
-        return this as T
-    }
+    open fun hint(hint: String?): T = setAndReturn { this.hint = hint }
+
+    open var hintId: Int
+        get() = error("Setter only")
+        set(value) = view.setHint(value)
+
+    /**
+     * Returns this [BaseTextViewItem] with the hint with [stringId] set
+     */
+    open fun hint(@StringRes stringId: Int): T = setAndReturn { this.hintId = stringId }
+
+    var isFocusable: Boolean
+        get() = error("Setter only")
+        set(value) {
+            view.isFocusable = value
+        }
 
     /**
      * Sets whether the returned item [isFocusable] or not
      */
-    fun focusable(isFocusable: Boolean): T {
-        view.isFocusable = isFocusable
-        return this as T
-    }
+    fun isFocusable(isFocusable: Boolean): T = setAndReturn { this.isFocusable = isFocusable }
+
+    var isEnabled: Boolean
+        get() = error("Setter only")
+        set(value) {
+            view.isEnabled = value
+        }
 
     /**
      * Sets whether the returned item [isEnabled] or not
      */
-    fun enabled(isEnabled: Boolean): T {
-        view.isEnabled = isEnabled
-        return this as T
-    }
+    fun isEnabled(isEnabled: Boolean): T = setAndReturn { this.isEnabled = isEnabled }
+
+    var textColor: Int
+        get() = error("Setter only")
+        set(value) = view.setTextColor(value)
 
     /**
-     * @return Item with the text set to the given [color]
+     * Returns this [BaseTextViewItem] with the text set to the given [color]
      */
-    fun textColor(@ColorInt color: Int): T {
-        view.setTextColor(color)
-        return this as T
-    }
+    fun textColor(@ColorInt color: Int): T = setAndReturn { this.textColor = color }
 
-    /**
-     * @return Item with the text size set to the dimension with the [sizeId]
-     */
-    fun textSizeId(@DimenRes sizeId: Int?): T {
-        // If it's null, don't do anything
-        if (sizeId != null) {
-            view.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                    morf.container.resources.getDimension(sizeId))
+    var textSizeId: Int?
+        get() = error("Setter only")
+        set(value) {
+            // If it's null, don't do anything
+            if (value != null) {
+                view.setTextSize(TypedValue.COMPLEX_UNIT_PX, view.resources.getDimension(value))
+            }
         }
-        return this as T
-    }
+
+    /**
+     * Returns this [BaseTextViewItem] with the text size set to the dimension with the [sizeId]
+     */
+    fun textSizeId(@DimenRes sizeId: Int?): T = setAndReturn { this.textSizeId = sizeId }
 
     /**
      * Sets the [start], [top], [end], and [bottom] paddings (in pixels) on the returned item.
      *  If one of these is null, the padding remains what it is currently for that side
      */
-    fun pixelPadding(start: Int? = null, top: Int? = null, end: Int? = null, bottom: Int? = null)
-            : T {
+    fun pixelPadding(
+            start: Int? = null,
+            top: Int? = null,
+            end: Int? = null,
+            bottom: Int? = null
+    ): T = setAndReturn {
         // Use the current paddings if one of them is null
         view.setPaddingRelative(start ?: view.paddingStart, top ?: view.paddingTop,
                 end ?: view.paddingEnd, bottom ?: view.paddingBottom)
-        return this as T
     }
 
     /**
      * Sets the paddings on the returned item using the [startDp], [topDp], [endDp], and [bottomDp].
      *  If one of these is null, the padding remains what it is currently for that side
      */
-    fun dpPadding(startDp: Float? = null, topDp: Float? = null, endDp: Float? = null,
-            bottomDp: Float? = null): T {
-        return pixelPadding(if (startDp != null) dpToPixels(startDp) else null,
-                if (topDp != null) dpToPixels(topDp) else null,
-                if (endDp != null) dpToPixels(endDp) else null,
-                if (bottomDp != null) dpToPixels(bottomDp) else null)
-    }
+    fun dpPadding(
+            startDp: Float? = null,
+            topDp: Float? = null,
+            endDp: Float? = null,
+            bottomDp: Float? = null
+    ): T = pixelPadding(startDp?.run { dpToPixels(this) }, topDp?.run { dpToPixels(this) },
+            endDp?.run { dpToPixels(this) }, bottomDp?.run { dpToPixels(this) })
 
     /**
      * Sets the paddings on the returned item using the [startId], [topId], [endId], and [bottomId]
      *  dimension resource Ids. If one of these is null, the padding remains what it is currently
      *  for that side
      */
-    fun paddingId(@DimenRes startId: Int? = null, @DimenRes topId: Int? = null,
-            @DimenRes endId: Int? = null, @DimenRes bottomId: Int? = null): T {
-        return pixelPadding(if (startId != null) dimenToPixels(startId) else null,
-                if (topId != null) dimenToPixels(topId) else null,
-                if (endId != null) dimenToPixels(endId) else null,
-                if (bottomId != null) dimenToPixels(bottomId) else null)
-    }
+    fun paddingId(
+            @DimenRes startId: Int? = null,
+            @DimenRes topId: Int? = null,
+            @DimenRes endId: Int? = null,
+            @DimenRes bottomId: Int? = null
+    ): T = pixelPadding(startId?.run { dimenToPixels(startId) },
+            topId?.run { dimenToPixels(topId) }, endId?.run { dimenToPixels(endId) },
+            bottomId?.run { dimenToPixels(bottomId) })
+
+    var pixelPadding: Int
+        get() = error("Setter only")
+        set(value) {
+            pixelPadding(value, value, value, value)
+        }
 
     /**
-     * @return Item with the given [padding] (in pixels) on all 4 sides
+     * Returns the [BaseTextViewItem] with the given [padding] (in pixels) on all 4 sides
      */
-    fun pixelPadding(padding: Int): T = pixelPadding(padding, padding, padding, padding)
+    fun pixelPadding(padding: Int): T = setAndReturn { this.pixelPadding = padding }
+
+    var dpPadding: Float
+        get() = error("Setter only")
+        set(value) {
+            dpPadding(value, value, value)
+        }
 
     /**
-     * @return Item with padding, in [dps], on all 4 sides
+     * Returns the [BaseTextViewItem] with padding, in [dps], on all 4 sides
      */
-    fun dpPadding(dps: Float): T = dpPadding(dps, dps, dps, dps)
+    fun dpPadding(dps: Float): T = setAndReturn { this.dpPadding = dps }
+
+    var paddingId: Int
+        get() = error("Setter only")
+        set(value) {
+            paddingId(value, value, value, value)
+        }
 
     /**
-     * @return Item with padding from the given [dimenId] on all 4 sides
+     * Returns the [BaseTextViewItem] with padding from the given [dimenId] on all 4 sides
      */
-    fun paddingId(dimenId: Int): T = paddingId(dimenId, dimenId, dimenId, dimenId)
+    fun paddingId(dimenId: Int): T = setAndReturn { this.paddingId = dimenId }
+
+    open var typeface: Typeface?
+        get() = error("Setter only")
+        set(value) {
+            view.typeface = value
+        }
 
     /**
-     * @return Item with the text in the given [typeface]
+     * Returns the [BaseTextViewItem] with the text in the given [typeface]
      */
-    open fun typeface(typeface: Typeface?): T {
-        view.typeface = typeface
-        return this as T
-    }
+    open fun typeface(typeface: Typeface?): T = setAndReturn { this.typeface = typeface }
 
     /**
      * @return Item with the applied text [style] and [typeface]
@@ -232,10 +274,10 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, @DrawableRes drawableId: Int?,
-            isVisible: Boolean = true, @ColorInt color: Int? = morf.shape.iconColor): T {
-        icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
-        return this as T
-    }
+            isVisible: Boolean = true, @ColorInt color: Int? = morf.shape.iconColor): T =
+            setAndReturn {
+                icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
+            }
 
     /**
      * Sets up an icon at the given [position] with the given [drawable],
@@ -243,56 +285,60 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      */
     @JvmOverloads
     fun icon(@Position.Section position: Long, drawable: Drawable?, isVisible: Boolean = true,
-            @ColorInt color: Int? = morf.shape.iconColor): T {
+            @ColorInt color: Int? = morf.shape.iconColor): T = setAndReturn {
         icons[position.toInt()] = Icon(drawable = drawable, color = color, isVisible = isVisible)
-        return this as T
     }
 
     /**
-     * @return Item with the given function set for click events
+     * Returns the [BaseTextViewItem] with the given function set for click events
      */
-    open fun onClick(onClick: ((T) -> Unit)?): T {
+    open fun onClick(onClick: ((T) -> Unit)?): T = setAndReturn {
         if (onClick == null) {
             view.setOnClickListener(null)
         } else {
             view.setOnClickListener { _ -> onClick(this as T) }
         }
-        return this as T
     }
 
-    /**
-     * @return Item with the given [gravity] set
-     */
-    fun gravity(gravity: Int): T {
-        view.gravity = gravity
-        return this as T
-    }
+    var gravity: Int
+        get() = error("Setter only")
+        set(value) {
+            view.gravity = value
+        }
 
     /**
-     * @return Item with the single line option removed
+     * Returns the [BaseTextViewItem] with the given [gravity] set
      */
-    fun removeSingleLine(): T {
-        view.setSingleLine(false)
-        return this as T
-    }
+    fun gravity(gravity: Int): T = setAndReturn { this.gravity = gravity }
 
     /**
-     * @return Item with the given ellipsize [type] set
+     * Returns the [BaseTextViewItem] with the single line option removed
      */
-    fun ellipsize(type: TextUtils.TruncateAt): T {
-        view.ellipsize = type
-        return this as T
-    }
+    fun removeSingleLine(): T = setAndReturn { view.setSingleLine(false) }
+
+    var ellipsize: TextUtils.TruncateAt
+        get() = error("Setter only")
+        set(value) {
+            view.ellipsize = value
+        }
 
     /**
-     * @return Item with the given [visibility] set
+     * Returns the [BaseTextViewItem] with the given ellipsize [type] set
      */
-    fun visibility(visibility: Int): T {
-        view.visibility = visibility
-        // Set the same visibility on the line if there is one
-        line?.visibility = visibility
-        return this as T
-    }
+    fun ellipsize(type: TextUtils.TruncateAt): T = setAndReturn { this.ellipsize = type }
+
+    var visibility: Int
+        get() = error("Setter only")
+        set(value) {
+            view.visibility = value
+            // Set the same visibility on the line if there is one
+            line?.visibility = value
+        }
+
+    /**
+     * Returns the [BaseTextViewItem] with the given [visibility] set
+     */
+    fun visibility(visibility: Int): T = setAndReturn { this.visibility = visibility }
 
     /**
      * Updates the shown icons on the returned item, without re-adding the view to the container
@@ -354,6 +400,14 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
         } else {
             icon.drawable
         }
+    }
+
+    /**
+     * Invokes the setter and returns this item, casted.
+     */
+    private fun setAndReturn(setter: () -> Unit): T {
+        setter()
+        return this as T
     }
 
     /**
