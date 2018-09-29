@@ -37,23 +37,27 @@ class AutoCompleteTextInputItem(morf: Morf) : BaseTextInputItem<AutoCompleteText
         return this
     }
 
+    var threshold: Int
+        get() = error("Setter only")
+        set(value) {
+            with(view) {
+                // If the threshold is 0, set an OnTouchListener to open the list when clicked
+                if (value == 0) {
+                    threshold = 1
+                    setOnTouchListener { _, _ ->
+                        view.showDropDown()
+                        false
+                    }
+                } else {
+                    threshold = value
+                }
+            }
+        }
+
     /**
      * Sets the [threshold], i.e. number of characters that need to be typed before the options are
      *  displayed, on the returned item
      */
-    fun threshold(threshold: Int): AutoCompleteTextInputItem {
-        with(view) {
-            // If the threshold is 0, set an OnTouchListener to open the list when clicked
-            if (threshold == 0) {
-                this.threshold = 1
-                setOnTouchListener { _, _ ->
-                    view.showDropDown()
-                    false
-                }
-            } else {
-                this.threshold = threshold
-            }
-        }
-        return this
-    }
+    fun threshold(threshold: Int): AutoCompleteTextInputItem =
+            setAndReturn { this.threshold = threshold }
 }
