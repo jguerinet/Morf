@@ -26,9 +26,4 @@ import com.guerinet.morf.base.BaseLineItem
  *
  * @param morf  [Morf] instance
  */
-class LineItem(morf: Morf) : BaseLineItem<LineItem, View>(morf, View(morf.context)) {
-
-    init {
-        build()
-    }
-}
+class LineItem(morf: Morf) : BaseLineItem<LineItem, View>(morf, View(morf.context))

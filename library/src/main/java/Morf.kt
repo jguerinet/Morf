@@ -39,86 +39,66 @@ class Morf internal constructor(internal val shape: Shape,
     /**
      * @return [SpaceItem] added to the form
      */
-    fun space(): SpaceItem = SpaceItem(this)
+    @JvmOverloads
+    inline fun space(block: (SpaceItem.() -> Unit) = {}): SpaceItem =
+            SpaceItem(this).apply(block).build()
 
     /**
      * @return [LineItem] added to the form
      */
-    fun line(): LineItem = LineItem(this)
-
-    /**
-     * @return [TextViewItem] added to the form
-     */
-    fun text(): TextViewItem = TextViewItem(this)
+    @JvmOverloads
+    inline fun line(block: (LineItem.() -> Unit) = {}): LineItem =
+            LineItem(this).apply(block).build()
 
     /**
      * Creates a [TextViewItem], applies the block, and returns it
      */
-    inline fun text(block: TextViewItem.() -> Unit): TextViewItem = text().apply(block).build()
-
-    /**
-     * @return [ButtonItem] added to the form
-     */
-    fun button(): ButtonItem = ButtonItem(this, Button(context))
+    @JvmOverloads
+    inline fun text(block: (TextViewItem.() -> Unit) = {}): TextViewItem =
+            TextViewItem(this).apply(block).build()
 
     /**
      * Creates a [ButtonItem], applies the block, and returns it
      */
-    inline fun button(block: ButtonItem.() -> Unit): ButtonItem = button().apply(block).build()
-
-    /**
-     * @return Borderless [ButtonItem] added to the form
-     */
-    fun borderlessButton(): ButtonItem = ButtonItem(this, Button(context, null,
-            R.attr.borderlessButtonStyle))
+    @JvmOverloads
+    fun button(block: (ButtonItem.() -> Unit) = {}): ButtonItem =
+            ButtonItem(this, Button(context)).apply(block).build()
 
     /**
      * Creates a borderless [ButtonItem], applies the block, and returns it
      */
-    inline fun borderlessButton(block: ButtonItem.() -> Unit): ButtonItem =
-            borderlessButton().apply(block).build()
-
-    /**
-     * @return [EditTextItem] added to the form
-     */
-    fun input(): EditTextItem = EditTextItem(this)
+    @JvmOverloads
+    fun borderlessButton(block: (ButtonItem.() -> Unit) = {}): ButtonItem =
+            ButtonItem(this, Button(context, null, R.attr.borderlessButtonStyle))
+                    .apply(block).build()
 
     /**
      * Creates an [EditTextItem], applies the block, and returns it
      */
-    inline fun input(block: EditTextItem.() -> Unit): EditTextItem = input().apply(block).build()
-
-    /**
-     * @return [TextInputItem] added to the form
-     */
-    fun textInput(): TextInputItem = TextInputItem(this)
+    @JvmOverloads
+    inline fun input(block: (EditTextItem.() -> Unit) = {}): EditTextItem =
+            EditTextItem(this).apply(block).build()
 
     /**
      * Creates a [TextInputItem], applies the block, and returns it
      */
-    inline fun textInput(block: TextInputItem.() -> Unit): TextInputItem =
-            textInput().apply(block).build()
-
-    /**
-     * @return [AutoCompleteTextInputItem] added to the form
-     */
-    fun autoCompleteTextInput(): AutoCompleteTextInputItem = AutoCompleteTextInputItem(this)
+    @JvmOverloads
+    inline fun textInput(block: (TextInputItem.() -> Unit) = {}): TextInputItem =
+            TextInputItem(this).apply(block).build()
 
     /**
      * Creates a [AutoCompleteTextInputItem], applies the block, and returns it
      */
-    inline fun autoCompleteTextInput(block: AutoCompleteTextInputItem.() -> Unit):
-            AutoCompleteTextInputItem = autoCompleteTextInput().apply(block).build()
-
-    /**
-     * @return [SwitchItem] added to the form
-     */
-    fun aSwitch(): SwitchItem = SwitchItem(this)
+    @JvmOverloads
+    inline fun autoCompleteTextInput(block: (AutoCompleteTextInputItem.() -> Unit) = {}):
+            AutoCompleteTextInputItem = AutoCompleteTextInputItem(this).apply(block).build()
 
     /**
      * Creates a [SwitchItem], applies the block, and returns it
      */
-    inline fun aSwitch(block: SwitchItem.() -> Unit): SwitchItem = aSwitch().apply(block).build()
+    @JvmOverloads
+    inline fun aSwitch(block: (SwitchItem.() -> Unit) = {}): SwitchItem =
+            SwitchItem(this).apply(block).build()
 
     /**
      * Adds the [view] to the [container]

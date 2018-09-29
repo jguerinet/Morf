@@ -53,7 +53,5 @@ class SpaceItem(morf: Morf) : Item<SpaceItem, View>(morf, View(morf.context)) {
         } else {
             backgroundId(morf.shape.spaceBackgroundId)
         }
-
-        build()
     }
 }
