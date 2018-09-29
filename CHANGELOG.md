@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 6.0.0 (2018-09-29)
+* Migrated to AndroidX
+* Add a bunch of Kotlin extensions/properties
+
 ## Version 5.0.1 (2018-06-12)
 * Fixed the inline call of `borderlessButton` (it was creating a button instead of a borderless button)
 * Updated dependencies
