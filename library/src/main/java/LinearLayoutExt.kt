@@ -24,4 +24,13 @@ import android.widget.LinearLayout
  * @since 6.0.0
  */
 
-fun LinearLayout.morf(shape: Morf.Shape = Morf.shape) = Morf(shape, this)
+/**
+ * Binds a [shape] to this layout, and optionally runs an [init] block
+ */
+fun LinearLayout.morf(shape: Morf.Shape = Morf.shape, init: (Morf.() -> Unit)? = null): Morf {
+    val morf = Morf(shape, this)
+    if (init != null) {
+        morf.apply(init)
+    }
+    return morf
+}
