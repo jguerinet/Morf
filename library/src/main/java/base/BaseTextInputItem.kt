@@ -19,6 +19,7 @@ package com.guerinet.morf.base
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.annotation.StringRes
 import com.google.android.material.textfield.TextInputLayout
 import com.guerinet.morf.Morf
 import com.guerinet.morf.util.Layout
@@ -31,7 +32,6 @@ import com.guerinet.morf.util.Layout
  * @param morf  [Morf] instance
  * @param view  Item [View]
  */
-@Suppress("UNCHECKED_CAST")
 open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(morf: Morf, view: V)
     : BaseEditTextItem<T, V>(morf, view, false) {
 
@@ -45,27 +45,41 @@ open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(morf: Mo
         inputLayout.addView(view)
     }
 
+    var isPasswordVisibilityToggleEnabled: Boolean
+        get() = error("Setter only")
+        set(value) {
+            inputLayout.isPasswordVisibilityToggleEnabled = value
+        }
+
     /**
      * @return Item with the password visibility toggle shown or not depending on [isEnabled]
      */
-    fun showPasswordVisibilityToggle(isEnabled: Boolean): T {
-        inputLayout.isPasswordVisibilityToggleEnabled = isEnabled
-        return this as T
+    fun showPasswordVisibilityToggle(isEnabled: Boolean): T = setAndReturn {
+        this.isPasswordVisibilityToggleEnabled = isEnabled
     }
 
-    override fun hint(hint: String?): T {
-        inputLayout.hint = hint
-        return this as T
-    }
+    override var hint: String?
+        get() = super.hint
+        set(value) {
+            inputLayout.hint = value
+        }
 
-    override fun hint(stringId: Int): T {
-        return hint(morf.container.resources.getString(stringId))
-    }
+    override fun hint(hint: String?): T = setAndReturn { this.hint = hint }
 
-    override fun backgroundId(backgroundId: Int): T {
-        inputLayout.setBackgroundResource(backgroundId)
-        return this as T
-    }
+    override var hintId: Int
+        get() = super.hintId
+        set(@StringRes value) {
+            hint(view.resources.getString(value))
+        }
+
+    override fun hint(stringId: Int): T = setAndReturn { this.hintId = stringId }
+
+    override var backgroundId: Int
+        get() = super.backgroundId
+        set(value) = inputLayout.setBackgroundResource(value)
+
+    override fun backgroundId(backgroundId: Int): T =
+            setAndReturn { this.backgroundId = backgroundId }
 
     override fun build(): T {
         // Add the input layout to the container, not the view
