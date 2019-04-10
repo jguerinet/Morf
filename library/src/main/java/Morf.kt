@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,8 +31,10 @@ import androidx.annotation.DrawableRes
  * @author Julien Guerinet
  * @since 1.0.0
  */
-class Morf internal constructor(internal val shape: Shape,
-        private val container: LinearLayout) {
+class Morf internal constructor(
+    internal val shape: Shape,
+    private val container: LinearLayout
+) {
 
     internal val context = container.context
 
@@ -331,4 +333,3 @@ class Morf internal constructor(internal val shape: Shape,
         fun bind(container: LinearLayout): Morf = Morf(this, container)
     }
 }
-

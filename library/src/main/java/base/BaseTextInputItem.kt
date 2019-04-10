@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,8 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 3.0.0
  *
- * @param morf  [Morf] instance
- * @param view  Item [View]
+ * @param morf [Morf] instance
+ * @param view Item [View]
  */
 open class BaseTextInputItem<T : BaseTextInputItem<T, V>, V : EditText>(morf: Morf, view: V)
     : BaseEditTextItem<T, V>(morf, view, false) {

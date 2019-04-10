@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,14 +28,14 @@ import com.guerinet.morf.Morf
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param morf                  [Morf] instance
- * @param view                  Item [View]
- * @param isDefaultBackground   True if we should use the default background, false otherwise
+ * @param morf [Morf] instance
+ * @param view Item [View]
+ * @param isDefaultBackground True if we should use the default background, false otherwise
  */
 open class BaseEditTextItem<T : BaseEditTextItem<T, V>, V : EditText>(
-        morf: Morf,
-        view: V,
-        isDefaultBackground: Boolean = true
+    morf: Morf,
+    view: V,
+    isDefaultBackground: Boolean = true
 ) : BaseTextViewItem<T, V>(morf, view, isDefaultBackground) {
 
     init {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import com.guerinet.morf.base.BaseEditTextItem
  * @author Julien Guerinet
  * @since 4.0.0
  *
- * @param morf  [Morf] instance
+ * @param morf [Morf] instance
  */
 class EditTextItem(morf: Morf) :
         BaseEditTextItem<EditTextItem, EditText>(morf, EditText(morf.context))

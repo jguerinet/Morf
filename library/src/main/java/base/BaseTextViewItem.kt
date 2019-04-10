@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,15 +38,17 @@ import com.guerinet.morf.util.Position
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param morf                  [Morf] instance
- * @param view                  Form item [View]
- * @param isDefaultBackground   True if we should use the default background, false otherwise
+ * @param morf [Morf] instance
+ * @param view Form item [View]
+ * @param isDefaultBackground True if we should use the default background, false otherwise
  */
 open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
-        morf: Morf,
-        view: V,
-        isDefaultBackground: Boolean = true,
-        lineView: View? = View(morf.context)) : BaseLineItem<T, V>(morf, view, lineView
+    morf: Morf,
+    view: V,
+    isDefaultBackground: Boolean = true,
+    lineView: View? = View(morf.context)
+) : BaseLineItem<T, V>(
+    morf, view, lineView
 ) {
 
     /**
@@ -177,10 +179,10 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  If one of these is null, the padding remains what it is currently for that side
      */
     fun pixelPadding(
-            start: Int? = null,
-            top: Int? = null,
-            end: Int? = null,
-            bottom: Int? = null
+        start: Int? = null,
+        top: Int? = null,
+        end: Int? = null,
+        bottom: Int? = null
     ): T = setAndReturn {
         // Use the current paddings if one of them is null
         view.setPaddingRelative(start ?: view.paddingStart, top ?: view.paddingTop,
@@ -192,10 +194,10 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  If one of these is null, the padding remains what it is currently for that side
      */
     fun dpPadding(
-            startDp: Float? = null,
-            topDp: Float? = null,
-            endDp: Float? = null,
-            bottomDp: Float? = null
+        startDp: Float? = null,
+        topDp: Float? = null,
+        endDp: Float? = null,
+        bottomDp: Float? = null
     ): T = pixelPadding(startDp?.run { dpToPixels(this) }, topDp?.run { dpToPixels(this) },
             endDp?.run { dpToPixels(this) }, bottomDp?.run { dpToPixels(this) })
 
@@ -205,10 +207,10 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  for that side
      */
     fun paddingId(
-            @DimenRes startId: Int? = null,
-            @DimenRes topId: Int? = null,
-            @DimenRes endId: Int? = null,
-            @DimenRes bottomId: Int? = null
+        @DimenRes startId: Int? = null,
+        @DimenRes topId: Int? = null,
+        @DimenRes endId: Int? = null,
+        @DimenRes bottomId: Int? = null
     ): T = pixelPadding(startId?.run { dimenToPixels(startId) },
             topId?.run { dimenToPixels(topId) }, endId?.run { dimenToPixels(endId) },
             bottomId?.run { dimenToPixels(bottomId) })
@@ -270,8 +272,12 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  [color] (defaults to the default icon color), and whether it [isVisible] (defaults to true)
      */
     @JvmOverloads
-    fun icon(@Position.Section position: Long, @DrawableRes drawableId: Int?,
-            isVisible: Boolean = true, @ColorInt color: Int? = morf.shape.iconColor): T =
+    fun icon(
+        @Position.Section position: Long,
+        @DrawableRes drawableId: Int?,
+        isVisible: Boolean = true,
+        @ColorInt color: Int? = morf.shape.iconColor
+    ): T =
             setAndReturn {
                 icons[position.toInt()] = Icon(drawableId, color = color, isVisible = isVisible)
             }
@@ -281,8 +287,12 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
      *  [color] (defaults to the default icon color), and whether it [isVisible] (defaults to true)
      */
     @JvmOverloads
-    fun icon(@Position.Section position: Long, drawable: Drawable?, isVisible: Boolean = true,
-            @ColorInt color: Int? = morf.shape.iconColor): T = setAndReturn {
+    fun icon(
+        @Position.Section position: Long,
+        drawable: Drawable?,
+        isVisible: Boolean = true,
+        @ColorInt color: Int? = morf.shape.iconColor
+    ): T = setAndReturn {
         icons[position.toInt()] = Icon(drawable = drawable, color = color, isVisible = isVisible)
     }
 
@@ -401,11 +411,15 @@ open class BaseTextViewItem<T : BaseTextViewItem<T, V>, out V : TextView>(
     /**
      * Keeps track of the icons to add
      *
-     * @param drawableId    Id of the resource to load, null if none (defaults to null)
-     * @param drawable      Drawable to use, null if none (defaults to null)
-     * @param color         Icon color, null if none (defaults to null)
-     * @param isVisible     True if the icon should be visible, false otherwise (defaults to false)
+     * @param drawableId Id of the resource to load, null if none (defaults to null)
+     * @param drawable Drawable to use, null if none (defaults to null)
+     * @param color Icon color, null if none (defaults to null)
+     * @param isVisible True if the icon should be visible, false otherwise (defaults to false)
      */
-    private class Icon(@DrawableRes val drawableId: Int? = null, val drawable: Drawable? = null,
-            @ColorInt val color: Int? = null, val isVisible: Boolean = false)
+    private class Icon(
+        @DrawableRes val drawableId: Int? = null,
+        val drawable: Drawable? = null,
+        @ColorInt val color: Int? = null,
+        val isVisible: Boolean = false
+    )
 }

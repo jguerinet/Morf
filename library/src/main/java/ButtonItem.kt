@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@ import com.guerinet.morf.base.BaseTextViewItem
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param morf      [Morf] instance
- * @param button    Item [View]
+ * @param morf [Morf] instance
+ * @param button Item [View]
  */
 class ButtonItem(morf: Morf, button: Button) :
         BaseTextViewItem<ButtonItem, Button>(morf, button, false, null)

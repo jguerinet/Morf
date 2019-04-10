@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import com.guerinet.morf.util.Layout
  * @author Julien Guerinet
  * @since 2.0.0
  *
- * @param morf  [Morf] that created this item
+ * @param morf [Morf] that created this item
  */
 open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val view: V) {
 
@@ -134,9 +134,9 @@ open class Item<out T : Item<T, V>, out V : View>(protected val morf: Morf, val 
      */
     @JvmOverloads
     fun layout(
-            width: Int = Layout.MATCH_PARENT,
-            height: Int = Layout.WRAP_CONTENT,
-            gravity: Int? = null
+        width: Int = Layout.MATCH_PARENT,
+        height: Int = Layout.WRAP_CONTENT,
+        gravity: Int? = null
     ): T = layoutParams(LinearLayout.LayoutParams(width, height), gravity)
 
     /**
