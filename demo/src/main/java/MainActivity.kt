@@ -25,6 +25,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.guerinet.morf.Morf
 import com.guerinet.morf.morf
 import com.guerinet.morf.util.Layout
@@ -181,7 +182,7 @@ class MainActivity : AppCompatActivity() {
             textInput {
                 hint = "FormItem: Text Input with drawable icon"
                 backgroundId = android.R.color.white
-                icon(Position.START, resources.getDrawable(R.drawable.ic_info))
+                icon(Position.START, ResourcesCompat.getDrawable(resources, R.drawable.ic_info, null))
             }
         }
     }
