@@ -1,8 +1,11 @@
 # Morf
 
+[![Release](https://jitpack.io/v/com.guerinet/morf.svg)](https://jitpack.io/#com.guerinet/morf)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/671b8c4c9790488fada1454761fcace3)](https://www.codacy.com/app/jguerinet/Morf?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jguerinet/Morf&amp;utm_campaign=Badge_Grade)
+
 ## Summary
 
-Generates customizable forms for Android 17+. Form items include:
+Generates customizable forms for Android 21+. Form items include:
 
 -   Simple text
 -   Text buttons
@@ -30,8 +33,6 @@ Customization includes:
 -   View visibility
 
 ## Instructions
-
-[![Release](https://jitpack.io/v/com.guerinet/morf.svg)](https://jitpack.io/#com.guerinet/morf)
 
 To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above or on the [Releases](https://github.com/jguerinet/morf/releases) page:
 
@@ -86,8 +87,8 @@ the top one is a `Morf` with the default `Shape`, the bottom is a `Morf` with a 
 
 ## Gradle Dependencies
 
--   [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
--   [Android Design](http://developer.android.com/tools/support-library/features.html#design)
+-   [Androidx AppCompat](https://developer.android.com/jetpack/androidx/releases/appcompat)
+-   [Google Material Components](https://material.io/develop/android/docs/getting-started/)
 
 ## Contributors
 
@@ -99,7 +100,7 @@ See the [Change Log](CHANGELOG.md).
 
 ## Copyright
 
-     Copyright 2015-2018 Julien Guerinet
+     Copyright 2015-2019 Julien Guerinet
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.

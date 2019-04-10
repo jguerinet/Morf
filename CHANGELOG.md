@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 6.1.0 (2019-04-10)
+
+-   Updated min Android version to 21
+-   Set up Spotless formatting
+-   Added getter for `isChecked` on the `SwitchItem`
+
 ## Version 6.0.0 (2018-09-29)
 
 -   Migrated to AndroidX
