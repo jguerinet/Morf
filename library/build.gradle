@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 Julien Guerinet
+ * Copyright 2015-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,4 +46,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
-apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Scripts/master/kotlin-artifacts.gradle"
+apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Scripts/master/android-kotlin-artifacts.gradle"
