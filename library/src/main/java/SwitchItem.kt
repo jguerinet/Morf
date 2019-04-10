@@ -34,7 +34,7 @@ class SwitchItem(morf: Morf) :
     }
 
     var isChecked: Boolean
-        get() = error("Setter only")
+        get() = view.isChecked
         set(value) {
             view.isChecked = value
         }
